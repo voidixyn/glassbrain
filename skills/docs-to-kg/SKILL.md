@@ -1,6 +1,6 @@
 ---
 name: docs-to-kg
-description: Turn a product's docs (and the product itself, when you can read it) into a graph of its features written as user stories, in four snapshots: enumerated → merged → stories → linked. Use when someone wants to see what a product does, check docs against the product, or plan tests from them.
+description: "Turn a product's docs (and the product itself, when you can read it) into a graph of its features written as user stories, in four snapshots: enumerated → merged → stories → linked. Use when someone wants to see what a product does, check docs against the product, or plan tests from them."
 ---
 
 # docs-to-kg
