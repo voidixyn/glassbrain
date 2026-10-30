@@ -1,0 +1,814 @@
+{
+ "nodes": [
+  {
+   "id": "collab-editing",
+   "label": "Collaborative editing for markdown notes",
+   "kind": "area",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "a-req",
+   "label": "Requirements",
+   "kind": "area",
+   "parent": "collab-editing",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "a-sync",
+   "label": "Sync core",
+   "kind": "area",
+   "parent": "collab-editing",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "a-client",
+   "label": "Editor and presence",
+   "kind": "area",
+   "parent": "collab-editing",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "a-offline",
+   "label": "Offline",
+   "kind": "area",
+   "parent": "collab-editing",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "a-store",
+   "label": "Storage",
+   "kind": "area",
+   "parent": "collab-editing",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "a-scale",
+   "label": "Scale and operations",
+   "kind": "area",
+   "parent": "collab-editing",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "a-sec",
+   "label": "Access and security",
+   "kind": "area",
+   "parent": "collab-editing",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "a-delivery",
+   "label": "Delivery plan",
+   "kind": "area",
+   "parent": "collab-editing",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "a-questions",
+   "label": "Questions for you",
+   "kind": "area",
+   "parent": "collab-editing",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "req-live",
+   "label": "Several people edit one note live",
+   "kind": "requirement",
+   "parent": "a-req",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "req-cursors",
+   "label": "Live cursors and selections",
+   "kind": "requirement",
+   "parent": "a-req",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "req-offline",
+   "label": "Works offline, syncs later",
+   "kind": "requirement",
+   "parent": "a-req",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "req-markdown",
+   "label": "Notes stay plain markdown",
+   "kind": "requirement",
+   "parent": "a-req",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "req-scale",
+   "label": "50k users",
+   "kind": "requirement",
+   "parent": "a-req",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "req-stack",
+   "label": "React, Node, Postgres",
+   "kind": "requirement",
+   "parent": "a-req",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "req-access",
+   "label": "Only permitted people join a note",
+   "kind": "requirement",
+   "parent": "a-req",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "req-durable",
+   "label": "Never lose an acknowledged edit",
+   "kind": "requirement",
+   "parent": "a-req",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-crdt",
+   "label": "Use Yjs (CRDT) for the document model",
+   "kind": "decision",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-server",
+   "label": "Build the room server on Hocuspocus",
+   "kind": "decision",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-transport",
+   "label": "One WebSocket per open note, binary y-protocol",
+   "kind": "decision",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-routing",
+   "label": "Sticky routing: one process owns a room",
+   "kind": "decision",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-lease",
+   "label": "Postgres lease per room for single ownership",
+   "kind": "decision",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-flush",
+   "label": "Keep active docs in memory, flush in batches",
+   "kind": "decision",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-sync-server",
+   "label": "Sync server (Node, Hocuspocus)",
+   "kind": "component",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-router",
+   "label": "Room router (L7 load balancer rule)",
+   "kind": "component",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "rej-ot",
+   "label": "OT with ShareDB",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "rej-automerge",
+   "label": "Automerge",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "rej-lww",
+   "label": "Last-write-wins on the whole note",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "rej-sse",
+   "label": "SSE + POST instead of WebSocket",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "rej-redis",
+   "label": "Redis pub/sub between nodes",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "rej-scratch-server",
+   "label": "Write the sync server from scratch",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "rej-hosted",
+   "label": "Hosted sync (Liveblocks, Y-Sweet cloud)",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-md-merge",
+   "label": "Concurrent edits can yield odd markdown",
+   "kind": "risk",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-dependency",
+   "label": "Hocuspocus is a small-project dependency",
+   "kind": "risk",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-failover",
+   "label": "Node crash loses up to 500 ms of unflushed server state",
+   "kind": "risk",
+   "parent": "a-sync",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-editor",
+   "label": "CodeMirror 6 with y-codemirror.next, markdown as source",
+   "kind": "decision",
+   "parent": "a-client",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-presence",
+   "label": "Cursors via Yjs awareness, ephemeral",
+   "kind": "decision",
+   "parent": "a-client",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-preview",
+   "label": "Sanitized preview of the shared text",
+   "kind": "decision",
+   "parent": "a-client",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-editor",
+   "label": "Editor component (React)",
+   "kind": "component",
+   "parent": "a-client",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-provider",
+   "label": "Sync client (provider)",
+   "kind": "component",
+   "parent": "a-client",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-cursors-ui",
+   "label": "Cursor and presence UI",
+   "kind": "component",
+   "parent": "a-client",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "rej-prosemirror",
+   "label": "ProseMirror/Tiptap WYSIWYG",
+   "kind": "rejected",
+   "parent": "a-client",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-xss",
+   "label": "Collaborator-supplied markdown renders in your browser",
+   "kind": "risk",
+   "parent": "a-client",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-undo",
+   "label": "Undo semantics surprise users",
+   "kind": "risk",
+   "parent": "a-client",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-local-store",
+   "label": "Persist each opened note in IndexedDB (y-indexeddb)",
+   "kind": "decision",
+   "parent": "a-offline",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-reconnect",
+   "label": "Resync by state-vector diff",
+   "kind": "decision",
+   "parent": "a-offline",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-offline-scope",
+   "label": "Offline for opened and pinned notes only",
+   "kind": "decision",
+   "parent": "a-offline",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-sw",
+   "label": "Service worker (app shell)",
+   "kind": "component",
+   "parent": "a-offline",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-idb",
+   "label": "Local persistence (IndexedDB)",
+   "kind": "component",
+   "parent": "a-offline",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-storage-eviction",
+   "label": "Browsers can evict local data",
+   "kind": "risk",
+   "parent": "a-offline",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-offline-divergence",
+   "label": "Long-offline replicas produce large merges",
+   "kind": "risk",
+   "parent": "a-offline",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-schema",
+   "label": "Append-only update log plus snapshots in Postgres",
+   "kind": "decision",
+   "parent": "a-store",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-compaction",
+   "label": "Compact log into snapshot",
+   "kind": "decision",
+   "parent": "a-store",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-materialize",
+   "label": "Materialize markdown text on flush",
+   "kind": "decision",
+   "parent": "a-store",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-store",
+   "label": "Postgres tables",
+   "kind": "component",
+   "parent": "a-store",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-compactor",
+   "label": "Compaction worker",
+   "kind": "component",
+   "parent": "a-store",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "rej-doc-store",
+   "label": "Store documents in object storage or a document DB",
+   "kind": "rejected",
+   "parent": "a-store",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-log-growth",
+   "label": "Update log grows without bound if compaction lags",
+   "kind": "risk",
+   "parent": "a-store",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-tombstones",
+   "label": "CRDT history only grows",
+   "kind": "risk",
+   "parent": "a-store",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-pg-writes",
+   "label": "Write amplification on Postgres",
+   "kind": "risk",
+   "parent": "a-store",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-limits",
+   "label": "Hard limits per note",
+   "kind": "decision",
+   "parent": "a-scale",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-capacity",
+   "label": "Start with 3 sync nodes, scale on sockets",
+   "kind": "decision",
+   "parent": "a-scale",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-metrics",
+   "label": "Observability",
+   "kind": "component",
+   "parent": "a-scale",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-memory",
+   "label": "In-memory docs can exhaust node memory",
+   "kind": "risk",
+   "parent": "a-scale",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-connection-storm",
+   "label": "Deploy or node loss reconnects thousands at once",
+   "kind": "risk",
+   "parent": "a-scale",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-auth",
+   "label": "Short-lived JWT at upgrade, ACL check, close on revoke",
+   "kind": "decision",
+   "parent": "a-sec",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "cmp-auth",
+   "label": "Auth extension",
+   "kind": "component",
+   "parent": "a-sec",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "risk-revoke-lag",
+   "label": "Removed users keep a live socket",
+   "kind": "risk",
+   "parent": "a-sec",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-migrate",
+   "label": "Lazy-import existing notes on first collaborative open",
+   "kind": "decision",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "dec-rollout",
+   "label": "Feature-flagged rollout with a read-only kill switch",
+   "kind": "decision",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-spike",
+   "label": "Spike: two tabs, Yjs, CM6, Hocuspocus, Postgres",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-schema",
+   "label": "Create tables and persistence extension",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-server",
+   "label": "Sync server with auth and limits",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-editor",
+   "label": "React editor integration",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-presence",
+   "label": "Cursor UI",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-offline",
+   "label": "Offline: IndexedDB, service worker, resync",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-compactor",
+   "label": "Compaction worker",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-convergence-test",
+   "label": "Convergence and chaos tests",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-loadtest",
+   "label": "Full load test",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-migrate",
+   "label": "Lazy migration path",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-rollout",
+   "label": "Rollout and kill switch",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "task-observability",
+   "label": "Metrics and alerts",
+   "kind": "task",
+   "parent": "a-delivery",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "q-existing",
+   "label": "How are notes stored and consumed today?",
+   "kind": "question",
+   "parent": "a-questions",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "q-concurrency",
+   "label": "What are real peak concurrent users and editors per note?",
+   "kind": "question",
+   "parent": "a-questions",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "q-offline",
+   "label": "How long must offline editing be supported?",
+   "kind": "question",
+   "parent": "a-questions",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "q-hosting",
+   "label": "Where does it run, and is a hosted sync service acceptable?",
+   "kind": "question",
+   "parent": "a-questions",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "q-permissions",
+   "label": "What sharing model exists?",
+   "kind": "question",
+   "parent": "a-questions",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "q-history",
+   "label": "Is version history or restore needed in v1?",
+   "kind": "question",
+   "parent": "a-questions",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "q-erasure",
+   "label": "Must deleted text be truly erasable?",
+   "kind": "question",
+   "parent": "a-questions",
+   "flags": [
+    "stub"
+   ]
+  }
+ ],
+ "edges": []
+}

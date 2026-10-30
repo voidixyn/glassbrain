@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unpkg.com/glassbrain/schema/graph.schema.json",
+  "title": "glassbrain graph",
+  "description": "One file of a glassbrain knowledge graph. A graph is nodes plus edges; structure comes from `parent` (containment), not from edges. Several files in one folder are merged into one graph (same id = same node). Unknown fields are kept and shown in the detail panel.",
+  "type": "object",
+  "anyOf": [{ "required": ["nodes"] }, { "required": ["edges"] }],
+  "properties": {
+    "name": { "type": "string", "description": "Title of this file (shown as its source name)." },
+    "title": { "type": "string", "description": "Alias of `name`." },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/edge" }
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": ["string", "number"], "description": "Stable identity. Keep it the same across versions: that is how a diff knows it is the same thing." },
+        "label": { "type": "string", "description": "Display name. Falls back to `name`, then `id`." },
+        "name": { "type": "string", "description": "Alias of `label`." },
+        "kind": { "type": "string", "description": "What sort of thing this is. Colors come from the profile's `nodePalette[kind]`; kinds not in the palette are drawn as skeleton." },
+        "parent": { "type": "string", "description": "Id of the node this one sits inside. This is the only source of structure: the layout is built from it." },
+        "layer": { "type": "string", "description": "Layer id (for the 2.5D plane view). Defaults to the profile's first layer." },
+        "flags": { "type": "array", "items": { "type": "string" }, "description": "Boolean markers; each becomes a CSS-like class. A flag listed in the profile's `placeholderFlags` draws the node as a placeholder." },
+        "description": { "type": "string", "description": "Markdown shown in the detail panel. `[text](node:<id>)` links jump to another node." }
+      },
+      "additionalProperties": true
+    },
+    "edge": {
+      "type": "object",
+      "anyOf": [
+        { "required": ["source", "target"] },
+        { "required": ["from", "to"] }
+      ],
+      "properties": {
+        "source": { "type": ["string", "number"], "description": "Node id the edge starts at." },
+        "target": { "type": ["string", "number"], "description": "Node id the edge points to." },
+        "from": { "type": ["string", "number"], "description": "Alias of `source`." },
+        "to": { "type": ["string", "number"], "description": "Alias of `target`." },
+        "kind": { "type": "string", "description": "Relation type. Colors come from the profile's `edgePalette[kind]`. An edge is identified by its two ends plus its kind." },
+        "label": { "type": "string" },
+        "weight": { "type": "number", "minimum": 0, "maximum": 1, "description": "0–1 (confidence, strength…); drives line width." }
+      },
+      "additionalProperties": true
+    }
+  }
+}

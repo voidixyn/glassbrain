@@ -1,0 +1,112 @@
+{
+  "name": "glassbrain",
+  "version": "0.1.0",
+  "description": "Know what your agent knows: open, diff and review the knowledge graphs agents write. Plain JSON in, one html file out.",
+  "keywords": [
+    "knowledge-graph",
+    "agent",
+    "llm",
+    "ai-agents",
+    "graph-visualization",
+    "diff",
+    "mcp",
+    "obsidian",
+    "graphify",
+    "cytoscape",
+    "react"
+  ],
+  "homepage": "https://voidixyn.github.io/glassbrain/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voidixyn/glassbrain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voidixyn/glassbrain/issues"
+  },
+  "author": "Voidixyn",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "glassbrain": "dist/cli/glassbrain.js"
+  },
+  "files": [
+    "dist",
+    "schema",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "default": "./dist/core.js"
+    },
+    "./internal": {
+      "types": "./dist/internal.d.ts",
+      "default": "./dist/internal.js"
+    },
+    "./react/GraphCanvas": {
+      "types": "./dist/react/GraphCanvas.d.ts",
+      "default": "./dist/react/GraphCanvas.js"
+    },
+    "./react/DetailPanel": {
+      "types": "./dist/react/DetailPanel.d.ts",
+      "default": "./dist/react/DetailPanel.js"
+    },
+    "./layout/worker-pool": {
+      "types": "./dist/layout/worker-pool.d.ts",
+      "default": "./dist/layout/worker-pool.js"
+    },
+    "./layout/inline-pool": {
+      "types": "./dist/layout/inline-pool.d.ts",
+      "default": "./dist/layout/inline-pool.js"
+    },
+    "./adapters": {
+      "types": "./dist/adapters/index.d.ts",
+      "default": "./dist/adapters.js"
+    },
+    "./schema/graph.schema.json": "./schema/graph.schema.json",
+    "./schema/profile.schema.json": "./schema/profile.schema.json",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs && tsc -p tsconfig.build.json && node scripts/build-cli.mjs && tsc -p tsconfig.adapters.json && node scripts/fix-dts.mjs",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.cli.json --noEmit",
+    "check:dist": "node scripts/check-dist.mjs",
+    "verify": "npm run typecheck && npm test && npm run check:dist",
+    "prepack": "npm run build && npm run check:dist && node scripts/readme-links.mjs absolute",
+    "postpack": "node scripts/readme-links.mjs restore",
+    "demo": "node demo/build.mjs",
+    "demo:public": "node demo/build.mjs --public",
+    "bench": "node demo/build.mjs && node scripts/bench.mjs",
+    "pretest": "npm run build",
+    "test": "node --test \"test/*.test.ts\""
+  },
+  "peerDependencies": {
+    "cytoscape": "^3.30.0",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "cytoscape-fcose": "^2.2.0",
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/cytoscape": "^3.21.9",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.2.7",
+    "cytoscape": "^3.33.4",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "cytoscape-fcose": "^2.2.0",
+    "esbuild": "^0.28.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.3.0",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,2893 @@
+{
+ "name": "glassbrain src · 1-early",
+ "nodes": [
+  {
+   "id": "src",
+   "label": "src/",
+   "path": "src"
+  },
+  {
+   "id": "src/animate.ts",
+   "label": "animate.ts",
+   "kind": "file",
+   "parent": "src",
+   "path": "src/animate.ts",
+   "lines": 841
+  },
+  {
+   "id": "src/animate.ts#AnimateSpec",
+   "label": "AnimateSpec",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 94
+  },
+  {
+   "id": "src/animate.ts#easeOutCubic",
+   "label": "easeOutCubic",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 126
+  },
+  {
+   "id": "src/animate.ts#easeInOutCubic",
+   "label": "easeInOutCubic",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 127
+  },
+  {
+   "id": "src/animate.ts#easeOutBack",
+   "label": "easeOutBack",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 130
+  },
+  {
+   "id": "src/animate.ts#easeDrift",
+   "label": "easeDrift",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 142
+  },
+  {
+   "id": "src/animate.ts#DEFAULT_ANIMATE",
+   "label": "DEFAULT_ANIMATE",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 144
+  },
+  {
+   "id": "src/animate.ts#resolveSpec",
+   "label": "resolveSpec",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 148
+  },
+  {
+   "id": "src/animate.ts#TrackName",
+   "label": "TrackName",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 170
+  },
+  {
+   "id": "src/animate.ts#TRACK_NAMES",
+   "label": "TRACK_NAMES",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 172
+  },
+  {
+   "id": "src/animate.ts#Track",
+   "label": "Track",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 173
+  },
+  {
+   "id": "src/animate.ts#Score",
+   "label": "Score",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 179
+  },
+  {
+   "id": "src/animate.ts#trackLin",
+   "label": "trackLin",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 194
+  },
+  {
+   "id": "src/animate.ts#trackAt",
+   "label": "trackAt",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 205
+  },
+  {
+   "id": "src/animate.ts#Envelope",
+   "label": "Envelope",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 216
+  },
+  {
+   "id": "src/animate.ts#SNAP_DIM",
+   "label": "SNAP_DIM",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 221
+  },
+  {
+   "id": "src/animate.ts#FadeName",
+   "label": "FadeName",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 223
+  },
+  {
+   "id": "src/animate.ts#FADE_NAMES",
+   "label": "FADE_NAMES",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 224
+  },
+  {
+   "id": "src/animate.ts#ENVELOPES",
+   "label": "ENVELOPES",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 226
+  },
+  {
+   "id": "src/animate.ts#EndState",
+   "label": "EndState",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 238
+  },
+  {
+   "id": "src/animate.ts#edgeFade",
+   "label": "edgeFade",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 262
+  },
+  {
+   "id": "src/animate.ts#FADE_BASE",
+   "label": "FADE_BASE",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 279
+  },
+  {
+   "id": "src/animate.ts#fadeAt",
+   "label": "fadeAt",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 285
+  },
+  {
+   "id": "src/animate.ts#makeScore",
+   "label": "makeScore",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 306
+  },
+  {
+   "id": "src/animate.ts#Leg",
+   "label": "Leg",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 338
+  },
+  {
+   "id": "src/animate.ts#TransitionItem",
+   "label": "TransitionItem",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 340
+  },
+  {
+   "id": "src/animate.ts#SkinChange",
+   "label": "SkinChange",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 349
+  },
+  {
+   "id": "src/animate.ts#StyleMap",
+   "label": "StyleMap",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 358
+  },
+  {
+   "id": "src/animate.ts#StyleTween",
+   "label": "StyleTween",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 361
+  },
+  {
+   "id": "src/animate.ts#SKIN_SIZE_PROPS",
+   "label": "SKIN_SIZE_PROPS",
+   "kind": "value",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 383
+  },
+  {
+   "id": "src/animate.ts#diffSkinStyle",
+   "label": "diffSkinStyle",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 407
+  },
+  {
+   "id": "src/animate.ts#sampleSkinStyle",
+   "label": "sampleSkinStyle",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 427
+  },
+  {
+   "id": "src/animate.ts#Transition",
+   "label": "Transition",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 438
+  },
+  {
+   "id": "src/animate.ts#TransitionReport",
+   "label": "TransitionReport",
+   "kind": "type",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 452
+  },
+  {
+   "id": "src/animate.ts#anchorOf",
+   "label": "anchorOf",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 489
+  },
+  {
+   "id": "src/animate.ts#planTransition",
+   "label": "planTransition",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 513
+  },
+  {
+   "id": "src/animate.ts#planSkins",
+   "label": "planSkins",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 776
+  },
+  {
+   "id": "src/animate.ts#leavingOf",
+   "label": "leavingOf",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 803
+  },
+  {
+   "id": "src/animate.ts#sampleTransition",
+   "label": "sampleTransition",
+   "kind": "function",
+   "parent": "src/animate.ts",
+   "path": "src/animate.ts",
+   "line": 820
+  },
+  {
+   "id": "src/diff.ts",
+   "label": "diff.ts",
+   "kind": "file",
+   "parent": "src",
+   "path": "src/diff.ts",
+   "lines": 511
+  },
+  {
+   "id": "src/diff.ts#ChangeKind",
+   "label": "ChangeKind",
+   "kind": "type",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 31
+  },
+  {
+   "id": "src/diff.ts#DIFF_FLAG",
+   "label": "DIFF_FLAG",
+   "kind": "value",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 34
+  },
+  {
+   "id": "src/diff.ts#KEPT_FLAG",
+   "label": "KEPT_FLAG",
+   "kind": "value",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 42
+  },
+  {
+   "id": "src/diff.ts#DiffOptions",
+   "label": "DiffOptions",
+   "kind": "type",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 44
+  },
+  {
+   "id": "src/diff.ts#NodeChange",
+   "label": "NodeChange",
+   "kind": "type",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 68
+  },
+  {
+   "id": "src/diff.ts#GraphDelta",
+   "label": "GraphDelta",
+   "kind": "type",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 89
+  },
+  {
+   "id": "src/diff.ts#diffModels",
+   "label": "diffModels",
+   "kind": "function",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 204
+  },
+  {
+   "id": "src/diff.ts#unionSides",
+   "label": "unionSides",
+   "kind": "function",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 350
+  },
+  {
+   "id": "src/diff.ts#STEP_FLAG",
+   "label": "STEP_FLAG",
+   "kind": "value",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 412
+  },
+  {
+   "id": "src/diff.ts#STEP_KEPT",
+   "label": "STEP_KEPT",
+   "kind": "value",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 414
+  },
+  {
+   "id": "src/diff.ts#stepUnion",
+   "label": "stepUnion",
+   "kind": "function",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 438
+  },
+  {
+   "id": "src/diff.ts#CHANGE_LABEL",
+   "label": "CHANGE_LABEL",
+   "kind": "value",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 490
+  },
+  {
+   "id": "src/diff.ts#hasChanges",
+   "label": "hasChanges",
+   "kind": "function",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 495
+  },
+  {
+   "id": "src/diff.ts#changedSubset",
+   "label": "changedSubset",
+   "kind": "function",
+   "parent": "src/diff.ts",
+   "path": "src/diff.ts",
+   "line": 501
+  },
+  {
+   "id": "src/elements.ts",
+   "label": "elements.ts",
+   "kind": "file",
+   "parent": "src",
+   "path": "src/elements.ts",
+   "lines": 304
+  },
+  {
+   "id": "src/elements.ts#CyElement",
+   "label": "CyElement",
+   "kind": "type",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 17
+  },
+  {
+   "id": "src/elements.ts#VIRTUAL_ROOT",
+   "label": "VIRTUAL_ROOT",
+   "kind": "value",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 23
+  },
+  {
+   "id": "src/elements.ts#RESERVED_CLASSES",
+   "label": "RESERVED_CLASSES",
+   "kind": "value",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 26
+  },
+  {
+   "id": "src/elements.ts#cls",
+   "label": "cls",
+   "kind": "value",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 31
+  },
+  {
+   "id": "src/elements.ts#nodeClasses",
+   "label": "nodeClasses",
+   "kind": "function",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 40
+  },
+  {
+   "id": "src/elements.ts#BuildOptions",
+   "label": "BuildOptions",
+   "kind": "type",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 53
+  },
+  {
+   "id": "src/elements.ts#BuiltElements",
+   "label": "BuiltElements",
+   "kind": "type",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 71
+  },
+  {
+   "id": "src/elements.ts#buildElements",
+   "label": "buildElements",
+   "kind": "function",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 87
+  },
+  {
+   "id": "src/elements.ts#isNodeEl",
+   "label": "isNodeEl",
+   "kind": "value",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 295
+  },
+  {
+   "id": "src/elements.ts#countByKind",
+   "label": "countByKind",
+   "kind": "function",
+   "parent": "src/elements.ts",
+   "path": "src/elements.ts",
+   "line": 297
+  },
+  {
+   "id": "src/index.ts",
+   "label": "index.ts",
+   "kind": "file",
+   "parent": "src",
+   "path": "src/index.ts",
+   "lines": 57
+  },
+  {
+   "id": "src/layout",
+   "label": "layout/",
+   "parent": "src",
+   "path": "src/layout"
+  },
+  {
+   "id": "src/layout/diff-layout.ts",
+   "label": "diff-layout.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/diff-layout.ts",
+   "lines": 284
+  },
+  {
+   "id": "src/layout/diff-layout.ts#DiffSides",
+   "label": "DiffSides",
+   "kind": "type",
+   "parent": "src/layout/diff-layout.ts",
+   "path": "src/layout/diff-layout.ts",
+   "line": 33
+  },
+  {
+   "id": "src/layout/diff-layout.ts#diffPositions",
+   "label": "diffPositions",
+   "kind": "function",
+   "parent": "src/layout/diff-layout.ts",
+   "path": "src/layout/diff-layout.ts",
+   "line": 98
+  },
+  {
+   "id": "src/layout/diff-layout.ts#DEFAULT_DIFF_LAYOUT",
+   "label": "DEFAULT_DIFF_LAYOUT",
+   "kind": "value",
+   "parent": "src/layout/diff-layout.ts",
+   "path": "src/layout/diff-layout.ts",
+   "line": 171
+  },
+  {
+   "id": "src/layout/diff-layout.ts#DiffLayoutSpec",
+   "label": "DiffLayoutSpec",
+   "kind": "type",
+   "parent": "src/layout/diff-layout.ts",
+   "path": "src/layout/diff-layout.ts",
+   "line": 173
+  },
+  {
+   "id": "src/layout/diff-layout.ts#DiffSolve",
+   "label": "DiffSolve",
+   "kind": "type",
+   "parent": "src/layout/diff-layout.ts",
+   "path": "src/layout/diff-layout.ts",
+   "line": 207
+  },
+  {
+   "id": "src/layout/diff-layout.ts#DiffLayoutResult",
+   "label": "DiffLayoutResult",
+   "kind": "type",
+   "parent": "src/layout/diff-layout.ts",
+   "path": "src/layout/diff-layout.ts",
+   "line": 211
+  },
+  {
+   "id": "src/layout/diff-layout.ts#solveDiffLayout",
+   "label": "solveDiffLayout",
+   "kind": "function",
+   "parent": "src/layout/diff-layout.ts",
+   "path": "src/layout/diff-layout.ts",
+   "line": 250
+  },
+  {
+   "id": "src/layout/divide.ts",
+   "label": "divide.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/divide.ts",
+   "lines": 215
+  },
+  {
+   "id": "src/layout/divide.ts#GraphComponent",
+   "label": "GraphComponent",
+   "kind": "type",
+   "parent": "src/layout/divide.ts",
+   "path": "src/layout/divide.ts",
+   "line": 14
+  },
+  {
+   "id": "src/layout/divide.ts#Partition",
+   "label": "Partition",
+   "kind": "type",
+   "parent": "src/layout/divide.ts",
+   "path": "src/layout/divide.ts",
+   "line": 15
+  },
+  {
+   "id": "src/layout/divide.ts#partitionElements",
+   "label": "partitionElements",
+   "kind": "function",
+   "parent": "src/layout/divide.ts",
+   "path": "src/layout/divide.ts",
+   "line": 28
+  },
+  {
+   "id": "src/layout/divide.ts#buildCoarseElements",
+   "label": "buildCoarseElements",
+   "kind": "function",
+   "parent": "src/layout/divide.ts",
+   "path": "src/layout/divide.ts",
+   "line": 112
+  },
+  {
+   "id": "src/layout/divide.ts#AttachedItem",
+   "label": "AttachedItem",
+   "kind": "type",
+   "parent": "src/layout/divide.ts",
+   "path": "src/layout/divide.ts",
+   "line": 145
+  },
+  {
+   "id": "src/layout/divide.ts#placeAttached",
+   "label": "placeAttached",
+   "kind": "function",
+   "parent": "src/layout/divide.ts",
+   "path": "src/layout/divide.ts",
+   "line": 154
+  },
+  {
+   "id": "src/layout/divide.ts#Box",
+   "label": "Box",
+   "kind": "type",
+   "parent": "src/layout/divide.ts",
+   "path": "src/layout/divide.ts",
+   "line": 190
+  },
+  {
+   "id": "src/layout/divide.ts#resolveOverlaps",
+   "label": "resolveOverlaps",
+   "kind": "function",
+   "parent": "src/layout/divide.ts",
+   "path": "src/layout/divide.ts",
+   "line": 195
+  },
+  {
+   "id": "src/layout/engine.ts",
+   "label": "engine.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/engine.ts",
+   "lines": 415
+  },
+  {
+   "id": "src/layout/engine.ts#LayoutRequest",
+   "label": "LayoutRequest",
+   "kind": "type",
+   "parent": "src/layout/engine.ts",
+   "path": "src/layout/engine.ts",
+   "line": 24
+  },
+  {
+   "id": "src/layout/engine.ts#LayoutResult",
+   "label": "LayoutResult",
+   "kind": "type",
+   "parent": "src/layout/engine.ts",
+   "path": "src/layout/engine.ts",
+   "line": 69
+  },
+  {
+   "id": "src/layout/engine.ts#computeLayout",
+   "label": "computeLayout",
+   "kind": "function",
+   "parent": "src/layout/engine.ts",
+   "path": "src/layout/engine.ts",
+   "line": 365
+  },
+  {
+   "id": "src/layout/inline-pool.ts",
+   "label": "inline-pool.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/inline-pool.ts",
+   "lines": 13
+  },
+  {
+   "id": "src/layout/inline-pool.ts#inlinePool",
+   "label": "inlinePool",
+   "kind": "value",
+   "parent": "src/layout/inline-pool.ts",
+   "path": "src/layout/inline-pool.ts",
+   "line": 8
+  },
+  {
+   "id": "src/layout/planes.ts",
+   "label": "planes.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/planes.ts",
+   "lines": 113
+  },
+  {
+   "id": "src/layout/planes.ts#PlaneOptions",
+   "label": "PlaneOptions",
+   "kind": "type",
+   "parent": "src/layout/planes.ts",
+   "path": "src/layout/planes.ts",
+   "line": 15
+  },
+  {
+   "id": "src/layout/planes.ts#DEFAULT_PLANES",
+   "label": "DEFAULT_PLANES",
+   "kind": "value",
+   "parent": "src/layout/planes.ts",
+   "path": "src/layout/planes.ts",
+   "line": 28
+  },
+  {
+   "id": "src/layout/planes.ts#Plate",
+   "label": "Plate",
+   "kind": "type",
+   "parent": "src/layout/planes.ts",
+   "path": "src/layout/planes.ts",
+   "line": 30
+  },
+  {
+   "id": "src/layout/planes.ts#Positions",
+   "label": "Positions",
+   "kind": "type",
+   "parent": "src/layout/planes.ts",
+   "path": "src/layout/planes.ts",
+   "line": 41
+  },
+  {
+   "id": "src/layout/planes.ts#layerZ",
+   "label": "layerZ",
+   "kind": "function",
+   "parent": "src/layout/planes.ts",
+   "path": "src/layout/planes.ts",
+   "line": 44
+  },
+  {
+   "id": "src/layout/planes.ts#projectPlanes",
+   "label": "projectPlanes",
+   "kind": "function",
+   "parent": "src/layout/planes.ts",
+   "path": "src/layout/planes.ts",
+   "line": 48
+  },
+  {
+   "id": "src/layout/presets.ts",
+   "label": "presets.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/presets.ts",
+   "lines": 35
+  },
+  {
+   "id": "src/layout/presets.ts#LayoutName",
+   "label": "LayoutName",
+   "kind": "type",
+   "parent": "src/layout/presets.ts",
+   "path": "src/layout/presets.ts",
+   "line": 10
+  },
+  {
+   "id": "src/layout/presets.ts#LAYOUTS",
+   "label": "LAYOUTS",
+   "kind": "value",
+   "parent": "src/layout/presets.ts",
+   "path": "src/layout/presets.ts",
+   "line": 17
+  },
+  {
+   "id": "src/layout/presets.ts#LAYOUT_NAMES",
+   "label": "LAYOUT_NAMES",
+   "kind": "value",
+   "parent": "src/layout/presets.ts",
+   "path": "src/layout/presets.ts",
+   "line": 34
+  },
+  {
+   "id": "src/layout/readability.ts",
+   "label": "readability.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/readability.ts",
+   "lines": 214
+  },
+  {
+   "id": "src/layout/readability.ts#LabelInput",
+   "label": "LabelInput",
+   "kind": "type",
+   "parent": "src/layout/readability.ts",
+   "path": "src/layout/readability.ts",
+   "line": 38
+  },
+  {
+   "id": "src/layout/readability.ts#LabelSide",
+   "label": "LabelSide",
+   "kind": "type",
+   "parent": "src/layout/readability.ts",
+   "path": "src/layout/readability.ts",
+   "line": 62
+  },
+  {
+   "id": "src/layout/readability.ts#ReadabilityOptions",
+   "label": "ReadabilityOptions",
+   "kind": "type",
+   "parent": "src/layout/readability.ts",
+   "path": "src/layout/readability.ts",
+   "line": 65
+  },
+  {
+   "id": "src/layout/readability.ts#LabelPlan",
+   "label": "LabelPlan",
+   "kind": "type",
+   "parent": "src/layout/readability.ts",
+   "path": "src/layout/readability.ts",
+   "line": 81
+  },
+  {
+   "id": "src/layout/readability.ts#labelBox",
+   "label": "labelBox",
+   "kind": "function",
+   "parent": "src/layout/readability.ts",
+   "path": "src/layout/readability.ts",
+   "line": 106
+  },
+  {
+   "id": "src/layout/readability.ts#planLabels",
+   "label": "planLabels",
+   "kind": "function",
+   "parent": "src/layout/readability.ts",
+   "path": "src/layout/readability.ts",
+   "line": 146
+  },
+  {
+   "id": "src/layout/readability.ts#idPhase",
+   "label": "idPhase",
+   "kind": "function",
+   "parent": "src/layout/readability.ts",
+   "path": "src/layout/readability.ts",
+   "line": 209
+  },
+  {
+   "id": "src/layout/relax.ts",
+   "label": "relax.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/relax.ts",
+   "lines": 137
+  },
+  {
+   "id": "src/layout/relax.ts#RelaxNode",
+   "label": "RelaxNode",
+   "kind": "type",
+   "parent": "src/layout/relax.ts",
+   "path": "src/layout/relax.ts",
+   "line": 29
+  },
+  {
+   "id": "src/layout/relax.ts#relaxOverlaps",
+   "label": "relaxOverlaps",
+   "kind": "function",
+   "parent": "src/layout/relax.ts",
+   "path": "src/layout/relax.ts",
+   "line": 58
+  },
+  {
+   "id": "src/layout/relax.ts#relaxNodes",
+   "label": "relaxNodes",
+   "kind": "function",
+   "parent": "src/layout/relax.ts",
+   "path": "src/layout/relax.ts",
+   "line": 127
+  },
+  {
+   "id": "src/layout/run-job.ts",
+   "label": "run-job.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/run-job.ts",
+   "lines": 104
+  },
+  {
+   "id": "src/layout/run-job.ts#LayoutJob",
+   "label": "LayoutJob",
+   "kind": "type",
+   "parent": "src/layout/run-job.ts",
+   "path": "src/layout/run-job.ts",
+   "line": 29
+  },
+  {
+   "id": "src/layout/run-job.ts#LayoutJobResult",
+   "label": "LayoutJobResult",
+   "kind": "type",
+   "parent": "src/layout/run-job.ts",
+   "path": "src/layout/run-job.ts",
+   "line": 37
+  },
+  {
+   "id": "src/layout/run-job.ts#runLayoutJob",
+   "label": "runLayoutJob",
+   "kind": "function",
+   "parent": "src/layout/run-job.ts",
+   "path": "src/layout/run-job.ts",
+   "line": 47
+  },
+  {
+   "id": "src/layout/run-job.ts#LayoutRunner",
+   "label": "LayoutRunner",
+   "kind": "type",
+   "parent": "src/layout/run-job.ts",
+   "path": "src/layout/run-job.ts",
+   "line": 98
+  },
+  {
+   "id": "src/layout/run-job.ts#LayoutRunnerPool",
+   "label": "LayoutRunnerPool",
+   "kind": "type",
+   "parent": "src/layout/run-job.ts",
+   "path": "src/layout/run-job.ts",
+   "line": 103
+  },
+  {
+   "id": "src/layout/worker-pool.ts",
+   "label": "worker-pool.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/worker-pool.ts",
+   "lines": 17
+  },
+  {
+   "id": "src/layout/worker-pool.ts#workerPool",
+   "label": "workerPool",
+   "kind": "value",
+   "parent": "src/layout/worker-pool.ts",
+   "path": "src/layout/worker-pool.ts",
+   "line": 5
+  },
+  {
+   "id": "src/layout/worker.ts",
+   "label": "worker.ts",
+   "kind": "file",
+   "parent": "src/layout",
+   "path": "src/layout/worker.ts",
+   "lines": 7
+  },
+  {
+   "id": "src/model.ts",
+   "label": "model.ts",
+   "kind": "file",
+   "parent": "src",
+   "path": "src/model.ts",
+   "lines": 189
+  },
+  {
+   "id": "src/model.ts#GraphNode",
+   "label": "GraphNode",
+   "kind": "type",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 14
+  },
+  {
+   "id": "src/model.ts#GraphEdge",
+   "label": "GraphEdge",
+   "kind": "type",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 46
+  },
+  {
+   "id": "src/model.ts#GraphSlice",
+   "label": "GraphSlice",
+   "kind": "type",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 61
+  },
+  {
+   "id": "src/model.ts#GraphModel",
+   "label": "GraphModel",
+   "kind": "type",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 73
+  },
+  {
+   "id": "src/model.ts#EMPTY_MODEL",
+   "label": "EMPTY_MODEL",
+   "kind": "value",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 82
+  },
+  {
+   "id": "src/model.ts#buildModel",
+   "label": "buildModel",
+   "kind": "function",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 85
+  },
+  {
+   "id": "src/model.ts#mergeSlices",
+   "label": "mergeSlices",
+   "kind": "function",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 96
+  },
+  {
+   "id": "src/model.ts#addOrigin",
+   "label": "addOrigin",
+   "kind": "function",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 114
+  },
+  {
+   "id": "src/model.ts#originsOfNode",
+   "label": "originsOfNode",
+   "kind": "function",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 121
+  },
+  {
+   "id": "src/model.ts#GraphIndex",
+   "label": "GraphIndex",
+   "kind": "type",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 127
+  },
+  {
+   "id": "src/model.ts#indexModel",
+   "label": "indexModel",
+   "kind": "function",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 138
+  },
+  {
+   "id": "src/model.ts#originsOf",
+   "label": "originsOf",
+   "kind": "function",
+   "parent": "src/model.ts",
+   "path": "src/model.ts",
+   "line": 184
+  },
+  {
+   "id": "src/paint.ts",
+   "label": "paint.ts",
+   "kind": "file",
+   "parent": "src",
+   "path": "src/paint.ts",
+   "lines": 645
+  },
+  {
+   "id": "src/paint.ts#MIN_DOT",
+   "label": "MIN_DOT",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 37
+  },
+  {
+   "id": "src/paint.ts#MIN_LINE",
+   "label": "MIN_LINE",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 38
+  },
+  {
+   "id": "src/paint.ts#HOLD_LEAF",
+   "label": "HOLD_LEAF",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 42
+  },
+  {
+   "id": "src/paint.ts#NODE_SLACK",
+   "label": "NODE_SLACK",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 44
+  },
+  {
+   "id": "src/paint.ts#PaintTuning",
+   "label": "PaintTuning",
+   "kind": "type",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 47
+  },
+  {
+   "id": "src/paint.ts#SKEL_FLOOR",
+   "label": "SKEL_FLOOR",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 50
+  },
+  {
+   "id": "src/paint.ts#SEM_W",
+   "label": "SEM_W",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 53
+  },
+  {
+   "id": "src/paint.ts#SEM_FULL",
+   "label": "SEM_FULL",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 54
+  },
+  {
+   "id": "src/paint.ts#FOCUS_INK",
+   "label": "FOCUS_INK",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 57
+  },
+  {
+   "id": "src/paint.ts#focusAlphaOf",
+   "label": "focusAlphaOf",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 58
+  },
+  {
+   "id": "src/paint.ts#DETAIL_LEAF",
+   "label": "DETAIL_LEAF",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 60
+  },
+  {
+   "id": "src/paint.ts#GAP",
+   "label": "GAP",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 62
+  },
+  {
+   "id": "src/paint.ts#HOVER_DIM",
+   "label": "HOVER_DIM",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 68
+  },
+  {
+   "id": "src/paint.ts#dotOf",
+   "label": "dotOf",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 75
+  },
+  {
+   "id": "src/paint.ts#gapOf",
+   "label": "gapOf",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 80
+  },
+  {
+   "id": "src/paint.ts#skeletonLineOf",
+   "label": "skeletonLineOf",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 82
+  },
+  {
+   "id": "src/paint.ts#semanticAlphaOf",
+   "label": "semanticAlphaOf",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 87
+  },
+  {
+   "id": "src/paint.ts#hazeOf",
+   "label": "hazeOf",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 89
+  },
+  {
+   "id": "src/paint.ts#EDGE_REACH",
+   "label": "EDGE_REACH",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 93
+  },
+  {
+   "id": "src/paint.ts#reachOf",
+   "label": "reachOf",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 94
+  },
+  {
+   "id": "src/paint.ts#hittable",
+   "label": "hittable",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 98
+  },
+  {
+   "id": "src/paint.ts#detailed",
+   "label": "detailed",
+   "kind": "value",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 100
+  },
+  {
+   "id": "src/paint.ts#PaintOptions",
+   "label": "PaintOptions",
+   "kind": "type",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 129
+  },
+  {
+   "id": "src/paint.ts#Painter",
+   "label": "Painter",
+   "kind": "type",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 141
+  },
+  {
+   "id": "src/paint.ts#installPainter",
+   "label": "installPainter",
+   "kind": "function",
+   "parent": "src/paint.ts",
+   "path": "src/paint.ts",
+   "line": 158
+  },
+  {
+   "id": "src/profile.ts",
+   "label": "profile.ts",
+   "kind": "file",
+   "parent": "src",
+   "path": "src/profile.ts",
+   "lines": 227
+  },
+  {
+   "id": "src/profile.ts#LayerSpec",
+   "label": "LayerSpec",
+   "kind": "type",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 26
+  },
+  {
+   "id": "src/profile.ts#DetailField",
+   "label": "DetailField",
+   "kind": "type",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 39
+  },
+  {
+   "id": "src/profile.ts#DetailSpec",
+   "label": "DetailSpec",
+   "kind": "type",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 42
+  },
+  {
+   "id": "src/profile.ts#GraphIssue",
+   "label": "GraphIssue",
+   "kind": "type",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 53
+  },
+  {
+   "id": "src/profile.ts#EdgeToggle",
+   "label": "EdgeToggle",
+   "kind": "type",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 62
+  },
+  {
+   "id": "src/profile.ts#GraphProfile",
+   "label": "GraphProfile",
+   "kind": "type",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 71
+  },
+  {
+   "id": "src/profile.ts#ProfileInput",
+   "label": "ProfileInput",
+   "kind": "type",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 122
+  },
+  {
+   "id": "src/profile.ts#parsePhysical",
+   "label": "parsePhysical",
+   "kind": "function",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 125
+  },
+  {
+   "id": "src/profile.ts#validateStructure",
+   "label": "validateStructure",
+   "kind": "function",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 152
+  },
+  {
+   "id": "src/profile.ts#defineProfile",
+   "label": "defineProfile",
+   "kind": "function",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 166
+  },
+  {
+   "id": "src/profile.ts#defaultProfile",
+   "label": "defaultProfile",
+   "kind": "value",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 192
+  },
+  {
+   "id": "src/profile.ts#RawSource",
+   "label": "RawSource",
+   "kind": "type",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 196
+  },
+  {
+   "id": "src/profile.ts#parseSources",
+   "label": "parseSources",
+   "kind": "function",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 202
+  },
+  {
+   "id": "src/profile.ts#validateModel",
+   "label": "validateModel",
+   "kind": "function",
+   "parent": "src/profile.ts",
+   "path": "src/profile.ts",
+   "line": 224
+  },
+  {
+   "id": "src/react",
+   "label": "react/",
+   "parent": "src",
+   "path": "src/react"
+  },
+  {
+   "id": "src/react/DetailPanel.tsx",
+   "label": "DetailPanel.tsx",
+   "kind": "file",
+   "parent": "src/react",
+   "path": "src/react/DetailPanel.tsx",
+   "lines": 101
+  },
+  {
+   "id": "src/react/DetailPanel.tsx#SelectedNode",
+   "label": "SelectedNode",
+   "kind": "type",
+   "parent": "src/react/DetailPanel.tsx",
+   "path": "src/react/DetailPanel.tsx",
+   "line": 8
+  },
+  {
+   "id": "src/react/DetailPanel.tsx#DetailPanelProps",
+   "label": "DetailPanelProps",
+   "kind": "type",
+   "parent": "src/react/DetailPanel.tsx",
+   "path": "src/react/DetailPanel.tsx",
+   "line": 23
+  },
+  {
+   "id": "src/react/DetailPanel.tsx#DetailPanel",
+   "label": "DetailPanel",
+   "kind": "component",
+   "parent": "src/react/DetailPanel.tsx",
+   "path": "src/react/DetailPanel.tsx",
+   "line": 36
+  },
+  {
+   "id": "src/react/DiffOverlay.tsx",
+   "label": "DiffOverlay.tsx",
+   "kind": "file",
+   "parent": "src/react",
+   "path": "src/react/DiffOverlay.tsx",
+   "lines": 219
+  },
+  {
+   "id": "src/react/DiffOverlay.tsx#NodeBox",
+   "label": "NodeBox",
+   "kind": "type",
+   "parent": "src/react/DiffOverlay.tsx",
+   "path": "src/react/DiffOverlay.tsx",
+   "line": 33
+  },
+  {
+   "id": "src/react/DiffOverlay.tsx#GlowEdge",
+   "label": "GlowEdge",
+   "kind": "type",
+   "parent": "src/react/DiffOverlay.tsx",
+   "path": "src/react/DiffOverlay.tsx",
+   "line": 36
+  },
+  {
+   "id": "src/react/DiffOverlay.tsx#DiffGeometry",
+   "label": "DiffGeometry",
+   "kind": "type",
+   "parent": "src/react/DiffOverlay.tsx",
+   "path": "src/react/DiffOverlay.tsx",
+   "line": 38
+  },
+  {
+   "id": "src/react/DiffOverlay.tsx#DiffOverlayProps",
+   "label": "DiffOverlayProps",
+   "kind": "type",
+   "parent": "src/react/DiffOverlay.tsx",
+   "path": "src/react/DiffOverlay.tsx",
+   "line": 43
+  },
+  {
+   "id": "src/react/DiffOverlay.tsx#edgePath",
+   "label": "edgePath",
+   "kind": "function",
+   "parent": "src/react/DiffOverlay.tsx",
+   "path": "src/react/DiffOverlay.tsx",
+   "line": 109
+  },
+  {
+   "id": "src/react/DiffOverlay.tsx#DiffOverlay",
+   "label": "DiffOverlay",
+   "kind": "component",
+   "parent": "src/react/DiffOverlay.tsx",
+   "path": "src/react/DiffOverlay.tsx",
+   "line": 136
+  },
+  {
+   "id": "src/react/GraphCanvas.tsx",
+   "label": "GraphCanvas.tsx",
+   "kind": "file",
+   "parent": "src/react",
+   "path": "src/react/GraphCanvas.tsx",
+   "lines": 2384
+  },
+  {
+   "id": "src/react/GraphCanvas.tsx#GraphCanvasProps",
+   "label": "GraphCanvasProps",
+   "kind": "type",
+   "parent": "src/react/GraphCanvas.tsx",
+   "path": "src/react/GraphCanvas.tsx",
+   "line": 180
+  },
+  {
+   "id": "src/react/GraphCanvas.tsx#GraphCanvas",
+   "label": "GraphCanvas",
+   "kind": "component",
+   "parent": "src/react/GraphCanvas.tsx",
+   "path": "src/react/GraphCanvas.tsx",
+   "line": 585
+  },
+  {
+   "id": "src/react/Toolbar.tsx",
+   "label": "Toolbar.tsx",
+   "kind": "file",
+   "parent": "src/react",
+   "path": "src/react/Toolbar.tsx",
+   "lines": 174
+  },
+  {
+   "id": "src/react/Toolbar.tsx#ControlId",
+   "label": "ControlId",
+   "kind": "type",
+   "parent": "src/react/Toolbar.tsx",
+   "path": "src/react/Toolbar.tsx",
+   "line": 12
+  },
+  {
+   "id": "src/react/Toolbar.tsx#ALL_CONTROLS",
+   "label": "ALL_CONTROLS",
+   "kind": "value",
+   "parent": "src/react/Toolbar.tsx",
+   "path": "src/react/Toolbar.tsx",
+   "line": 16
+  },
+  {
+   "id": "src/react/Toolbar.tsx#ToolbarProps",
+   "label": "ToolbarProps",
+   "kind": "type",
+   "parent": "src/react/Toolbar.tsx",
+   "path": "src/react/Toolbar.tsx",
+   "line": 35
+  },
+  {
+   "id": "src/react/Toolbar.tsx#Toolbar",
+   "label": "Toolbar",
+   "kind": "component",
+   "parent": "src/react/Toolbar.tsx",
+   "path": "src/react/Toolbar.tsx",
+   "line": 57
+  },
+  {
+   "id": "src/style.ts",
+   "label": "style.ts",
+   "kind": "file",
+   "parent": "src",
+   "path": "src/style.ts",
+   "lines": 457
+  },
+  {
+   "id": "src/style.ts#GraphTheme",
+   "label": "GraphTheme",
+   "kind": "type",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 39
+  },
+  {
+   "id": "src/style.ts#PLANE_HUES",
+   "label": "PLANE_HUES",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 54
+  },
+  {
+   "id": "src/style.ts#plateColors",
+   "label": "plateColors",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 58
+  },
+  {
+   "id": "src/style.ts#LIGHT_THEME",
+   "label": "LIGHT_THEME",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 64
+  },
+  {
+   "id": "src/style.ts#DARK_THEME",
+   "label": "DARK_THEME",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 76
+  },
+  {
+   "id": "src/style.ts#mixHex",
+   "label": "mixHex",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 88
+  },
+  {
+   "id": "src/style.ts#shareT",
+   "label": "shareT",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 99
+  },
+  {
+   "id": "src/style.ts#skeletonColor",
+   "label": "skeletonColor",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 103
+  },
+  {
+   "id": "src/style.ts#defaultNodeColor",
+   "label": "defaultNodeColor",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 110
+  },
+  {
+   "id": "src/style.ts#NODE_BASE",
+   "label": "NODE_BASE",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 116
+  },
+  {
+   "id": "src/style.ts#CONTENT_SCALE",
+   "label": "CONTENT_SCALE",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 121
+  },
+  {
+   "id": "src/style.ts#nodeWeight",
+   "label": "nodeWeight",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 124
+  },
+  {
+   "id": "src/style.ts#nodeDiameter",
+   "label": "nodeDiameter",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 129
+  },
+  {
+   "id": "src/style.ts#baseStyle",
+   "label": "baseStyle",
+   "kind": "function",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 139
+  },
+  {
+   "id": "src/style.ts#paletteStyle",
+   "label": "paletteStyle",
+   "kind": "function",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 215
+  },
+  {
+   "id": "src/style.ts#graphStyle",
+   "label": "graphStyle",
+   "kind": "function",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 250
+  },
+  {
+   "id": "src/style.ts#DIFF_INK",
+   "label": "DIFF_INK",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 289
+  },
+  {
+   "id": "src/style.ts#PAST_KINDS",
+   "label": "PAST_KINDS",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 302
+  },
+  {
+   "id": "src/style.ts#DIFF_COLORS",
+   "label": "DIFF_COLORS",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 305
+  },
+  {
+   "id": "src/style.ts#diffStyle",
+   "label": "diffStyle",
+   "kind": "function",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 323
+  },
+  {
+   "id": "src/style.ts#GK_CSS",
+   "label": "GK_CSS",
+   "kind": "value",
+   "parent": "src/style.ts",
+   "path": "src/style.ts",
+   "line": 332
+  },
+  {
+   "id": "src/view.ts",
+   "label": "view.ts",
+   "kind": "file",
+   "parent": "src",
+   "path": "src/view.ts",
+   "lines": 150
+  },
+  {
+   "id": "src/view.ts#GraphView",
+   "label": "GraphView",
+   "kind": "type",
+   "parent": "src/view.ts",
+   "path": "src/view.ts",
+   "line": 17
+  },
+  {
+   "id": "src/view.ts#FULL_VIEW",
+   "label": "FULL_VIEW",
+   "kind": "value",
+   "parent": "src/view.ts",
+   "path": "src/view.ts",
+   "line": 38
+  },
+  {
+   "id": "src/view.ts#rebuildKey",
+   "label": "rebuildKey",
+   "kind": "value",
+   "parent": "src/view.ts",
+   "path": "src/view.ts",
+   "line": 41
+  },
+  {
+   "id": "src/view.ts#isFiltering",
+   "label": "isFiltering",
+   "kind": "function",
+   "parent": "src/view.ts",
+   "path": "src/view.ts",
+   "line": 44
+  },
+  {
+   "id": "src/view.ts#ResolvedView",
+   "label": "ResolvedView",
+   "kind": "type",
+   "parent": "src/view.ts",
+   "path": "src/view.ts",
+   "line": 48
+  },
+  {
+   "id": "src/view.ts#resolveView",
+   "label": "resolveView",
+   "kind": "function",
+   "parent": "src/view.ts",
+   "path": "src/view.ts",
+   "line": 63
+  }
+ ],
+ "edges": [
+  {
+   "source": "src/animate.ts",
+   "target": "src/diff.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/diff.ts#ChangeKind",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/diff.ts#GraphDelta",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/elements.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/elements.ts#nodeClasses",
+   "kind": "uses"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/elements.ts#VIRTUAL_ROOT",
+   "kind": "uses"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/model.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/model.ts#GraphModel",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/model.ts#GraphNode",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/profile.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/profile.ts#GraphProfile",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/layout/planes.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/animate.ts",
+   "target": "src/layout/planes.ts#Positions",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/diff.ts",
+   "target": "src/model.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/diff.ts",
+   "target": "src/model.ts#buildModel",
+   "kind": "uses"
+  },
+  {
+   "source": "src/diff.ts",
+   "target": "src/model.ts#GraphEdge",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/diff.ts",
+   "target": "src/model.ts#GraphModel",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/diff.ts",
+   "target": "src/model.ts#GraphNode",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/diff.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/diff.ts#DIFF_FLAG",
+   "kind": "uses"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/diff.ts#STEP_FLAG",
+   "kind": "uses"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/diff.ts#STEP_KEPT",
+   "kind": "uses"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/model.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/model.ts#indexModel",
+   "kind": "uses"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/model.ts#GraphEdge",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/model.ts#GraphModel",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/model.ts#GraphNode",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/profile.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/elements.ts",
+   "target": "src/profile.ts#GraphProfile",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/model.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/profile.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/view.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/elements.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/style.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/diff.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/animate.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/react/DiffOverlay.tsx",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/layout/diff-layout.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/layout/relax.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/layout/readability.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/paint.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/layout/presets.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/layout/engine.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/layout/run-job.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/layout/planes.ts",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/react/GraphCanvas.tsx",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/react/DetailPanel.tsx",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/index.ts",
+   "target": "src/react/Toolbar.tsx",
+   "kind": "re-exports"
+  },
+  {
+   "source": "src/layout/diff-layout.ts",
+   "target": "src/model.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/diff-layout.ts",
+   "target": "src/model.ts#indexModel",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/diff-layout.ts",
+   "target": "src/model.ts#GraphModel",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/diff-layout.ts",
+   "target": "src/layout/engine.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/divide.ts",
+   "target": "src/elements.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/divide.ts",
+   "target": "src/elements.ts#VIRTUAL_ROOT",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/divide.ts",
+   "target": "src/elements.ts#CyElement",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/divide.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/divide.ts#buildCoarseElements",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/divide.ts#partitionElements",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/divide.ts#placeAttached",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/divide.ts#resolveOverlaps",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/divide.ts#AttachedItem",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/divide.ts#Box",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/planes.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/planes.ts#projectPlanes",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/planes.ts#PlaneOptions",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/planes.ts#Plate",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/planes.ts#Positions",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/run-job.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/run-job.ts#LayoutJobResult",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/run-job.ts#LayoutRunnerPool",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/presets.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/layout/presets.ts#LayoutName",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/elements.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/elements.ts#CyElement",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/profile.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/engine.ts",
+   "target": "src/profile.ts#LayerSpec",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/inline-pool.ts",
+   "target": "src/layout/run-job.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/inline-pool.ts",
+   "target": "src/layout/run-job.ts#runLayoutJob",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/inline-pool.ts",
+   "target": "src/layout/run-job.ts#LayoutRunnerPool",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/planes.ts",
+   "target": "src/profile.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/planes.ts",
+   "target": "src/profile.ts#LayerSpec",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/planes.ts",
+   "target": "src/style.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/planes.ts",
+   "target": "src/style.ts#PLANE_HUES",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/relax.ts",
+   "target": "src/layout/engine.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/run-job.ts",
+   "target": "src/layout/presets.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/run-job.ts",
+   "target": "src/layout/presets.ts#LAYOUTS",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/run-job.ts",
+   "target": "src/layout/presets.ts#LayoutName",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/worker-pool.ts",
+   "target": "src/layout/run-job.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/worker-pool.ts",
+   "target": "src/layout/run-job.ts#LayoutJob",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/worker-pool.ts",
+   "target": "src/layout/run-job.ts#LayoutRunner",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/worker-pool.ts",
+   "target": "src/layout/run-job.ts#LayoutRunnerPool",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/layout/worker.ts",
+   "target": "src/layout/run-job.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/layout/worker.ts",
+   "target": "src/layout/run-job.ts#runLayoutJob",
+   "kind": "uses"
+  },
+  {
+   "source": "src/layout/worker.ts",
+   "target": "src/layout/run-job.ts#LayoutJob",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/paint.ts",
+   "target": "src/style.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/paint.ts",
+   "target": "src/style.ts#NODE_BASE",
+   "kind": "uses"
+  },
+  {
+   "source": "src/paint.ts",
+   "target": "src/style.ts#nodeWeight",
+   "kind": "uses"
+  },
+  {
+   "source": "src/paint.ts",
+   "target": "src/style.ts#shareT",
+   "kind": "uses"
+  },
+  {
+   "source": "src/paint.ts",
+   "target": "src/style.ts#GraphTheme",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/profile.ts",
+   "target": "src/model.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/profile.ts",
+   "target": "src/model.ts#buildModel",
+   "kind": "uses"
+  },
+  {
+   "source": "src/profile.ts",
+   "target": "src/model.ts#mergeSlices",
+   "kind": "uses"
+  },
+  {
+   "source": "src/profile.ts",
+   "target": "src/model.ts#GraphEdge",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/profile.ts",
+   "target": "src/model.ts#GraphModel",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/profile.ts",
+   "target": "src/model.ts#GraphNode",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/profile.ts",
+   "target": "src/model.ts#GraphSlice",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/DetailPanel.tsx",
+   "target": "src/profile.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/DiffOverlay.tsx",
+   "target": "src/diff.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/DiffOverlay.tsx",
+   "target": "src/diff.ts#NodeChange",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/model.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/model.ts#originsOf",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/model.ts#GraphModel",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/profile.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/profile.ts#defaultProfile",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/profile.ts#validateModel",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/profile.ts#GraphIssue",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/profile.ts#GraphProfile",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/elements.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/elements.ts#buildElements",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/elements.ts#VIRTUAL_ROOT",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/elements.ts#BuiltElements",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/view.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/view.ts#FULL_VIEW",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/view.ts#isFiltering",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/view.ts#resolveView",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/view.ts#GraphView",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/style.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/style.ts#DIFF_INK",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/style.ts#GK_CSS",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/style.ts#graphStyle",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/style.ts#LIGHT_THEME",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/style.ts#mixHex",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/style.ts#nodeWeight",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/style.ts#plateColors",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/style.ts#GraphTheme",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/paint.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/paint.ts#installPainter",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/paint.ts#Painter",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/paint.ts#PaintTuning",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/engine.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/engine.ts#computeLayout",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/presets.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/presets.ts#LayoutName",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/inline-pool.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/inline-pool.ts#inlinePool",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/run-job.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/run-job.ts#LayoutRunnerPool",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#anchorOf",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#diffSkinStyle",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#edgeFade",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#FADE_BASE",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#FADE_NAMES",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#planSkins",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#planTransition",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#resolveSpec",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#sampleSkinStyle",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#sampleTransition",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#SKIN_SIZE_PROPS",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#EndState",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#FadeName",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#SkinChange",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#StyleMap",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#StyleTween",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#AnimateSpec",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/animate.ts#TransitionReport",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/diff.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/diff.ts#diffModels",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/diff.ts#stepUnion",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/diff.ts#unionSides",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/diff.ts#STEP_FLAG",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/diff.ts#ChangeKind",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/diff.ts#GraphDelta",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/diff-layout.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/diff-layout.ts#diffPositions",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/diff-layout.ts#solveDiffLayout",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/diff-layout.ts#DiffLayoutSpec",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/diff-layout.ts#DiffSolve",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/relax.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/relax.ts#relaxNodes",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/relax.ts#relaxOverlaps",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/readability.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/readability.ts#idPhase",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/readability.ts#labelBox",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/readability.ts#planLabels",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/readability.ts#LabelInput",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/layout/readability.ts#LabelSide",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/model.ts#GraphNode",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/react/Toolbar.tsx",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/react/Toolbar.tsx#ALL_CONTROLS",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/react/Toolbar.tsx#ControlId",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/react/DetailPanel.tsx",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/react/DetailPanel.tsx#SelectedNode",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/react/DiffOverlay.tsx",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/react/DiffOverlay.tsx#edgePath",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/react/DiffOverlay.tsx#DiffGeometry",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/GraphCanvas.tsx",
+   "target": "src/react/DiffOverlay.tsx#NodeBox",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/Toolbar.tsx",
+   "target": "src/layout/presets.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/Toolbar.tsx",
+   "target": "src/layout/presets.ts#LAYOUTS",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/Toolbar.tsx",
+   "target": "src/layout/presets.ts#LAYOUT_NAMES",
+   "kind": "uses"
+  },
+  {
+   "source": "src/react/Toolbar.tsx",
+   "target": "src/layout/presets.ts#LayoutName",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/Toolbar.tsx",
+   "target": "src/profile.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/Toolbar.tsx",
+   "target": "src/profile.ts#EdgeToggle",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/Toolbar.tsx",
+   "target": "src/profile.ts#LayerSpec",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/react/Toolbar.tsx",
+   "target": "src/view.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/react/Toolbar.tsx",
+   "target": "src/view.ts#GraphView",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/style.ts",
+   "target": "src/elements.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/style.ts",
+   "target": "src/elements.ts#cls",
+   "kind": "uses"
+  },
+  {
+   "source": "src/style.ts",
+   "target": "src/profile.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/style.ts",
+   "target": "src/profile.ts#GraphProfile",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/view.ts",
+   "target": "src/model.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/view.ts",
+   "target": "src/model.ts#indexModel",
+   "kind": "uses"
+  },
+  {
+   "source": "src/view.ts",
+   "target": "src/model.ts#originsOfNode",
+   "kind": "uses"
+  },
+  {
+   "source": "src/view.ts",
+   "target": "src/model.ts#GraphModel",
+   "kind": "uses-type"
+  },
+  {
+   "source": "src/view.ts",
+   "target": "src/elements.ts",
+   "kind": "imports"
+  },
+  {
+   "source": "src/view.ts",
+   "target": "src/elements.ts#VIRTUAL_ROOT",
+   "kind": "uses"
+  },
+  {
+   "source": "src/view.ts",
+   "target": "src/elements.ts#CyElement",
+   "kind": "uses-type"
+  }
+ ]
+}

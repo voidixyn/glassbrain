@@ -1,0 +1,51 @@
+{
+ "nodePalette": {
+  "method": "#2563eb",
+  "survey": "#16a34a",
+  "benchmark": "#e63b7a",
+  "author": "#9ca3af",
+  "institution": "#ffc677"
+ },
+ "edgePalette": {
+  "cites": "#9ca3af",
+  "extends": "#2563eb",
+  "authored-by": "#d1d5db",
+  "evaluates-on": "#e63b7a"
+ },
+ "kindLabels": {
+  "method": "Method paper",
+  "survey": "Survey",
+  "benchmark": "Benchmark / dataset",
+  "cites": "cites",
+  "extends": "builds on",
+  "evaluates-on": "evaluates on",
+  "authored-by": "first author"
+ },
+ "demo": {
+  "order": 6,
+  "description": {
+   "en": "RAG and agent memory research, 2017–2026: papers, labs, benchmarks (web-verified)",
+   "zh": "RAG 与 agent 记忆的研究脉络，2017–2026：论文、机构、基准（联网核实）"
+  },
+  "source": {
+   "en": "Real output of one prompt: [trace RAG and agent memory research on the web](data/demo/citations/RUN.md#prompt).",
+   "zh": "一段 prompt 的真实结果：[联网梳理 RAG 与 agent 记忆的研究脉络](data/demo/citations/RUN.md#prompt)。"
+  }
+ },
+ "detail": {
+  "line": [
+   {
+    "key": "year",
+    "label": "YEAR"
+   },
+   {
+    "key": "venue",
+    "label": "VENUE"
+   },
+   {
+    "key": "url",
+    "label": "LINK"
+   }
+  ]
+ }
+}

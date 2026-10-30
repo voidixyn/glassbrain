@@ -1,0 +1,46 @@
+{
+ "nodePalette": {
+  "chapter": "#64748b",
+  "concept": "#2563eb",
+  "mechanism": "#16a34a",
+  "non-obvious": "#d97706",
+  "misconception": "#dc2626"
+ },
+ "edgePalette": {
+  "depends-on": "#64748b",
+  "causes": "#d97706",
+  "corrects": "#dc2626"
+ },
+ "placeholderFlags": [
+  "stub"
+ ],
+ "demo": {
+  "order": 5,
+  "description": {
+   "en": "How an LLM agent works, explained from first principles by an agent",
+   "zh": "agent 从第一性原理讲 LLM agent 是怎么工作的"
+  },
+  "source": {
+   "en": "Real output of one prompt: [explain how agents work, from first principles](data/demo/how-agents-work/RUN.md#prompt).",
+   "zh": "一段 prompt 的真实结果：[从第一性原理讲清 agent 怎么工作](data/demo/how-agents-work/RUN.md#prompt)。"
+  }
+ },
+ "detail": {
+  "line": [
+   {
+    "key": "angle",
+    "label": "ANGLE"
+   }
+  ]
+ },
+ "kindLabels": {
+  "chapter": "Chapter",
+  "concept": "Concept",
+  "mechanism": "Mechanism",
+  "non-obvious": "Non-obvious",
+  "misconception": "Misconception",
+  "depends-on": "depends on",
+  "causes": "causes",
+  "corrects": "corrects"
+ }
+}

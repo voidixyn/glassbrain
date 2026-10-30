@@ -1,0 +1,9 @@
+[
+  ["glassbrain-src/1-early", "glassbrain-src/2-later"],
+  ["agent-stack/1-from-memory", "agent-stack/2-researched"],
+  ["flask/1-skeleton", "flask/2-filled", "flask/3-linked"],
+  ["citations/1-until-2022", "citations/2-until-2026"],
+  ["agent-plan/1-outline", "agent-plan/2-plan", "agent-plan/3-reviewed"],
+  ["how-agents-work/1-claims", "how-agents-work/2-explained", "how-agents-work/3-connected"],
+  ["boards/1-enumerated", "boards/2-merged", "boards/3-stories", "boards/4-linked"]
+]

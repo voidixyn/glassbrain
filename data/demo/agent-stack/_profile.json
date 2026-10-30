@@ -1,0 +1,90 @@
+{
+ "layers": [
+  {
+   "id": "protocols",
+   "label": "Protocols & standards",
+   "structural": true,
+   "color": "#2563eb"
+  },
+  {
+   "id": "blocks",
+   "label": "Building blocks",
+   "structural": true,
+   "color": "#669c35"
+  },
+  {
+   "id": "products",
+   "label": "Products",
+   "structural": true,
+   "color": "#e63b7a"
+  }
+ ],
+ "nodePalette": {
+  "protocol": "#2563eb",
+  "standard": "#00a3d7",
+  "org": "#444444",
+  "framework": "#669c35",
+  "memory": "#be38f3",
+  "runtime": "#ffa57d",
+  "platform": "#ff6a00",
+  "evaluation": "#ffc677",
+  "observability": "#7a7a7a",
+  "coding-agent": "#e63b7a",
+  "assistant": "#ed719e",
+  "browser-agent": "#fb923c",
+  "enterprise-agent": "#a14f7a"
+ },
+ "edgePalette": {
+  "implements": "#2563eb",
+  "builds-on": "#7a7a7a",
+  "integrates-with": "#669c35",
+  "supersedes": "#e63b7a",
+  "governed-by": "#be38f3"
+ },
+ "kindLabels": {
+  "layer": "Layer",
+  "category": "Category",
+  "protocol": "Protocol",
+  "standard": "Standard / format",
+  "org": "Governance body",
+  "framework": "Framework / SDK",
+  "memory": "Memory",
+  "runtime": "Tool runtime",
+  "platform": "Agent platform",
+  "evaluation": "Evaluation",
+  "observability": "Observability",
+  "coding-agent": "Coding agent",
+  "assistant": "Assistant",
+  "browser-agent": "Browser agent",
+  "enterprise-agent": "Enterprise agent",
+  "implements": "implements",
+  "builds-on": "builds on",
+  "integrates-with": "integrates with",
+  "supersedes": "supersedes",
+  "governed-by": "governed by"
+ },
+ "style": [
+  {
+   "selector": "edge.supersedes",
+   "style": {
+    "line-style": "dashed"
+   }
+  }
+ ],
+ "detail": {
+  "flagNotes": {
+   "corrected": "The from-memory version had this wrong; corrected by the web research."
+  }
+ },
+ "demo": {
+  "order": 2,
+  "description": {
+   "en": "The AI agent ecosystem in three layers, researched by an agent: from memory, then checked on the web",
+   "zh": "agent 调研的 AI agent 生态，三层：先凭记忆，再联网核实"
+  },
+  "source": {
+   "en": "Real output of one prompt: [research the agent ecosystem, then check it on the web](data/demo/agent-stack/RUN.md#prompt).",
+   "zh": "一段 prompt 的真实结果：[调研 agent 生态，再联网核实](data/demo/agent-stack/RUN.md#prompt)。"
+  }
+ }
+}

@@ -1,0 +1,23 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      # typecheck → build → tests → dist check (exports, 'use client', the worker, types under nodenext and bundler).
+      # The dist check is not a formality: when the worker path or 'use client' breaks, the first three are still green.
+      - run: npm run verify
+      # What actually gets published: pack it, then run the CLI from the tarball.
+      - run: |
+          npm pack --silent
+          mkdir -p /tmp/smoke && tar -xzf glassbrain-*.tgz -C /tmp/smoke
+          cd /tmp/smoke/package && npm i --silent --omit=dev --no-package-lock
+          node dist/cli/glassbrain.js validate "$GITHUB_WORKSPACE/data/demo/boards"

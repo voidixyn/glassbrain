@@ -1,0 +1,64 @@
+{
+ "layers": [
+  {
+   "id": "feature",
+   "label": "Features",
+   "structural": true
+  },
+  {
+   "id": "concept",
+   "label": "Concepts",
+   "structural": true
+  }
+ ],
+ "nodePalette": {
+  "feature": "#e63b7a",
+  "concept": "#0891b2"
+ },
+ "edgePalette": {
+  "requires": "#e63b7a",
+  "acts-on": "#53d5fd",
+  "conflicts": "#ff6a00"
+ },
+ "kindLabels": {
+  "area": "Area",
+  "feature": "Feature",
+  "concept": "Concept",
+  "requires": "Requires",
+  "acts-on": "Acts on",
+  "conflicts": "Conflicts with"
+ },
+ "placeholderFlags": [
+  "stub"
+ ],
+ "detail": {
+  "line": [
+   {
+    "key": "role",
+    "label": "ROLE"
+   },
+   {
+    "key": "found_in",
+    "label": "FOUND IN"
+   },
+   {
+    "key": "source",
+    "label": "SOURCE"
+   }
+  ],
+  "flagNotes": {
+   "stub": "Named in the enumeration; no story written yet."
+  }
+ },
+ "demo": {
+  "order": 1,
+  "description": {
+   "en": "4ga Boards (MIT, © RARgames): its docs and its app read separately by an agent, merged into 268 user stories",
+   "zh": "4ga Boards（MIT，© RARgames）：agent 分别读文档和应用，合并成 268 条用户故事"
+  },
+  "source": {
+   "en": "Real output of [reading the docs and the UI code blind, then merging](skills/docs-to-kg/SKILL.md), on [4ga Boards](https://github.com/RARgames/4gaBoards).",
+   "zh": "[文档和界面代码各自盲读再合并](skills/docs-to-kg/SKILL.md)，在 [4ga Boards](https://github.com/RARgames/4gaBoards) 上跑出的真实结果。"
+  }
+ }
+}

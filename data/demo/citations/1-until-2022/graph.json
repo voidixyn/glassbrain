@@ -1,0 +1,1420 @@
+{
+ "nodes": [
+  {
+   "id": "field/rag-memory",
+   "label": "Retrieval-augmented generation and agent memory",
+   "kind": "field"
+  },
+  {
+   "id": "topic/mem-nets",
+   "label": "Memory-augmented neural networks",
+   "kind": "topic",
+   "parent": "field/rag-memory"
+  },
+  {
+   "id": "topic/odqa",
+   "label": "Open-domain QA (retriever-reader)",
+   "kind": "topic",
+   "parent": "field/rag-memory"
+  },
+  {
+   "id": "topic/dense",
+   "label": "Dense and late-interaction retrieval",
+   "kind": "topic",
+   "parent": "field/rag-memory"
+  },
+  {
+   "id": "topic/ralm",
+   "label": "Retrieval-augmented language models",
+   "kind": "topic",
+   "parent": "field/rag-memory"
+  },
+  {
+   "id": "topic/dialog",
+   "label": "Knowledge-grounded dialogue",
+   "kind": "topic",
+   "parent": "field/rag-memory"
+  },
+  {
+   "id": "topic/reason",
+   "label": "Reasoning, tools and search agents",
+   "kind": "topic",
+   "parent": "field/rag-memory"
+  },
+  {
+   "id": "topic/longctx",
+   "label": "Long context and parametric memory",
+   "kind": "topic",
+   "parent": "field/rag-memory"
+  },
+  {
+   "id": "topic/survey",
+   "label": "Surveys",
+   "kind": "topic",
+   "parent": "field/rag-memory"
+  },
+  {
+   "id": "group/benchmarks",
+   "label": "Benchmarks and datasets",
+   "kind": "group"
+  },
+  {
+   "id": "group/qa",
+   "label": "QA datasets",
+   "kind": "group",
+   "parent": "group/benchmarks"
+  },
+  {
+   "id": "group/retr",
+   "label": "Retrieval benchmarks",
+   "kind": "group",
+   "parent": "group/benchmarks"
+  },
+  {
+   "id": "group/dlg",
+   "label": "Dialogue datasets",
+   "kind": "group",
+   "parent": "group/benchmarks"
+  },
+  {
+   "id": "paper/memnn-2014",
+   "label": "Memory Networks",
+   "kind": "method",
+   "parent": "topic/mem-nets",
+   "year": 2014,
+   "venue": "ICLR 2015",
+   "url": "https://arxiv.org/abs/1410.3916",
+   "description": "Introduced models that combine a learned inference component with a long-term read/write memory, the starting point of explicit memory for neural QA. https://arxiv.org/abs/1410.3916"
+  },
+  {
+   "id": "paper/ntm-2014",
+   "label": "Neural Turing Machines",
+   "kind": "method",
+   "parent": "topic/mem-nets",
+   "year": 2014,
+   "venue": "arXiv",
+   "url": "https://arxiv.org/abs/1410.5401",
+   "description": "Coupled a neural network to an external addressable memory trained end to end with differentiable read/write heads. https://arxiv.org/abs/1410.5401"
+  },
+  {
+   "id": "paper/e2emn-2015",
+   "label": "End-To-End Memory Networks",
+   "kind": "method",
+   "parent": "topic/mem-nets",
+   "year": 2015,
+   "venue": "NeurIPS 2015",
+   "url": "https://arxiv.org/abs/1503.08895",
+   "description": "A memory network trained end to end with soft attention over memory hops, removing the need for supervision of supporting facts. https://arxiv.org/abs/1503.08895"
+  },
+  {
+   "id": "paper/kvmn-2016",
+   "label": "Key-Value Memory Networks",
+   "kind": "method",
+   "parent": "topic/mem-nets",
+   "year": 2016,
+   "venue": "EMNLP 2016",
+   "url": "https://arxiv.org/abs/1606.03126",
+   "description": "Split memory slots into keys and values so the model can read documents or knowledge bases directly for QA. https://arxiv.org/abs/1606.03126"
+  },
+  {
+   "id": "paper/transformer-2017",
+   "label": "Attention Is All You Need",
+   "kind": "method",
+   "parent": "topic/longctx",
+   "year": 2017,
+   "venue": "NeurIPS 2017",
+   "url": "https://arxiv.org/abs/1706.03762",
+   "description": "Introduced the Transformer, the architecture underlying all later retrieval-augmented and long-context language models. https://arxiv.org/abs/1706.03762"
+  },
+  {
+   "id": "paper/bert-2018",
+   "label": "BERT",
+   "kind": "method",
+   "parent": "topic/longctx",
+   "year": 2018,
+   "venue": "NAACL 2019",
+   "url": "https://arxiv.org/abs/1810.04805",
+   "description": "Bidirectional Transformer pre-training; its encoders became the backbone of dense retrievers and readers. https://arxiv.org/abs/1810.04805"
+  },
+  {
+   "id": "paper/txl-2019",
+   "label": "Transformer-XL",
+   "kind": "method",
+   "parent": "topic/longctx",
+   "year": 2019,
+   "venue": "ACL 2019",
+   "url": "https://arxiv.org/abs/1901.02860",
+   "description": "Added segment-level recurrence and relative positions so a Transformer can attend to cached states beyond a fixed context. https://arxiv.org/abs/1901.02860"
+  },
+  {
+   "id": "paper/compressive-2019",
+   "label": "Compressive Transformers",
+   "kind": "method",
+   "parent": "topic/longctx",
+   "year": 2019,
+   "venue": "ICLR 2020",
+   "url": "https://arxiv.org/abs/1911.05507",
+   "description": "Extended Transformer-XL's memory by compressing old activations instead of discarding them. https://arxiv.org/abs/1911.05507"
+  },
+  {
+   "id": "paper/drqa-2017",
+   "label": "DrQA: Reading Wikipedia to Answer Open-Domain Questions",
+   "kind": "method",
+   "parent": "topic/odqa",
+   "year": 2017,
+   "venue": "ACL 2017",
+   "url": "https://arxiv.org/abs/1704.00051",
+   "description": "Retriever-reader pipeline (TF-IDF retrieval plus neural reader) that framed open-domain QA over Wikipedia. https://arxiv.org/abs/1704.00051"
+  },
+  {
+   "id": "paper/orqa-2019",
+   "label": "ORQA: Latent Retrieval for Weakly Supervised Open Domain QA",
+   "kind": "method",
+   "parent": "topic/odqa",
+   "year": 2019,
+   "venue": "ACL 2019",
+   "url": "https://arxiv.org/abs/1906.00300",
+   "description": "Trained the retriever jointly with the reader from question-answer pairs only, using an inverse cloze pretraining task. https://arxiv.org/abs/1906.00300"
+  },
+  {
+   "id": "paper/knnlm-2019",
+   "label": "kNN-LM: Generalization through Memorization",
+   "kind": "method",
+   "parent": "topic/ralm",
+   "year": 2019,
+   "venue": "ICLR 2020",
+   "url": "https://arxiv.org/abs/1911.00172",
+   "description": "Interpolated a language model with nearest-neighbour lookups over a datastore of cached hidden states, with no retraining. https://arxiv.org/abs/1911.00172"
+  },
+  {
+   "id": "paper/realm-2020",
+   "label": "REALM",
+   "kind": "method",
+   "parent": "topic/ralm",
+   "year": 2020,
+   "venue": "ICML 2020",
+   "url": "https://arxiv.org/abs/2002.08909",
+   "description": "Pre-trained a masked language model together with a latent retriever over Wikipedia, backpropagating through retrieval. https://arxiv.org/abs/2002.08909"
+  },
+  {
+   "id": "paper/dpr-2020",
+   "label": "DPR: Dense Passage Retrieval",
+   "kind": "method",
+   "parent": "topic/odqa",
+   "year": 2020,
+   "venue": "EMNLP 2020",
+   "url": "https://arxiv.org/abs/2004.04906",
+   "description": "Showed a dual-encoder dense retriever trained on a few thousand QA pairs beats BM25 for open-domain QA. https://arxiv.org/abs/2004.04906"
+  },
+  {
+   "id": "paper/rag-2020",
+   "label": "RAG: Retrieval-Augmented Generation",
+   "kind": "method",
+   "parent": "topic/ralm",
+   "year": 2020,
+   "venue": "NeurIPS 2020",
+   "url": "https://arxiv.org/abs/2005.11401",
+   "description": "Combined a parametric seq2seq generator with a non-parametric Wikipedia index (DPR) and named the RAG paradigm. https://arxiv.org/abs/2005.11401"
+  },
+  {
+   "id": "paper/fid-2020",
+   "label": "Fusion-in-Decoder",
+   "kind": "method",
+   "parent": "topic/odqa",
+   "year": 2020,
+   "venue": "EACL 2021",
+   "url": "https://arxiv.org/abs/2007.01282",
+   "description": "Encoded each retrieved passage independently and fused them in the decoder, scaling generative QA to many passages. https://arxiv.org/abs/2007.01282"
+  },
+  {
+   "id": "paper/distill-2020",
+   "label": "Distilling Knowledge from Reader to Retriever",
+   "kind": "method",
+   "parent": "topic/odqa",
+   "year": 2020,
+   "venue": "ICLR 2021",
+   "url": "https://arxiv.org/abs/2012.04584",
+   "description": "Used reader attention scores as a training signal to learn a retriever without annotated passages. https://arxiv.org/abs/2012.04584"
+  },
+  {
+   "id": "paper/rocketqa-2020",
+   "label": "RocketQA",
+   "kind": "method",
+   "parent": "topic/odqa",
+   "year": 2020,
+   "venue": "NAACL 2021",
+   "url": "https://arxiv.org/abs/2010.08191",
+   "description": "Improved dense passage retrieval training with cross-batch negatives, denoised hard negatives and data augmentation. https://arxiv.org/abs/2010.08191"
+  },
+  {
+   "id": "paper/colbert-2020",
+   "label": "ColBERT",
+   "kind": "method",
+   "parent": "topic/dense",
+   "year": 2020,
+   "venue": "SIGIR 2020",
+   "url": "https://arxiv.org/abs/2004.12832",
+   "description": "Late interaction: per-token embeddings scored with MaxSim, giving cross-encoder-like quality at bi-encoder speed. https://arxiv.org/abs/2004.12832"
+  },
+  {
+   "id": "paper/colbertv2-2021",
+   "label": "ColBERTv2",
+   "kind": "method",
+   "parent": "topic/dense",
+   "year": 2021,
+   "venue": "NAACL 2022",
+   "url": "https://arxiv.org/abs/2112.01488",
+   "description": "Added residual compression and denoised supervision to ColBERT for a much smaller index and better quality. https://arxiv.org/abs/2112.01488"
+  },
+  {
+   "id": "paper/contriever-2021",
+   "label": "Contriever",
+   "kind": "method",
+   "parent": "topic/dense",
+   "year": 2021,
+   "venue": "TMLR 2022",
+   "url": "https://arxiv.org/abs/2112.09118",
+   "description": "Unsupervised dense retriever trained with contrastive learning that transfers well across domains. https://arxiv.org/abs/2112.09118"
+  },
+  {
+   "id": "paper/splade-2021",
+   "label": "SPLADE",
+   "kind": "method",
+   "parent": "topic/dense",
+   "year": 2021,
+   "venue": "SIGIR 2021",
+   "url": "https://arxiv.org/abs/2107.05720",
+   "description": "Learned sparse retrieval using MLM-based term expansion and sparsity regularisation. https://arxiv.org/abs/2107.05720"
+  },
+  {
+   "id": "paper/hyde-2022",
+   "label": "HyDE: Precise Zero-Shot Dense Retrieval without Relevance Labels",
+   "kind": "method",
+   "parent": "topic/dense",
+   "year": 2022,
+   "venue": "ACL 2023",
+   "url": "https://arxiv.org/abs/2212.10496",
+   "description": "Has an LLM write a hypothetical answer document and retrieves with its embedding, enabling zero-shot dense retrieval. https://arxiv.org/abs/2212.10496"
+  },
+  {
+   "id": "paper/retro-2021",
+   "label": "RETRO",
+   "kind": "method",
+   "parent": "topic/ralm",
+   "year": 2021,
+   "venue": "ICML 2022",
+   "url": "https://arxiv.org/abs/2112.04426",
+   "description": "Chunk-level retrieval from a 2-trillion-token database with cross-attention, matching much larger models with 25x fewer parameters. https://arxiv.org/abs/2112.04426"
+  },
+  {
+   "id": "paper/webgpt-2021",
+   "label": "WebGPT",
+   "kind": "method",
+   "parent": "topic/reason",
+   "year": 2021,
+   "venue": "arXiv",
+   "url": "https://arxiv.org/abs/2112.09332",
+   "description": "Fine-tuned GPT-3 to browse the web in a text browser and answer long-form questions with references, trained with human feedback. https://arxiv.org/abs/2112.09332"
+  },
+  {
+   "id": "paper/gophercite-2022",
+   "label": "GopherCite",
+   "kind": "method",
+   "parent": "topic/ralm",
+   "year": 2022,
+   "venue": "arXiv",
+   "url": "https://arxiv.org/abs/2203.11147",
+   "description": "Trained a language model to cite verbatim supporting quotes from retrieved documents, using RL from human preferences. https://arxiv.org/abs/2203.11147"
+  },
+  {
+   "id": "paper/atlas-2022",
+   "label": "Atlas",
+   "kind": "method",
+   "parent": "topic/ralm",
+   "year": 2022,
+   "venue": "JMLR 2023",
+   "url": "https://arxiv.org/abs/2208.03299",
+   "description": "Jointly pre-trained a retriever and a FiD reader, reaching strong few-shot results on knowledge-intensive tasks with a small model. https://arxiv.org/abs/2208.03299"
+  },
+  {
+   "id": "paper/memtrans-2022",
+   "label": "Memorizing Transformers",
+   "kind": "method",
+   "parent": "topic/longctx",
+   "year": 2022,
+   "venue": "ICLR 2022",
+   "url": "https://arxiv.org/abs/2203.08913",
+   "description": "Added a kNN-retrieval attention layer over a non-differentiable memory of past key-value pairs. https://arxiv.org/abs/2203.08913"
+  },
+  {
+   "id": "paper/lazaridou-2022",
+   "label": "Internet-augmented LMs through few-shot prompting",
+   "kind": "method",
+   "parent": "topic/ralm",
+   "year": 2022,
+   "venue": "arXiv",
+   "url": "https://arxiv.org/abs/2203.05115",
+   "description": "Conditioned a language model on Google Search results via few-shot prompting to improve open-domain QA. https://arxiv.org/abs/2203.05115"
+  },
+  {
+   "id": "paper/shuster-halluc-2021",
+   "label": "Retrieval Augmentation Reduces Hallucination in Conversation",
+   "kind": "method",
+   "parent": "topic/dialog",
+   "year": 2021,
+   "venue": "Findings of EMNLP 2021",
+   "url": "https://arxiv.org/abs/2104.07567",
+   "description": "Showed retrieval-augmented dialogue models hallucinate less on knowledge-grounded conversation. https://arxiv.org/abs/2104.07567"
+  },
+  {
+   "id": "paper/komeili-2021",
+   "label": "Internet-Augmented Dialogue Generation",
+   "kind": "method",
+   "parent": "topic/dialog",
+   "year": 2021,
+   "venue": "ACL 2022",
+   "url": "https://arxiv.org/abs/2107.07566",
+   "description": "Dialogue model that issues search-engine queries to ground its replies, with a Wizard of the Internet dataset. https://arxiv.org/abs/2107.07566"
+  },
+  {
+   "id": "paper/seeker-2022",
+   "label": "SeeKeR",
+   "kind": "method",
+   "parent": "topic/dialog",
+   "year": 2022,
+   "venue": "Findings of EMNLP 2022",
+   "url": "https://arxiv.org/abs/2203.13224",
+   "description": "Modular search-then-knowledge-then-response generation for dialogue and prompt completion. https://arxiv.org/abs/2203.13224"
+  },
+  {
+   "id": "paper/lamda-2022",
+   "label": "LaMDA",
+   "kind": "method",
+   "parent": "topic/dialog",
+   "year": 2022,
+   "venue": "arXiv",
+   "url": "https://arxiv.org/abs/2201.08239",
+   "description": "Dialogue language models fine-tuned to consult external tools (retrieval, calculator, translator) for groundedness. https://arxiv.org/abs/2201.08239"
+  },
+  {
+   "id": "paper/cot-2022",
+   "label": "Chain-of-Thought Prompting",
+   "kind": "method",
+   "parent": "topic/reason",
+   "year": 2022,
+   "venue": "NeurIPS 2022",
+   "url": "https://arxiv.org/abs/2201.11903",
+   "description": "Showed that few-shot reasoning traces in prompts elicit multi-step reasoning in large language models. https://arxiv.org/abs/2201.11903"
+  },
+  {
+   "id": "paper/react-2022",
+   "label": "ReAct",
+   "kind": "method",
+   "parent": "topic/reason",
+   "year": 2022,
+   "venue": "ICLR 2023",
+   "url": "https://arxiv.org/abs/2210.03629",
+   "description": "Interleaved reasoning traces with tool actions (e.g. Wikipedia search), grounding LLM agents in retrieved evidence. https://arxiv.org/abs/2210.03629"
+  },
+  {
+   "id": "paper/selfask-2022",
+   "label": "Self-Ask: Measuring and Narrowing the Compositionality Gap",
+   "kind": "method",
+   "parent": "topic/reason",
+   "year": 2022,
+   "venue": "Findings of EMNLP 2023",
+   "url": "https://arxiv.org/abs/2210.03350",
+   "description": "Prompts the model to ask and answer follow-up sub-questions, optionally with a search engine, for multi-hop questions. https://arxiv.org/abs/2210.03350"
+  },
+  {
+   "id": "paper/dsp-2022",
+   "label": "Demonstrate-Search-Predict",
+   "kind": "method",
+   "parent": "topic/reason",
+   "year": 2022,
+   "venue": "arXiv",
+   "url": "https://arxiv.org/abs/2212.14024",
+   "description": "Programs that pass natural-language texts between an LM and a retriever across multi-step pipelines (precursor of DSPy). https://arxiv.org/abs/2212.14024"
+  },
+  {
+   "id": "paper/ircot-2022",
+   "label": "IRCoT",
+   "kind": "method",
+   "parent": "topic/reason",
+   "year": 2022,
+   "venue": "ACL 2023",
+   "url": "https://arxiv.org/abs/2212.10509",
+   "description": "Interleaves retrieval with chain-of-thought steps so each reasoning step guides the next retrieval. https://arxiv.org/abs/2212.10509"
+  },
+  {
+   "id": "paper/mallen-2022",
+   "label": "When Not to Trust Language Models (PopQA)",
+   "kind": "benchmark",
+   "parent": "group/qa",
+   "year": 2022,
+   "venue": "ACL 2023",
+   "url": "https://arxiv.org/abs/2212.10511",
+   "description": "Introduced PopQA and showed retrieval helps long-tail facts while hurting popular ones, motivating adaptive retrieval. https://arxiv.org/abs/2212.10511"
+  },
+  {
+   "id": "paper/survey-li-2022",
+   "label": "A Survey on Retrieval-Augmented Text Generation",
+   "kind": "survey",
+   "parent": "topic/survey",
+   "year": 2022,
+   "venue": "arXiv",
+   "url": "https://arxiv.org/abs/2202.01110",
+   "description": "First broad survey of retrieval-augmented text generation across dialogue, translation and other tasks. https://arxiv.org/abs/2202.01110"
+  },
+  {
+   "id": "paper/squad-2016",
+   "label": "SQuAD",
+   "kind": "benchmark",
+   "parent": "group/qa",
+   "year": 2016,
+   "venue": "EMNLP 2016",
+   "url": "https://arxiv.org/abs/1606.05250",
+   "description": "100k+ crowd-written questions over Wikipedia paragraphs, the standard reading-comprehension benchmark. https://arxiv.org/abs/1606.05250"
+  },
+  {
+   "id": "paper/msmarco-2016",
+   "label": "MS MARCO",
+   "kind": "benchmark",
+   "parent": "group/retr",
+   "year": 2016,
+   "venue": "NeurIPS 2016 CoCo workshop",
+   "url": "https://arxiv.org/abs/1611.09268",
+   "description": "Large machine-reading and passage-ranking dataset built from Bing queries; the main training set for neural retrievers. https://arxiv.org/abs/1611.09268"
+  },
+  {
+   "id": "paper/triviaqa-2017",
+   "label": "TriviaQA",
+   "kind": "benchmark",
+   "parent": "group/qa",
+   "year": 2017,
+   "venue": "ACL 2017",
+   "url": "https://arxiv.org/abs/1705.03551",
+   "description": "Large distantly supervised reading-comprehension dataset of trivia questions with evidence documents. https://arxiv.org/abs/1705.03551"
+  },
+  {
+   "id": "paper/hotpotqa-2018",
+   "label": "HotpotQA",
+   "kind": "benchmark",
+   "parent": "group/qa",
+   "year": 2018,
+   "venue": "EMNLP 2018",
+   "url": "https://arxiv.org/abs/1809.09600",
+   "description": "Multi-hop QA dataset with sentence-level supporting facts, widely used for multi-step retrieval. https://arxiv.org/abs/1809.09600"
+  },
+  {
+   "id": "paper/wow-2018",
+   "label": "Wizard of Wikipedia",
+   "kind": "benchmark",
+   "parent": "group/dlg",
+   "year": 2018,
+   "venue": "ICLR 2019",
+   "url": "https://arxiv.org/abs/1811.01241",
+   "description": "Knowledge-grounded dialogue dataset where wizards ground replies in retrieved Wikipedia passages. https://arxiv.org/abs/1811.01241"
+  },
+  {
+   "id": "paper/nq-2019",
+   "label": "Natural Questions",
+   "kind": "benchmark",
+   "parent": "group/qa",
+   "year": 2019,
+   "venue": "TACL 2019",
+   "url": "https://aclanthology.org/Q19-1026/",
+   "description": "Real Google search queries paired with Wikipedia pages and annotated answers, the default open-domain QA benchmark. https://aclanthology.org/Q19-1026/"
+  },
+  {
+   "id": "paper/eli5-2019",
+   "label": "ELI5",
+   "kind": "benchmark",
+   "parent": "group/qa",
+   "year": 2019,
+   "venue": "ACL 2019",
+   "url": "https://arxiv.org/abs/1907.09190",
+   "description": "Long-form question answering dataset from Reddit's Explain Like I'm Five. https://arxiv.org/abs/1907.09190"
+  },
+  {
+   "id": "paper/kilt-2020",
+   "label": "KILT",
+   "kind": "benchmark",
+   "parent": "group/qa",
+   "year": 2020,
+   "venue": "NAACL 2021",
+   "url": "https://arxiv.org/abs/2009.02252",
+   "description": "Unified benchmark of knowledge-intensive tasks all grounded in one Wikipedia snapshot. https://arxiv.org/abs/2009.02252"
+  },
+  {
+   "id": "paper/beir-2021",
+   "label": "BEIR",
+   "kind": "benchmark",
+   "parent": "group/retr",
+   "year": 2021,
+   "venue": "NeurIPS 2021 Datasets and Benchmarks",
+   "url": "https://arxiv.org/abs/2104.08663",
+   "description": "Heterogeneous zero-shot benchmark of 18 retrieval datasets that exposed weak generalisation of dense retrievers. https://arxiv.org/abs/2104.08663"
+  },
+  {
+   "id": "paper/mteb-2022",
+   "label": "MTEB",
+   "kind": "benchmark",
+   "parent": "group/retr",
+   "year": 2022,
+   "venue": "EACL 2023",
+   "url": "https://arxiv.org/abs/2210.07316",
+   "description": "Massive benchmark of embedding tasks (including retrieval) across many datasets and languages. https://arxiv.org/abs/2210.07316"
+  },
+  {
+   "id": "institutions",
+   "label": "Labs and institutions",
+   "kind": "group"
+  },
+  {
+   "id": "inst/meta",
+   "label": "Meta AI (FAIR)",
+   "kind": "institution",
+   "parent": "institutions"
+  },
+  {
+   "id": "inst/google",
+   "label": "Google Research / Brain",
+   "kind": "institution",
+   "parent": "institutions"
+  },
+  {
+   "id": "inst/deepmind",
+   "label": "DeepMind",
+   "kind": "institution",
+   "parent": "institutions"
+  },
+  {
+   "id": "inst/openai",
+   "label": "OpenAI",
+   "kind": "institution",
+   "parent": "institutions"
+  },
+  {
+   "id": "inst/stanford",
+   "label": "Stanford University",
+   "kind": "institution",
+   "parent": "institutions"
+  },
+  {
+   "id": "inst/princeton",
+   "label": "Princeton University",
+   "kind": "institution",
+   "parent": "institutions"
+  },
+  {
+   "id": "inst/cmu",
+   "label": "Carnegie Mellon University",
+   "kind": "institution",
+   "parent": "institutions"
+  },
+  {
+   "id": "inst/uw",
+   "label": "University of Washington",
+   "kind": "institution",
+   "parent": "institutions"
+  },
+  {
+   "id": "author/alex-graves",
+   "label": "Alex Graves",
+   "kind": "author",
+   "parent": "inst/deepmind",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/alex-mallen",
+   "label": "Alex Mallen",
+   "kind": "author",
+   "parent": "inst/uw",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/alexander-miller",
+   "label": "Alexander Miller",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/angela-fan",
+   "label": "Angela Fan",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/ashish-vaswani",
+   "label": "Ashish Vaswani",
+   "kind": "author",
+   "parent": "inst/google",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/danqi-chen",
+   "label": "Danqi Chen",
+   "kind": "author",
+   "parent": "inst/princeton",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/emily-dinan",
+   "label": "Emily Dinan",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/fabio-petroni",
+   "label": "Fabio Petroni",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/gautier-izacard",
+   "label": "Gautier Izacard",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/jack-rae",
+   "label": "Jack Rae",
+   "kind": "author",
+   "parent": "inst/deepmind",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/jacob-devlin",
+   "label": "Jacob Devlin",
+   "kind": "author",
+   "parent": "inst/google",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/jacob-menick",
+   "label": "Jacob Menick",
+   "kind": "author",
+   "parent": "inst/deepmind",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/jason-wei",
+   "label": "Jason Wei",
+   "kind": "author",
+   "parent": "inst/google",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/jason-weston",
+   "label": "Jason Weston",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/kelvin-guu",
+   "label": "Kelvin Guu",
+   "kind": "author",
+   "parent": "inst/google",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/kenton-lee",
+   "label": "Kenton Lee",
+   "kind": "author",
+   "parent": "inst/google",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/kurt-shuster",
+   "label": "Kurt Shuster",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/ofir-press",
+   "label": "Ofir Press",
+   "kind": "author",
+   "parent": "inst/uw",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/omar-khattab",
+   "label": "Omar Khattab",
+   "kind": "author",
+   "parent": "inst/stanford",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/patrick-lewis",
+   "label": "Patrick Lewis",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/pranav-rajpurkar",
+   "label": "Pranav Rajpurkar",
+   "kind": "author",
+   "parent": "inst/stanford",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/reiichiro-nakano",
+   "label": "Reiichiro Nakano",
+   "kind": "author",
+   "parent": "inst/openai",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/sainbayar-sukhbaatar",
+   "label": "Sainbayar Sukhbaatar",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/sebastian-borgeaud",
+   "label": "Sebastian Borgeaud",
+   "kind": "author",
+   "parent": "inst/deepmind",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/shunyu-yao",
+   "label": "Shunyu Yao",
+   "kind": "author",
+   "parent": "inst/princeton",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/urvashi-khandelwal",
+   "label": "Urvashi Khandelwal",
+   "kind": "author",
+   "parent": "inst/stanford",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/vladimir-karpukhin",
+   "label": "Vladimir Karpukhin",
+   "kind": "author",
+   "parent": "inst/meta",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/yuhuai-wu",
+   "label": "Yuhuai Wu",
+   "kind": "author",
+   "parent": "inst/google",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/zhilin-yang",
+   "label": "Zhilin Yang",
+   "kind": "author",
+   "parent": "inst/cmu",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  },
+  {
+   "id": "author/zihang-dai",
+   "label": "Zihang Dai",
+   "kind": "author",
+   "parent": "inst/cmu",
+   "description": "First author of papers in this graph; affiliation as at the time of the listed paper."
+  }
+ ],
+ "edges": [
+  {
+   "source": "paper/memnn-2014",
+   "target": "author/jason-weston",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/ntm-2014",
+   "target": "author/alex-graves",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/e2emn-2015",
+   "target": "author/sainbayar-sukhbaatar",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/kvmn-2016",
+   "target": "author/alexander-miller",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/transformer-2017",
+   "target": "author/ashish-vaswani",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/bert-2018",
+   "target": "author/jacob-devlin",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/txl-2019",
+   "target": "author/zihang-dai",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/compressive-2019",
+   "target": "author/jack-rae",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/drqa-2017",
+   "target": "author/danqi-chen",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/orqa-2019",
+   "target": "author/kenton-lee",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/knnlm-2019",
+   "target": "author/urvashi-khandelwal",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/realm-2020",
+   "target": "author/kelvin-guu",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/dpr-2020",
+   "target": "author/vladimir-karpukhin",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/rag-2020",
+   "target": "author/patrick-lewis",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/fid-2020",
+   "target": "author/gautier-izacard",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/distill-2020",
+   "target": "author/gautier-izacard",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/colbert-2020",
+   "target": "author/omar-khattab",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/contriever-2021",
+   "target": "author/gautier-izacard",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/retro-2021",
+   "target": "author/sebastian-borgeaud",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/webgpt-2021",
+   "target": "author/reiichiro-nakano",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/gophercite-2022",
+   "target": "author/jacob-menick",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/atlas-2022",
+   "target": "author/gautier-izacard",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/memtrans-2022",
+   "target": "author/yuhuai-wu",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/shuster-halluc-2021",
+   "target": "author/kurt-shuster",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/seeker-2022",
+   "target": "author/kurt-shuster",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/cot-2022",
+   "target": "author/jason-wei",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/react-2022",
+   "target": "author/shunyu-yao",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/selfask-2022",
+   "target": "author/ofir-press",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/mallen-2022",
+   "target": "author/alex-mallen",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/squad-2016",
+   "target": "author/pranav-rajpurkar",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/hotpotqa-2018",
+   "target": "author/zhilin-yang",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/wow-2018",
+   "target": "author/emily-dinan",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/eli5-2019",
+   "target": "author/angela-fan",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/kilt-2020",
+   "target": "author/fabio-petroni",
+   "kind": "authored-by"
+  },
+  {
+   "source": "paper/e2emn-2015",
+   "target": "paper/memnn-2014",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/e2emn-2015",
+   "target": "paper/ntm-2014",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/kvmn-2016",
+   "target": "paper/e2emn-2015",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/txl-2019",
+   "target": "paper/transformer-2017",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/bert-2018",
+   "target": "paper/transformer-2017",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/compressive-2019",
+   "target": "paper/txl-2019",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/memtrans-2022",
+   "target": "paper/txl-2019",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/memtrans-2022",
+   "target": "paper/knnlm-2019",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/drqa-2017",
+   "target": "paper/squad-2016",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/orqa-2019",
+   "target": "paper/drqa-2017",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/orqa-2019",
+   "target": "paper/bert-2018",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/realm-2020",
+   "target": "paper/orqa-2019",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/dpr-2020",
+   "target": "paper/orqa-2019",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/dpr-2020",
+   "target": "paper/drqa-2017",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/rag-2020",
+   "target": "paper/dpr-2020",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/rag-2020",
+   "target": "paper/realm-2020",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/fid-2020",
+   "target": "paper/dpr-2020",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/distill-2020",
+   "target": "paper/fid-2020",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/rocketqa-2020",
+   "target": "paper/dpr-2020",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/colbertv2-2021",
+   "target": "paper/colbert-2020",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/contriever-2021",
+   "target": "paper/dpr-2020",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/hyde-2022",
+   "target": "paper/contriever-2021",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/retro-2021",
+   "target": "paper/knnlm-2019",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/retro-2021",
+   "target": "paper/realm-2020",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/retro-2021",
+   "target": "paper/rag-2020",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/atlas-2022",
+   "target": "paper/fid-2020",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/atlas-2022",
+   "target": "paper/realm-2020",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/atlas-2022",
+   "target": "paper/retro-2021",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/atlas-2022",
+   "target": "paper/contriever-2021",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/gophercite-2022",
+   "target": "paper/webgpt-2021",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/shuster-halluc-2021",
+   "target": "paper/rag-2020",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/komeili-2021",
+   "target": "paper/rag-2020",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/komeili-2021",
+   "target": "paper/wow-2018",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/seeker-2022",
+   "target": "paper/komeili-2021",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/seeker-2022",
+   "target": "paper/shuster-halluc-2021",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/react-2022",
+   "target": "paper/cot-2022",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/selfask-2022",
+   "target": "paper/cot-2022",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/ircot-2022",
+   "target": "paper/cot-2022",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/dsp-2022",
+   "target": "paper/colbertv2-2021",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/survey-li-2022",
+   "target": "paper/rag-2020",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/survey-li-2022",
+   "target": "paper/realm-2020",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/survey-li-2022",
+   "target": "paper/knnlm-2019",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/beir-2021",
+   "target": "paper/msmarco-2016",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/mteb-2022",
+   "target": "paper/beir-2021",
+   "kind": "extends"
+  },
+  {
+   "source": "paper/kilt-2020",
+   "target": "paper/nq-2019",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/kilt-2020",
+   "target": "paper/triviaqa-2017",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/kilt-2020",
+   "target": "paper/hotpotqa-2018",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/kilt-2020",
+   "target": "paper/eli5-2019",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/kilt-2020",
+   "target": "paper/wow-2018",
+   "kind": "cites"
+  },
+  {
+   "source": "paper/drqa-2017",
+   "target": "paper/squad-2016",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/orqa-2019",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/realm-2020",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/dpr-2020",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/dpr-2020",
+   "target": "paper/triviaqa-2017",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/rag-2020",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/rag-2020",
+   "target": "paper/triviaqa-2017",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/rag-2020",
+   "target": "paper/msmarco-2016",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/fid-2020",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/fid-2020",
+   "target": "paper/triviaqa-2017",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/distill-2020",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/distill-2020",
+   "target": "paper/triviaqa-2017",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/atlas-2022",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/atlas-2022",
+   "target": "paper/triviaqa-2017",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/atlas-2022",
+   "target": "paper/kilt-2020",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/retro-2021",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/rocketqa-2020",
+   "target": "paper/msmarco-2016",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/rocketqa-2020",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/colbert-2020",
+   "target": "paper/msmarco-2016",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/colbertv2-2021",
+   "target": "paper/beir-2021",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/colbertv2-2021",
+   "target": "paper/msmarco-2016",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/contriever-2021",
+   "target": "paper/beir-2021",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/splade-2021",
+   "target": "paper/msmarco-2016",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/splade-2021",
+   "target": "paper/beir-2021",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/hyde-2022",
+   "target": "paper/beir-2021",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/shuster-halluc-2021",
+   "target": "paper/wow-2018",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/seeker-2022",
+   "target": "paper/wow-2018",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/gophercite-2022",
+   "target": "paper/nq-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/gophercite-2022",
+   "target": "paper/eli5-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/webgpt-2021",
+   "target": "paper/eli5-2019",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/webgpt-2021",
+   "target": "paper/triviaqa-2017",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/react-2022",
+   "target": "paper/hotpotqa-2018",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/ircot-2022",
+   "target": "paper/hotpotqa-2018",
+   "kind": "evaluates-on"
+  },
+  {
+   "source": "paper/dsp-2022",
+   "target": "paper/hotpotqa-2018",
+   "kind": "evaluates-on"
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "demo": {
+  "order": 7,
+  "description": {
+   "en": "Graphify’s graph.json of the Flask repo, opened as is",
+   "zh": "Graphify 给 Flask 仓库生成的 graph.json，直接打开"
+  },
+  "source": {
+   "en": "Real output of [Graphify](https://github.com/Graphify-Labs/graphify) on [Flask](https://github.com/pallets/flask), opened as is.",
+   "zh": "[Graphify](https://github.com/Graphify-Labs/graphify) 在 [Flask](https://github.com/pallets/flask) 上的真实输出，原样打开。"
+  },
+  "convert": true
+ }
+}

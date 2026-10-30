@@ -1,0 +1,5 @@
+{"type":"entity","name":"Ada","entityType":"person","observations":["Leads Alpha","Prefers short reviews"]}
+{"type":"entity","name":"Alpha","entityType":"project","observations":["Ships in Q4"]}
+{"type":"entity","name":"glassbrain","entityType":"tool","observations":[]}
+{"type":"relation","from":"Ada","to":"Alpha","relationType":"leads"}
+{"type":"relation","from":"Alpha","to":"glassbrain","relationType":"uses"}

@@ -1,0 +1,475 @@
+{
+ "nodes": [
+  {
+   "id": "foundations",
+   "label": "1. Foundations: tokens to prediction",
+   "kind": "chapter"
+  },
+  {
+   "id": "context",
+   "label": "2. The context window",
+   "kind": "chapter"
+  },
+  {
+   "id": "agent-loop",
+   "label": "3. From model to agent loop",
+   "kind": "chapter"
+  },
+  {
+   "id": "tools",
+   "label": "4. Tool use",
+   "kind": "chapter"
+  },
+  {
+   "id": "memory",
+   "label": "5. Memory",
+   "kind": "chapter"
+  },
+  {
+   "id": "planning",
+   "label": "6. Planning",
+   "kind": "chapter"
+  },
+  {
+   "id": "tokens-are-units",
+   "label": "Text is split into tokens",
+   "kind": "concept",
+   "parent": "foundations",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "embeddings-vectors",
+   "label": "Tokens become embedding vectors",
+   "kind": "concept",
+   "parent": "foundations",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "next-token-prediction",
+   "label": "Model predicts next-token distribution",
+   "kind": "mechanism",
+   "parent": "foundations",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "sampling-temperature",
+   "label": "Sampling and temperature pick tokens",
+   "kind": "mechanism",
+   "parent": "foundations",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "autoregressive-loop",
+   "label": "Output tokens fed back as input",
+   "kind": "mechanism",
+   "parent": "foundations",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "attention-mixes-context",
+   "label": "Attention lets tokens read earlier tokens",
+   "kind": "mechanism",
+   "parent": "foundations",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "weights-frozen",
+   "label": "Weights are fixed at inference time",
+   "kind": "non-obvious",
+   "parent": "foundations",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "pretraining-then-tuning",
+   "label": "Pretraining, then instruction and RLHF tuning",
+   "kind": "concept",
+   "parent": "foundations",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "no-built-in-state",
+   "label": "Model has no memory between calls",
+   "kind": "non-obvious",
+   "parent": "foundations",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "context-window-limit",
+   "label": "Context window is a hard token budget",
+   "kind": "concept",
+   "parent": "context",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "prompt-is-everything",
+   "label": "Prompt is the model's only input",
+   "kind": "concept",
+   "parent": "context",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "in-context-learning",
+   "label": "Examples in prompt shape behavior",
+   "kind": "mechanism",
+   "parent": "context",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "chat-history-resent",
+   "label": "Whole conversation is resent every turn",
+   "kind": "non-obvious",
+   "parent": "context",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "lost-in-middle",
+   "label": "Attention to long context is uneven",
+   "kind": "non-obvious",
+   "parent": "context",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "kv-cache-cost",
+   "label": "KV cache makes long context costly",
+   "kind": "mechanism",
+   "parent": "context",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "agent-loop-definition",
+   "label": "Agent is a model in a loop",
+   "kind": "concept",
+   "parent": "agent-loop",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "observe-think-act",
+   "label": "Loop of observe, reason, act",
+   "kind": "mechanism",
+   "parent": "agent-loop",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "stop-condition",
+   "label": "Loop ends on stop signal or limit",
+   "kind": "mechanism",
+   "parent": "agent-loop",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "errors-compound",
+   "label": "Per-step errors compound over long runs",
+   "kind": "non-obvious",
+   "parent": "agent-loop",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "tool-call-structured-output",
+   "label": "Tool call is structured text output",
+   "kind": "mechanism",
+   "parent": "tools",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "harness-executes-tools",
+   "label": "Harness runs tools, not the model",
+   "kind": "non-obvious",
+   "parent": "tools",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "tool-result-reenters-context",
+   "label": "Tool results are appended to context",
+   "kind": "mechanism",
+   "parent": "tools",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "tool-descriptions-are-prompts",
+   "label": "Tool schemas steer model choices",
+   "kind": "non-obvious",
+   "parent": "tools",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "memory-is-external",
+   "label": "Memory lives outside the weights",
+   "kind": "non-obvious",
+   "parent": "memory",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "retrieval-augmentation",
+   "label": "Retrieval injects relevant facts into context",
+   "kind": "mechanism",
+   "parent": "memory",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "summarization-compaction",
+   "label": "Summarizing old context frees window space",
+   "kind": "mechanism",
+   "parent": "memory",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "reasoning-tokens-as-compute",
+   "label": "Written reasoning gives extra computation",
+   "kind": "non-obvious",
+   "parent": "planning",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "plan-then-execute",
+   "label": "Decompose goals into steps and revise",
+   "kind": "mechanism",
+   "parent": "planning",
+   "angle": "material",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "tokens-not-words",
+   "label": "Tokens are just words",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "training-vs-inference",
+   "label": "The model learns from my chat as we talk",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "lookup-database",
+   "label": "The model stores facts like a database",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "next-token-only",
+   "label": "It just predicts the next word, so it cannot do more",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "temperature-randomness",
+   "label": "Same prompt always gives the same answer",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "stateless-model",
+   "label": "The model remembers earlier turns by itself",
+   "kind": "misconception",
+   "parent": "context",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "window-is-everything",
+   "label": "The context is just the chat I can see",
+   "kind": "misconception",
+   "parent": "context",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "window-size-equals-quality",
+   "label": "A bigger window means it uses everything well",
+   "kind": "misconception",
+   "parent": "context",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "loop-is-model",
+   "label": "An agent is just a smarter model",
+   "kind": "misconception",
+   "parent": "agent-loop",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "harness-vs-model",
+   "label": "Model and surrounding code are one thing",
+   "kind": "misconception",
+   "parent": "agent-loop",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "when-loop-stops",
+   "label": "The model knows when it is finished",
+   "kind": "misconception",
+   "parent": "agent-loop",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "model-runs-tools",
+   "label": "The model executes tools itself",
+   "kind": "misconception",
+   "parent": "tools",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "tool-call-as-text",
+   "label": "A tool call is a special action, not text",
+   "kind": "misconception",
+   "parent": "tools",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "memory-is-storage",
+   "label": "Agent memory is a separate brain",
+   "kind": "misconception",
+   "parent": "memory",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "memory-as-retrieval",
+   "label": "Long-term memory means automatic recall",
+   "kind": "misconception",
+   "parent": "memory",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "planning-is-reasoning-inside",
+   "label": "Planning is a special built-in ability",
+   "kind": "misconception",
+   "parent": "planning",
+   "angle": "audience",
+   "flags": [
+    "stub"
+   ]
+  }
+ ],
+ "edges": []
+}

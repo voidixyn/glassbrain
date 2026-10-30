@@ -1,0 +1,2336 @@
+{
+ "name": "AI agent ecosystem · researched 2026-10-26",
+ "nodes": [
+  {
+   "id": "layer/protocols",
+   "label": "Protocols & standards",
+   "kind": "layer",
+   "layer": "protocols",
+   "description": "The wire formats, file conventions and API shapes that agents, tools, editors and merchants use to talk to each other. Most of the open ones now sit under the Linux Foundation.\n\nSources: [aaif.io](https://aaif.io)"
+  },
+  {
+   "id": "layer/blocks",
+   "label": "Building blocks",
+   "kind": "layer",
+   "layer": "blocks",
+   "description": "Frameworks, memory systems, tool runtimes, hosted agent platforms, evaluation and observability: the parts products are assembled from.\n\nSources: [modelcontextprotocol.io](https://modelcontextprotocol.io)"
+  },
+  {
+   "id": "layer/products",
+   "label": "Products",
+   "kind": "layer",
+   "layer": "products",
+   "description": "End-user and developer products built on those blocks: coding agents, general assistants and browser agents.\n\nSources: [agentskills.io](https://agentskills.io)"
+  },
+  {
+   "id": "cat/tool-context",
+   "label": "Agent-to-tool & context",
+   "kind": "category",
+   "layer": "protocols",
+   "parent": "layer/protocols",
+   "description": "Category: agent-to-tool & context."
+  },
+  {
+   "id": "cat/agent-agent",
+   "label": "Agent-to-agent",
+   "kind": "category",
+   "layer": "protocols",
+   "parent": "layer/protocols",
+   "description": "Category: agent-to-agent."
+  },
+  {
+   "id": "cat/agent-user",
+   "label": "Agent-to-user & editor",
+   "kind": "category",
+   "layer": "protocols",
+   "parent": "layer/protocols",
+   "description": "Category: agent-to-user & editor."
+  },
+  {
+   "id": "cat/commerce",
+   "label": "Commerce & payments",
+   "kind": "category",
+   "layer": "protocols",
+   "parent": "layer/protocols",
+   "description": "Category: commerce & payments."
+  },
+  {
+   "id": "cat/identity",
+   "label": "Identity & security",
+   "kind": "category",
+   "layer": "protocols",
+   "parent": "layer/protocols",
+   "description": "Category: identity & security."
+  },
+  {
+   "id": "cat/formats",
+   "label": "Instruction & knowledge formats",
+   "kind": "category",
+   "layer": "protocols",
+   "parent": "layer/protocols",
+   "description": "Category: instruction & knowledge formats."
+  },
+  {
+   "id": "cat/model-api",
+   "label": "Model API shapes",
+   "kind": "category",
+   "layer": "protocols",
+   "parent": "layer/protocols",
+   "description": "Category: model api shapes."
+  },
+  {
+   "id": "cat/telemetry",
+   "label": "Telemetry",
+   "kind": "category",
+   "layer": "protocols",
+   "parent": "layer/protocols",
+   "description": "Category: telemetry."
+  },
+  {
+   "id": "cat/governance",
+   "label": "Governance bodies",
+   "kind": "category",
+   "layer": "protocols",
+   "parent": "layer/protocols",
+   "description": "Category: governance bodies."
+  },
+  {
+   "id": "cat/frameworks",
+   "label": "Agent frameworks & SDKs",
+   "kind": "category",
+   "layer": "blocks",
+   "parent": "layer/blocks",
+   "description": "Category: agent frameworks & sdks."
+  },
+  {
+   "id": "cat/memory",
+   "label": "Memory",
+   "kind": "category",
+   "layer": "blocks",
+   "parent": "layer/blocks",
+   "description": "Category: memory."
+  },
+  {
+   "id": "cat/runtimes",
+   "label": "Tool runtimes & sandboxes",
+   "kind": "category",
+   "layer": "blocks",
+   "parent": "layer/blocks",
+   "description": "Category: tool runtimes & sandboxes."
+  },
+  {
+   "id": "cat/platforms",
+   "label": "Hosted agent platforms",
+   "kind": "category",
+   "layer": "blocks",
+   "parent": "layer/blocks",
+   "description": "Category: hosted agent platforms."
+  },
+  {
+   "id": "cat/eval",
+   "label": "Evaluation & benchmarks",
+   "kind": "category",
+   "layer": "blocks",
+   "parent": "layer/blocks",
+   "description": "Category: evaluation & benchmarks."
+  },
+  {
+   "id": "cat/observability",
+   "label": "Observability",
+   "kind": "category",
+   "layer": "blocks",
+   "parent": "layer/blocks",
+   "description": "Category: observability."
+  },
+  {
+   "id": "cat/coding",
+   "label": "Coding agents",
+   "kind": "category",
+   "layer": "products",
+   "parent": "layer/products",
+   "description": "Category: coding agents."
+  },
+  {
+   "id": "cat/assistants",
+   "label": "Assistants & general agents",
+   "kind": "category",
+   "layer": "products",
+   "parent": "layer/products",
+   "description": "Category: assistants & general agents."
+  },
+  {
+   "id": "cat/browser",
+   "label": "Browser agents",
+   "kind": "category",
+   "layer": "products",
+   "parent": "layer/products",
+   "description": "Category: browser agents."
+  },
+  {
+   "id": "cat/enterprise",
+   "label": "Enterprise agent suites",
+   "kind": "category",
+   "layer": "products",
+   "parent": "layer/products",
+   "description": "Category: enterprise agent suites."
+  },
+  {
+   "id": "protocol/mcp",
+   "label": "Model Context Protocol (MCP)",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/tool-context",
+   "description": "Open JSON-RPC protocol that lets an agent host discover and call tools, read resources and use prompts exposed by servers. The current revision is 2026-07-28, which moved to per-request version negotiation with a mandatory server/discover call instead of the older initialize handshake; it is hosted by the Agentic AI Foundation.\n\nSources: [modelcontextprotocol.io](https://modelcontextprotocol.io/specification/versioning) · [infoq.com](https://www.infoq.com/news/2025/12/agentic-ai-foundation/)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "protocol/mcp-registry",
+   "label": "MCP Registry",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/tool-context",
+   "description": "Official community registry of published MCP servers, with a metadata format that clients and sub-registries can mirror. It gives clients one place to discover servers instead of per-vendor directories.\n\nSources: [github.com](https://github.com/modelcontextprotocol/registry)"
+  },
+  {
+   "id": "protocol/mcp-auth",
+   "label": "MCP authorization (OAuth-based)",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/identity",
+   "description": "The part of the MCP spec that has remote servers act as OAuth resource servers, with protected-resource metadata and client registration so hosts can obtain scoped tokens. It reuses OAuth 2.x and OpenID Connect discovery rather than inventing a new scheme.\n\nSources: [modelcontextprotocol.io](https://modelcontextprotocol.io/specification/versioning)"
+  },
+  {
+   "id": "protocol/a2a",
+   "label": "Agent2Agent (A2A)",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/agent-agent",
+   "description": "Protocol for agents built on different stacks to discover each other through Agent Cards, delegate tasks and stream results without exposing internal state. It reached v1.0 in 2026 with signed Agent Cards, multi-tenancy and JSON-RPC, gRPC and HTTP+JSON bindings, and is moving into the Agentic AI Foundation.\n\nSources: [a2a-protocol.org](https://a2a-protocol.org/latest/) · [linuxfoundation.org](https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "protocol/ibm-acp",
+   "label": "Agent Communication Protocol (IBM/BeeAI)",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/agent-agent",
+   "description": "REST-style agent messaging protocol from IBM's BeeAI that merged into A2A under the Linux Foundation in 2025. Kept as a node because the name is easy to confuse with the two other ACPs.\n\nSources: [lfaidata.foundation](https://lfaidata.foundation/communityblog/2025/08/29/acp-joins-forces-with-a2a-under-the-linux-foundations-lf-ai-data/)"
+  },
+  {
+   "id": "protocol/acp-editor",
+   "label": "Agent Client Protocol (ACP)",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/agent-user",
+   "description": "JSON-RPC over stdio protocol, started by Zed in August 2025, that lets any editor host any coding agent. JetBrains joined in October 2025 and the two launched an ACP Registry in January 2026; Codex, Cursor and Kiro are among the agents reachable through it.\n\nSources: [zed.dev](https://zed.dev/acp) · [morphllm.com](https://www.morphllm.com/agent-client-protocol) · [kiro.dev](https://kiro.dev)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "protocol/ag-ui",
+   "label": "AG-UI",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/agent-user",
+   "description": "Event-based protocol between an agent backend and a user-facing app (web, mobile, chat), born from CopilotKit's work with LangChain and CrewAI. It streams messages, tool calls and state so a UI can render any compliant agent runtime.\n\nSources: [docs.ag-ui.com](https://docs.ag-ui.com)"
+  },
+  {
+   "id": "protocol/ap2",
+   "label": "Agent Payments Protocol (AP2)",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/commerce",
+   "description": "Google-launched protocol (September 2025) built on signed mandates, covering intent, cart and payment, so an agent can pay within limits the user authorized. It is payment-method agnostic and has an A2A extension; sources conflict on whether governance sits with the FIDO Alliance or the Linux Foundation.\n\nSources: [spark.money](https://www.spark.money/research/google-ap2-agent-payment-protocol) · [paz.ai](https://www.paz.ai/glossary/agent-payments-protocol-ap2)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "protocol/acp-commerce",
+   "label": "Agentic Commerce Protocol (ACP)",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/commerce",
+   "description": "Open standard co-developed by Stripe and OpenAI for agent-driven checkout; it backs Instant Checkout in ChatGPT and uses scoped Shared Payment Tokens so the agent never sees card data. One secondary source reports a change of direction in March 2026 that I could not confirm.\n\nSources: [stripe.com](https://stripe.com/newsroom/news/stripe-openai-instant-checkout) · [eco.com](https://eco.com/support/en/articles/14839407-agent-payment-protocols-compared)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "protocol/ucp",
+   "label": "Universal Commerce Protocol (UCP)",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/commerce",
+   "description": "Google's commerce protocol announced in January 2026, covering the whole shopping journey from discovery and checkout to post-purchase support. It is designed to work alongside A2A, AP2 and MCP and surfaces in Google's AI properties.\n\nSources: [softwareseni.com](https://www.softwareseni.com/beyond-mcp-universal-commerce-protocol-agent-payments-and-the-vertical-protocol-stack-for-ai-agents)"
+  },
+  {
+   "id": "protocol/x402",
+   "label": "x402",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/commerce",
+   "description": "HTTP 402-based payment protocol, driven by Coinbase, that lets an agent pay for an API call with stablecoins in the request itself. AP2 lists it as one of its settlement extensions.\n\nSources: [x402.org](https://www.x402.org)"
+  },
+  {
+   "id": "protocol/web-bot-auth",
+   "label": "Web Bot Auth",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/identity",
+   "description": "IETF work on signing HTTP requests from automated agents so sites can verify who is calling, pushed by Cloudflare and used for browser and shopping agents. It addresses the identity gap that browser agents expose.\n\nSources: [datatracker.ietf.org](https://datatracker.ietf.org/wg/webbotauth/about/)"
+  },
+  {
+   "id": "protocol/agents-md",
+   "label": "AGENTS.md",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/formats",
+   "description": "Plain Markdown file at a repo root that gives any coding agent project instructions (build, test, conventions). Contributed by OpenAI as a founding project of the Agentic AI Foundation, and read by Codex, Cursor, Amp, Factory, Kiro and many others.\n\nSources: [agents.md](https://agents.md) · [openai.com](https://openai.com/blog/agentic-ai-foundation)"
+  },
+  {
+   "id": "protocol/agent-skills",
+   "label": "Agent Skills (SKILL.md)",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/formats",
+   "description": "Open format: a folder with a SKILL.md (name, description, instructions) plus optional scripts and references, loaded by progressive disclosure. Created by Anthropic, published as an open standard, and now supported by a large number of agent products.\n\nSources: [agentskills.io](https://agentskills.io)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "protocol/llms-txt",
+   "label": "llms.txt",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/formats",
+   "description": "Convention for a Markdown index at a site's root that points models and agents at the most useful docs. MCP, agentskills.io and many doc sites now publish one.\n\nSources: [llmstxt.org](https://llmstxt.org) · [modelcontextprotocol.io](https://modelcontextprotocol.io/llms.txt)"
+  },
+  {
+   "id": "protocol/tool-calling",
+   "label": "Function / tool calling",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/model-api",
+   "description": "The JSON-schema tool-call pattern that model APIs expose: the model emits a structured call, the host runs it and returns the result. MCP standardizes the layer above it, which servers define the tools.\n\nSources: [platform.openai.com](https://platform.openai.com/docs/guides/function-calling)"
+  },
+  {
+   "id": "protocol/responses-api",
+   "label": "OpenAI Responses API",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/model-api",
+   "description": "OpenAI's agent-oriented API with built-in tools, state and conversations, replacing Chat Completions for new work and the Assistants API. The OpenAI Agents SDK is built on it.\n\nSources: [platform.openai.com](https://platform.openai.com/docs/guides/migrate-to-responses)"
+  },
+  {
+   "id": "protocol/chat-completions",
+   "label": "Chat Completions API",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/model-api",
+   "description": "The de facto messages-in, message-out API shape that most other providers and local servers imitate for compatibility.\n\nSources: [platform.openai.com](https://platform.openai.com/docs/api-reference/chat)"
+  },
+  {
+   "id": "protocol/assistants-api",
+   "label": "OpenAI Assistants API",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/model-api",
+   "description": "OpenAI's earlier stateful agent API (threads, runs, file search). It was deprecated in favor of the Responses API and had a planned shutdown on August 26, 2026, so it should now be treated as gone.\n\nSources: [help.zoho.com](https://help.zoho.com/portal/ja/community/topic/deprecation-notice-openai-assistants-api-will-be-shut-down-on-august-26-2026?page=24)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "protocol/anthropic-messages",
+   "label": "Anthropic Messages API",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/model-api",
+   "description": "Anthropic's API for Claude with tool use, extended thinking and prompt caching; the Claude Agent SDK and Claude Code call it.\n\nSources: [docs.anthropic.com](https://docs.anthropic.com/en/api/messages)"
+  },
+  {
+   "id": "protocol/otel-genai",
+   "label": "OpenTelemetry GenAI conventions",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/telemetry",
+   "description": "Semantic conventions for tracing model calls, agent spans and MCP calls in OpenTelemetry, now maintained in a dedicated GenAI conventions repository. Observability tools use them so traces from different frameworks look alike.\n\nSources: [opentelemetry.io](https://opentelemetry.io/docs/specs/semconv/gen-ai/)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "protocol/linux-foundation",
+   "label": "Linux Foundation",
+   "kind": "org",
+   "layer": "protocols",
+   "parent": "cat/governance",
+   "description": "Neutral home for several agent standards. It hosts the Agentic AI Foundation and, separately, the A2A project.\n\nSources: [linuxfoundation.org](https://www.linuxfoundation.org)"
+  },
+  {
+   "id": "protocol/aaif",
+   "label": "Agentic AI Foundation (AAIF)",
+   "kind": "org",
+   "layer": "protocols",
+   "parent": "cat/governance",
+   "description": "Linux Foundation directed fund announced on 9 December 2025 with MCP, goose and AGENTS.md as founding projects; A2A has since announced it is joining. It also runs working groups on commerce, identity, observability and security.\n\nSources: [aaif.io](https://aaif.io) · [infoq.com](https://www.infoq.com/news/2025/12/agentic-ai-foundation/) · [a2a-protocol.org](https://a2a-protocol.org/latest/)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "block/langgraph",
+   "label": "LangGraph",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Graph-based runtime for stateful, long-running agents with checkpointing and human-in-the-loop; v1.0 shipped in October 2025. LangChain 1.0 agents run on it.\n\nSources: [langchain.com](https://www.langchain.com/langgraph) · [clickittech.com](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)"
+  },
+  {
+   "id": "block/langchain",
+   "label": "LangChain",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Widely used toolkit of model, tool and retriever integrations; version 1.0 provides a high-level agent abstraction built on the LangGraph runtime.\n\nSources: [langchain.com](https://www.langchain.com) · [clickittech.com](https://www.clickittech.com/ai/langchain-1-0-vs-langgraph-1-0/)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "block/crewai",
+   "label": "CrewAI",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Role-based multi-agent framework (crews and flows) written in Python and independent of LangChain.\n\nSources: [crewai.com](https://www.crewai.com)"
+  },
+  {
+   "id": "block/llamaindex",
+   "label": "LlamaIndex",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Data and retrieval framework with an agent workflows layer, strongest for document-heavy agents.\n\nSources: [llamaindex.ai](https://www.llamaindex.ai)"
+  },
+  {
+   "id": "block/openai-agents-sdk",
+   "label": "OpenAI Agents SDK",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "OpenAI's lightweight SDK (agents, handoffs, guardrails, tracing) on top of the Responses API. In April 2026 it added native sandbox execution with providers such as E2B, Modal, Daytona, Cloudflare and Vercel.\n\nSources: [openai.github.io](https://openai.github.io/openai-agents-python/) · [modal.com](https://modal.com/resources/best-sandbox-openai-agents-sdk)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "block/claude-agent-sdk",
+   "label": "Claude Agent SDK",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Anthropic's SDK (Python, TypeScript) exposing the Claude Code agent loop, tools, hooks, subagents and MCP for custom agents. It was formerly called the Claude Code SDK.\n\nSources: [docs.claude.com](https://docs.claude.com/en/api/agent-sdk/overview)"
+  },
+  {
+   "id": "block/google-adk",
+   "label": "Google Agent Development Kit (ADK)",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Google's open-source agent framework, launched April 2025, with Python, Java, Go and TypeScript SDKs; it speaks A2A and MCP and deploys to Vertex AI Agent Engine.\n\nSources: [google.github.io](https://google.github.io/adk-docs/) · [ai-souken.com](https://www.ai-souken.com/article/ai-agent-framework-comparison)"
+  },
+  {
+   "id": "block/ms-agent-framework",
+   "label": "Microsoft Agent Framework",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Microsoft's unified successor to Semantic Kernel and AutoGen, in preview since October 2025 and reported GA (1.0, MIT licence) on 3 April 2026. It separates agents from graph-based workflows and supports MCP and A2A.\n\nSources: [devblogs.microsoft.com](https://devblogs.microsoft.com/agent-framework/) · [atlan.com](https://atlan.com/know/ai-agent/microsoft/semantic-kernel/)"
+  },
+  {
+   "id": "block/autogen",
+   "label": "AutoGen",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Microsoft Research's multi-agent conversation framework; its ideas were folded into Microsoft Agent Framework and it is now in maintenance mode, while the AG2 fork continues separately.\n\nSources: [github.com](https://github.com/microsoft/autogen) · [atlan.com](https://atlan.com/know/ai-agent/microsoft/semantic-kernel/)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "block/semantic-kernel",
+   "label": "Semantic Kernel",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Microsoft's .NET/Python/Java SDK for plugins and agents; now in maintenance mode with support promised into 2027, with new work going to Microsoft Agent Framework.\n\nSources: [github.com](https://github.com/microsoft/semantic-kernel) · [atlan.com](https://atlan.com/know/ai-agent/microsoft/semantic-kernel/)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "block/strands",
+   "label": "Strands Agents",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "AWS's open-source model-driven agent SDK, the framework behind many Bedrock AgentCore examples.\n\nSources: [strandsagents.com](https://strandsagents.com)"
+  },
+  {
+   "id": "block/mastra",
+   "label": "Mastra",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "TypeScript-first agent and workflow framework with memory, evals and MCP support.\n\nSources: [mastra.ai](https://mastra.ai)"
+  },
+  {
+   "id": "block/pydantic-ai",
+   "label": "Pydantic AI",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Type-safe Python agent framework from the Pydantic team, with MCP and A2A support.\n\nSources: [ai.pydantic.dev](https://ai.pydantic.dev)"
+  },
+  {
+   "id": "block/smolagents",
+   "label": "smolagents",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Hugging Face's minimal library where agents write actions as code.\n\nSources: [github.com](https://github.com/huggingface/smolagents)"
+  },
+  {
+   "id": "block/vercel-ai-sdk",
+   "label": "Vercel AI SDK",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "TypeScript toolkit for streaming UI, tools and agent loops across model providers.\n\nSources: [ai-sdk.dev](https://ai-sdk.dev)"
+  },
+  {
+   "id": "block/haystack",
+   "label": "Haystack",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "deepset's pipeline framework for retrieval and agent applications.\n\nSources: [haystack.deepset.ai](https://haystack.deepset.ai)"
+  },
+  {
+   "id": "block/openhands-sdk",
+   "label": "OpenHands",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Open-source software-agent platform and SDK (formerly OpenDevin) usable both as a product and as a library for building coding agents.\n\nSources: [github.com](https://github.com/All-Hands-AI/OpenHands)"
+  },
+  {
+   "id": "block/mem0",
+   "label": "Mem0",
+   "kind": "memory",
+   "layer": "blocks",
+   "parent": "cat/memory",
+   "description": "Memory layer with Python and Node SDKs, an MCP integration and OpenMemory; its site currently emphasizes benchmarks on LoCoMo, LongMemEval and BEAM.\n\nSources: [mem0.ai](https://mem0.ai)"
+  },
+  {
+   "id": "block/letta",
+   "label": "Letta",
+   "kind": "memory",
+   "layer": "blocks",
+   "parent": "cat/memory",
+   "description": "Stateful-agent platform that grew out of the MemGPT research project at UC Berkeley, with self-editing memory blocks.\n\nSources: [letta.com](https://www.letta.com)"
+  },
+  {
+   "id": "block/zep",
+   "label": "Zep",
+   "kind": "memory",
+   "layer": "blocks",
+   "parent": "cat/memory",
+   "description": "Context and memory service built on a temporal knowledge graph; its open-source engine is Graphiti.\n\nSources: [getzep.com](https://www.getzep.com)"
+  },
+  {
+   "id": "block/graphiti",
+   "label": "Graphiti",
+   "kind": "memory",
+   "layer": "blocks",
+   "parent": "cat/memory",
+   "description": "Open-source temporal knowledge-graph library for agent memory, maintained by Zep.\n\nSources: [github.com](https://github.com/getzep/graphiti)"
+  },
+  {
+   "id": "block/cognee",
+   "label": "Cognee",
+   "kind": "memory",
+   "layer": "blocks",
+   "parent": "cat/memory",
+   "description": "Open-source memory engine that builds graph and vector memory from documents and interactions.\n\nSources: [cognee.ai](https://www.cognee.ai)"
+  },
+  {
+   "id": "block/langmem",
+   "label": "LangMem",
+   "kind": "memory",
+   "layer": "blocks",
+   "parent": "cat/memory",
+   "description": "LangChain's memory SDK for LangGraph agents (extraction and prompt refinement).\n\nSources: [langchain-ai.github.io](https://langchain-ai.github.io/langmem/)"
+  },
+  {
+   "id": "block/claude-memory",
+   "label": "Claude memory tool & CLAUDE.md",
+   "kind": "memory",
+   "layer": "blocks",
+   "parent": "cat/memory",
+   "description": "File-based memory for Claude: a memory tool in the API plus CLAUDE.md project and user instructions that Claude Code loads every session.\n\nSources: [docs.claude.com](https://docs.claude.com/en/docs/agents-and-tools/tool-use/memory-tool)"
+  },
+  {
+   "id": "block/e2b",
+   "label": "E2B",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Firecracker-microVM sandboxes for running agent-generated code; one of the providers the OpenAI Agents SDK supports natively.\n\nSources: [e2b.dev](https://e2b.dev) · [fly.io](https://fly.io/learn/agent-sandbox-providers/)"
+  },
+  {
+   "id": "block/daytona",
+   "label": "Daytona",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Fast-starting sandbox infrastructure for agents; supported by the OpenAI Agents SDK.\n\nSources: [daytona.io](https://www.daytona.io) · [fly.io](https://fly.io/learn/agent-sandbox-providers/)"
+  },
+  {
+   "id": "block/modal",
+   "label": "Modal",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Serverless compute with sandboxes and GPUs, popular for Python-heavy agent workloads.\n\nSources: [modal.com](https://modal.com)"
+  },
+  {
+   "id": "block/cloudflare-sandbox",
+   "label": "Cloudflare Sandboxes & Agents",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "TypeScript-first sandboxes and the Agents SDK on Workers, with remote MCP server hosting.\n\nSources: [developers.cloudflare.com](https://developers.cloudflare.com/sandbox/)"
+  },
+  {
+   "id": "block/vercel-sandbox",
+   "label": "Vercel Sandbox",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Ephemeral microVMs for running untrusted agent code from Vercel apps.\n\nSources: [vercel.com](https://vercel.com/docs/vercel-sandbox)"
+  },
+  {
+   "id": "block/composio",
+   "label": "Composio",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Managed tool and integration layer that exposes hundreds of SaaS apps to agents with auth handled for you, via SDK or MCP.\n\nSources: [composio.dev](https://composio.dev)"
+  },
+  {
+   "id": "block/browserbase",
+   "label": "Browserbase",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Hosted headless browsers for agents, the backend behind Stagehand.\n\nSources: [browserbase.com](https://www.browserbase.com)"
+  },
+  {
+   "id": "block/stagehand",
+   "label": "Stagehand",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Browserbase's open-source SDK that mixes Playwright code with natural-language browser actions.\n\nSources: [github.com](https://github.com/browserbase/stagehand)"
+  },
+  {
+   "id": "block/browser-use",
+   "label": "Browser Use",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Open-source Python library that lets an LLM drive a browser; widely used to build custom web agents.\n\nSources: [browser-use.com](https://browser-use.com)"
+  },
+  {
+   "id": "block/playwright-mcp",
+   "label": "Playwright MCP",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Microsoft's MCP server that gives agents browser control through accessibility snapshots.\n\nSources: [github.com](https://github.com/microsoft/playwright-mcp)"
+  },
+  {
+   "id": "block/agentgateway",
+   "label": "agentgateway",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Proxy for routing, policy and observability of agent traffic across MCP and A2A, listed among Linux Foundation agent projects.\n\nSources: [agentic-ai.readthedocs.io](https://agentic-ai.readthedocs.io/en/latest/Standards/agentic-ai-foundation/)"
+  },
+  {
+   "id": "block/goose",
+   "label": "goose",
+   "kind": "framework",
+   "layer": "blocks",
+   "parent": "cat/frameworks",
+   "description": "Block's open-source local agent and an AAIF founding project; extensible through MCP servers.\n\nSources: [github.com](https://github.com/block/goose) · [infoq.com](https://www.infoq.com/news/2025/12/agentic-ai-foundation/)"
+  },
+  {
+   "id": "block/claude-managed-agents",
+   "label": "Claude Managed Agents",
+   "kind": "platform",
+   "layer": "blocks",
+   "parent": "cat/platforms",
+   "description": "Anthropic's hosted agent runtime in public beta since April 2026: sandboxed environments, credential vaulting and tracing, billed on tokens plus runtime. Details come from secondary coverage.\n\nSources: [pasqualepillitteri.it](https://pasqualepillitteri.it/en/news/755/anthropic-managed-agents-cowork-ga-april-9-2026)"
+  },
+  {
+   "id": "block/openai-agentkit",
+   "label": "OpenAI AgentKit",
+   "kind": "platform",
+   "layer": "blocks",
+   "parent": "cat/platforms",
+   "description": "OpenAI's visual agent builder, ChatKit and evals bundle announced in October 2025, running on the Responses API.\n\nSources: [openai.com](https://openai.com/index/introducing-agentkit/)"
+  },
+  {
+   "id": "block/bedrock-agentcore",
+   "label": "Amazon Bedrock AgentCore",
+   "kind": "platform",
+   "layer": "blocks",
+   "parent": "cat/platforms",
+   "description": "AWS managed runtime, memory, gateway and identity services for deploying agents from any framework.\n\nSources: [aws.amazon.com](https://aws.amazon.com/bedrock/agentcore/)"
+  },
+  {
+   "id": "block/vertex-agent-engine",
+   "label": "Vertex AI Agent Engine",
+   "kind": "platform",
+   "layer": "blocks",
+   "parent": "cat/platforms",
+   "description": "Google Cloud's managed runtime for ADK and other agents, with A2A support.\n\nSources: [cloud.google.com](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview)"
+  },
+  {
+   "id": "block/copilot-studio",
+   "label": "Microsoft Copilot Studio / Foundry Agent Service",
+   "kind": "platform",
+   "layer": "blocks",
+   "parent": "cat/platforms",
+   "description": "Microsoft's low-code and pro-code hosting for agents, with MCP and A2A support.\n\nSources: [learn.microsoft.com](https://learn.microsoft.com/microsoft-copilot-studio/)"
+  },
+  {
+   "id": "block/swe-bench-verified",
+   "label": "SWE-bench Verified",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Human-filtered 500-task subset of SWE-bench, now considered saturated: OpenAI stopped reporting it in early 2026 over contamination and flawed tests, and the field has shifted to SWE-bench Pro and Terminal-Bench.\n\nSources: [morphllm.com](https://www.morphllm.com/swe-benchmark) · [kdnuggets.com](https://kdnuggets.com/top-10-open-source-benchmarks-for-ai-coding-agents-in-2026)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "block/swe-bench-pro",
+   "label": "SWE-bench Pro",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Contamination-resistant, harder successor to SWE-bench Verified; scores swing noticeably with the agent harness used.\n\nSources: [morphllm.com](https://www.morphllm.com/swe-benchmark)"
+  },
+  {
+   "id": "block/terminal-bench",
+   "label": "Terminal-Bench",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Benchmark of realistic terminal tasks run against whole agent harnesses; 2.0 (89 tasks) came out in January 2026 and later editions add continuous validation. Roundups now cite it as the main coding-agent leaderboard.\n\nSources: [kdnuggets.com](https://kdnuggets.com/top-10-open-source-benchmarks-for-ai-coding-agents-in-2026) · [morphllm.com](https://www.morphllm.com/best-ai-coding-agents-2026)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "block/osworld",
+   "label": "OSWorld",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Benchmark of computer-use agents completing tasks in real desktop apps from screenshots; integrity problems have led to curated subsets.\n\nSources: [os-world.github.io](https://os-world.github.io)"
+  },
+  {
+   "id": "block/webarena",
+   "label": "WebArena",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Self-hostable web environments for testing browser agents on realistic site tasks.\n\nSources: [webarena.dev](https://webarena.dev)"
+  },
+  {
+   "id": "block/tau-bench",
+   "label": "tau-bench",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Sierra's benchmark of tool-using agents in simulated customer-service domains with policies.\n\nSources: [github.com](https://github.com/sierra-research/tau-bench)"
+  },
+  {
+   "id": "block/gaia",
+   "label": "GAIA",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "General AI assistant benchmark of questions that need browsing, tools and reasoning.\n\nSources: [huggingface.co](https://huggingface.co/gaia-benchmark)"
+  },
+  {
+   "id": "block/inspect-ai",
+   "label": "Inspect",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "UK AI Security Institute's open-source framework for writing and running model and agent evals.\n\nSources: [inspect.aisi.org.uk](https://inspect.aisi.org.uk)"
+  },
+  {
+   "id": "block/braintrust",
+   "label": "Braintrust",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Evaluation and logging platform for LLM apps and agents.\n\nSources: [braintrust.dev](https://www.braintrust.dev)"
+  },
+  {
+   "id": "block/benchmark-integrity",
+   "label": "Benchmark integrity problems",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "2026 reports show agent benchmarks can be gamed or contain broken tasks, so results depend heavily on harness and task curation.\n\nSources: [baeseokjae.github.io](https://baeseokjae.github.io/posts/exploiting-ai-agent-benchmarks-2026/)"
+  },
+  {
+   "id": "block/langsmith",
+   "label": "LangSmith",
+   "kind": "observability",
+   "layer": "blocks",
+   "parent": "cat/observability",
+   "description": "LangChain's tracing, evaluation and deployment platform.\n\nSources: [langchain.com](https://www.langchain.com/langsmith)"
+  },
+  {
+   "id": "block/langfuse",
+   "label": "Langfuse",
+   "kind": "observability",
+   "layer": "blocks",
+   "parent": "cat/observability",
+   "description": "Open-source LLM observability and prompt management, OpenTelemetry-friendly.\n\nSources: [langfuse.com](https://langfuse.com)"
+  },
+  {
+   "id": "block/phoenix",
+   "label": "Arize Phoenix",
+   "kind": "observability",
+   "layer": "blocks",
+   "parent": "cat/observability",
+   "description": "Open-source tracing and evaluation built on OpenInference and OpenTelemetry.\n\nSources: [phoenix.arize.com](https://phoenix.arize.com)"
+  },
+  {
+   "id": "product/claude-code",
+   "label": "Claude Code",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Anthropic's terminal-first coding agent (plus IDE, desktop and web) with subagents, hooks, plugins, skills and MCP. Reviewers in 2026 roundups rank it at or near the top for deep reasoning, debugging and large refactors.\n\nSources: [docs.claude.com](https://docs.claude.com/en/docs/claude-code/overview) · [faros.ai](https://www.faros.ai/blog/best-ai-coding-agents-2026)"
+  },
+  {
+   "id": "product/codex",
+   "label": "OpenAI Codex",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "OpenAI's coding agent across CLI, IDE, cloud and app, bundled with ChatGPT plans; it reads AGENTS.md and speaks MCP, and is available in editors through ACP. Roundups place it alongside Claude Code at the top, valued for cost.\n\nSources: [developers.openai.com](https://developers.openai.com/codex) · [aiintelreport.com](https://www.aiintelreport.com/ai-agents/best-ai-coding-agents) · [zed.dev](https://zed.dev/acp)"
+  },
+  {
+   "id": "product/cursor",
+   "label": "Cursor",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "AI-native editor (VS Code fork) with agent mode and background agents; rated the strongest daily IDE experience in 2026 comparisons, and now also usable inside JetBrains IDEs via ACP.\n\nSources: [cursor.com](https://cursor.com) · [contextstudios.ai](https://www.contextstudios.ai/guides/best-ai-coding-agents-2026) · [blog.jetbrains.com](https://blog.jetbrains.com/de/ai/tag/acp/)"
+  },
+  {
+   "id": "product/github-copilot",
+   "label": "GitHub Copilot",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Microsoft/GitHub's assistant with agent mode in VS Code and JetBrains and a cloud coding agent that works on issues and opens PRs; the default fit for GitHub-centered organizations.\n\nSources: [github.com](https://github.com/features/copilot) · [contextstudios.ai](https://www.contextstudios.ai/guides/best-ai-coding-agents-2026)"
+  },
+  {
+   "id": "product/devin",
+   "label": "Devin",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Cognition's autonomous software engineer that takes whole tickets in a cloud workspace.\n\nSources: [devin.ai](https://devin.ai) · [aiintelreport.com](https://www.aiintelreport.com/ai-agents/best-ai-coding-agents)"
+  },
+  {
+   "id": "product/windsurf",
+   "label": "Devin Desktop (formerly Windsurf)",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Windsurf, acquired by Cognition in 2025, was renamed Devin Desktop on 2 June 2026 and repositioned around managing a fleet of agents, with Devin Local replacing Cascade. Treat the rename details as coming from a competitor's write-up.\n\nSources: [qodo.ai](https://www.qodo.ai/blog/windsurf-alternatives/) · [computingforgeeks.com](https://computingforgeeks.com/cursor-vs-windsurf-vs-kiro)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "product/gemini-cli",
+   "label": "Gemini CLI",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Google's open-source terminal agent with MCP support and a generous free tier; one 2026 roundup names it the best free option.\n\nSources: [github.com](https://github.com/google-gemini/gemini-cli) · [mightybot.ai](https://mightybot.ai/blog/coding-ai-agents-for-accelerating-engineering-workflows/)"
+  },
+  {
+   "id": "product/jules",
+   "label": "Jules",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Google's asynchronous cloud coding agent that works on GitHub repos and returns PRs.\n\nSources: [jules.google](https://jules.google)"
+  },
+  {
+   "id": "product/antigravity",
+   "label": "Google Antigravity",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Google's agent-first IDE announced alongside Gemini 3 in late 2025.\n\nSources: [antigravity.google](https://antigravity.google)"
+  },
+  {
+   "id": "product/kiro",
+   "label": "Kiro",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "AWS's spec-driven agentic IDE, now also a CLI, web and mobile app plus the open-source Kiro Crew workspace. It turns prompts into requirements, designs and tasks, uses property-based tests, and works with ACP, AGENTS.md, skills and MCP.\n\nSources: [kiro.dev](https://kiro.dev)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "product/amp",
+   "label": "Amp",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Sourcegraph's agentic coding tool for terminal and editor; contributed to AGENTS.md.\n\nSources: [ampcode.com](https://ampcode.com)"
+  },
+  {
+   "id": "product/cline",
+   "label": "Cline",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Open-source VS Code coding agent with human-approval steps and MCP marketplace.\n\nSources: [cline.bot](https://cline.bot)"
+  },
+  {
+   "id": "product/roo-code",
+   "label": "Roo Code",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Open-source VS Code agent forked from Cline, with custom modes.\n\nSources: [roocode.com](https://roocode.com)"
+  },
+  {
+   "id": "product/opencode",
+   "label": "OpenCode",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Open-source terminal coding agent that works with many model providers.\n\nSources: [opencode.ai](https://opencode.ai)"
+  },
+  {
+   "id": "product/aider",
+   "label": "Aider",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Long-running open-source terminal pair-programmer with git-native edits.\n\nSources: [aider.chat](https://aider.chat)"
+  },
+  {
+   "id": "product/goose-app",
+   "label": "goose (app)",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Block's local agent app and CLI, built from the goose framework.\n\nSources: [block.github.io](https://block.github.io/goose/)"
+  },
+  {
+   "id": "product/openhands",
+   "label": "OpenHands (product)",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Open-source cloud and local coding agent from All Hands AI.\n\nSources: [all-hands.dev](https://all-hands.dev)"
+  },
+  {
+   "id": "product/zed",
+   "label": "Zed",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "High-performance editor with built-in agent panel and the origin of ACP.\n\nSources: [zed.dev](https://zed.dev)"
+  },
+  {
+   "id": "product/junie",
+   "label": "JetBrains Junie",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "JetBrains' coding agent, with its IDEs also hosting third-party agents through ACP.\n\nSources: [jetbrains.com](https://www.jetbrains.com/junie/)"
+  },
+  {
+   "id": "product/factory",
+   "label": "Factory Droids",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Enterprise agent platform ('Droids') for software delivery; one of the AGENTS.md co-developers.\n\nSources: [factory.ai](https://factory.ai)"
+  },
+  {
+   "id": "product/replit-agent",
+   "label": "Replit Agent",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Browser-based agent that builds and deploys apps in Replit's environment.\n\nSources: [replit.com](https://replit.com/agent)"
+  },
+  {
+   "id": "product/lovable",
+   "label": "Lovable",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Prompt-to-app builder aimed at non-developers; similar tools include Bolt and v0.\n\nSources: [lovable.dev](https://lovable.dev)"
+  },
+  {
+   "id": "product/v0",
+   "label": "v0",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Vercel's prompt-to-UI and app generator.\n\nSources: [v0.dev](https://v0.dev)"
+  },
+  {
+   "id": "product/warp",
+   "label": "Warp",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Agentic terminal with built-in coding agents.\n\nSources: [warp.dev](https://www.warp.dev)"
+  },
+  {
+   "id": "product/claude-app",
+   "label": "Claude (apps) & Cowork",
+   "kind": "assistant",
+   "layer": "products",
+   "parent": "cat/assistants",
+   "description": "Anthropic's consumer and work assistant; Cowork, a desktop computer agent for non-developers, started as a research preview in January 2026 and went GA on macOS and Windows in April 2026 with enterprise controls.\n\nSources: [aragonresearch.com](https://aragonresearch.com/anthropic-claude-cowork/) · [pasqualepillitteri.it](https://pasqualepillitteri.it/en/news/755/anthropic-managed-agents-cowork-ga-april-9-2026)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "product/chatgpt",
+   "label": "ChatGPT (agent mode)",
+   "kind": "assistant",
+   "layer": "products",
+   "parent": "cat/assistants",
+   "description": "OpenAI's assistant, whose agent mode absorbed Operator and, since Atlas shut down, gets browsing through the upgraded desktop app and a Chrome-family extension.\n\nSources: [help.openai.com](https://help.openai.com/articles/20001371) · [techrepublic.com](https://techrepublic.com/article/news-chatgpt-atlas-shutdown-migration)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "product/gemini-app",
+   "label": "Gemini (Agent)",
+   "kind": "assistant",
+   "layer": "products",
+   "parent": "cat/assistants",
+   "description": "Google's assistant, with Gemini Agent absorbing the Project Mariner technology.\n\nSources: [gemini.google.com](https://gemini.google.com)"
+  },
+  {
+   "id": "product/openclaw",
+   "label": "OpenClaw",
+   "kind": "assistant",
+   "layer": "products",
+   "parent": "cat/assistants",
+   "description": "Open-source (MIT) personal assistant that runs on your own machine and talks through Discord, Slack, Telegram, WhatsApp and iMessage. Its creator joined OpenAI in February 2026 and the project is now stewarded by an independent OpenClaw Foundation that lists OpenAI as a donor.\n\nSources: [github.com](https://github.com/openclaw/openclaw) · [gigazine.net](https://gigazine.net/gsc_news/en/20260216-openclaw-steinberger-joined-openai)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "product/manus",
+   "label": "Manus",
+   "kind": "assistant",
+   "layer": "products",
+   "parent": "cat/assistants",
+   "description": "General-purpose cloud agent that plans and executes multi-step tasks; I could not verify its current ownership in this research.\n\nSources: [manus.im](https://manus.im)"
+  },
+  {
+   "id": "product/ms-copilot",
+   "label": "Microsoft 365 Copilot",
+   "kind": "assistant",
+   "layer": "products",
+   "parent": "cat/assistants",
+   "description": "Microsoft's work assistant with agents built in Copilot Studio.\n\nSources: [microsoft.com](https://www.microsoft.com/microsoft-365/copilot)"
+  },
+  {
+   "id": "product/atlas",
+   "label": "ChatGPT Atlas",
+   "kind": "browser-agent",
+   "layer": "products",
+   "parent": "cat/browser",
+   "description": "OpenAI's macOS-only AI browser with agent mode; it was shut down on 9 August 2026, with its capabilities moved into the ChatGPT desktop app and Codex.\n\nSources: [help.openai.com](https://help.openai.com/articles/20001371) · [techradar.com](https://www.techradar.com/pro/openai-shuts-down-its-atlas-browser-after-not-even-a-year)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "product/comet",
+   "label": "Perplexity Comet",
+   "kind": "browser-agent",
+   "layer": "products",
+   "parent": "cat/browser",
+   "description": "Perplexity's agentic browser, now free with a paid Max tier and available on Android; a federal court blocked its agent from Amazon's logged-in pages in March 2026.\n\nSources: [tech-insider.org](https://tech-insider.org/ca/chatgpt-atlas-vs-perplexity-comet-vs-gemini-chrome-2026/) · [frugaltesting.com](https://www.frugaltesting.com/blog/agentic-browser-in-2026-how-chrome-comet-and-ai-browser-agents-are-changing-web-automation)"
+  },
+  {
+   "id": "product/claude-chrome",
+   "label": "Claude in Chrome",
+   "kind": "browser-agent",
+   "layer": "products",
+   "parent": "cat/browser",
+   "description": "Anthropic's Chrome extension that lets Claude act in the user's real browser on paid plans; reportedly past 10 million installs by June 2026.\n\nSources: [frugaltesting.com](https://www.frugaltesting.com/blog/agentic-browser-in-2026-how-chrome-comet-and-ai-browser-agents-are-changing-web-automation)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "product/gemini-chrome",
+   "label": "Gemini in Chrome (Auto Browse)",
+   "kind": "browser-agent",
+   "layer": "products",
+   "parent": "cat/browser",
+   "description": "Chrome's built-in Gemini assistant; Auto Browse launched on 28 January 2026 and runs multi-step tasks for AI Pro and Ultra subscribers.\n\nSources: [tech-insider.org](https://tech-insider.org/ca/chatgpt-atlas-vs-perplexity-comet-vs-gemini-chrome-2026/)"
+  },
+  {
+   "id": "product/mariner",
+   "label": "Project Mariner",
+   "kind": "browser-agent",
+   "layer": "products",
+   "parent": "cat/browser",
+   "description": "Google's research browser agent; shut down as a standalone product on 4 May 2026, with its technology folded into Auto Browse and Gemini Agent.\n\nSources: [tech-insider.org](https://tech-insider.org/ca/chatgpt-atlas-vs-perplexity-comet-vs-gemini-chrome-2026/)",
+   "flags": [
+    "corrected"
+   ]
+  },
+  {
+   "id": "product/operator",
+   "label": "OpenAI Operator",
+   "kind": "browser-agent",
+   "layer": "products",
+   "parent": "cat/browser",
+   "description": "OpenAI's first browser agent (January 2025); merged into ChatGPT agent mode in mid-2025.\n\nSources: [openai.com](https://openai.com/index/introducing-operator/)"
+  },
+  {
+   "id": "product/agentforce",
+   "label": "Salesforce Agentforce",
+   "kind": "enterprise-agent",
+   "layer": "products",
+   "parent": "cat/enterprise",
+   "description": "Salesforce's platform for business agents; Salesforce sits on the A2A technical steering committee.\n\nSources: [a2a-protocol.org](https://a2a-protocol.org/latest/) · [salesforce.com](https://www.salesforce.com/agentforce/)"
+  },
+  {
+   "id": "product/servicenow-ai",
+   "label": "ServiceNow AI Agents",
+   "kind": "enterprise-agent",
+   "layer": "products",
+   "parent": "cat/enterprise",
+   "description": "ServiceNow's workflow agents; ServiceNow is on the A2A steering committee.\n\nSources: [a2a-protocol.org](https://a2a-protocol.org/latest/)"
+  },
+  {
+   "id": "product/sap-joule",
+   "label": "SAP Joule agents",
+   "kind": "enterprise-agent",
+   "layer": "products",
+   "parent": "cat/enterprise",
+   "description": "SAP's assistant and agents; SAP is on the A2A steering committee.\n\nSources: [a2a-protocol.org](https://a2a-protocol.org/latest/)"
+  },
+  {
+   "id": "protocol/acp-registry",
+   "label": "ACP Registry",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/agent-user",
+   "description": "Open directory of coding agents that speak ACP, launched in beta by JetBrains and Zed in January 2026 and wired into both editors.\n\nSources: [gihyo.jp](https://gihyo.jp/article/2026/01/acp-registry) · [blog.jetbrains.com](https://blog.jetbrains.com/de/ai/tag/acp/)"
+  },
+  {
+   "id": "protocol/openinference",
+   "label": "OpenInference",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/telemetry",
+   "description": "Arize's OpenTelemetry-compatible conventions for tracing LLM and agent calls, used by Phoenix.\n\nSources: [github.com](https://github.com/Arize-ai/openinference)"
+  },
+  {
+   "id": "protocol/nlweb",
+   "label": "NLWeb",
+   "kind": "protocol",
+   "layer": "protocols",
+   "parent": "cat/tool-context",
+   "description": "Microsoft's open project for turning a website into a natural-language endpoint that is also an MCP server.\n\nSources: [github.com](https://github.com/microsoft/NLWeb)"
+  },
+  {
+   "id": "block/apps-sdk",
+   "label": "OpenAI Apps SDK",
+   "kind": "platform",
+   "layer": "blocks",
+   "parent": "cat/platforms",
+   "description": "OpenAI's SDK for building apps that run inside ChatGPT, built on MCP.\n\nSources: [developers.openai.com](https://developers.openai.com/apps-sdk)"
+  },
+  {
+   "id": "block/litellm",
+   "label": "LiteLLM",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Gateway and SDK that exposes 100+ model providers behind one OpenAI-style API, also proxying MCP tools.\n\nSources: [litellm.ai](https://www.litellm.ai)"
+  },
+  {
+   "id": "block/temporal",
+   "label": "Temporal",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Durable-execution engine increasingly used to make long-running agent workflows crash-safe; OpenAI Agents SDK has an integration.\n\nSources: [temporal.io](https://temporal.io)"
+  },
+  {
+   "id": "block/github-mcp",
+   "label": "GitHub MCP Server",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "GitHub's official MCP server exposing repos, issues and PRs to agents.\n\nSources: [github.com](https://github.com/github/github-mcp-server)"
+  },
+  {
+   "id": "block/context7",
+   "label": "Context7",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "MCP server that serves up-to-date library documentation to coding agents.\n\nSources: [context7.com](https://context7.com)"
+  },
+  {
+   "id": "block/docker-mcp",
+   "label": "Docker MCP Toolkit",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Docker's catalog and gateway for running MCP servers in containers.\n\nSources: [docs.docker.com](https://docs.docker.com/ai/mcp-catalog-and-toolkit/)"
+  },
+  {
+   "id": "block/firecrawl",
+   "label": "Firecrawl",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Web scraping and crawling API that returns LLM-ready Markdown, with an MCP server.\n\nSources: [firecrawl.dev](https://www.firecrawl.dev)"
+  },
+  {
+   "id": "block/tavily",
+   "label": "Tavily",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Search API built for agents and RAG, with an MCP server.\n\nSources: [tavily.com](https://tavily.com)"
+  },
+  {
+   "id": "block/exa",
+   "label": "Exa",
+   "kind": "runtime",
+   "layer": "blocks",
+   "parent": "cat/runtimes",
+   "description": "Embeddings-based web search API for agents.\n\nSources: [exa.ai](https://exa.ai)"
+  },
+  {
+   "id": "block/locomo",
+   "label": "LoCoMo",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Long-conversation memory benchmark used by memory vendors such as Mem0.\n\nSources: [mem0.ai](https://mem0.ai)"
+  },
+  {
+   "id": "block/longmemeval",
+   "label": "LongMemEval",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Benchmark of long-term chat memory abilities; cited alongside LoCoMo and BEAM.\n\nSources: [mem0.ai](https://mem0.ai)"
+  },
+  {
+   "id": "block/beam",
+   "label": "BEAM",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "Newer memory benchmark that Mem0 now reports against.\n\nSources: [mem0.ai](https://mem0.ai)"
+  },
+  {
+   "id": "block/browsecomp",
+   "label": "BrowseComp",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "OpenAI's benchmark of hard-to-find facts that requires persistent web browsing.\n\nSources: [openai.com](https://openai.com/index/browsecomp/)"
+  },
+  {
+   "id": "block/metr-horizon",
+   "label": "METR time horizons",
+   "kind": "evaluation",
+   "layer": "blocks",
+   "parent": "cat/eval",
+   "description": "METR's measure of how long a task, in human time, an agent can complete reliably.\n\nSources: [metr.org](https://metr.org)"
+  },
+  {
+   "id": "product/kiro-crew",
+   "label": "Kiro Crew",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Open-source development workspace from the Kiro team, published on GitHub next to the IDE and CLI.\n\nSources: [kiro.dev](https://kiro.dev)"
+  },
+  {
+   "id": "product/augment",
+   "label": "Augment Code",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Coding agent and context engine aimed at large enterprise codebases.\n\nSources: [augmentcode.com](https://www.augmentcode.com)"
+  },
+  {
+   "id": "product/continue",
+   "label": "Continue",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Open-source assistant for VS Code and JetBrains, with CI-run agents.\n\nSources: [continue.dev](https://www.continue.dev)"
+  },
+  {
+   "id": "product/trae",
+   "label": "Trae",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "ByteDance's AI IDE with an agent mode.\n\nSources: [trae.ai](https://www.trae.ai)"
+  },
+  {
+   "id": "product/qwen-code",
+   "label": "Qwen Code",
+   "kind": "coding-agent",
+   "layer": "products",
+   "parent": "cat/coding",
+   "description": "Alibaba's open-source terminal coding agent for Qwen models, derived from Gemini CLI.\n\nSources: [github.com](https://github.com/QwenLM/qwen-code)"
+  },
+  {
+   "id": "product/perplexity",
+   "label": "Perplexity",
+   "kind": "assistant",
+   "layer": "products",
+   "parent": "cat/assistants",
+   "description": "Answer engine with research and agentic modes, the maker of Comet.\n\nSources: [perplexity.ai](https://www.perplexity.ai)"
+  },
+  {
+   "id": "product/alexa-plus",
+   "label": "Alexa+",
+   "kind": "assistant",
+   "layer": "products",
+   "parent": "cat/assistants",
+   "description": "Amazon's generative, agent-capable Alexa for the home.\n\nSources: [amazon.com](https://www.amazon.com/alexa-plus)"
+  },
+  {
+   "id": "product/edge-copilot",
+   "label": "Copilot Mode in Edge",
+   "kind": "browser-agent",
+   "layer": "products",
+   "parent": "cat/browser",
+   "description": "Microsoft Edge's agentic browsing mode.\n\nSources: [microsoft.com](https://www.microsoft.com/edge/ai-powered/copilot-mode)"
+  },
+  {
+   "id": "product/opera-neon",
+   "label": "Opera Neon",
+   "kind": "browser-agent",
+   "layer": "products",
+   "parent": "cat/browser",
+   "description": "Opera's agentic browser with task-running AI.\n\nSources: [operaneon.com](https://www.operaneon.com)"
+  },
+  {
+   "id": "product/dia",
+   "label": "Dia",
+   "kind": "browser-agent",
+   "layer": "products",
+   "parent": "cat/browser",
+   "description": "The Browser Company's AI-first browser, later acquired by Atlassian.\n\nSources: [diabrowser.com](https://www.diabrowser.com)"
+  },
+  {
+   "id": "protocol/kiro-note",
+   "label": "Spec-driven development",
+   "kind": "standard",
+   "layer": "protocols",
+   "parent": "cat/formats",
+   "description": "Workflow pattern popularized by Kiro: requirements, design and tasks as files the agent follows. GitHub's Spec Kit follows the same idea.\n\nSources: [kiro.dev](https://kiro.dev) · [github.com](https://github.com/github/spec-kit)"
+  }
+ ],
+ "edges": [
+  {
+   "source": "protocol/mcp-registry",
+   "target": "protocol/mcp",
+   "kind": "builds-on"
+  },
+  {
+   "source": "protocol/mcp-auth",
+   "target": "protocol/mcp",
+   "kind": "builds-on"
+  },
+  {
+   "source": "protocol/mcp",
+   "target": "protocol/aaif",
+   "kind": "governed-by"
+  },
+  {
+   "source": "protocol/agents-md",
+   "target": "protocol/aaif",
+   "kind": "governed-by"
+  },
+  {
+   "source": "protocol/a2a",
+   "target": "protocol/linux-foundation",
+   "kind": "governed-by"
+  },
+  {
+   "source": "protocol/a2a",
+   "target": "protocol/aaif",
+   "kind": "governed-by"
+  },
+  {
+   "source": "protocol/aaif",
+   "target": "protocol/linux-foundation",
+   "kind": "builds-on"
+  },
+  {
+   "source": "protocol/ibm-acp",
+   "target": "protocol/a2a",
+   "kind": "supersedes"
+  },
+  {
+   "source": "protocol/ap2",
+   "target": "protocol/a2a",
+   "kind": "builds-on"
+  },
+  {
+   "source": "protocol/ap2",
+   "target": "protocol/x402",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/ucp",
+   "target": "protocol/a2a",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/ucp",
+   "target": "protocol/ap2",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/ucp",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/acp-commerce",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/responses-api",
+   "target": "protocol/assistants-api",
+   "kind": "supersedes"
+  },
+  {
+   "source": "protocol/mcp",
+   "target": "protocol/tool-calling",
+   "kind": "builds-on"
+  },
+  {
+   "source": "protocol/ag-ui",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/acp-editor",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/agent-skills",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/agents-md",
+   "target": "protocol/agent-skills",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/web-bot-auth",
+   "target": "protocol/acp-commerce",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/langchain",
+   "target": "block/langgraph",
+   "kind": "builds-on"
+  },
+  {
+   "source": "block/langmem",
+   "target": "block/langgraph",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/openai-agents-sdk",
+   "target": "protocol/responses-api",
+   "kind": "builds-on"
+  },
+  {
+   "source": "block/openai-agents-sdk",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/openai-agents-sdk",
+   "target": "block/e2b",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/openai-agents-sdk",
+   "target": "block/modal",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/openai-agents-sdk",
+   "target": "block/daytona",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/openai-agents-sdk",
+   "target": "block/cloudflare-sandbox",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/openai-agents-sdk",
+   "target": "block/vercel-sandbox",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/claude-agent-sdk",
+   "target": "protocol/anthropic-messages",
+   "kind": "builds-on"
+  },
+  {
+   "source": "block/claude-agent-sdk",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/claude-agent-sdk",
+   "target": "protocol/agent-skills",
+   "kind": "implements"
+  },
+  {
+   "source": "block/google-adk",
+   "target": "protocol/a2a",
+   "kind": "implements"
+  },
+  {
+   "source": "block/google-adk",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/google-adk",
+   "target": "block/vertex-agent-engine",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/ms-agent-framework",
+   "target": "block/semantic-kernel",
+   "kind": "supersedes"
+  },
+  {
+   "source": "block/ms-agent-framework",
+   "target": "block/autogen",
+   "kind": "supersedes"
+  },
+  {
+   "source": "block/ms-agent-framework",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/ms-agent-framework",
+   "target": "protocol/a2a",
+   "kind": "implements"
+  },
+  {
+   "source": "block/semantic-kernel",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/strands",
+   "target": "block/bedrock-agentcore",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/strands",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/pydantic-ai",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/pydantic-ai",
+   "target": "protocol/a2a",
+   "kind": "implements"
+  },
+  {
+   "source": "block/crewai",
+   "target": "protocol/a2a",
+   "kind": "implements"
+  },
+  {
+   "source": "block/crewai",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/langgraph",
+   "target": "protocol/a2a",
+   "kind": "implements"
+  },
+  {
+   "source": "block/langgraph",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/langgraph",
+   "target": "protocol/ag-ui",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/crewai",
+   "target": "protocol/ag-ui",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/mastra",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "block/mastra",
+   "target": "protocol/ag-ui",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/vercel-ai-sdk",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/llamaindex",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/goose",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "block/goose",
+   "target": "protocol/aaif",
+   "kind": "governed-by"
+  },
+  {
+   "source": "block/openhands-sdk",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/smolagents",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/graphiti",
+   "target": "block/zep",
+   "kind": "builds-on"
+  },
+  {
+   "source": "block/mem0",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/cognee",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/claude-memory",
+   "target": "block/claude-agent-sdk",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/stagehand",
+   "target": "block/browserbase",
+   "kind": "builds-on"
+  },
+  {
+   "source": "block/composio",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "block/playwright-mcp",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "block/agentgateway",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/agentgateway",
+   "target": "protocol/a2a",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/agentgateway",
+   "target": "protocol/aaif",
+   "kind": "governed-by"
+  },
+  {
+   "source": "block/cloudflare-sandbox",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/e2b",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/claude-managed-agents",
+   "target": "block/claude-agent-sdk",
+   "kind": "builds-on"
+  },
+  {
+   "source": "block/claude-managed-agents",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/openai-agentkit",
+   "target": "protocol/responses-api",
+   "kind": "builds-on"
+  },
+  {
+   "source": "block/openai-agentkit",
+   "target": "block/openai-agents-sdk",
+   "kind": "builds-on"
+  },
+  {
+   "source": "block/openai-agentkit",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/bedrock-agentcore",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/bedrock-agentcore",
+   "target": "protocol/a2a",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/vertex-agent-engine",
+   "target": "protocol/a2a",
+   "kind": "implements"
+  },
+  {
+   "source": "block/copilot-studio",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/copilot-studio",
+   "target": "protocol/a2a",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/swe-bench-pro",
+   "target": "block/swe-bench-verified",
+   "kind": "supersedes"
+  },
+  {
+   "source": "block/terminal-bench",
+   "target": "block/swe-bench-verified",
+   "kind": "supersedes"
+  },
+  {
+   "source": "block/benchmark-integrity",
+   "target": "block/swe-bench-verified",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/benchmark-integrity",
+   "target": "block/osworld",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/langsmith",
+   "target": "block/langgraph",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/langsmith",
+   "target": "protocol/otel-genai",
+   "kind": "implements"
+  },
+  {
+   "source": "block/langfuse",
+   "target": "protocol/otel-genai",
+   "kind": "implements"
+  },
+  {
+   "source": "block/phoenix",
+   "target": "protocol/otel-genai",
+   "kind": "implements"
+  },
+  {
+   "source": "block/braintrust",
+   "target": "protocol/otel-genai",
+   "kind": "implements"
+  },
+  {
+   "source": "product/claude-code",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/codex",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/cursor",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/github-copilot",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/gemini-cli",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/kiro",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/amp",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/cline",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/opencode",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/goose-app",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/factory",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/junie",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/zed",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/roo-code",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/claude-code",
+   "target": "block/claude-agent-sdk",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/claude-code",
+   "target": "protocol/agent-skills",
+   "kind": "implements"
+  },
+  {
+   "source": "product/claude-code",
+   "target": "block/claude-memory",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/claude-code",
+   "target": "protocol/anthropic-messages",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/claude-code",
+   "target": "protocol/agents-md",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/codex",
+   "target": "protocol/agents-md",
+   "kind": "implements"
+  },
+  {
+   "source": "product/codex",
+   "target": "protocol/agent-skills",
+   "kind": "implements"
+  },
+  {
+   "source": "product/codex",
+   "target": "protocol/acp-editor",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/codex",
+   "target": "protocol/responses-api",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/cursor",
+   "target": "protocol/agents-md",
+   "kind": "implements"
+  },
+  {
+   "source": "product/cursor",
+   "target": "protocol/acp-editor",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/amp",
+   "target": "protocol/agents-md",
+   "kind": "implements"
+  },
+  {
+   "source": "product/factory",
+   "target": "protocol/agents-md",
+   "kind": "implements"
+  },
+  {
+   "source": "product/kiro",
+   "target": "protocol/agents-md",
+   "kind": "implements"
+  },
+  {
+   "source": "product/kiro",
+   "target": "protocol/agent-skills",
+   "kind": "implements"
+  },
+  {
+   "source": "product/kiro",
+   "target": "protocol/acp-editor",
+   "kind": "implements"
+  },
+  {
+   "source": "product/zed",
+   "target": "protocol/acp-editor",
+   "kind": "implements"
+  },
+  {
+   "source": "product/junie",
+   "target": "protocol/acp-editor",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/goose-app",
+   "target": "block/goose",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/openhands",
+   "target": "block/openhands-sdk",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/roo-code",
+   "target": "product/cline",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/github-copilot",
+   "target": "protocol/agents-md",
+   "kind": "implements"
+  },
+  {
+   "source": "product/windsurf",
+   "target": "product/devin",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/jules",
+   "target": "protocol/agents-md",
+   "kind": "implements"
+  },
+  {
+   "source": "product/antigravity",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/claude-code",
+   "target": "block/terminal-bench",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/codex",
+   "target": "block/terminal-bench",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/claude-app",
+   "target": "block/claude-agent-sdk",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/claude-app",
+   "target": "protocol/agent-skills",
+   "kind": "implements"
+  },
+  {
+   "source": "product/claude-app",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/chatgpt",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/chatgpt",
+   "target": "protocol/acp-commerce",
+   "kind": "implements"
+  },
+  {
+   "source": "product/chatgpt",
+   "target": "product/operator",
+   "kind": "supersedes"
+  },
+  {
+   "source": "product/chatgpt",
+   "target": "product/atlas",
+   "kind": "supersedes"
+  },
+  {
+   "source": "product/atlas",
+   "target": "product/chatgpt",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/gemini-app",
+   "target": "product/mariner",
+   "kind": "supersedes"
+  },
+  {
+   "source": "product/gemini-chrome",
+   "target": "product/mariner",
+   "kind": "supersedes"
+  },
+  {
+   "source": "product/gemini-app",
+   "target": "protocol/ucp",
+   "kind": "implements"
+  },
+  {
+   "source": "product/gemini-app",
+   "target": "protocol/a2a",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/gemini-app",
+   "target": "protocol/ap2",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/openclaw",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/openclaw",
+   "target": "protocol/agent-skills",
+   "kind": "implements"
+  },
+  {
+   "source": "product/ms-copilot",
+   "target": "block/copilot-studio",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/ms-copilot",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/claude-chrome",
+   "target": "product/claude-app",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/agentforce",
+   "target": "protocol/a2a",
+   "kind": "implements"
+  },
+  {
+   "source": "product/agentforce",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/servicenow-ai",
+   "target": "protocol/a2a",
+   "kind": "implements"
+  },
+  {
+   "source": "product/sap-joule",
+   "target": "protocol/a2a",
+   "kind": "implements"
+  },
+  {
+   "source": "product/replit-agent",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/lovable",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/v0",
+   "target": "block/vercel-ai-sdk",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/warp",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/warp",
+   "target": "protocol/agents-md",
+   "kind": "implements"
+  },
+  {
+   "source": "product/devin",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/windsurf",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "protocol/acp-registry",
+   "target": "protocol/acp-editor",
+   "kind": "builds-on"
+  },
+  {
+   "source": "protocol/openinference",
+   "target": "protocol/otel-genai",
+   "kind": "builds-on"
+  },
+  {
+   "source": "block/phoenix",
+   "target": "protocol/openinference",
+   "kind": "implements"
+  },
+  {
+   "source": "protocol/nlweb",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "block/apps-sdk",
+   "target": "protocol/mcp",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/chatgpt",
+   "target": "block/apps-sdk",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/litellm",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/temporal",
+   "target": "block/openai-agents-sdk",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/github-mcp",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "product/github-copilot",
+   "target": "block/github-mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/context7",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "block/docker-mcp",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/firecrawl",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "block/tavily",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "block/exa",
+   "target": "protocol/mcp",
+   "kind": "implements"
+  },
+  {
+   "source": "block/mem0",
+   "target": "block/locomo",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/mem0",
+   "target": "block/longmemeval",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "block/mem0",
+   "target": "block/beam",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/kiro-crew",
+   "target": "product/kiro",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/kiro",
+   "target": "protocol/kiro-note",
+   "kind": "implements"
+  },
+  {
+   "source": "product/augment",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/continue",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/qwen-code",
+   "target": "product/gemini-cli",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/qwen-code",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/trae",
+   "target": "protocol/mcp",
+   "kind": "integrates-with"
+  },
+  {
+   "source": "product/perplexity",
+   "target": "product/comet",
+   "kind": "builds-on"
+  },
+  {
+   "source": "product/edge-copilot",
+   "target": "product/ms-copilot",
+   "kind": "builds-on"
+  }
+ ]
+}

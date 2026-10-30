@@ -1,0 +1,47 @@
+{
+ "nodePalette": {
+  "requirement": "#2563eb",
+  "decision": "#10b981",
+  "component": "#6b7280",
+  "rejected": "#9ca3af",
+  "risk": "#e63b7a",
+  "question": "#f59e0b",
+  "task": "#8b5cf6"
+ },
+ "edgePalette": {
+  "because": "#2563eb",
+  "rejects": "#9ca3af",
+  "mitigates": "#10b981",
+  "depends-on": "#6b7280",
+  "blocks": "#e63b7a"
+ },
+ "placeholderFlags": [
+  "stub"
+ ],
+ "kindLabels": {
+  "requirement": "Requirement",
+  "decision": "Decision",
+  "component": "Component",
+  "rejected": "Rejected alternative",
+  "risk": "Risk",
+  "question": "Question for you",
+  "task": "Task",
+  "area": "Area",
+  "because": "because",
+  "rejects": "rejects",
+  "mitigates": "mitigates",
+  "depends-on": "depends on",
+  "blocks": "blocks"
+ },
+ "demo": {
+  "order": 4,
+  "description": {
+   "en": "An agent’s plan for real-time collaboration, before any code: drafted, then self-reviewed",
+   "zh": "写代码之前 agent 的实时协作方案：先起草，再自审"
+  },
+  "source": {
+   "en": "Real output of one prompt: [plan a feature before coding, then review the plan](data/demo/agent-plan/RUN.md#prompt).",
+   "zh": "一段 prompt 的真实结果：[写代码前先出方案，再自审](data/demo/agent-plan/RUN.md#prompt)。"
+  }
+ }
+}

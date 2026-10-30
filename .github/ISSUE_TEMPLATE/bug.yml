@@ -1,0 +1,22 @@
+name: Bug
+description: Something is drawn wrong, crashes, or does not match the docs
+body:
+  - type: textarea
+    attributes:
+      label: What happened, and what you expected
+    validations: { required: true }
+  - type: textarea
+    attributes:
+      label: How to reproduce
+      description: The smallest graph that shows it (attach the JSON or paste it), and the command or code you ran.
+    validations: { required: true }
+  - type: textarea
+    attributes:
+      label: validate output
+      description: Output of `npx glassbrain validate <path> --json`, if the problem involves a graph file.
+      render: json
+  - type: input
+    attributes:
+      label: Versions
+      description: glassbrain (`npx glassbrain -v`), Node, browser, and bundler if you embed it
+    validations: { required: true }

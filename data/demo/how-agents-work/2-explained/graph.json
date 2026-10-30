@@ -1,0 +1,387 @@
+{
+ "nodes": [
+  {
+   "id": "foundations",
+   "label": "1. Foundations: tokens to prediction",
+   "kind": "chapter"
+  },
+  {
+   "id": "context",
+   "label": "2. The context window",
+   "kind": "chapter"
+  },
+  {
+   "id": "agent-loop",
+   "label": "3. From model to agent loop",
+   "kind": "chapter"
+  },
+  {
+   "id": "tools",
+   "label": "4. Tool use",
+   "kind": "chapter"
+  },
+  {
+   "id": "memory",
+   "label": "5. Memory",
+   "kind": "chapter"
+  },
+  {
+   "id": "planning",
+   "label": "6. Planning",
+   "kind": "chapter"
+  },
+  {
+   "id": "tokens-are-units",
+   "label": "Text is split into tokens",
+   "kind": "concept",
+   "parent": "foundations",
+   "angle": "material",
+   "description": "**Accurate:** The model never sees characters or words; a tokenizer splits text into subword units from a fixed vocabulary (tens of thousands to a few hundred thousand entries), and each unit is an integer id. Common words are often one token, rare words several.\n\n**Plainly:** The model reads text in chunks, not letters or whole words. A chunk might be a short word, part of a long word, or a bit of punctuation."
+  },
+  {
+   "id": "embeddings-vectors",
+   "label": "Tokens become embedding vectors",
+   "kind": "concept",
+   "parent": "foundations",
+   "angle": "material",
+   "description": "**Accurate:** Each token id is mapped to a learned vector of numbers. All later computation operates on these vectors, so meaning is carried by position in a numeric space rather than by symbols.\n\n**Plainly:** Before anything else happens, every chunk is turned into a list of numbers, and the model works only with those numbers."
+  },
+  {
+   "id": "next-token-prediction",
+   "label": "Model predicts next-token distribution",
+   "kind": "mechanism",
+   "parent": "foundations",
+   "angle": "material",
+   "description": "**Accurate:** Given the tokens so far, one forward pass outputs a probability for every token in the vocabulary being next. Training minimises the error of this prediction over a huge text corpus; everything else the model can do is learned as a means to predict well.\n\n**Plainly:** At each step the model scores every possible next chunk, from very likely to very unlikely. It was trained by being asked to guess what comes next, over and over, on a lot of text."
+  },
+  {
+   "id": "sampling-temperature",
+   "label": "Sampling and temperature pick tokens",
+   "kind": "mechanism",
+   "parent": "foundations",
+   "angle": "material",
+   "description": "**Accurate:** The distribution is turned into one token by a decoding rule: greedy takes the most likely, sampling draws at random in proportion to probability. Temperature rescales the distribution (low sharpens, high flattens). Randomness is a decoding choice, not part of the network.\n\n**Plainly:** The model gives odds, and a separate step picks one answer. A dial called temperature sets whether it plays safe or takes more chances."
+  },
+  {
+   "id": "autoregressive-loop",
+   "label": "Output tokens fed back as input",
+   "kind": "mechanism",
+   "parent": "foundations",
+   "angle": "material",
+   "description": "**Accurate:** Generation is repeated: the chosen token is appended to the input and the model runs again for the next one, until a stop token or length limit. The model's own output therefore becomes part of its next input.\n\n**Plainly:** The model writes one chunk, adds it to what it has, then reads everything again to write the next. It builds an answer by reading its own words as it goes."
+  },
+  {
+   "id": "attention-mixes-context",
+   "label": "Attention lets tokens read earlier tokens",
+   "kind": "mechanism",
+   "parent": "foundations",
+   "angle": "material",
+   "description": "**Accurate:** In a transformer, attention layers let each position compute a weighted combination of information from earlier positions, with weights depending on content. This is how a token's meaning gets shaped by everything before it.\n\n**Plainly:** While reading, every chunk can look back at the earlier chunks and pull in whatever is relevant. That is how the word 'it' gets tied to what it refers to."
+  },
+  {
+   "id": "weights-frozen",
+   "label": "Weights are fixed at inference time",
+   "kind": "non-obvious",
+   "parent": "foundations",
+   "angle": "material",
+   "description": "**Accurate:** When you use a deployed model, its parameters do not change. Nothing you say updates them; any apparent learning within a conversation happens only because text is present in the input.\n\n**Plainly:** Chatting with a model does not teach it anything permanently. Its knowledge only changes when its makers train it again."
+  },
+  {
+   "id": "pretraining-then-tuning",
+   "label": "Pretraining, then instruction and RLHF tuning",
+   "kind": "concept",
+   "parent": "foundations",
+   "angle": "material",
+   "description": "**Accurate:** A base model is pretrained on raw text to predict continuations, then further trained on instruction examples and preference feedback so that its continuations take the form of helpful assistant replies and, for agents, of well-formed tool calls.\n\n**Plainly:** First the model learns language and facts by predicting text. Then it is coached to answer like an assistant instead of just continuing a document."
+  },
+  {
+   "id": "no-built-in-state",
+   "label": "Model has no memory between calls",
+   "kind": "non-obvious",
+   "parent": "foundations",
+   "angle": "material",
+   "description": "**Accurate:** A call to the model is a pure function of its input (and sampling randomness). It keeps no hidden state between calls, so anything that must carry over has to be supplied again in the next input.\n\n**Plainly:** Each time you call the model it starts fresh. If it seems to remember, someone handed the earlier material back to it."
+  },
+  {
+   "id": "context-window-limit",
+   "label": "Context window is a hard token budget",
+   "kind": "concept",
+   "parent": "context",
+   "angle": "material",
+   "description": "**Accurate:** The model accepts at most a fixed number of tokens per call, covering input and output together. Anything beyond that cannot be seen at all, however relevant.\n\n**Plainly:** The model can only hold so much text in view at once. What does not fit is simply not there for it."
+  },
+  {
+   "id": "prompt-is-everything",
+   "label": "Prompt is the model's only input",
+   "kind": "concept",
+   "parent": "context",
+   "angle": "material",
+   "description": "**Accurate:** Everything the model can use on a given step is the token sequence in its context: system instructions, history, retrieved text, tool results and the user's request. Besides what training left in the weights, there is no other channel.\n\n**Plainly:** Whatever the model should know right now has to be written into the text it is given, apart from what it picked up in training."
+  },
+  {
+   "id": "in-context-learning",
+   "label": "Examples in prompt shape behavior",
+   "kind": "mechanism",
+   "parent": "context",
+   "angle": "material",
+   "description": "**Accurate:** Placing instructions or examples in the context changes the output distribution without changing weights. The model continues the pattern it sees, which lets a prompt act like a temporary program.\n\n**Plainly:** Show the model a few examples or rules in the prompt and it follows them for that call. Nothing is stored; it is just following what is on the page."
+  },
+  {
+   "id": "chat-history-resent",
+   "label": "Whole conversation is resent every turn",
+   "kind": "non-obvious",
+   "parent": "context",
+   "angle": "material",
+   "description": "**Accurate:** A chat application sends the full prior transcript, plus the new message, on every turn. The apparent continuity of a conversation is this re-sending, which is why long chats cost more per turn and eventually hit the window limit.\n\n**Plainly:** Every time you send a message, the app pastes the whole conversation so far in front of it. That is why the model seems to remember, and why long chats get heavy."
+  },
+  {
+   "id": "lost-in-middle",
+   "label": "Attention to long context is uneven",
+   "kind": "non-obvious",
+   "parent": "context",
+   "angle": "material",
+   "description": "**Accurate:** Having text inside the window does not guarantee it is used. Empirically, models often use information at the start and end of long inputs more reliably than in the middle, and accuracy tends to fall as context grows or fills with distractors. Degree varies by model.\n\n**Plainly:** Fitting something in the window does not mean the model will notice it. In long inputs, details buried in the middle are the most easily missed."
+  },
+  {
+   "id": "kv-cache-cost",
+   "label": "KV cache makes long context costly",
+   "kind": "mechanism",
+   "parent": "context",
+   "angle": "material",
+   "description": "**Accurate:** To avoid recomputing earlier tokens at every generation step, implementations store their attention keys and values (the KV cache). Its memory grows with context length, and attention compute grows with it too, so long contexts cost more time and money; reusing a cached unchanged prefix lowers that cost.\n\n**Plainly:** Remembering what it already worked out saves the model effort, but that stored work grows with the length of the text. Long prompts are therefore slower and pricier."
+  },
+  {
+   "id": "agent-loop-definition",
+   "label": "Agent is a model in a loop",
+   "kind": "concept",
+   "parent": "agent-loop",
+   "angle": "material",
+   "description": "**Accurate:** An LLM agent is a program that repeatedly calls a model, acts on its outputs, and feeds the outcomes back as new input, until the task is done. The loop lives in ordinary code around the model.\n\n**Plainly:** An agent is not a new kind of model. It is a plain model that gets called again and again, with the results of each step handed back to it."
+  },
+  {
+   "id": "observe-think-act",
+   "label": "Loop of observe, reason, act",
+   "kind": "mechanism",
+   "parent": "agent-loop",
+   "angle": "material",
+   "description": "**Accurate:** Each iteration: assemble the context (goal plus everything so far), let the model produce reasoning and/or an action, perform the action, and append the observation. This is the pattern often called ReAct.\n\n**Plainly:** Each round, the agent looks at what it has, decides what to do, does it, and notes what happened. Then it goes around again."
+  },
+  {
+   "id": "stop-condition",
+   "label": "Loop ends on stop signal or limit",
+   "kind": "mechanism",
+   "parent": "agent-loop",
+   "angle": "material",
+   "description": "**Accurate:** The harness ends the loop when the model returns a reply with no tool call (or an explicit finish signal), or when a budget such as a step, token, time or cost limit is hit. 'Done' is a property of the output the code checks for, not an internal feeling of the model.\n\n**Plainly:** The agent stops when its latest answer asks for no more actions, or when it runs out of allowed steps or budget. The surrounding code makes that call."
+  },
+  {
+   "id": "errors-compound",
+   "label": "Per-step errors compound over long runs",
+   "kind": "non-obvious",
+   "parent": "agent-loop",
+   "angle": "material",
+   "description": "**Accurate:** If each step succeeds with probability p and steps are roughly independent, the chance a run of n steps all succeed is about p to the power n, so even high per-step reliability decays fast. Wrong intermediate output also stays in context and can mislead later steps unless something detects and corrects it.\n\n**Plainly:** A small chance of slipping at each step adds up over many steps. A long task can fail even if each step is usually fine, and an early mistake can keep misleading the agent."
+  },
+  {
+   "id": "tool-call-structured-output",
+   "label": "Tool call is structured text output",
+   "kind": "mechanism",
+   "parent": "tools",
+   "angle": "material",
+   "description": "**Accurate:** The model is told, in its context, which tools exist and what arguments they take. To use one it generates text in an agreed structured format (typically JSON naming the tool and arguments). It was trained to produce this format; there is no separate action channel.\n\n**Plainly:** When the agent 'uses a tool', what the model actually does is write a precisely formatted request in text, like filling in a form."
+  },
+  {
+   "id": "harness-executes-tools",
+   "label": "Harness runs tools, not the model",
+   "kind": "non-obvious",
+   "parent": "tools",
+   "angle": "material",
+   "description": "**Accurate:** The surrounding program parses the model's tool request, validates it, runs the real function (search, shell, file edit) and returns the result. The model cannot affect the world except through what the harness chooses to execute, so permissions and sandboxing live there.\n\n**Plainly:** The model only asks. Ordinary software does the actual work and can refuse. That is where safety checks belong."
+  },
+  {
+   "id": "tool-result-reenters-context",
+   "label": "Tool results are appended to context",
+   "kind": "mechanism",
+   "parent": "tools",
+   "angle": "material",
+   "description": "**Accurate:** The tool's output is converted to text and added to the context as a new message, so the next model call can condition on it. The model only 'learns' the result by reading it as input, and large outputs consume the window.\n\n**Plainly:** What the tool finds gets pasted back in front of the model. If it is not pasted in, the model never knows it, and a huge result eats the space."
+  },
+  {
+   "id": "tool-descriptions-are-prompts",
+   "label": "Tool schemas steer model choices",
+   "kind": "non-obvious",
+   "parent": "tools",
+   "angle": "material",
+   "description": "**Accurate:** The names, descriptions and parameter docs of tools are just text in the prompt, and the model chooses among tools by reading them. Vague or overlapping descriptions measurably cause wrong or missed calls, so writing them is prompt design.\n\n**Plainly:** The model picks tools by reading their descriptions. Unclear descriptions lead to wrong choices, so they deserve as much care as any instruction."
+  },
+  {
+   "id": "memory-is-external",
+   "label": "Memory lives outside the weights",
+   "kind": "non-obvious",
+   "parent": "memory",
+   "angle": "material",
+   "description": "**Accurate:** Persistent agent memory is data kept in files, databases or indexes by the harness, and brought into context when needed. Because weights are frozen and calls are stateless, this is the only way something learned in one session can affect another.\n\n**Plainly:** An agent remembers by writing notes somewhere and reading them later, not by changing itself."
+  },
+  {
+   "id": "retrieval-augmentation",
+   "label": "Retrieval injects relevant facts into context",
+   "kind": "mechanism",
+   "parent": "memory",
+   "angle": "material",
+   "description": "**Accurate:** Stored items are indexed (often as embeddings or by keyword). For each step the harness searches for items relevant to the current need and inserts the top ones into the prompt. Quality is capped by what was stored, whether search finds it, and what fits in the window.\n\n**Plainly:** The agent looks up the few notes that seem relevant and puts them in front of the model. If the lookup misses a note, the model acts as if it does not exist."
+  },
+  {
+   "id": "summarization-compaction",
+   "label": "Summarizing old context frees window space",
+   "kind": "mechanism",
+   "parent": "memory",
+   "angle": "material",
+   "description": "**Accurate:** When context nears the limit, the harness has a model condense older material into a shorter summary that replaces it. This is lossy: details not carried into the summary are gone from working context unless stored elsewhere.\n\n**Plainly:** When the page is nearly full, the agent replaces old pages with a short recap. That makes room, but whatever the recap leaves out is forgotten."
+  },
+  {
+   "id": "reasoning-tokens-as-compute",
+   "label": "Written reasoning gives extra computation",
+   "kind": "non-obvious",
+   "parent": "planning",
+   "angle": "material",
+   "description": "**Accurate:** One forward pass has bounded depth, but each generated token triggers another pass and stays in context. Writing out intermediate steps therefore lets the model do more sequential computation and condition on its own partial results, which often improves multi-step problems. The written steps are not guaranteed to be a faithful account of the internal computation.\n\n**Plainly:** Letting the model 'think out loud' gives it more room to work, because it can read its own earlier steps. Those written steps usually help, though they are not a perfect window into how it got there."
+  },
+  {
+   "id": "plan-then-execute",
+   "label": "Decompose goals into steps and revise",
+   "kind": "mechanism",
+   "parent": "planning",
+   "angle": "material",
+   "description": "**Accurate:** Planning is done by prompting the model to produce a list of steps in text, storing it in context or an external file, executing steps via the loop, and re-planning from observations. Splitting work this way keeps each call small and gives a checkable structure.\n\n**Plainly:** The agent writes itself a to-do list, works through it, and rewrites it when things turn out differently from expected."
+  },
+  {
+   "id": "tokens-not-words",
+   "label": "Tokens are just words",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "description": "**Accurate:** Tokens are subword pieces chosen by a compression-like algorithm, so a word may be one or several tokens and a token may be a fragment. Consequences include odd behavior on spelling, character counting and arithmetic, and that limits and prices count tokens rather than words.\n\n**Plainly:** A chunk is not the same as a word. Long or unusual words get cut up, which is why models can stumble on letter-level tasks."
+  },
+  {
+   "id": "training-vs-inference",
+   "label": "The model learns from my chat as we talk",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "description": "**Accurate:** Normal use runs the fixed model forward only. A conversation can change the next reply because its text is in the context, but it does not update weights, and a new session starts without it unless the text is supplied again.\n\n**Plainly:** It feels like it is learning from you, but it is only reading what you said. Close the chat and it is gone."
+  },
+  {
+   "id": "lookup-database",
+   "label": "The model stores facts like a database",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "description": "**Accurate:** Knowledge is spread across the parameters as statistical regularities, not stored as retrievable records. The model reconstructs plausible text, which is why it can produce fluent but false statements and cannot point to a source by default.\n\n**Plainly:** It does not look facts up in a table. It produces what most plausibly fits, which is usually right but can be confidently wrong."
+  },
+  {
+   "id": "next-token-only",
+   "label": "It just predicts the next word, so it cannot do more",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "description": "**Accurate:** Next-token prediction describes the interface of the model, not the limit of what it computes. To predict well across text containing reasoning, code and dialogue, it learns internal structure that supports those tasks, and generated text feeds back as input. The description is accurate; the inference 'therefore trivial' is not.\n\n**Plainly:** 'Predicting the next word' is how it outputs answers, not a ceiling on what it can work out. Doing that well over all kinds of text takes real structure."
+  },
+  {
+   "id": "temperature-randomness",
+   "label": "Same prompt always gives the same answer",
+   "kind": "misconception",
+   "parent": "foundations",
+   "angle": "audience",
+   "description": "**Accurate:** With sampling, the same prompt can yield different outputs, since a token is drawn from a distribution. Even with temperature zero, outputs may vary slightly in practice from numerical effects in serving systems. Agents must therefore tolerate variation between runs.\n\n**Plainly:** Ask twice and you may get two different answers, because the model rolls weighted dice for each chunk. Turning the dial down reduces this but may not remove it."
+  },
+  {
+   "id": "stateless-model",
+   "label": "The model remembers earlier turns by itself",
+   "kind": "misconception",
+   "parent": "context",
+   "angle": "audience",
+   "description": "**Accurate:** Continuity comes from the application resending prior turns, not from state in the model. If the transcript is not included, or is trimmed, the model has no access to it.\n\n**Plainly:** It looks like the model keeps a running memory of the chat. Really the app keeps the transcript and hands it back every time."
+  },
+  {
+   "id": "window-is-everything",
+   "label": "The context is just the chat I can see",
+   "kind": "misconception",
+   "parent": "context",
+   "angle": "audience",
+   "description": "**Accurate:** The context also contains text the user does not see: system instructions, tool definitions, tool results, retrieved passages and summaries. These share the same budget as the visible conversation and strongly shape behavior.\n\n**Plainly:** The model's view is much more than your messages. Hidden instructions and tool output sit in there too and take up room."
+  },
+  {
+   "id": "window-size-equals-quality",
+   "label": "A bigger window means it uses everything well",
+   "kind": "misconception",
+   "parent": "context",
+   "angle": "audience",
+   "description": "**Accurate:** Window size is capacity, not comprehension. Retrieval accuracy and reasoning over long inputs can degrade with length and distractors, and cost rises, so curating what goes in often beats filling the window.\n\n**Plainly:** A larger window lets in more text but does not make the model attend to all of it equally. Less, well chosen, is often better."
+  },
+  {
+   "id": "loop-is-model",
+   "label": "An agent is just a smarter model",
+   "kind": "misconception",
+   "parent": "agent-loop",
+   "angle": "audience",
+   "description": "**Accurate:** An agent's abilities come from a model plus a harness that loops, runs tools and manages context. The same model without the loop is a single-shot text generator; much of an agent's practical capability is in this engineering.\n\n**Plainly:** What makes it an agent is mostly the machinery around the model, not a more intelligent model inside."
+  },
+  {
+   "id": "harness-vs-model",
+   "label": "Model and surrounding code are one thing",
+   "kind": "misconception",
+   "parent": "agent-loop",
+   "angle": "audience",
+   "description": "**Accurate:** Two components with different jobs: the model proposes the next text; the harness assembles context, executes actions, enforces limits and decides when to stop. Many failures are attributable to one or the other, and diagnosis requires knowing which.\n\n**Plainly:** There are two parts: the model that suggests, and the program that carries things out and keeps track. Mixing them up makes problems hard to explain."
+  },
+  {
+   "id": "when-loop-stops",
+   "label": "The model knows when it is finished",
+   "kind": "misconception",
+   "parent": "agent-loop",
+   "angle": "audience",
+   "description": "**Accurate:** The model emits text; the harness treats a reply without further actions as completion. The model may claim to be done when it is not, or keep going unproductively, so independent checks and step budgets are needed.\n\n**Plainly:** The agent does not feel done. It just stops asking for actions, and the code treats that as finished, even if the job is not."
+  },
+  {
+   "id": "model-runs-tools",
+   "label": "The model executes tools itself",
+   "kind": "misconception",
+   "parent": "tools",
+   "angle": "audience",
+   "description": "**Accurate:** The model only outputs a request. Execution, results and side effects belong to the harness, which can validate, deny or sandbox the request.\n\n**Plainly:** The model never presses any buttons. It writes a request and the software decides whether and how to carry it out."
+  },
+  {
+   "id": "tool-call-as-text",
+   "label": "A tool call is a special action, not text",
+   "kind": "misconception",
+   "parent": "tools",
+   "angle": "audience",
+   "description": "**Accurate:** From the model's side a tool call is ordinary generated tokens in a trained format. Because it is text, it can be malformed, can name arguments wrongly, or can be influenced by anything else in the context.\n\n**Plainly:** A tool call looks like a command but is just text the model wrote. That means it can contain mistakes like any other text."
+  },
+  {
+   "id": "memory-is-storage",
+   "label": "Agent memory is a separate brain",
+   "kind": "misconception",
+   "parent": "memory",
+   "angle": "audience",
+   "description": "**Accurate:** Agent memory is ordinary data plus the code that stores, searches and injects it. It has no independent understanding; what the agent 'remembers' is whatever got written and then retrieved into context.\n\n**Plainly:** Memory is not a second mind. It is a notebook the agent writes in and flips through."
+  },
+  {
+   "id": "memory-as-retrieval",
+   "label": "Long-term memory means automatic recall",
+   "kind": "misconception",
+   "parent": "memory",
+   "angle": "audience",
+   "description": "**Accurate:** Recall must be triggered: something has to decide to search, the search has to find the item, and the item has to fit. A stored fact that is not retrieved has no effect on the next step, and irrelevant retrieved text can distract.\n\n**Plainly:** Having written something down does not mean it comes to mind. It only helps if the right note is found and shown at the right moment."
+  },
+  {
+   "id": "planning-is-reasoning-inside",
+   "label": "Planning is a special built-in ability",
+   "kind": "misconception",
+   "parent": "planning",
+   "angle": "audience",
+   "description": "**Accurate:** There is no separate planning module in the model. Plans are text generated like any other, kept in context, and followed only to the extent the model reads and heeds them in later steps. Plan quality depends on prompting, feedback from the environment and checks.\n\n**Plainly:** Planning is not a special organ. The model writes a plan as text and reads it back later, so it works only as long as the plan stays in view and gets followed."
+  }
+ ],
+ "edges": []
+}

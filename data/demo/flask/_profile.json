@@ -1,0 +1,50 @@
+{
+ "nodePalette": {
+  "module": "#6366f1",
+  "class": "#f59e0b",
+  "function": "#10b981",
+  "method": "#14b8a6",
+  "property": "#06b6d4",
+  "attribute": "#94a3b8",
+  "variable": "#a855f7",
+  "proxy": "#ec4899",
+  "signal": "#ef4444",
+  "type": "#64748b"
+ },
+ "placeholderFlags": ["stub"],
+ "detail": {
+  "flagNotes": {
+   "stub": "Mapped in the skeleton pass; described in the next."
+  }
+ },
+ "demo": {
+  "order": 3,
+  "description": {
+   "en": "Flask’s source mapped by an agent with the kg-build skill: every module, class and method, read from the code",
+   "zh": "agent 用 kg-build skill 画的 Flask 源码：每个模块、类、方法，都从代码读出来"
+  },
+  "source": {
+   "en": "Real output of [mapping a codebase in three passes](skills/kg-build/SKILL.md), on [Flask](https://github.com/pallets/flask)'s source.",
+   "zh": "[分三遍画出一个代码库](skills/kg-build/SKILL.md)，在 [Flask](https://github.com/pallets/flask) 源码上跑出的真实结果。"
+  }
+ },
+ "edgePalette": {
+  "imports": "#e63b7a",
+  "calls": "#2563eb",
+  "references": "#94a3b8",
+  "extends": "#f59e0b",
+  "decorated_by": "#a855f7",
+  "emits": "#ef4444"
+ },
+ "style": [
+  {
+   "selector": "edge.references",
+   "style": {
+    "line-style": "dashed"
+   }
+  }
+ ],
+ "kindLabels": {
+  "decorated_by": "decorated by"
+ }
+}

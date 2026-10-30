@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unpkg.com/glassbrain/schema/profile.schema.json",
+  "title": "glassbrain profile (_profile.json)",
+  "description": "The declarative part of a glassbrain profile, as a `_profile.json` next to the graph files. Everything is optional: with no profile a graph still renders (kinds without a color are drawn as skeleton). Parsers, merge and domain validation are code and live in a TypeScript profile instead.",
+  "type": "object",
+  "properties": {
+    "layers": {
+      "type": "array",
+      "description": "Layers for the 2.5D plane view. One default layer if omitted.",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "z": { "type": "number", "description": "Plane order: 0 is the bottom." },
+          "color": { "type": "string", "description": "Hue of the plane." },
+          "structural": { "type": "boolean", "description": "false = placed around the main structure instead of taking part in it." }
+        }
+      }
+    },
+    "nodePalette": { "$ref": "#/$defs/colors", "description": "Node kind → color. Kinds not listed are skeleton." },
+    "edgePalette": { "$ref": "#/$defs/colors", "description": "Edge kind → color." },
+    "nodeSize": { "$ref": "#/$defs/numbers", "description": "Node kind → size multiplier (1 = default)." },
+    "edgeWidth": { "$ref": "#/$defs/numbers", "description": "Edge kind → width multiplier." },
+    "placeholderFlags": { "type": "array", "items": { "type": "string" }, "description": "Nodes with any of these flags are drawn as placeholders (declared, not yet filled)." },
+    "kindLabels": { "$ref": "#/$defs/strings", "description": "Kind → human-readable name (nodes and edges share this map)." },
+    "edgeLabels": { "$ref": "#/$defs/strings", "description": "Same as kindLabels, for edge kinds; merged into it." },
+    "style": { "type": "array", "description": "Extra cytoscape style rules, appended after the base style." },
+    "detail": {
+      "type": "object",
+      "description": "Detail panel field tables.",
+      "properties": {
+        "line": { "$ref": "#/$defs/fields" },
+        "list": { "$ref": "#/$defs/fields" },
+        "skip": { "type": "array", "items": { "type": "string" } },
+        "flagNotes": { "$ref": "#/$defs/strings" }
+      }
+    },
+    "singleRoot": { "type": "boolean", "description": "Wrap several top-level nodes in one root box (default true)." },
+    "rootLabel": { "type": "string" },
+    "diffIgnore": { "type": "array", "items": { "type": "string" }, "description": "Node fields that do not count as a change when diffing (fields every rebuild rewrites, e.g. cluster ids or line numbers). Used by the glassbrain CLI." }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "colors": { "type": "object", "additionalProperties": { "type": "string" } },
+    "numbers": { "type": "object", "additionalProperties": { "type": "number" } },
+    "strings": { "type": "object", "additionalProperties": { "type": "string" } },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "label"],
+        "properties": { "key": { "type": "string" }, "label": { "type": "string" } }
+      }
+    }
+  }
+}

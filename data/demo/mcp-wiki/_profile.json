@@ -1,0 +1,14 @@
+{
+ "demo": {
+  "order": 8,
+  "description": {
+   "en": "An agent’s LLM wiki on MCP: a folder of markdown notes, opened as is",
+   "zh": "agent 记的 MCP 笔记 wiki：一个 markdown 文件夹，直接打开"
+  },
+  "source": {
+   "en": "Real output of one prompt: [keep an LLM wiki on MCP](data/demo/mcp-wiki/RUN.md#prompt).",
+   "zh": "一段 prompt 的真实结果：[给 MCP 记一份 LLM wiki](data/demo/mcp-wiki/RUN.md#prompt)。"
+  },
+  "convert": true
+ }
+}

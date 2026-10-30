@@ -1,0 +1,12 @@
+node_modules/
+dist/
+demo/dist/
+*.tgz
+.DS_Store
+*.tsbuildinfo
+# Local scratch: screenshots, reports, benchmark output.
+local/
+# Local-only files (never meant for the repository).
+*.local.*
+.README.md.orig
+site/

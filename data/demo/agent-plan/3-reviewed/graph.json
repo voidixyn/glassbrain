@@ -1,0 +1,1377 @@
+{
+ "nodes": [
+  {
+   "id": "collab-editing",
+   "label": "Collaborative editing for markdown notes",
+   "kind": "area",
+   "description": "Plan root. Read order: **Requirements** first, then every decision links back to the requirement it serves (`because`), every rejected alternative links to the decision that beat it (`rejects`)."
+  },
+  {
+   "id": "a-req",
+   "label": "Requirements",
+   "kind": "area",
+   "parent": "collab-editing",
+   "description": ""
+  },
+  {
+   "id": "a-sync",
+   "label": "Sync core",
+   "kind": "area",
+   "parent": "collab-editing",
+   "description": ""
+  },
+  {
+   "id": "a-client",
+   "label": "Editor and presence",
+   "kind": "area",
+   "parent": "collab-editing",
+   "description": ""
+  },
+  {
+   "id": "a-offline",
+   "label": "Offline",
+   "kind": "area",
+   "parent": "collab-editing",
+   "description": ""
+  },
+  {
+   "id": "a-store",
+   "label": "Storage",
+   "kind": "area",
+   "parent": "collab-editing",
+   "description": ""
+  },
+  {
+   "id": "a-scale",
+   "label": "Scale and operations",
+   "kind": "area",
+   "parent": "collab-editing",
+   "description": ""
+  },
+  {
+   "id": "a-sec",
+   "label": "Access and security",
+   "kind": "area",
+   "parent": "collab-editing",
+   "description": ""
+  },
+  {
+   "id": "a-delivery",
+   "label": "Delivery plan",
+   "kind": "area",
+   "parent": "collab-editing",
+   "description": ""
+  },
+  {
+   "id": "a-questions",
+   "label": "Questions for you",
+   "kind": "area",
+   "parent": "collab-editing",
+   "description": ""
+  },
+  {
+   "id": "req-live",
+   "label": "Several people edit one note live",
+   "kind": "requirement",
+   "parent": "a-req",
+   "description": "Up to **~10 concurrent editors per note** (assumption, see `q-concurrency`). A remote keystroke appears in **under 300 ms p95** within one region. All replicas converge to byte-identical text; no keystroke is silently dropped."
+  },
+  {
+   "id": "req-cursors",
+   "label": "Live cursors and selections",
+   "kind": "requirement",
+   "parent": "a-req",
+   "description": "Each collaborator shows a named, colored caret and selection. Movement looks smooth (updates at **~20 Hz**). Cursor data is disposable: never needs to survive a restart."
+  },
+  {
+   "id": "req-offline",
+   "label": "Works offline, syncs later",
+   "kind": "requirement",
+   "parent": "a-req",
+   "description": "Editing continues with no network for **hours to days** (exact bound is `q-offline`). On reconnect, edits made on several devices merge with **no manual conflict dialog** and no lost text."
+  },
+  {
+   "id": "req-markdown",
+   "label": "Notes stay plain markdown",
+   "kind": "requirement",
+   "parent": "a-req",
+   "description": "The note remains a markdown string for search, export, the public API and any existing consumers. The collaboration layer must not turn notes into a rich-text tree that cannot round-trip to markdown."
+  },
+  {
+   "id": "req-scale",
+   "label": "50k users",
+   "kind": "requirement",
+   "parent": "a-req",
+   "description": "Working assumption: **~10% concurrently online at peak = ~5k WebSockets**, **~1k active rooms**, most with 1-3 people. Needs confirmation (`q-concurrency`); every capacity number below inherits this uncertainty."
+  },
+  {
+   "id": "req-stack",
+   "label": "React, Node, Postgres",
+   "kind": "requirement",
+   "parent": "a-req",
+   "description": "Keep the current stack. **No new datastore in v1** (no Redis, no Mongo, no object store) unless a decision below proves it necessary."
+  },
+  {
+   "id": "req-access",
+   "label": "Only permitted people join a note",
+   "kind": "requirement",
+   "parent": "a-req",
+   "description": "Implied by any notes app. Enforced when the socket opens **and** on every update (read-only members must not be able to write). Revocation takes effect within seconds."
+  },
+  {
+   "id": "req-durable",
+   "label": "Never lose an acknowledged edit",
+   "kind": "requirement",
+   "parent": "a-req",
+   "description": "Implied. An edit the user saw as synced survives a server crash, deploy or Postgres failover. An edit still only on the client stays on the client until acknowledged."
+  },
+  {
+   "id": "dec-crdt",
+   "label": "Use Yjs (CRDT) for the document model",
+   "kind": "decision",
+   "parent": "a-sync",
+   "description": "Notes are a single `Y.Text`. Merging is commutative and idempotent, so the **same code path** serves live typing, reconnect after a flaky network and a week-long offline edit. Updates are binary diffs (typically 20-200 bytes per keystroke batch).\n\nTrade-off: the document carries history (tombstones), so it only grows; see `risk-tombstones`."
+  },
+  {
+   "id": "dec-server",
+   "label": "Build the room server on Hocuspocus",
+   "kind": "decision",
+   "parent": "a-sync",
+   "description": "Hocuspocus (MIT, Node, Yjs-native) already implements the sync protocol, awareness, auth hooks (`onAuthenticate`) and persistence hooks (`onStoreDocument`). Roughly **2-3 weeks saved** over writing it ourselves. We keep Postgres persistence and auth as our own extensions.\n\nTrade-off: dependency on a small project; pin the version and keep the extension surface thin (`risk-dependency`)."
+  },
+  {
+   "id": "dec-transport",
+   "label": "One WebSocket per open note, binary y-protocol",
+   "kind": "decision",
+   "parent": "a-sync",
+   "description": "Bidirectional, low-latency, binary. Heartbeat 25 s, reconnect with jitter. A browser holds 1-3 sockets (open tabs), not one per user session."
+  },
+  {
+   "id": "dec-routing",
+   "label": "Sticky routing: one process owns a room",
+   "kind": "decision",
+   "parent": "a-sync",
+   "description": "The load balancer hashes `note_id` (consistent hash) so every client of a note lands on the same Node process. That process holds the single in-memory `Y.Doc`, so **no cross-node pub/sub is needed at 50k users**.\n\nIf a node dies, its rooms re-hash to others and clients reconnect and resync via state vectors; clients still hold unacknowledged edits."
+  },
+  {
+   "id": "dec-flush",
+   "label": "Keep active docs in memory, flush in batches",
+   "kind": "decision",
+   "parent": "a-sync",
+   "description": "Server keeps the `Y.Doc` while a room has clients; persists at most every **500 ms or 50 updates**, whichever first (debounced append to `note_updates`). Evict the doc **60 s** after the last client leaves.\n\nWhy: one insert per keystroke would be ~100 inserts/s per busy room."
+  },
+  {
+   "id": "cmp-sync-server",
+   "label": "Sync server (Node, Hocuspocus)",
+   "kind": "component",
+   "parent": "a-sync",
+   "description": "Stateless-looking, stateful in practice: rooms in memory. Extensions: `AuthExt` (JWT + ACL), `PgPersistExt` (load snapshot + replay updates, append on store), `MaterializeExt` (write markdown column), metrics. Runs as N processes behind `cmp-router`."
+  },
+  {
+   "id": "cmp-router",
+   "label": "Room router (L7 load balancer rule)",
+   "kind": "component",
+   "parent": "a-sync",
+   "description": "nginx/Envoy/ALB rule hashing `/collab/:noteId` to a backend. Health-checked; removing a node triggers re-hash. No custom code if the existing LB supports consistent hashing (`q-hosting`)."
+  },
+  {
+   "id": "rej-ot",
+   "label": "OT with ShareDB",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "description": "Needs a central server that serializes every op, and offline edits for days mean transforming huge backlogs against server history. Rejected because it makes `req-offline` the hardest part instead of a by-product. ShareDB Postgres adapter is also a weaker fit."
+  },
+  {
+   "id": "rej-automerge",
+   "label": "Automerge",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "description": "Good CRDT, but heavier on documents with long text histories and a less mature CodeMirror binding at the time of writing. Yjs has the larger ecosystem for exactly this stack (editor bindings, awareness, persistence providers)."
+  },
+  {
+   "id": "rej-lww",
+   "label": "Last-write-wins on the whole note",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "description": "Simplest. Loses concurrent edits by design, which violates `req-durable` and makes offline sync destructive. Rejected."
+  },
+  {
+   "id": "rej-sse",
+   "label": "SSE + POST instead of WebSocket",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "description": "Works through every proxy, but cursors at 20 Hz mean many small POSTs and no server-initiated binary stream; head-of-line behavior is worse. Kept only as a possible fallback transport, not in v1."
+  },
+  {
+   "id": "rej-redis",
+   "label": "Redis pub/sub between nodes",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "description": "Needed only if one note could be served by several nodes. Sticky routing avoids that; Redis adds a new stateful dependency and failure mode, against `req-stack`. Revisit if routing proves unreliable or rooms exceed one node."
+  },
+  {
+   "id": "rej-scratch-server",
+   "label": "Write the sync server from scratch",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "description": "Full control, but re-implements a protocol that is easy to get subtly wrong (state-vector handshake, awareness expiry). Not where our differentiation is."
+  },
+  {
+   "id": "rej-hosted",
+   "label": "Hosted sync (Liveblocks, Y-Sweet cloud)",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "description": "Fastest start, but note content leaves our infrastructure and cost scales per MAU/connection; at 50k users likely higher than running 3 Node processes. Reopen if data residency is not a concern (`q-hosting`)."
+  },
+  {
+   "id": "risk-md-merge",
+   "label": "Concurrent edits can yield odd markdown",
+   "kind": "risk",
+   "parent": "a-sync",
+   "description": "Two people editing the same table row or list item merge character-wise: the text is convergent but may be syntactically broken (half a row, doubled list marker). Not data loss, but looks like a bug."
+  },
+  {
+   "id": "risk-dependency",
+   "label": "Hocuspocus is a small-project dependency",
+   "kind": "risk",
+   "parent": "a-sync",
+   "description": "Maintainer risk and breaking changes between majors. Mitigation: pin, wrap behind our own `RoomServer` interface, keep a fork-ready test suite.\n\n**Review change:** add an exit plan: the `RoomServer` wrapper is ~300 lines, and `y-websocket` is the fallback with the same Yjs protocol."
+  },
+  {
+   "id": "risk-failover",
+   "label": "Node crash loses up to 500 ms of unflushed server state",
+   "kind": "risk",
+   "parent": "a-sync",
+   "description": "Updates acknowledged to a client but not yet in Postgres. Clients keep their local copy (IndexedDB) and resend the diff via state vector, so loss happens only if the client is also gone."
+  },
+  {
+   "id": "dec-editor",
+   "label": "CodeMirror 6 with y-codemirror.next, markdown as source",
+   "kind": "decision",
+   "parent": "a-client",
+   "description": "Edit the markdown **source** (syntax highlighted), bind `Y.Text` directly with `y-codemirror.next`, which also renders remote cursors and per-user undo. The existing preview pane stays a separate render.\n\nKeeps `req-markdown` trivially true: the CRDT value *is* the markdown string."
+  },
+  {
+   "id": "dec-presence",
+   "label": "Cursors via Yjs awareness, ephemeral",
+   "kind": "decision",
+   "parent": "a-client",
+   "description": "Awareness state `{user, color, anchor, head}`; coalesce to one message per **50 ms**; expire after 30 s without heartbeat. Never written to Postgres. Cap on 50 visible cursors per note, rest collapsed into an avatar count."
+  },
+  {
+   "id": "dec-preview",
+   "label": "Sanitized preview of the shared text",
+   "kind": "decision",
+   "parent": "a-client",
+   "description": "Preview is rendered with markdown-it + DOMPurify. Because other users now control the text you render, treat all content as untrusted."
+  },
+  {
+   "id": "cmp-editor",
+   "label": "Editor component (React)",
+   "kind": "component",
+   "parent": "a-client",
+   "description": "`<NoteEditor noteId>` owns the `Y.Doc`, the provider and the CodeMirror view. Mounting/unmounting must destroy provider and awareness (React StrictMode double-mount is a known leak source)."
+  },
+  {
+   "id": "cmp-provider",
+   "label": "Sync client (provider)",
+   "kind": "component",
+   "parent": "a-client",
+   "description": "Wraps `HocuspocusProvider` + `y-indexeddb`. Exposes status: `offline | connecting | synced | unsynced-local-edits` for the UI."
+  },
+  {
+   "id": "cmp-cursors-ui",
+   "label": "Cursor and presence UI",
+   "kind": "component",
+   "parent": "a-client",
+   "description": "Colored carets, name flags, avatar stack in the toolbar. Colors derived from a hash of user id to stay stable across sessions."
+  },
+  {
+   "id": "rej-prosemirror",
+   "label": "ProseMirror/Tiptap WYSIWYG",
+   "kind": "rejected",
+   "parent": "a-client",
+   "description": "Good collaborative support (y-prosemirror), but the document becomes a tree; round-tripping to exact markdown loses formatting choices and breaks `req-markdown` for existing notes. Revisit only if product wants a rich-text mode."
+  },
+  {
+   "id": "risk-xss",
+   "label": "Collaborator-supplied markdown renders in your browser",
+   "kind": "risk",
+   "parent": "a-client",
+   "description": "Before this feature you only rendered your own text. Now an invited user can inject HTML/links/images. Without sanitizing this is stored XSS across accounts."
+  },
+  {
+   "id": "risk-undo",
+   "label": "Undo semantics surprise users",
+   "kind": "risk",
+   "parent": "a-client",
+   "description": "Yjs `UndoManager` undoes only your own edits, which is right, but users used to a global undo may expect otherwise. Needs a UX note, not a design change."
+  },
+  {
+   "id": "dec-local-store",
+   "label": "Persist each opened note in IndexedDB (y-indexeddb)",
+   "kind": "decision",
+   "parent": "a-offline",
+   "description": "Every edit is written locally before it is sent. Service worker caches the app shell so the app opens offline. Local copy is the safety net behind `req-durable` on the client side."
+  },
+  {
+   "id": "dec-reconnect",
+   "label": "Resync by state-vector diff",
+   "kind": "decision",
+   "parent": "a-offline",
+   "description": "On reconnect the client sends its state vector; the server replies with only what is missing and vice versa. Backoff 1 s to 30 s with jitter to avoid a thundering herd after a deploy (5k clients reconnecting)."
+  },
+  {
+   "id": "dec-offline-scope",
+   "label": "Offline for opened and pinned notes only",
+   "kind": "decision",
+   "parent": "a-offline",
+   "description": "Cache the last **50 opened notes** plus pinned ones, not the whole library. Bounds IndexedDB use (~50 KB-1 MB each) and avoids a bulk-download sync problem."
+  },
+  {
+   "id": "cmp-sw",
+   "label": "Service worker (app shell)",
+   "kind": "component",
+   "parent": "a-offline",
+   "description": "Workbox precache of the JS bundle and routes. Without it the app cannot even start offline, so IndexedDB data would be unreachable."
+  },
+  {
+   "id": "cmp-idb",
+   "label": "Local persistence (IndexedDB)",
+   "kind": "component",
+   "parent": "a-offline",
+   "description": "One database per note id; garbage-collected by LRU beyond 50 notes."
+  },
+  {
+   "id": "risk-storage-eviction",
+   "label": "Browsers can evict local data",
+   "kind": "risk",
+   "parent": "a-offline",
+   "description": "Safari deletes script-writable storage after ~7 days without interaction; any browser may evict under storage pressure. Offline edits that were never synced could vanish.\n\n**Review change:** mitigated, not just noted. Call `navigator.storage.persist()` on first offline use; the sync indicator shows \"N edits only on this device\"; after 5 days offline show a banner prompting to reconnect; safe default is that **the server copy is the source of truth**."
+  },
+  {
+   "id": "risk-offline-divergence",
+   "label": "Long-offline replicas produce large merges",
+   "kind": "risk",
+   "parent": "a-offline",
+   "description": "A device offline for a week while others rewrote the note merges cleanly in the CRDT but may surprise the user. Needs a visible \"merged N changes from others\" notice."
+  },
+  {
+   "id": "dec-schema",
+   "label": "Append-only update log plus snapshots in Postgres",
+   "kind": "decision",
+   "parent": "a-store",
+   "description": "`note_updates(id bigserial, note_id, update bytea, created_at)` and `note_snapshots(note_id pk, snapshot bytea, upto_update_id)`. Load = snapshot + updates after `upto_update_id`. Index `(note_id, id)`. Binary Yjs updates are the source of truth for collaboration."
+  },
+  {
+   "id": "dec-compaction",
+   "label": "Compact log into snapshot",
+   "kind": "decision",
+   "parent": "a-store",
+   "description": "Background job merges updates into a new snapshot when a note has **>200 updates, >1 MB of log, or 5 min idle**; then deletes merged rows. Keeps load time under ~50 ms and storage near the live document size.\n\n**Review change:** snapshot + delete are one transaction bounded by `upto_update_id`; appends never block on it. Test with a concurrent-append property test."
+  },
+  {
+   "id": "dec-materialize",
+   "label": "Materialize markdown text on flush",
+   "kind": "decision",
+   "parent": "a-store",
+   "description": "On every store (debounced **5 s**) write `Y.Text.toString()` into the existing `notes.markdown` column. Search, export and the public API keep working unchanged. The column is derived: never edited directly while collaboration is on.\n\n**Review change:** search may lag the editor by up to 5 s plus index latency. Acceptable only if `q-existing` shows nothing depends on instant consistency (for example, \"save then export\")."
+  },
+  {
+   "id": "cmp-store",
+   "label": "Postgres tables",
+   "kind": "component",
+   "parent": "a-store",
+   "description": "`note_updates`, `note_snapshots`, existing `notes`. Partition `note_updates` by hash(note_id) only if the table exceeds ~100 M rows (not expected after compaction)."
+  },
+  {
+   "id": "cmp-compactor",
+   "label": "Compaction worker",
+   "kind": "component",
+   "parent": "a-store",
+   "description": "Node cron worker, one pass per minute over notes with a dirty counter. Runs outside the room servers to keep their latency flat."
+  },
+  {
+   "id": "rej-doc-store",
+   "label": "Store documents in object storage or a document DB",
+   "kind": "rejected",
+   "parent": "a-store",
+   "description": "S3/Mongo would hold blobs well, but adds a datastore (violates `req-stack`) and loses transactional consistency with `notes` metadata. Postgres `bytea` at <1 MB per doc is fine."
+  },
+  {
+   "id": "risk-log-growth",
+   "label": "Update log grows without bound if compaction lags",
+   "kind": "risk",
+   "parent": "a-store",
+   "description": "A busy note makes thousands of rows an hour. If compaction stalls, load time and storage degrade silently."
+  },
+  {
+   "id": "risk-tombstones",
+   "label": "CRDT history only grows",
+   "kind": "risk",
+   "parent": "a-store",
+   "description": "Deleted text stays as tombstones. Typical overhead 2-10x the visible text for heavily edited notes. Yjs garbage collection helps but cannot drop history that peers may still reference."
+  },
+  {
+   "id": "risk-pg-writes",
+   "label": "Write amplification on Postgres",
+   "kind": "risk",
+   "parent": "a-scale",
+   "description": "~1k active rooms x ~1 batched write/s = **~1k inserts/s**, plus materialization (every 5 s per room, +200 updates/s). Review: batch inserts per node per 100 ms (multi-row `INSERT`), keep `note_updates` unlogged-free but with `synchronous_commit=on` only for the flush, not materialization. One primary handles this; replicas are for reads only."
+  },
+  {
+   "id": "dec-limits",
+   "label": "Hard limits per note",
+   "kind": "decision",
+   "parent": "a-scale",
+   "description": "Max **1 MB** markdown, **50 editors**, **10 notes** per connection. Beyond the limit the note opens read-only with an explanation. Protects server memory."
+  },
+  {
+   "id": "dec-capacity",
+   "label": "Start with 3 sync nodes, scale on sockets",
+   "kind": "decision",
+   "parent": "a-scale",
+   "description": "Starting guess: 3 x (2 vCPU, 4 GB), ~4k sockets and ~400 live docs each. **Review:** the memory side was optimistic: with docs at ~8x text size, set `--max-old-space-size` to 3 GB, cap live docs per node at **250**, and evict least-recently-active first. Real numbers come from `task-spike`, not this table. Autoscale on sockets and event-loop lag."
+  },
+  {
+   "id": "cmp-metrics",
+   "label": "Observability",
+   "kind": "component",
+   "parent": "a-scale",
+   "description": "Prometheus metrics: open sockets, rooms, update bytes/s, flush latency, compaction backlog, resync duration; alert on backlog >1000 rows for 10 min and flush p95 >1 s."
+  },
+  {
+   "id": "risk-memory",
+   "label": "In-memory docs can exhaust node memory",
+   "kind": "risk",
+   "parent": "a-scale",
+   "description": "A `Y.Doc` costs several times its text size. 400 docs x 1 MB x ~8 = 3 GB worst case, close to the 4 GB node. Eviction and `dec-limits` bound it, but a hot-note stampede could still OOM.\n\n**Review change:** live-doc cap of 250/node and LRU eviction added to the mitigations."
+  },
+  {
+   "id": "risk-connection-storm",
+   "label": "Deploy or node loss reconnects thousands at once",
+   "kind": "risk",
+   "parent": "a-scale",
+   "description": "5k clients reconnect and request full resync in seconds. Mitigated by jittered backoff and rolling deploys that drain 10% at a time."
+  },
+  {
+   "id": "dec-auth",
+   "label": "Short-lived JWT at upgrade, ACL check, close on revoke",
+   "kind": "decision",
+   "parent": "a-sec",
+   "description": "Client gets a 5-minute collab token from the existing API; server verifies it in `onAuthenticate`, loads the note ACL (owner/editor/viewer), and keeps `readOnly` per connection. ACL changes emit `pg_notify(\"acl\", note_id)`; the owning node closes affected sockets."
+  },
+  {
+   "id": "cmp-auth",
+   "label": "Auth extension",
+   "kind": "component",
+   "parent": "a-sec",
+   "description": "Hocuspocus extension: verify token, check ACL cache (TTL 10 s), set connection mode."
+  },
+  {
+   "id": "risk-revoke-lag",
+   "label": "Removed users keep a live socket",
+   "kind": "risk",
+   "parent": "a-sec",
+   "description": "Between ACL change and socket close, up to the notify latency (~seconds) they still receive updates. Acceptable only if stated; tighten with the notify-based close."
+  },
+  {
+   "id": "dec-migrate",
+   "label": "Lazy-import existing notes on first collaborative open",
+   "kind": "decision",
+   "parent": "a-delivery",
+   "description": "If a note has no snapshot, create a `Y.Doc` from `notes.markdown` and persist as snapshot #1 inside a transaction guarded by a unique constraint. No bulk migration, no downtime. Rollback = ignore the collab tables, `notes.markdown` stays current."
+  },
+  {
+   "id": "dec-rollout",
+   "label": "Feature-flagged rollout with a read-only kill switch",
+   "kind": "decision",
+   "parent": "a-delivery",
+   "description": "Internal team, then 5%, 50%, 100% of notes. Kill switch makes collaboration read-only and falls back to the legacy single-writer save path.\n\n**Review change:** rollout is gated on three green checks: convergence suite, viewer write-rejection test, full 10k-socket load test."
+  },
+  {
+   "id": "task-spike",
+   "label": "Spike: two tabs, Yjs, CM6, Hocuspocus, Postgres",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "~1 week. Proves binding, persistence round trip, **and a 2k-socket k6 test plus a memory profile of 250 live docs** *before* committing to the rest. Output: go/no-go and measured numbers replacing the guesses in `dec-capacity`. If flush p95 >1 s at 2k sockets, stop and revisit `rej-redis` / sharding."
+  },
+  {
+   "id": "task-schema",
+   "label": "Create tables and persistence extension",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "Migrations, `PgPersistExt`, load/replay, tests with 10k updates."
+  },
+  {
+   "id": "task-server",
+   "label": "Sync server with auth and limits",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "Hocuspocus app, auth extension, `dec-limits`, health checks, graceful drain."
+  },
+  {
+   "id": "task-editor",
+   "label": "React editor integration",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "`NoteEditor`, status indicator, sanitized preview, StrictMode safe teardown."
+  },
+  {
+   "id": "task-presence",
+   "label": "Cursor UI",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "Awareness rendering, colors, avatar stack, 50 ms coalescing."
+  },
+  {
+   "id": "task-offline",
+   "label": "Offline: IndexedDB, service worker, resync",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "y-indexeddb, Workbox shell, reconnect backoff, \"unsynced edits\" indicator, test with network throttling and airplane mode."
+  },
+  {
+   "id": "task-compactor",
+   "label": "Compaction worker",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "Cron worker, dirty counters, backlog metric."
+  },
+  {
+   "id": "task-convergence-test",
+   "label": "Convergence and chaos tests",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "fast-check property tests (random ops from N replicas converge) plus toxiproxy-style network cuts during live sessions."
+  },
+  {
+   "id": "task-loadtest",
+   "label": "Full load test",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "k6 websocket scenario: 10k sockets, 1.5k rooms, 20 Hz awareness. Pass: flush p95 <1 s, no node above 70% memory."
+  },
+  {
+   "id": "task-migrate",
+   "label": "Lazy migration path",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "Implements `dec-migrate`, including race test of two simultaneous first opens."
+  },
+  {
+   "id": "task-rollout",
+   "label": "Rollout and kill switch",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "Flag plumbing, dashboards, runbook."
+  },
+  {
+   "id": "task-observability",
+   "label": "Metrics and alerts",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "Implements `cmp-metrics`."
+  },
+  {
+   "id": "q-existing",
+   "label": "How are notes stored and consumed today?",
+   "kind": "question",
+   "parent": "a-questions",
+   "description": "Is `notes.markdown` a plain column? Who reads it (search index, export, API, mobile apps)? Decides whether `dec-materialize` is enough or a search reindex hook is needed."
+  },
+  {
+   "id": "q-concurrency",
+   "label": "What are real peak concurrent users and editors per note?",
+   "kind": "question",
+   "parent": "a-questions",
+   "description": "Is \"50k\" registered, monthly or concurrent? Can I see peak concurrent sessions and the largest note? The capacity plan stands on this."
+  },
+  {
+   "id": "q-offline",
+   "label": "How long must offline editing be supported?",
+   "kind": "question",
+   "parent": "a-questions",
+   "description": "A flight (hours) or weeks? Mobile PWA, or only desktop browsers? Safari eviction (7 days) makes this a real constraint."
+  },
+  {
+   "id": "q-hosting",
+   "label": "Where does it run, and is a hosted sync service acceptable?",
+   "kind": "question",
+   "parent": "a-questions",
+   "description": "Kubernetes or VMs? Does the load balancer support consistent hashing by path? Is there already a Redis? Can note content leave your infrastructure?"
+  },
+  {
+   "id": "q-permissions",
+   "label": "What sharing model exists?",
+   "kind": "question",
+   "parent": "a-questions",
+   "description": "Owner/editor/viewer only, link sharing, organizations? Defines the ACL cache and revocation logic."
+  },
+  {
+   "id": "q-history",
+   "label": "Is version history or restore needed in v1?",
+   "kind": "question",
+   "parent": "a-questions",
+   "description": "I assume **not in v1**. Review: this is now an explicit non-goal; `dec-erase` and compaction both discard history, so adding version history later needs periodic named snapshots stored separately."
+  },
+  {
+   "id": "q-erasure",
+   "label": "Must deleted text be truly erasable?",
+   "kind": "question",
+   "parent": "a-questions",
+   "description": "GDPR or customer contracts may require that deleted content is gone, but a CRDT keeps it as history. Answer decides whether we need a history-purging path."
+  },
+  {
+   "id": "rej-lease",
+   "label": "Postgres lease per room for single ownership",
+   "kind": "rejected",
+   "parent": "a-sync",
+   "description": "Review: removed as a decision. For a CRDT a double-hosted room is a **liveness** problem (two halves cannot see each other live), not a **safety** one: both nodes append idempotent updates and the doc converges after reconnect. A lease adds a 5 s heartbeat write per room (~200 writes/s at 1k rooms) and a new failure mode for no correctness gain."
+  },
+  {
+   "id": "risk-split-rooms",
+   "label": "Brief double-hosting of a room during rebalance",
+   "kind": "risk",
+   "parent": "a-sync",
+   "description": "Two nodes may host one note for seconds while the LB re-hashes: collaborators temporarily do not see each other. No data loss (idempotent merge). Mitigation: drain on re-hash (close sockets of moved rooms, clients reconnect to the new owner), alert when a note has clients on two nodes."
+  },
+  {
+   "id": "risk-viewer-writes",
+   "label": "Read-only members can still send updates",
+   "kind": "risk",
+   "parent": "a-sec",
+   "description": "Review gap: authorization at connect is not enough. A viewer's client speaks the same protocol and could push a sync update. Must be dropped server side per message, not hidden in the UI."
+  },
+  {
+   "id": "dec-readonly-enforce",
+   "label": "Enforce read-only on the server per connection",
+   "kind": "decision",
+   "parent": "a-sec",
+   "description": "Hocuspocus `connection.readOnly = true` for viewers: the server applies no incoming update messages from them (awareness still allowed). Test: a viewer socket sending a crafted update leaves the doc and Postgres unchanged."
+  },
+  {
+   "id": "task-readonly-test",
+   "label": "Viewer write-rejection test",
+   "kind": "task",
+   "parent": "a-delivery",
+   "description": "Integration test with a raw WebSocket client sending a crafted update as a viewer; part of the rollout gate."
+  },
+  {
+   "id": "risk-compaction-race",
+   "label": "Compaction can race with live appends",
+   "kind": "risk",
+   "parent": "a-store",
+   "description": "Review gap: if the worker snapshots at update 500 while the server appends 501-503, deleting by note_id would lose them. Safe rule: snapshot records `upto_update_id` and the delete is `WHERE id <= upto_update_id`, in one transaction that also locks the note row (`FOR UPDATE SKIP LOCKED`)."
+  },
+  {
+   "id": "dec-erase",
+   "label": "Erasure = rebuild the doc without history",
+   "kind": "decision",
+   "parent": "a-store",
+   "description": "If `q-erasure` says yes: an admin action creates a fresh `Y.Doc` from the current text, writes it as snapshot, deletes all `note_updates` and forces every client to reload (their old IndexedDB copy is discarded by a doc-epoch counter). Cost: version history and in-flight offline edits of that note are lost, stated in the UI."
+  },
+  {
+   "id": "cmp-sync-status",
+   "label": "Sync status indicator",
+   "kind": "component",
+   "parent": "a-client",
+   "description": "Review addition. Always-visible state from `cmp-provider`: synced / offline (N local edits) / reconnecting. Makes the offline risk visible to users instead of silent."
+  }
+ ],
+ "edges": [
+  {
+   "source": "dec-crdt",
+   "target": "req-live",
+   "kind": "because"
+  },
+  {
+   "source": "dec-crdt",
+   "target": "req-offline",
+   "kind": "because"
+  },
+  {
+   "source": "dec-crdt",
+   "target": "req-durable",
+   "kind": "because"
+  },
+  {
+   "source": "dec-server",
+   "target": "req-live",
+   "kind": "because"
+  },
+  {
+   "source": "dec-server",
+   "target": "req-stack",
+   "kind": "because"
+  },
+  {
+   "source": "dec-transport",
+   "target": "req-live",
+   "kind": "because"
+  },
+  {
+   "source": "dec-transport",
+   "target": "req-cursors",
+   "kind": "because"
+  },
+  {
+   "source": "dec-routing",
+   "target": "req-scale",
+   "kind": "because"
+  },
+  {
+   "source": "dec-routing",
+   "target": "req-live",
+   "kind": "because"
+  },
+  {
+   "source": "dec-routing",
+   "target": "req-stack",
+   "kind": "because"
+  },
+  {
+   "source": "dec-flush",
+   "target": "req-durable",
+   "kind": "because"
+  },
+  {
+   "source": "dec-flush",
+   "target": "req-scale",
+   "kind": "because"
+  },
+  {
+   "source": "dec-editor",
+   "target": "req-markdown",
+   "kind": "because"
+  },
+  {
+   "source": "dec-editor",
+   "target": "req-cursors",
+   "kind": "because"
+  },
+  {
+   "source": "dec-presence",
+   "target": "req-cursors",
+   "kind": "because"
+  },
+  {
+   "source": "dec-preview",
+   "target": "req-markdown",
+   "kind": "because"
+  },
+  {
+   "source": "dec-preview",
+   "target": "req-access",
+   "kind": "because"
+  },
+  {
+   "source": "dec-local-store",
+   "target": "req-offline",
+   "kind": "because"
+  },
+  {
+   "source": "dec-local-store",
+   "target": "req-durable",
+   "kind": "because"
+  },
+  {
+   "source": "dec-reconnect",
+   "target": "req-offline",
+   "kind": "because"
+  },
+  {
+   "source": "dec-reconnect",
+   "target": "req-scale",
+   "kind": "because"
+  },
+  {
+   "source": "dec-offline-scope",
+   "target": "req-offline",
+   "kind": "because"
+  },
+  {
+   "source": "dec-schema",
+   "target": "req-durable",
+   "kind": "because"
+  },
+  {
+   "source": "dec-schema",
+   "target": "req-stack",
+   "kind": "because"
+  },
+  {
+   "source": "dec-compaction",
+   "target": "req-durable",
+   "kind": "because"
+  },
+  {
+   "source": "dec-compaction",
+   "target": "req-scale",
+   "kind": "because"
+  },
+  {
+   "source": "dec-materialize",
+   "target": "req-markdown",
+   "kind": "because"
+  },
+  {
+   "source": "dec-limits",
+   "target": "req-scale",
+   "kind": "because"
+  },
+  {
+   "source": "dec-capacity",
+   "target": "req-scale",
+   "kind": "because"
+  },
+  {
+   "source": "dec-auth",
+   "target": "req-access",
+   "kind": "because"
+  },
+  {
+   "source": "dec-migrate",
+   "target": "req-markdown",
+   "kind": "because"
+  },
+  {
+   "source": "dec-migrate",
+   "target": "req-durable",
+   "kind": "because"
+  },
+  {
+   "source": "dec-rollout",
+   "target": "req-durable",
+   "kind": "because"
+  },
+  {
+   "source": "dec-crdt",
+   "target": "rej-ot",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-crdt",
+   "target": "rej-automerge",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-crdt",
+   "target": "rej-lww",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-transport",
+   "target": "rej-sse",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-routing",
+   "target": "rej-redis",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-server",
+   "target": "rej-scratch-server",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-server",
+   "target": "rej-hosted",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-editor",
+   "target": "rej-prosemirror",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-schema",
+   "target": "rej-doc-store",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-preview",
+   "target": "risk-xss",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-local-store",
+   "target": "risk-failover",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-flush",
+   "target": "risk-failover",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-compaction",
+   "target": "risk-log-growth",
+   "kind": "mitigates"
+  },
+  {
+   "source": "cmp-compactor",
+   "target": "risk-log-growth",
+   "kind": "mitigates"
+  },
+  {
+   "source": "cmp-metrics",
+   "target": "risk-log-growth",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-limits",
+   "target": "risk-tombstones",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-compaction",
+   "target": "risk-tombstones",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-flush",
+   "target": "risk-pg-writes",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-limits",
+   "target": "risk-memory",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-flush",
+   "target": "risk-memory",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-reconnect",
+   "target": "risk-connection-storm",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-rollout",
+   "target": "risk-connection-storm",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-auth",
+   "target": "risk-revoke-lag",
+   "kind": "mitigates"
+  },
+  {
+   "source": "cmp-provider",
+   "target": "risk-offline-divergence",
+   "kind": "mitigates",
+   "label": "merge notice"
+  },
+  {
+   "source": "dec-server",
+   "target": "risk-dependency",
+   "kind": "mitigates",
+   "label": "pin + wrapper"
+  },
+  {
+   "source": "cmp-metrics",
+   "target": "risk-memory",
+   "kind": "mitigates"
+  },
+  {
+   "source": "cmp-editor",
+   "target": "risk-md-merge",
+   "kind": "mitigates",
+   "label": "preview tolerant"
+  },
+  {
+   "source": "risk-dependency",
+   "target": "dec-server",
+   "kind": "depends-on"
+  },
+  {
+   "source": "risk-md-merge",
+   "target": "dec-crdt",
+   "kind": "depends-on"
+  },
+  {
+   "source": "risk-tombstones",
+   "target": "dec-crdt",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-routing",
+   "target": "cmp-router",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-server",
+   "target": "cmp-sync-server",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-auth",
+   "target": "cmp-auth",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-editor",
+   "target": "cmp-editor",
+   "kind": "depends-on"
+  },
+  {
+   "source": "cmp-editor",
+   "target": "cmp-provider",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-presence",
+   "target": "cmp-cursors-ui",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-local-store",
+   "target": "cmp-idb",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-offline-scope",
+   "target": "cmp-sw",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-compaction",
+   "target": "cmp-compactor",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-schema",
+   "target": "cmp-store",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-materialize",
+   "target": "cmp-store",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-capacity",
+   "target": "dec-limits",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-flush",
+   "target": "dec-schema",
+   "kind": "depends-on"
+  },
+  {
+   "source": "cmp-sync-server",
+   "target": "cmp-store",
+   "kind": "depends-on"
+  },
+  {
+   "source": "cmp-provider",
+   "target": "cmp-idb",
+   "kind": "depends-on"
+  },
+  {
+   "source": "task-schema",
+   "target": "dec-schema",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-server",
+   "target": "dec-server",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-editor",
+   "target": "dec-editor",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-presence",
+   "target": "dec-presence",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-offline",
+   "target": "dec-local-store",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-compactor",
+   "target": "dec-compaction",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-migrate",
+   "target": "dec-migrate",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-rollout",
+   "target": "dec-rollout",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-observability",
+   "target": "cmp-metrics",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-loadtest",
+   "target": "dec-capacity",
+   "kind": "depends-on",
+   "label": "validates"
+  },
+  {
+   "source": "task-spike",
+   "target": "task-schema",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-spike",
+   "target": "task-server",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-spike",
+   "target": "task-editor",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-schema",
+   "target": "task-server",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-server",
+   "target": "task-offline",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-editor",
+   "target": "task-presence",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-editor",
+   "target": "task-offline",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-schema",
+   "target": "task-compactor",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-schema",
+   "target": "task-migrate",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-offline",
+   "target": "task-convergence-test",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-server",
+   "target": "task-loadtest",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-compactor",
+   "target": "task-loadtest",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-convergence-test",
+   "target": "task-rollout",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-loadtest",
+   "target": "task-rollout",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-migrate",
+   "target": "task-rollout",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-observability",
+   "target": "task-rollout",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-existing",
+   "target": "dec-materialize",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-existing",
+   "target": "task-migrate",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-concurrency",
+   "target": "dec-capacity",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-concurrency",
+   "target": "req-scale",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-offline",
+   "target": "dec-offline-scope",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-offline",
+   "target": "risk-storage-eviction",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-hosting",
+   "target": "dec-routing",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-hosting",
+   "target": "rej-hosted",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-permissions",
+   "target": "dec-auth",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-history",
+   "target": "dec-compaction",
+   "kind": "blocks"
+  },
+  {
+   "source": "q-erasure",
+   "target": "dec-schema",
+   "kind": "blocks"
+  },
+  {
+   "source": "risk-storage-eviction",
+   "target": "dec-local-store",
+   "kind": "depends-on"
+  },
+  {
+   "source": "risk-failover",
+   "target": "dec-routing",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-routing",
+   "target": "rej-lease",
+   "kind": "rejects"
+  },
+  {
+   "source": "dec-routing",
+   "target": "risk-split-rooms",
+   "kind": "mitigates",
+   "label": "drain on re-hash"
+  },
+  {
+   "source": "dec-readonly-enforce",
+   "target": "req-access",
+   "kind": "because"
+  },
+  {
+   "source": "dec-readonly-enforce",
+   "target": "risk-viewer-writes",
+   "kind": "mitigates"
+  },
+  {
+   "source": "dec-readonly-enforce",
+   "target": "cmp-auth",
+   "kind": "depends-on"
+  },
+  {
+   "source": "dec-auth",
+   "target": "dec-readonly-enforce",
+   "kind": "depends-on"
+  },
+  {
+   "source": "task-readonly-test",
+   "target": "dec-readonly-enforce",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-server",
+   "target": "task-readonly-test",
+   "kind": "blocks"
+  },
+  {
+   "source": "task-readonly-test",
+   "target": "task-rollout",
+   "kind": "blocks"
+  },
+  {
+   "source": "dec-compaction",
+   "target": "risk-compaction-race",
+   "kind": "mitigates"
+  },
+  {
+   "source": "task-convergence-test",
+   "target": "task-compactor",
+   "kind": "depends-on",
+   "label": "covers"
+  },
+  {
+   "source": "dec-erase",
+   "target": "req-durable",
+   "kind": "because"
+  },
+  {
+   "source": "q-erasure",
+   "target": "dec-erase",
+   "kind": "blocks"
+  },
+  {
+   "source": "dec-erase",
+   "target": "cmp-store",
+   "kind": "depends-on"
+  },
+  {
+   "source": "cmp-sync-status",
+   "target": "risk-storage-eviction",
+   "kind": "mitigates"
+  },
+  {
+   "source": "cmp-sync-status",
+   "target": "cmp-provider",
+   "kind": "depends-on"
+  },
+  {
+   "source": "task-editor",
+   "target": "cmp-sync-status",
+   "kind": "depends-on",
+   "label": "implements"
+  },
+  {
+   "source": "task-spike",
+   "target": "dec-capacity",
+   "kind": "depends-on",
+   "label": "measures"
+  }
+ ]
+}

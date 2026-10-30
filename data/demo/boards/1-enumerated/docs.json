@@ -1,0 +1,3169 @@
+{
+ "nodes": [
+  {
+   "id": "from-docs",
+   "label": "From docs",
+   "kind": "source"
+  },
+  {
+   "id": "d:register-account",
+   "label": "Create an account",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "account.md#Installation and creating an account",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:register-sso",
+   "label": "Register with an SSO provider",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "account.md#Installation and creating an account",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:try-demo",
+   "label": "Try the demo instance",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "account.md#Installation and creating an account",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-dashboard",
+   "label": "Open the dashboard from the logo",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project.md#Project",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-project",
+   "label": "Create a project",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project.md#Project",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:rename-project",
+   "label": "Rename a project",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project.md#Project",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:check-project-activity",
+   "label": "Check activity of a project",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project.md#Project",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-project-settings",
+   "label": "Open project settings",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project-settings.md#Project Settings",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:change-project-title",
+   "label": "Change a project's title",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project-settings.md#Project Settings",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:manage-project-managers",
+   "label": "Add or remove project managers",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project-settings.md#Project Settings",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-project-background",
+   "label": "Set a project background image",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project-settings.md#Project Settings",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:upload-project-background",
+   "label": "Upload my own project background",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project-settings.md#Project Settings",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:delete-project",
+   "label": "Delete a project",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "project-settings.md#Project Settings",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-board",
+   "label": "Create a board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Creating a new board",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-board-from-sidebar",
+   "label": "Create a board in a chosen project from the sidebar",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Creating a new board",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-board-from-template",
+   "label": "Prefill a board from a template (simple or kanban)",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Creating a new board",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:import-board-csv",
+   "label": "Import a board from 4ga Boards (.csv)",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Creating a new board",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:import-board-trello",
+   "label": "Import a board from Trello (.json)",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "import-export.md#Import from Trello",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:import-board-tgz",
+   "label": "Import a board from a 4ga Boards export (.tgz)",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "import-export.md#Import from 4ga Boards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:import-add-managers",
+   "label": "Add project managers when importing a board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "import-export.md#Import from 4ga Boards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:import-create-accounts",
+   "label": "Create accounts for missing users when importing a board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "import-export.md#Import from 4ga Boards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:export-board",
+   "label": "Export a board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "import-export.md#Export",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:export-board-csv",
+   "label": "Export a board as .csv",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board additional options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-board",
+   "label": "Edit a board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board additional options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:delete-board",
+   "label": "Delete a board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board additional options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:reorder-boards",
+   "label": "Reorder boards within a project",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board additional options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:setup-github-integration",
+   "label": "Set up GitHub integration for a board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board toolbar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:see-filtered-card-count",
+   "label": "See the number of cards after filtering",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board toolbar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:add-board-member",
+   "label": "Add a member to a board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board toolbar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-board-member-permissions",
+   "label": "Edit a board member's permissions",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board permissions",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:remove-board-member",
+   "label": "Remove a member from a board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board toolbar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-cards-by-text",
+   "label": "Filter cards by text",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board Filtering",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-match-case",
+   "label": "Match case when filtering cards",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board Filtering",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-any-match",
+   "label": "Toggle any-match filtering",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board Filtering",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-by-member",
+   "label": "Filter cards by member",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board Filtering",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-by-label",
+   "label": "Filter cards by label",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board Filtering",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-by-due-date",
+   "label": "Filter cards by due date",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board Filtering",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-exact-due-day",
+   "label": "Show cards for only the selected due day",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board Filtering",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-shortcuts",
+   "label": "Toggle filter options with keyboard shortcuts",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board Filtering",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:switch-board-view",
+   "label": "Switch between board view and list view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board.md#Board toolbar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-default-view",
+   "label": "Set the default board view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:use-board-view",
+   "label": "Use the kanban board view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "board-view.md#Board View",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:use-list-view",
+   "label": "Use the list view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List View",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:sync-views",
+   "label": "Keep board and list views in sync",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List View",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-list",
+   "label": "Create a list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#Creating, editing and deleting the list",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:rename-list",
+   "label": "Rename a list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#Creating, editing and deleting the list",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:delete-list",
+   "label": "Delete a list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#Creating, editing and deleting the list",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:check-list-activity",
+   "label": "Check activity of a list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#Creating, editing and deleting the list",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:move-list",
+   "label": "Drag a list to another position",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#List navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:hide-list",
+   "label": "Hide or unhide a list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#List navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:see-hidden-list-card-count",
+   "label": "See the card count on a hidden list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#List navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:scroll-board-horizontally",
+   "label": "Scroll the board horizontally",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#List navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:scroll-board-by-drag",
+   "label": "Scroll the board by dragging empty space",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#List navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:scroll-list-cards",
+   "label": "Scroll through a list's cards",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#List navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:see-card-list-in-list-view",
+   "label": "See which list a card belongs to in list view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list.md#List in list view",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:move-card-by-list-column",
+   "label": "Move a card between lists from the List column",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-card",
+   "label": "Create a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-card-from-list-menu",
+   "label": "Create a card from the list menu",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-card-in-hidden-list",
+   "label": "Create a card in a hidden list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-card-in-list-view",
+   "label": "Create a card in list view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-and-open-card",
+   "label": "Create a card and open it immediately",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-multiple-cards",
+   "label": "Create multiple cards at once",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:cancel-card-creation",
+   "label": "Cancel creating a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:drag-card",
+   "label": "Drag a card to another list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:drag-card-to-hidden-list",
+   "label": "Drop a card into a hidden list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:move-card-to-other-board",
+   "label": "Move a card to another project, board or list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card menu",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:move-card-from-card-view",
+   "label": "Move a card from the card view list selector",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:delete-card",
+   "label": "Delete a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Creating, moving and deleting cards",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:rename-card",
+   "label": "Rename a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card menu",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:duplicate-card",
+   "label": "Duplicate a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card menu",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:copy-card-link",
+   "label": "Copy a link to a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card menu",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:check-card-activity",
+   "label": "Check activity of a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card menu",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-card-view",
+   "label": "Open a card in a side panel",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card View overview",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-while-card-open",
+   "label": "Rearrange lists and boards while a card is open",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card View overview",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-card-in-list-view",
+   "label": "Open a card from list view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:collapse-card-sections",
+   "label": "Hide or show card sections",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:subscribe-to-card",
+   "label": "Subscribe to or unsubscribe from a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:close-card-view",
+   "label": "Close the card view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:assign-card-member",
+   "label": "Assign members to a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:add-card-label",
+   "label": "Add labels to a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-label",
+   "label": "Create a label",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-label",
+   "label": "Edit a label",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-card-due-date",
+   "label": "Set a card's due date",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-card-due-date",
+   "label": "Edit a card's due date",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:see-due-date-colors",
+   "label": "See due date urgency colors",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:start-card-timer",
+   "label": "Start or pause a card timer",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-card-timer",
+   "label": "Edit or reset a card timer",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:see-earliest-due-date",
+   "label": "See the earliest due date across card and tasks",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:write-card-description",
+   "label": "Write a card description",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:add-task",
+   "label": "Add a task to a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:complete-task",
+   "label": "Mark a task complete",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:rename-task",
+   "label": "Rename a task",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:delete-task",
+   "label": "Delete a task",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:duplicate-task",
+   "label": "Duplicate a task",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:assign-task-member",
+   "label": "Assign a member to a task",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-task-due-date",
+   "label": "Set a task's due date",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:check-task-activity",
+   "label": "Check activity of a task",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:toggle-task-visibility",
+   "label": "Show or hide tasks on the card in a list",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:see-task-progress",
+   "label": "See task completion progress",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:add-attachment",
+   "label": "Add an attachment to a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:paste-attachment",
+   "label": "Paste an attachment into a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:drop-attachment",
+   "label": "Drop a file onto a card to attach it",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:make-attachment-cover",
+   "label": "Make an image attachment the card cover",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:remove-attachment-cover",
+   "label": "Remove a card cover",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:delete-attachment",
+   "label": "Delete an attachment",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:add-comment",
+   "label": "Add a comment to a card",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-comment",
+   "label": "Edit a comment",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:delete-comment",
+   "label": "Delete a comment",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:check-activity-from-comments",
+   "label": "Check card activity from the comments section",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Card options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:resize-text-editor",
+   "label": "Resize the text editor box",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:format-bold",
+   "label": "Format text as bold",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:format-italic",
+   "label": "Format text as italic",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:format-strikethrough",
+   "label": "Format text as strikethrough",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-hr",
+   "label": "Insert a horizontal rule",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-heading",
+   "label": "Insert a heading",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-link",
+   "label": "Insert a link",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-quote",
+   "label": "Insert a quote",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-inline-code",
+   "label": "Insert inline code",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-code-block",
+   "label": "Insert a code block",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-code-block-language",
+   "label": "Highlight code block syntax by language",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:show-code-line-numbers",
+   "label": "Show line numbers in a code block",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:highlight-code-lines",
+   "label": "Highlight chosen code lines",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-editor-comment",
+   "label": "Insert a hidden comment in text",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-image",
+   "label": "Insert an image into text",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-table",
+   "label": "Insert a table",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:insert-lists",
+   "label": "Insert unordered, ordered and checked lists",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-markdown-help",
+   "label": "Open markdown help",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:link-github-issue",
+   "label": "Link a GitHub issue or pull request",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:link-github-commit",
+   "label": "Link a GitHub commit",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:mention-user",
+   "label": "Mention a user",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:paste-github-link",
+   "label": "Paste a GitHub link to get a rich link",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:color-text",
+   "label": "Color text",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-view-mode",
+   "label": "Switch editor view (edit, live, preview)",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:fullscreen-editor",
+   "label": "Toggle fullscreen editor",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:text-editor-shortcuts",
+   "label": "Use text editor keyboard shortcuts",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:save-text-shortcut",
+   "label": "Save text with Ctrl+Enter",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "shortcuts.md#Useful Shortcuts",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:see-unsaved-text-indicator",
+   "label": "See unsaved local text changes",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "card.md#Text editor",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:resize-list-view-columns",
+   "label": "Resize list view columns",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:fit-list-view-columns",
+   "label": "Fit list view columns to content or screen",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:choose-list-view-columns",
+   "label": "Show or hide list view columns",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:reset-list-view",
+   "label": "Reset list view sorting and columns",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:sort-list-view",
+   "label": "Sort list view by column",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view features",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:multi-sort-list-view",
+   "label": "Sort list view by multiple columns",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view features",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-cards-per-page",
+   "label": "Choose cards per page in list view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:page-list-view",
+   "label": "Page through cards in list view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:add-list-in-list-view",
+   "label": "Add a list from list view",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "list-view.md#List view navigation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-notifications",
+   "label": "Open the notifications panel",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "notifications.md#Notifications and Notification Center",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:read-notification",
+   "label": "Read a notification",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "notifications.md#Notifications and Notification Center",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:toggle-notification-read",
+   "label": "Mark a notification read or unread",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "notifications.md#Notifications and Notification Center",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:delete-notification",
+   "label": "Delete a notification",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "notifications.md#Notifications and Notification Center",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-notifications",
+   "label": "Filter notifications",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "notifications.md#Notifications and Notification Center",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-notifications-by-type",
+   "label": "Filter notifications by category or activity type",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "notifications.md#Notifications and Notification Center",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:bulk-manage-notifications",
+   "label": "Mark all, delete all or delete read notifications",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "notifications.md#Notifications and Notification Center",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-notification-center",
+   "label": "Open the fullscreen Notification Center",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "notifications.md#Notifications and Notification Center",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:view-activity-log",
+   "label": "View an element's activity log",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "notifications.md#Activity Check Log",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:receive-email-notifications",
+   "label": "Receive email notifications",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/notifications.md#Email Notifications",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:verify-email",
+   "label": "Verify my email address",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/notifications.md#EmaIl Verification",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-card-by-email",
+   "label": "Create a card by sending an email",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/notifications.md#Email-to-Card",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:setup-self-hosted-email",
+   "label": "Set up email notifications on a private instance",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/notifications.md#Setup",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:toggle-sidebar",
+   "label": "Show or hide the sidebar",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "sidebar.md#Some actions you can perform within sidebar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:filter-sidebar",
+   "label": "Filter the sidebar by project or board",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "sidebar.md#Some actions you can perform within sidebar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:switch-sidebar-filter-type",
+   "label": "Switch the sidebar filter between projects and boards",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "sidebar.md#Some actions you can perform within sidebar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:clear-sidebar-filter",
+   "label": "Clear the sidebar filter",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "sidebar.md#Some actions you can perform within sidebar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:expand-project-in-sidebar",
+   "label": "Show or hide a project's boards in the sidebar",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "sidebar.md#Some actions you can perform within sidebar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:navigate-via-sidebar",
+   "label": "Navigate to a project or board from the sidebar",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "sidebar.md#Some actions you can perform within sidebar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-from-sidebar",
+   "label": "Edit a project or board from the sidebar menu",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "sidebar.md#Some actions you can perform within sidebar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:add-from-sidebar",
+   "label": "Add a project or board from the sidebar",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "sidebar.md#Some actions you can perform within sidebar",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-settings",
+   "label": "Open personal settings",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "admin-settings.md#Dashboard access to settings",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-instance-settings",
+   "label": "Open instance settings",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "admin-settings.md#Dashboard access to settings",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:navigate-settings-sidebar",
+   "label": "Navigate settings from the side panel",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "admin-settings.md#Dashboard access to settings",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-avatar",
+   "label": "Change my avatar",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Profile",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-display-name",
+   "label": "Change my display name",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Profile",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-contact-info",
+   "label": "Add phone and organization to my profile",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Profile",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-language",
+   "label": "Choose the interface language",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-theme",
+   "label": "Choose a color theme",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:create-custom-theme",
+   "label": "Create a custom theme",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-theme-shape",
+   "label": "Choose square or rounded theme shape",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-details-font",
+   "label": "Choose the details font",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-compact-sidebar",
+   "label": "Toggle the compact sidebar",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-list-view-style",
+   "label": "Choose compact or large list view style",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-users-settings-style",
+   "label": "Choose compact or large user settings style",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:hide-card-activity",
+   "label": "Hide card modal activity",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:hide-closest-due-date",
+   "label": "Hide closest due date in card modal",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Preferences",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:auto-subscribe-own-cards",
+   "label": "Auto-subscribe to my own cards",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Notifications",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:auto-subscribe-new-boards",
+   "label": "Auto-subscribe to new boards",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Notifications",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:auto-subscribe-new-projects",
+   "label": "Auto-subscribe to new projects",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Notifications",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:auto-subscribe-user-notifications",
+   "label": "Auto-subscribe to user notifications (admin)",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Notifications",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:auto-subscribe-instance-notifications",
+   "label": "Auto-subscribe to instance notifications (admin)",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Notifications",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:change-username-email",
+   "label": "Change my username or email",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Account",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:change-password",
+   "label": "Change my password",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#Authentication",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:generate-api-client",
+   "label": "Generate an API client",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/api.md#API Clients",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:see-build-version",
+   "label": "See the current and latest version",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#About",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:import-getting-started",
+   "label": "Import the Getting Started project",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#About",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:open-support-links",
+   "label": "Open documentation, support and social links",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "settings.md#About",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:list-users",
+   "label": "View the users table",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Users",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:grant-admin",
+   "label": "Grant administrator rights to a user",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Users",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:add-user",
+   "label": "Add a user manually",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Users",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:edit-user-settings",
+   "label": "Edit another user's settings without their password",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Users",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:view-user-account-activity",
+   "label": "View a user's account activity",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Users",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:view-user-activity-log",
+   "label": "View a user's activity log across projects",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Users",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:choose-users-table-columns",
+   "label": "Show or hide user table columns",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Users",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:resize-users-table",
+   "label": "Resize user table columns and fit table",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Users",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:toggle-user-registration",
+   "label": "Allow or block user registration",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Instance options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:toggle-local-registration",
+   "label": "Allow or block local registration",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Instance options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:toggle-sso-registration",
+   "label": "Allow or block SSO registration",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Instance options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:toggle-project-creation",
+   "label": "Allow all users or only admins to create projects",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Instance options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:toggle-sso-data-sync",
+   "label": "Sync user data from SSO on sign-in",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Instance options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:toggle-sso-admin-sync",
+   "label": "Sync admin rights from SSO on sign-in",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Instance options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-allowed-domains",
+   "label": "Restrict registration to allowed email domains",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "instance-settings.md#Instance options",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:setup-google-sso",
+   "label": "Set up Google SSO",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/sso.md#Google SSO",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:setup-github-sso",
+   "label": "Set up GitHub SSO",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/sso.md#GitHub SSO",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:setup-microsoft-sso",
+   "label": "Set up Microsoft SSO",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/sso.md#Microsoft SSO",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:setup-oidc-sso",
+   "label": "Set up generic OIDC SSO",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/sso.md#OIDC SSO",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:call-api-create-card",
+   "label": "Create a card through the API",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/api.md#API Usage Examples",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-api-permissions",
+   "label": "Limit an API client's permissions",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/api.md#API Clients",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:disable-system-notifications",
+   "label": "Disable system notifications",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/data-shared-with-us.md#Can You Disable It?",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:receive-release-notices",
+   "label": "Receive new version notices (admin)",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/data-shared-with-us.md#Why Instance Registration Is Required",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:backup-instance",
+   "label": "Back up an instance",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/backup-restore.md#Backup and Restore",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:restore-instance",
+   "label": "Restore an instance",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/backup-restore.md#Backup and Restore",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:install-hosted",
+   "label": "Use professional hosting",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/4gaboards.md#4ga Boards Professional Hosting",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:install-docker",
+   "label": "Install with Docker Compose",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/docker-install.md#Docker Compose Installation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:update-docker",
+   "label": "Update a Docker install",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/docker-update.md#Docker Compose Update",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:uninstall-docker",
+   "label": "Uninstall a Docker install",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/docker-uninstall.md#Docker Compose Uninstall",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:docker-custom-user",
+   "label": "Run Docker as a custom user",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/docker-user.md#Docker Custom User",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:docker-redis-rate-limit",
+   "label": "Use Redis for upload rate limiting",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/docker-redis.md#Redis Upload Rate Limiting",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:install-k8s",
+   "label": "Install on Kubernetes",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/k8s-install.md#Kubernetes Helm Chart Installation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:uninstall-k8s",
+   "label": "Uninstall from Kubernetes",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/k8s-uninstall.md#Kubernetes Helm Chart Uninstall",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:k8s-port-forward",
+   "label": "Port-forward a Kubernetes install",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/k8s-port-forwarding.md#Kubernetes Helm Chart Port Forwarding",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:install-truenas",
+   "label": "Install on TrueNAS",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/truenas-install.md#TrueNAS Installation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:uninstall-truenas",
+   "label": "Uninstall from TrueNAS",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/truenas-uninstall.md#TrueNAS Uninstall",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:install-manual",
+   "label": "Install manually",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/manual-install.md#Manual Installation",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:uninstall-manual",
+   "label": "Uninstall a manual install",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/manual-uninstall.md#Manual Uninstall",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:setup-postgres",
+   "label": "Set up PostgreSQL manually",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/manual-postgres.md#Manual Installation (depending on your system)",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:migrate-postgres",
+   "label": "Migrate PostgreSQL 16 to 18",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/postgres-migration-16-18.md#Postgres Migration Guide",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:expose-logs",
+   "label": "Expose the log directory to the host",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/developers-additional.md#Logging",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:rotate-logs",
+   "label": "Rotate logs",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/developers-additional.md#Rotating Logs",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:setup-fail2ban",
+   "label": "Ban repeated failed logins with Fail2ban",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/developers-additional.md#Fail2ban",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:replace-container-file",
+   "label": "Replace a file in the container (e.g. favicon)",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/developers-additional.md#Custom file replacement",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:enable-hyperdx",
+   "label": "Enable HyperDX integration",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/_vars_env_optional.md#HyperDx",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:set-default-admin",
+   "label": "Override the default admin user",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "dev/install/_vars_env_optional.md#Default admin user",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:donate",
+   "label": "Donate to support the project",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "donate.md#Donate",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:use-shortcuts",
+   "label": "Use keyboard shortcuts",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "shortcuts.md#Useful Shortcuts",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  },
+  {
+   "id": "d:tab-switch-filter",
+   "label": "Switch filter type with Tab",
+   "kind": "feature",
+   "parent": "from-docs",
+   "source": "shortcuts.md#Useful Shortcuts",
+   "found_in": [
+    "docs"
+   ],
+   "flags": [
+    "stub"
+   ]
+  }
+ ],
+ "edges": []
+}

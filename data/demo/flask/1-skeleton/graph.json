@@ -1,0 +1,3784 @@
+{
+ "nodes": [
+  {
+   "id": "flask",
+   "label": "flask",
+   "kind": "folder",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio",
+   "label": "sansio",
+   "kind": "folder",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json",
+   "label": "json",
+   "kind": "folder",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/__init__.py",
+   "label": "__init__.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/__main__.py",
+   "label": "__main__.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py",
+   "label": "app.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/blueprints.py",
+   "label": "blueprints.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py",
+   "label": "cli.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py",
+   "label": "config.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py",
+   "label": "ctx.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/debughelpers.py",
+   "label": "debughelpers.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/globals.py",
+   "label": "globals.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py",
+   "label": "helpers.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/logging.py",
+   "label": "logging.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py",
+   "label": "sessions.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py",
+   "label": "signals.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py",
+   "label": "templating.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py",
+   "label": "testing.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py",
+   "label": "typing.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py",
+   "label": "views.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py",
+   "label": "wrappers.py",
+   "kind": "module",
+   "parent": "flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/__init__.py",
+   "label": "__init__.py",
+   "kind": "module",
+   "parent": "flask/json",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py",
+   "label": "provider.py",
+   "kind": "module",
+   "parent": "flask/json",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py",
+   "label": "tag.py",
+   "kind": "module",
+   "parent": "flask/json",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py",
+   "label": "app.py",
+   "kind": "module",
+   "parent": "flask/sansio",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py",
+   "label": "blueprints.py",
+   "kind": "module",
+   "parent": "flask/sansio",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py",
+   "label": "scaffold.py",
+   "kind": "module",
+   "parent": "flask/sansio",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#_make_timedelta",
+   "label": "_make_timedelta",
+   "kind": "function",
+   "parent": "flask/app.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#remove_ctx",
+   "label": "remove_ctx",
+   "kind": "function",
+   "parent": "flask/app.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#add_ctx",
+   "label": "add_ctx",
+   "kind": "function",
+   "parent": "flask/app.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask",
+   "label": "Flask",
+   "kind": "class",
+   "parent": "flask/app.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.__init_subclass__",
+   "label": "__init_subclass__",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.get_send_file_max_age",
+   "label": "get_send_file_max_age",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.send_static_file",
+   "label": "send_static_file",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.open_resource",
+   "label": "open_resource",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.open_instance_resource",
+   "label": "open_instance_resource",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.create_jinja_environment",
+   "label": "create_jinja_environment",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.create_url_adapter",
+   "label": "create_url_adapter",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.raise_routing_exception",
+   "label": "raise_routing_exception",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.update_template_context",
+   "label": "update_template_context",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.make_shell_context",
+   "label": "make_shell_context",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.run",
+   "label": "run",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.test_client",
+   "label": "test_client",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.test_cli_runner",
+   "label": "test_cli_runner",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.handle_http_exception",
+   "label": "handle_http_exception",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.handle_user_exception",
+   "label": "handle_user_exception",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.handle_exception",
+   "label": "handle_exception",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.log_exception",
+   "label": "log_exception",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.dispatch_request",
+   "label": "dispatch_request",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.full_dispatch_request",
+   "label": "full_dispatch_request",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.finalize_request",
+   "label": "finalize_request",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.make_default_options_response",
+   "label": "make_default_options_response",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.ensure_sync",
+   "label": "ensure_sync",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.async_to_sync",
+   "label": "async_to_sync",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.url_for",
+   "label": "url_for",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.make_response",
+   "label": "make_response",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.preprocess_request",
+   "label": "preprocess_request",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.process_response",
+   "label": "process_response",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.do_teardown_request",
+   "label": "do_teardown_request",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.do_teardown_appcontext",
+   "label": "do_teardown_appcontext",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.app_context",
+   "label": "app_context",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.request_context",
+   "label": "request_context",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.test_request_context",
+   "label": "test_request_context",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.wsgi_app",
+   "label": "wsgi_app",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.__call__",
+   "label": "__call__",
+   "kind": "method",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.default_config",
+   "label": "default_config",
+   "kind": "attribute",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.request_class",
+   "label": "request_class",
+   "kind": "attribute",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.response_class",
+   "label": "response_class",
+   "kind": "attribute",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.session_interface",
+   "label": "session_interface",
+   "kind": "attribute",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/app.py#Flask.cli",
+   "label": "cli",
+   "kind": "attribute",
+   "parent": "flask/app.py#Flask",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/blueprints.py#Blueprint",
+   "label": "Blueprint",
+   "kind": "class",
+   "parent": "flask/blueprints.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/blueprints.py#Blueprint.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/blueprints.py#Blueprint.get_send_file_max_age",
+   "label": "get_send_file_max_age",
+   "kind": "method",
+   "parent": "flask/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/blueprints.py#Blueprint.send_static_file",
+   "label": "send_static_file",
+   "kind": "method",
+   "parent": "flask/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/blueprints.py#Blueprint.open_resource",
+   "label": "open_resource",
+   "kind": "method",
+   "parent": "flask/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/blueprints.py#Blueprint.cli",
+   "label": "cli",
+   "kind": "attribute",
+   "parent": "flask/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#NoAppException",
+   "label": "NoAppException",
+   "kind": "class",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#find_best_app",
+   "label": "find_best_app",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#_called_with_wrong_args",
+   "label": "_called_with_wrong_args",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#find_app_by_string",
+   "label": "find_app_by_string",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#prepare_import",
+   "label": "prepare_import",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#locate_app",
+   "label": "locate_app",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#get_version",
+   "label": "get_version",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#version_option",
+   "label": "version_option",
+   "kind": "variable",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#ScriptInfo",
+   "label": "ScriptInfo",
+   "kind": "class",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#ScriptInfo.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/cli.py#ScriptInfo",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#ScriptInfo.load_app",
+   "label": "load_app",
+   "kind": "method",
+   "parent": "flask/cli.py#ScriptInfo",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#pass_script_info",
+   "label": "pass_script_info",
+   "kind": "variable",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#with_appcontext",
+   "label": "with_appcontext",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#AppGroup",
+   "label": "AppGroup",
+   "kind": "class",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#AppGroup.command",
+   "label": "command",
+   "kind": "method",
+   "parent": "flask/cli.py#AppGroup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#AppGroup.group",
+   "label": "group",
+   "kind": "method",
+   "parent": "flask/cli.py#AppGroup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#_set_app",
+   "label": "_set_app",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#_set_debug",
+   "label": "_set_debug",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#_env_file_callback",
+   "label": "_env_file_callback",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#FlaskGroup",
+   "label": "FlaskGroup",
+   "kind": "class",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#FlaskGroup.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/cli.py#FlaskGroup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#FlaskGroup._load_plugin_commands",
+   "label": "_load_plugin_commands",
+   "kind": "method",
+   "parent": "flask/cli.py#FlaskGroup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#FlaskGroup.get_command",
+   "label": "get_command",
+   "kind": "method",
+   "parent": "flask/cli.py#FlaskGroup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#FlaskGroup.list_commands",
+   "label": "list_commands",
+   "kind": "method",
+   "parent": "flask/cli.py#FlaskGroup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#FlaskGroup.make_context",
+   "label": "make_context",
+   "kind": "method",
+   "parent": "flask/cli.py#FlaskGroup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#FlaskGroup.parse_args",
+   "label": "parse_args",
+   "kind": "method",
+   "parent": "flask/cli.py#FlaskGroup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#_path_is_ancestor",
+   "label": "_path_is_ancestor",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#load_dotenv",
+   "label": "load_dotenv",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#show_server_banner",
+   "label": "show_server_banner",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#CertParamType",
+   "label": "CertParamType",
+   "kind": "class",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#CertParamType.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/cli.py#CertParamType",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#CertParamType.convert",
+   "label": "convert",
+   "kind": "method",
+   "parent": "flask/cli.py#CertParamType",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#CertParamType.name",
+   "label": "name",
+   "kind": "attribute",
+   "parent": "flask/cli.py#CertParamType",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#_validate_key",
+   "label": "_validate_key",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#SeparatedPathType",
+   "label": "SeparatedPathType",
+   "kind": "class",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#SeparatedPathType.convert",
+   "label": "convert",
+   "kind": "method",
+   "parent": "flask/cli.py#SeparatedPathType",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#run_command",
+   "label": "run_command",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#shell_command",
+   "label": "shell_command",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#routes_command",
+   "label": "routes_command",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#cli",
+   "label": "cli",
+   "kind": "variable",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/cli.py#main",
+   "label": "main",
+   "kind": "function",
+   "parent": "flask/cli.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#ConfigAttribute",
+   "label": "ConfigAttribute",
+   "kind": "class",
+   "parent": "flask/config.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#ConfigAttribute.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/config.py#ConfigAttribute",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#Config",
+   "label": "Config",
+   "kind": "class",
+   "parent": "flask/config.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#Config.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/config.py#Config",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#Config.from_envvar",
+   "label": "from_envvar",
+   "kind": "method",
+   "parent": "flask/config.py#Config",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#Config.from_prefixed_env",
+   "label": "from_prefixed_env",
+   "kind": "method",
+   "parent": "flask/config.py#Config",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#Config.from_pyfile",
+   "label": "from_pyfile",
+   "kind": "method",
+   "parent": "flask/config.py#Config",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#Config.from_object",
+   "label": "from_object",
+   "kind": "method",
+   "parent": "flask/config.py#Config",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#Config.from_file",
+   "label": "from_file",
+   "kind": "method",
+   "parent": "flask/config.py#Config",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#Config.from_mapping",
+   "label": "from_mapping",
+   "kind": "method",
+   "parent": "flask/config.py#Config",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/config.py#Config.get_namespace",
+   "label": "get_namespace",
+   "kind": "method",
+   "parent": "flask/config.py#Config",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#_AppCtxGlobals",
+   "label": "_AppCtxGlobals",
+   "kind": "class",
+   "parent": "flask/ctx.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#_AppCtxGlobals.__getattr__",
+   "label": "__getattr__",
+   "kind": "method",
+   "parent": "flask/ctx.py#_AppCtxGlobals",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#_AppCtxGlobals.get",
+   "label": "get",
+   "kind": "method",
+   "parent": "flask/ctx.py#_AppCtxGlobals",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#_AppCtxGlobals.pop",
+   "label": "pop",
+   "kind": "method",
+   "parent": "flask/ctx.py#_AppCtxGlobals",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#_AppCtxGlobals.setdefault",
+   "label": "setdefault",
+   "kind": "method",
+   "parent": "flask/ctx.py#_AppCtxGlobals",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#after_this_request",
+   "label": "after_this_request",
+   "kind": "function",
+   "parent": "flask/ctx.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#copy_current_request_context",
+   "label": "copy_current_request_context",
+   "kind": "function",
+   "parent": "flask/ctx.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#has_request_context",
+   "label": "has_request_context",
+   "kind": "function",
+   "parent": "flask/ctx.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#has_app_context",
+   "label": "has_app_context",
+   "kind": "function",
+   "parent": "flask/ctx.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext",
+   "label": "AppContext",
+   "kind": "class",
+   "parent": "flask/ctx.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.from_environ",
+   "label": "from_environ",
+   "kind": "method",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.has_request",
+   "label": "has_request",
+   "kind": "property",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.copy",
+   "label": "copy",
+   "kind": "method",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.request",
+   "label": "request",
+   "kind": "property",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext._get_session",
+   "label": "_get_session",
+   "kind": "method",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.session",
+   "label": "session",
+   "kind": "property",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.match_request",
+   "label": "match_request",
+   "kind": "method",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.push",
+   "label": "push",
+   "kind": "method",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.pop",
+   "label": "pop",
+   "kind": "method",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.__enter__",
+   "label": "__enter__",
+   "kind": "method",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.__exit__",
+   "label": "__exit__",
+   "kind": "method",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.app",
+   "label": "app",
+   "kind": "attribute",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.g",
+   "label": "g",
+   "kind": "attribute",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#AppContext.url_adapter",
+   "label": "url_adapter",
+   "kind": "attribute",
+   "parent": "flask/ctx.py#AppContext",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/ctx.py#__getattr__",
+   "label": "__getattr__",
+   "kind": "function",
+   "parent": "flask/ctx.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/debughelpers.py#UnexpectedUnicodeError",
+   "label": "UnexpectedUnicodeError",
+   "kind": "class",
+   "parent": "flask/debughelpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/debughelpers.py#DebugFilesKeyError",
+   "label": "DebugFilesKeyError",
+   "kind": "class",
+   "parent": "flask/debughelpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/debughelpers.py#DebugFilesKeyError.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/debughelpers.py#DebugFilesKeyError",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/debughelpers.py#FormDataRoutingRedirect",
+   "label": "FormDataRoutingRedirect",
+   "kind": "class",
+   "parent": "flask/debughelpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/debughelpers.py#FormDataRoutingRedirect.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/debughelpers.py#FormDataRoutingRedirect",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/debughelpers.py#attach_enctype_error_multidict",
+   "label": "attach_enctype_error_multidict",
+   "kind": "function",
+   "parent": "flask/debughelpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/debughelpers.py#_dump_loader_info",
+   "label": "_dump_loader_info",
+   "kind": "function",
+   "parent": "flask/debughelpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/debughelpers.py#explain_template_loading_attempts",
+   "label": "explain_template_loading_attempts",
+   "kind": "function",
+   "parent": "flask/debughelpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/globals.py#app_ctx",
+   "label": "app_ctx",
+   "kind": "proxy",
+   "parent": "flask/globals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/globals.py#current_app",
+   "label": "current_app",
+   "kind": "proxy",
+   "parent": "flask/globals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/globals.py#g",
+   "label": "g",
+   "kind": "proxy",
+   "parent": "flask/globals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/globals.py#request",
+   "label": "request",
+   "kind": "proxy",
+   "parent": "flask/globals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/globals.py#session",
+   "label": "session",
+   "kind": "proxy",
+   "parent": "flask/globals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/globals.py#__getattr__",
+   "label": "__getattr__",
+   "kind": "function",
+   "parent": "flask/globals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/globals.py#_cv_app",
+   "label": "_cv_app",
+   "kind": "variable",
+   "parent": "flask/globals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#get_debug_flag",
+   "label": "get_debug_flag",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#get_load_dotenv",
+   "label": "get_load_dotenv",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#stream_with_context",
+   "label": "stream_with_context",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#make_response",
+   "label": "make_response",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#url_for",
+   "label": "url_for",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#redirect",
+   "label": "redirect",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#abort",
+   "label": "abort",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#get_template_attribute",
+   "label": "get_template_attribute",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#flash",
+   "label": "flash",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#get_flashed_messages",
+   "label": "get_flashed_messages",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#_prepare_send_file_kwargs",
+   "label": "_prepare_send_file_kwargs",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#send_file",
+   "label": "send_file",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#send_from_directory",
+   "label": "send_from_directory",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#get_root_path",
+   "label": "get_root_path",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#_split_blueprint_path",
+   "label": "_split_blueprint_path",
+   "kind": "function",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#_CollectErrors",
+   "label": "_CollectErrors",
+   "kind": "class",
+   "parent": "flask/helpers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#_CollectErrors.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/helpers.py#_CollectErrors",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#_CollectErrors.__enter__",
+   "label": "__enter__",
+   "kind": "method",
+   "parent": "flask/helpers.py#_CollectErrors",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#_CollectErrors.__exit__",
+   "label": "__exit__",
+   "kind": "method",
+   "parent": "flask/helpers.py#_CollectErrors",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/helpers.py#_CollectErrors.raise_any",
+   "label": "raise_any",
+   "kind": "method",
+   "parent": "flask/helpers.py#_CollectErrors",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/logging.py#wsgi_errors_stream",
+   "label": "wsgi_errors_stream",
+   "kind": "function",
+   "parent": "flask/logging.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/logging.py#has_level_handler",
+   "label": "has_level_handler",
+   "kind": "function",
+   "parent": "flask/logging.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/logging.py#default_handler",
+   "label": "default_handler",
+   "kind": "variable",
+   "parent": "flask/logging.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/logging.py#create_logger",
+   "label": "create_logger",
+   "kind": "function",
+   "parent": "flask/logging.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionMixin",
+   "label": "SessionMixin",
+   "kind": "class",
+   "parent": "flask/sessions.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionMixin.permanent",
+   "label": "permanent",
+   "kind": "property",
+   "parent": "flask/sessions.py#SessionMixin",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionMixin.new",
+   "label": "new",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SessionMixin",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionMixin.modified",
+   "label": "modified",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SessionMixin",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionMixin.accessed",
+   "label": "accessed",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SessionMixin",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSession",
+   "label": "SecureCookieSession",
+   "kind": "class",
+   "parent": "flask/sessions.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSession.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/sessions.py#SecureCookieSession",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSession.modified",
+   "label": "modified",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SecureCookieSession",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#NullSession",
+   "label": "NullSession",
+   "kind": "class",
+   "parent": "flask/sessions.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#NullSession._fail",
+   "label": "_fail",
+   "kind": "method",
+   "parent": "flask/sessions.py#NullSession",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface",
+   "label": "SessionInterface",
+   "kind": "class",
+   "parent": "flask/sessions.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.make_null_session",
+   "label": "make_null_session",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.is_null_session",
+   "label": "is_null_session",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.get_cookie_name",
+   "label": "get_cookie_name",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.get_cookie_domain",
+   "label": "get_cookie_domain",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.get_cookie_path",
+   "label": "get_cookie_path",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.get_cookie_httponly",
+   "label": "get_cookie_httponly",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.get_cookie_secure",
+   "label": "get_cookie_secure",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.get_cookie_samesite",
+   "label": "get_cookie_samesite",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.get_cookie_partitioned",
+   "label": "get_cookie_partitioned",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.get_expiration_time",
+   "label": "get_expiration_time",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.should_set_cookie",
+   "label": "should_set_cookie",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.open_session",
+   "label": "open_session",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.save_session",
+   "label": "save_session",
+   "kind": "method",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.null_session_class",
+   "label": "null_session_class",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SessionInterface.pickle_based",
+   "label": "pickle_based",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#session_json_serializer",
+   "label": "session_json_serializer",
+   "kind": "variable",
+   "parent": "flask/sessions.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#_lazy_sha1",
+   "label": "_lazy_sha1",
+   "kind": "function",
+   "parent": "flask/sessions.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSessionInterface",
+   "label": "SecureCookieSessionInterface",
+   "kind": "class",
+   "parent": "flask/sessions.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSessionInterface.get_signing_serializer",
+   "label": "get_signing_serializer",
+   "kind": "method",
+   "parent": "flask/sessions.py#SecureCookieSessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSessionInterface.open_session",
+   "label": "open_session",
+   "kind": "method",
+   "parent": "flask/sessions.py#SecureCookieSessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSessionInterface.save_session",
+   "label": "save_session",
+   "kind": "method",
+   "parent": "flask/sessions.py#SecureCookieSessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSessionInterface.salt",
+   "label": "salt",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SecureCookieSessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSessionInterface.digest_method",
+   "label": "digest_method",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SecureCookieSessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSessionInterface.key_derivation",
+   "label": "key_derivation",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SecureCookieSessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSessionInterface.serializer",
+   "label": "serializer",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SecureCookieSessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sessions.py#SecureCookieSessionInterface.session_class",
+   "label": "session_class",
+   "kind": "attribute",
+   "parent": "flask/sessions.py#SecureCookieSessionInterface",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#template_rendered",
+   "label": "template_rendered",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#before_render_template",
+   "label": "before_render_template",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#request_started",
+   "label": "request_started",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#request_finished",
+   "label": "request_finished",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#request_tearing_down",
+   "label": "request_tearing_down",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#got_request_exception",
+   "label": "got_request_exception",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#appcontext_tearing_down",
+   "label": "appcontext_tearing_down",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#appcontext_pushed",
+   "label": "appcontext_pushed",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#appcontext_popped",
+   "label": "appcontext_popped",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/signals.py#message_flashed",
+   "label": "message_flashed",
+   "kind": "signal",
+   "parent": "flask/signals.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#_default_template_ctx_processor",
+   "label": "_default_template_ctx_processor",
+   "kind": "function",
+   "parent": "flask/templating.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#Environment",
+   "label": "Environment",
+   "kind": "class",
+   "parent": "flask/templating.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#Environment.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/templating.py#Environment",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#DispatchingJinjaLoader",
+   "label": "DispatchingJinjaLoader",
+   "kind": "class",
+   "parent": "flask/templating.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#DispatchingJinjaLoader.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/templating.py#DispatchingJinjaLoader",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#DispatchingJinjaLoader.get_source",
+   "label": "get_source",
+   "kind": "method",
+   "parent": "flask/templating.py#DispatchingJinjaLoader",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#DispatchingJinjaLoader._get_source_explained",
+   "label": "_get_source_explained",
+   "kind": "method",
+   "parent": "flask/templating.py#DispatchingJinjaLoader",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#DispatchingJinjaLoader._get_source_fast",
+   "label": "_get_source_fast",
+   "kind": "method",
+   "parent": "flask/templating.py#DispatchingJinjaLoader",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#DispatchingJinjaLoader._iter_loaders",
+   "label": "_iter_loaders",
+   "kind": "method",
+   "parent": "flask/templating.py#DispatchingJinjaLoader",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#DispatchingJinjaLoader.list_templates",
+   "label": "list_templates",
+   "kind": "method",
+   "parent": "flask/templating.py#DispatchingJinjaLoader",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#_render",
+   "label": "_render",
+   "kind": "function",
+   "parent": "flask/templating.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#render_template",
+   "label": "render_template",
+   "kind": "function",
+   "parent": "flask/templating.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#render_template_string",
+   "label": "render_template_string",
+   "kind": "function",
+   "parent": "flask/templating.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#_stream",
+   "label": "_stream",
+   "kind": "function",
+   "parent": "flask/templating.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#stream_template",
+   "label": "stream_template",
+   "kind": "function",
+   "parent": "flask/templating.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/templating.py#stream_template_string",
+   "label": "stream_template_string",
+   "kind": "function",
+   "parent": "flask/templating.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#EnvironBuilder",
+   "label": "EnvironBuilder",
+   "kind": "class",
+   "parent": "flask/testing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#EnvironBuilder.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/testing.py#EnvironBuilder",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#EnvironBuilder.json_dumps",
+   "label": "json_dumps",
+   "kind": "method",
+   "parent": "flask/testing.py#EnvironBuilder",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#_get_werkzeug_version",
+   "label": "_get_werkzeug_version",
+   "kind": "function",
+   "parent": "flask/testing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskClient",
+   "label": "FlaskClient",
+   "kind": "class",
+   "parent": "flask/testing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskClient.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/testing.py#FlaskClient",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskClient.session_transaction",
+   "label": "session_transaction",
+   "kind": "method",
+   "parent": "flask/testing.py#FlaskClient",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskClient._copy_environ",
+   "label": "_copy_environ",
+   "kind": "method",
+   "parent": "flask/testing.py#FlaskClient",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskClient._request_from_builder_args",
+   "label": "_request_from_builder_args",
+   "kind": "method",
+   "parent": "flask/testing.py#FlaskClient",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskClient.open",
+   "label": "open",
+   "kind": "method",
+   "parent": "flask/testing.py#FlaskClient",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskClient.__enter__",
+   "label": "__enter__",
+   "kind": "method",
+   "parent": "flask/testing.py#FlaskClient",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskClient.__exit__",
+   "label": "__exit__",
+   "kind": "method",
+   "parent": "flask/testing.py#FlaskClient",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskClient.application",
+   "label": "application",
+   "kind": "attribute",
+   "parent": "flask/testing.py#FlaskClient",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskCliRunner",
+   "label": "FlaskCliRunner",
+   "kind": "class",
+   "parent": "flask/testing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskCliRunner.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/testing.py#FlaskCliRunner",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/testing.py#FlaskCliRunner.invoke",
+   "label": "invoke",
+   "kind": "method",
+   "parent": "flask/testing.py#FlaskCliRunner",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#ResponseValue",
+   "label": "ResponseValue",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#HeaderValue",
+   "label": "HeaderValue",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#HeadersValue",
+   "label": "HeadersValue",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#ResponseReturnValue",
+   "label": "ResponseReturnValue",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#ResponseClass",
+   "label": "ResponseClass",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#AppOrBlueprintKey",
+   "label": "AppOrBlueprintKey",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#AfterRequestCallable",
+   "label": "AfterRequestCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#BeforeFirstRequestCallable",
+   "label": "BeforeFirstRequestCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#BeforeRequestCallable",
+   "label": "BeforeRequestCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#ShellContextProcessorCallable",
+   "label": "ShellContextProcessorCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#TeardownCallable",
+   "label": "TeardownCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#TemplateContextProcessorCallable",
+   "label": "TemplateContextProcessorCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#TemplateFilterCallable",
+   "label": "TemplateFilterCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#TemplateGlobalCallable",
+   "label": "TemplateGlobalCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#TemplateTestCallable",
+   "label": "TemplateTestCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#URLDefaultCallable",
+   "label": "URLDefaultCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#URLValuePreprocessorCallable",
+   "label": "URLValuePreprocessorCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#ErrorHandlerCallable",
+   "label": "ErrorHandlerCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/typing.py#RouteCallable",
+   "label": "RouteCallable",
+   "kind": "type",
+   "parent": "flask/typing.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#http_method_funcs",
+   "label": "http_method_funcs",
+   "kind": "variable",
+   "parent": "flask/views.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#View",
+   "label": "View",
+   "kind": "class",
+   "parent": "flask/views.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#View.dispatch_request",
+   "label": "dispatch_request",
+   "kind": "method",
+   "parent": "flask/views.py#View",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#View.as_view",
+   "label": "as_view",
+   "kind": "method",
+   "parent": "flask/views.py#View",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#View.methods",
+   "label": "methods",
+   "kind": "attribute",
+   "parent": "flask/views.py#View",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#View.provide_automatic_options",
+   "label": "provide_automatic_options",
+   "kind": "attribute",
+   "parent": "flask/views.py#View",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#View.decorators",
+   "label": "decorators",
+   "kind": "attribute",
+   "parent": "flask/views.py#View",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#View.init_every_request",
+   "label": "init_every_request",
+   "kind": "attribute",
+   "parent": "flask/views.py#View",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#MethodView",
+   "label": "MethodView",
+   "kind": "class",
+   "parent": "flask/views.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#MethodView.__init_subclass__",
+   "label": "__init_subclass__",
+   "kind": "method",
+   "parent": "flask/views.py#MethodView",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/views.py#MethodView.dispatch_request",
+   "label": "dispatch_request",
+   "kind": "method",
+   "parent": "flask/views.py#MethodView",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request",
+   "label": "Request",
+   "kind": "class",
+   "parent": "flask/wrappers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.max_content_length",
+   "label": "max_content_length",
+   "kind": "property",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.max_form_memory_size",
+   "label": "max_form_memory_size",
+   "kind": "property",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.max_form_parts",
+   "label": "max_form_parts",
+   "kind": "property",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.endpoint",
+   "label": "endpoint",
+   "kind": "property",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.blueprint",
+   "label": "blueprint",
+   "kind": "property",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.blueprints",
+   "label": "blueprints",
+   "kind": "property",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request._load_form_data",
+   "label": "_load_form_data",
+   "kind": "method",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.on_json_loading_failed",
+   "label": "on_json_loading_failed",
+   "kind": "method",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.json_module",
+   "label": "json_module",
+   "kind": "attribute",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.url_rule",
+   "label": "url_rule",
+   "kind": "attribute",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.view_args",
+   "label": "view_args",
+   "kind": "attribute",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Request.routing_exception",
+   "label": "routing_exception",
+   "kind": "attribute",
+   "parent": "flask/wrappers.py#Request",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Response",
+   "label": "Response",
+   "kind": "class",
+   "parent": "flask/wrappers.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Response.max_cookie_size",
+   "label": "max_cookie_size",
+   "kind": "property",
+   "parent": "flask/wrappers.py#Response",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Response.default_mimetype",
+   "label": "default_mimetype",
+   "kind": "attribute",
+   "parent": "flask/wrappers.py#Response",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Response.json_module",
+   "label": "json_module",
+   "kind": "attribute",
+   "parent": "flask/wrappers.py#Response",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/wrappers.py#Response.autocorrect_location_header",
+   "label": "autocorrect_location_header",
+   "kind": "attribute",
+   "parent": "flask/wrappers.py#Response",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/__init__.py#dumps",
+   "label": "dumps",
+   "kind": "function",
+   "parent": "flask/json/__init__.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/__init__.py#dump",
+   "label": "dump",
+   "kind": "function",
+   "parent": "flask/json/__init__.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/__init__.py#loads",
+   "label": "loads",
+   "kind": "function",
+   "parent": "flask/json/__init__.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/__init__.py#load",
+   "label": "load",
+   "kind": "function",
+   "parent": "flask/json/__init__.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/__init__.py#jsonify",
+   "label": "jsonify",
+   "kind": "function",
+   "parent": "flask/json/__init__.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#JSONProvider",
+   "label": "JSONProvider",
+   "kind": "class",
+   "parent": "flask/json/provider.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#JSONProvider.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/json/provider.py#JSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#JSONProvider.dumps",
+   "label": "dumps",
+   "kind": "method",
+   "parent": "flask/json/provider.py#JSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#JSONProvider.dump",
+   "label": "dump",
+   "kind": "method",
+   "parent": "flask/json/provider.py#JSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#JSONProvider.loads",
+   "label": "loads",
+   "kind": "method",
+   "parent": "flask/json/provider.py#JSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#JSONProvider.load",
+   "label": "load",
+   "kind": "method",
+   "parent": "flask/json/provider.py#JSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#JSONProvider._prepare_response_obj",
+   "label": "_prepare_response_obj",
+   "kind": "method",
+   "parent": "flask/json/provider.py#JSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#JSONProvider.response",
+   "label": "response",
+   "kind": "method",
+   "parent": "flask/json/provider.py#JSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#_default",
+   "label": "_default",
+   "kind": "function",
+   "parent": "flask/json/provider.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#DefaultJSONProvider",
+   "label": "DefaultJSONProvider",
+   "kind": "class",
+   "parent": "flask/json/provider.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#DefaultJSONProvider.dumps",
+   "label": "dumps",
+   "kind": "method",
+   "parent": "flask/json/provider.py#DefaultJSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#DefaultJSONProvider.loads",
+   "label": "loads",
+   "kind": "method",
+   "parent": "flask/json/provider.py#DefaultJSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#DefaultJSONProvider.response",
+   "label": "response",
+   "kind": "method",
+   "parent": "flask/json/provider.py#DefaultJSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#DefaultJSONProvider.default",
+   "label": "default",
+   "kind": "attribute",
+   "parent": "flask/json/provider.py#DefaultJSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#DefaultJSONProvider.ensure_ascii",
+   "label": "ensure_ascii",
+   "kind": "attribute",
+   "parent": "flask/json/provider.py#DefaultJSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#DefaultJSONProvider.sort_keys",
+   "label": "sort_keys",
+   "kind": "attribute",
+   "parent": "flask/json/provider.py#DefaultJSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#DefaultJSONProvider.compact",
+   "label": "compact",
+   "kind": "attribute",
+   "parent": "flask/json/provider.py#DefaultJSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/provider.py#DefaultJSONProvider.mimetype",
+   "label": "mimetype",
+   "kind": "attribute",
+   "parent": "flask/json/provider.py#DefaultJSONProvider",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#JSONTag",
+   "label": "JSONTag",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#JSONTag.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/json/tag.py#JSONTag",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#JSONTag.check",
+   "label": "check",
+   "kind": "method",
+   "parent": "flask/json/tag.py#JSONTag",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#JSONTag.to_json",
+   "label": "to_json",
+   "kind": "method",
+   "parent": "flask/json/tag.py#JSONTag",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#JSONTag.to_python",
+   "label": "to_python",
+   "kind": "method",
+   "parent": "flask/json/tag.py#JSONTag",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#JSONTag.tag",
+   "label": "tag",
+   "kind": "method",
+   "parent": "flask/json/tag.py#JSONTag",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#JSONTag.key",
+   "label": "key",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#JSONTag",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDict",
+   "label": "TagDict",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDict.check",
+   "label": "check",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagDict",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDict.to_json",
+   "label": "to_json",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagDict",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDict.to_python",
+   "label": "to_python",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagDict",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDict.key",
+   "label": "key",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#TagDict",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#PassDict",
+   "label": "PassDict",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#PassDict.check",
+   "label": "check",
+   "kind": "method",
+   "parent": "flask/json/tag.py#PassDict",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#PassDict.to_json",
+   "label": "to_json",
+   "kind": "method",
+   "parent": "flask/json/tag.py#PassDict",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#PassDict.tag",
+   "label": "tag",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#PassDict",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagTuple",
+   "label": "TagTuple",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagTuple.check",
+   "label": "check",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagTuple",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagTuple.to_json",
+   "label": "to_json",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagTuple",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagTuple.to_python",
+   "label": "to_python",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagTuple",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagTuple.key",
+   "label": "key",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#TagTuple",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#PassList",
+   "label": "PassList",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#PassList.check",
+   "label": "check",
+   "kind": "method",
+   "parent": "flask/json/tag.py#PassList",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#PassList.to_json",
+   "label": "to_json",
+   "kind": "method",
+   "parent": "flask/json/tag.py#PassList",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#PassList.tag",
+   "label": "tag",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#PassList",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagBytes",
+   "label": "TagBytes",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagBytes.check",
+   "label": "check",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagBytes",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagBytes.to_json",
+   "label": "to_json",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagBytes",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagBytes.to_python",
+   "label": "to_python",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagBytes",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagBytes.key",
+   "label": "key",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#TagBytes",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagMarkup",
+   "label": "TagMarkup",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagMarkup.check",
+   "label": "check",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagMarkup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagMarkup.to_json",
+   "label": "to_json",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagMarkup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagMarkup.to_python",
+   "label": "to_python",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagMarkup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagMarkup.key",
+   "label": "key",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#TagMarkup",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagUUID",
+   "label": "TagUUID",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagUUID.check",
+   "label": "check",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagUUID",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagUUID.to_json",
+   "label": "to_json",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagUUID",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagUUID.to_python",
+   "label": "to_python",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagUUID",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagUUID.key",
+   "label": "key",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#TagUUID",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDateTime",
+   "label": "TagDateTime",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDateTime.check",
+   "label": "check",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagDateTime",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDateTime.to_json",
+   "label": "to_json",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagDateTime",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDateTime.to_python",
+   "label": "to_python",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TagDateTime",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TagDateTime.key",
+   "label": "key",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#TagDateTime",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TaggedJSONSerializer",
+   "label": "TaggedJSONSerializer",
+   "kind": "class",
+   "parent": "flask/json/tag.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TaggedJSONSerializer.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TaggedJSONSerializer",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TaggedJSONSerializer.register",
+   "label": "register",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TaggedJSONSerializer",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TaggedJSONSerializer.tag",
+   "label": "tag",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TaggedJSONSerializer",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TaggedJSONSerializer.untag",
+   "label": "untag",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TaggedJSONSerializer",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TaggedJSONSerializer._untag_scan",
+   "label": "_untag_scan",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TaggedJSONSerializer",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TaggedJSONSerializer.dumps",
+   "label": "dumps",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TaggedJSONSerializer",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TaggedJSONSerializer.loads",
+   "label": "loads",
+   "kind": "method",
+   "parent": "flask/json/tag.py#TaggedJSONSerializer",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/json/tag.py#TaggedJSONSerializer.default_tags",
+   "label": "default_tags",
+   "kind": "attribute",
+   "parent": "flask/json/tag.py#TaggedJSONSerializer",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#_make_timedelta",
+   "label": "_make_timedelta",
+   "kind": "function",
+   "parent": "flask/sansio/app.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App",
+   "label": "App",
+   "kind": "class",
+   "parent": "flask/sansio/app.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App._check_setup_finished",
+   "label": "_check_setup_finished",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.name",
+   "label": "name",
+   "kind": "property",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.logger",
+   "label": "logger",
+   "kind": "property",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.jinja_env",
+   "label": "jinja_env",
+   "kind": "property",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.create_jinja_environment",
+   "label": "create_jinja_environment",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.make_config",
+   "label": "make_config",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.make_aborter",
+   "label": "make_aborter",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.auto_find_instance_path",
+   "label": "auto_find_instance_path",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.create_global_jinja_loader",
+   "label": "create_global_jinja_loader",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.select_jinja_autoescape",
+   "label": "select_jinja_autoescape",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.debug",
+   "label": "debug",
+   "kind": "property",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.register_blueprint",
+   "label": "register_blueprint",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.iter_blueprints",
+   "label": "iter_blueprints",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.add_url_rule",
+   "label": "add_url_rule",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.template_filter",
+   "label": "template_filter",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.add_template_filter",
+   "label": "add_template_filter",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.template_test",
+   "label": "template_test",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.add_template_test",
+   "label": "add_template_test",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.template_global",
+   "label": "template_global",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.add_template_global",
+   "label": "add_template_global",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.teardown_appcontext",
+   "label": "teardown_appcontext",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.shell_context_processor",
+   "label": "shell_context_processor",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App._find_error_handler",
+   "label": "_find_error_handler",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.trap_http_exception",
+   "label": "trap_http_exception",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.redirect",
+   "label": "redirect",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.inject_url_defaults",
+   "label": "inject_url_defaults",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.handle_url_build_error",
+   "label": "handle_url_build_error",
+   "kind": "method",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.aborter_class",
+   "label": "aborter_class",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.jinja_environment",
+   "label": "jinja_environment",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.app_ctx_globals_class",
+   "label": "app_ctx_globals_class",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.config_class",
+   "label": "config_class",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.testing",
+   "label": "testing",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.secret_key",
+   "label": "secret_key",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.permanent_session_lifetime",
+   "label": "permanent_session_lifetime",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.json_provider_class",
+   "label": "json_provider_class",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.jinja_options",
+   "label": "jinja_options",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.url_rule_class",
+   "label": "url_rule_class",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.url_map_class",
+   "label": "url_map_class",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.test_client_class",
+   "label": "test_client_class",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.test_cli_runner_class",
+   "label": "test_cli_runner_class",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.default_config",
+   "label": "default_config",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.response_class",
+   "label": "response_class",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.instance_path",
+   "label": "instance_path",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.config",
+   "label": "config",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.aborter",
+   "label": "aborter",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.json",
+   "label": "json",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.url_build_error_handlers",
+   "label": "url_build_error_handlers",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.teardown_appcontext_funcs",
+   "label": "teardown_appcontext_funcs",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.shell_context_processors",
+   "label": "shell_context_processors",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.blueprints",
+   "label": "blueprints",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.extensions",
+   "label": "extensions",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.url_map",
+   "label": "url_map",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.subdomain_matching",
+   "label": "subdomain_matching",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/app.py#App.should_ignore_error",
+   "label": "should_ignore_error",
+   "kind": "attribute",
+   "parent": "flask/sansio/app.py#App",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#DeferredSetupFunction",
+   "label": "DeferredSetupFunction",
+   "kind": "variable",
+   "parent": "flask/sansio/blueprints.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "label": "BlueprintSetupState",
+   "kind": "class",
+   "parent": "flask/sansio/blueprints.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.add_url_rule",
+   "label": "add_url_rule",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.app",
+   "label": "app",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.blueprint",
+   "label": "blueprint",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.options",
+   "label": "options",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.first_registration",
+   "label": "first_registration",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.subdomain",
+   "label": "subdomain",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.url_prefix",
+   "label": "url_prefix",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.name",
+   "label": "name",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.name_prefix",
+   "label": "name_prefix",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#BlueprintSetupState.url_defaults",
+   "label": "url_defaults",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#BlueprintSetupState",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint",
+   "label": "Blueprint",
+   "kind": "class",
+   "parent": "flask/sansio/blueprints.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint._check_setup_finished",
+   "label": "_check_setup_finished",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.record",
+   "label": "record",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.record_once",
+   "label": "record_once",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.make_setup_state",
+   "label": "make_setup_state",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.register_blueprint",
+   "label": "register_blueprint",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.register",
+   "label": "register",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint._merge_blueprint_funcs",
+   "label": "_merge_blueprint_funcs",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.add_url_rule",
+   "label": "add_url_rule",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.app_template_filter",
+   "label": "app_template_filter",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.add_app_template_filter",
+   "label": "add_app_template_filter",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.app_template_test",
+   "label": "app_template_test",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.add_app_template_test",
+   "label": "add_app_template_test",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.app_template_global",
+   "label": "app_template_global",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.add_app_template_global",
+   "label": "add_app_template_global",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.before_app_request",
+   "label": "before_app_request",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.after_app_request",
+   "label": "after_app_request",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.teardown_app_request",
+   "label": "teardown_app_request",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.app_context_processor",
+   "label": "app_context_processor",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.app_errorhandler",
+   "label": "app_errorhandler",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.app_url_value_preprocessor",
+   "label": "app_url_value_preprocessor",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.app_url_defaults",
+   "label": "app_url_defaults",
+   "kind": "method",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.name",
+   "label": "name",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.url_prefix",
+   "label": "url_prefix",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.subdomain",
+   "label": "subdomain",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.deferred_functions",
+   "label": "deferred_functions",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.url_values_defaults",
+   "label": "url_values_defaults",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/blueprints.py#Blueprint.cli_group",
+   "label": "cli_group",
+   "kind": "attribute",
+   "parent": "flask/sansio/blueprints.py#Blueprint",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#setupmethod",
+   "label": "setupmethod",
+   "kind": "function",
+   "parent": "flask/sansio/scaffold.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold",
+   "label": "Scaffold",
+   "kind": "class",
+   "parent": "flask/sansio/scaffold.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.__init__",
+   "label": "__init__",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold._check_setup_finished",
+   "label": "_check_setup_finished",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.static_folder",
+   "label": "static_folder",
+   "kind": "property",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.has_static_folder",
+   "label": "has_static_folder",
+   "kind": "property",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.static_url_path",
+   "label": "static_url_path",
+   "kind": "property",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.jinja_loader",
+   "label": "jinja_loader",
+   "kind": "property",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold._method_route",
+   "label": "_method_route",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.get",
+   "label": "get",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.query",
+   "label": "query",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.post",
+   "label": "post",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.put",
+   "label": "put",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.delete",
+   "label": "delete",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.patch",
+   "label": "patch",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.route",
+   "label": "route",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.add_url_rule",
+   "label": "add_url_rule",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.endpoint",
+   "label": "endpoint",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.before_request",
+   "label": "before_request",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.after_request",
+   "label": "after_request",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.teardown_request",
+   "label": "teardown_request",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.context_processor",
+   "label": "context_processor",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.url_value_preprocessor",
+   "label": "url_value_preprocessor",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.url_defaults",
+   "label": "url_defaults",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.errorhandler",
+   "label": "errorhandler",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.register_error_handler",
+   "label": "register_error_handler",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold._get_exc_class_and_code",
+   "label": "_get_exc_class_and_code",
+   "kind": "method",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.cli",
+   "label": "cli",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.name",
+   "label": "name",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.import_name",
+   "label": "import_name",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.template_folder",
+   "label": "template_folder",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.root_path",
+   "label": "root_path",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.view_functions",
+   "label": "view_functions",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.error_handler_spec",
+   "label": "error_handler_spec",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.before_request_funcs",
+   "label": "before_request_funcs",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.after_request_funcs",
+   "label": "after_request_funcs",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.teardown_request_funcs",
+   "label": "teardown_request_funcs",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.template_context_processors",
+   "label": "template_context_processors",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.url_value_preprocessors",
+   "label": "url_value_preprocessors",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#Scaffold.url_default_functions",
+   "label": "url_default_functions",
+   "kind": "attribute",
+   "parent": "flask/sansio/scaffold.py#Scaffold",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#_endpoint_from_view_func",
+   "label": "_endpoint_from_view_func",
+   "kind": "function",
+   "parent": "flask/sansio/scaffold.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#_find_package_path",
+   "label": "_find_package_path",
+   "kind": "function",
+   "parent": "flask/sansio/scaffold.py",
+   "flags": ["stub"]
+  },
+  {
+   "id": "flask/sansio/scaffold.py#find_package",
+   "label": "find_package",
+   "kind": "function",
+   "parent": "flask/sansio/scaffold.py",
+   "flags": ["stub"]
+  }
+ ],
+ "edges": []
+}
