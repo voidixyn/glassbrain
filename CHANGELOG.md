@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- `npx glassbrain` (no arguments) now prints the format and how to build a graph in passes, so
+  an agent told only "run `npx glassbrain` first" can write a valid graph without reading the docs.
+
 ## 0.1.0
 
 First release.

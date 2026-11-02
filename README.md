@@ -171,9 +171,10 @@ Each tool's own notion of "inside" becomes the structure; everything else become
 2. Point it at something you have: `npx glassbrain <file-or-folder>`.
 3. Ask your agent, no skill needed:
 
-   > Map how our checkout flow works as glassbrain JSON (format: the first section of
-   > github.com/voidixyn/glassbrain). Save a snapshot after each pass in kg/, run
-   > `npx glassbrain validate kg` after each, then `npx glassbrain kg`.
+   > Map how our checkout flow works as a glassbrain graph (run `npx glassbrain` first).
+
+   `npx glassbrain` with no arguments prints the format and how to build in passes, so the
+   agent needs nothing else.
 
    Or give it the skills above and write your own: a skill is a short markdown file.
 

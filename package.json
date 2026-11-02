@@ -1,6 +1,6 @@
 {
   "name": "glassbrain",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Know what your agent knows: open, diff and review the knowledge graphs agents write. Plain JSON in, one html file out.",
   "keywords": [
     "knowledge-graph",

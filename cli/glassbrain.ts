@@ -15,33 +15,66 @@ import { load, type Loaded } from './load';
 import { diff, diffText, ignoreOf, modelOf, profileFromJson, validate } from './model';
 import type { Payload } from './viewer';
 
-const HELP = `glassbrain — open, diff and validate knowledge graphs
+/** Help is also the format spec: an agent told only "run `npx glassbrain` first" must be able to write a valid graph from it. */
+const HELP = (schema: string) => `glassbrain: open, diff and validate knowledge graphs.
+Your agent writes the graph as plain JSON; glassbrain shows it and what changed.
+Not installed? Put npx in front: npx glassbrain kg
 
-Usage
-  glassbrain <path>                     open a graph in the browser (same as: view)
-  glassbrain view <path>                open it; a folder of versions gets a version bar
-  glassbrain diff <old> <new>           what changed between two graphs
-  glassbrain diff <git-ref> <path>      <path> at <git-ref> vs. the working tree
-  glassbrain diff <path>                same, against HEAD
-  glassbrain validate <path>            check files against the schema and the structure
-  glassbrain convert <path> [out-dir]   write any supported format as glassbrain JSON
+WRITE A GRAPH
+  One JSON file, two arrays. \`parent\` says what sits inside what; that is the
+  whole structure. Every other relation is an edge.
 
-<path> is a file, a folder, or <git-ref>:<path> (e.g. HEAD~1:graph.json).
-Formats are detected from content: glassbrain {nodes, edges}, Graphify graph.json,
-Understand-Anything knowledge-graph.json, MCP memory.jsonl, a markdown folder
-(Obsidian / LLM wiki). A folder holding only sub-folders of JSON = versions.
+    { "nodes": [
+        { "id": "src",          "label": "src",      "kind": "folder" },
+        { "id": "src/login.ts", "label": "login.ts", "kind": "file", "parent": "src",
+          "description": "Checks the password, then opens a session. Markdown." },
+        { "id": "src/db.ts",    "label": "db.ts",    "kind": "file", "parent": "src" } ],
+      "edges": [
+        { "source": "src/login.ts", "target": "src/db.ts", "kind": "uses" } ] }
 
-Options
-  --out <file.html>   write the page here instead of a temp file (view, diff)
-  --open / --no-open  open the browser or not (diff opens only in a terminal)
+  id           any string, stable across versions: a path or a slug, never a counter
+  label        what is shown (defaults to id)
+  kind         any word for what sort of thing it is (folder, page, feature, decision)
+  parent       the id of the node it sits inside
+  description  markdown for the detail panel; [text](node:<id>) links to a node
+  flags        markers, e.g. ["stub"] for a node not filled in yet
+  Order in the arrays does not matter. Other fields are kept and shown in the detail panel.
+  Full schema: ${schema}
+
+BUILD IT IN PASSES
+  Work in passes, each one a new folder (copy the last, edit the copy). For example:
+    kg/1-skeleton/graph.json   every node, nested by parent, no descriptions
+    kg/2-filled/graph.json     descriptions added, no new structure
+    kg/3-linked/graph.json     edges added
+  After each pass:  glassbrain validate kg --strict   fix everything it reports
+                    glassbrain diff kg/1-skeleton kg/2-filled   only this pass's job?
+  At the end:       glassbrain kg   opens all passes with a version bar
+
+COMMANDS
+  glassbrain <path>                    open in the browser (same as: view)
+  glassbrain diff <old> <new>          what changed between two graphs
+  glassbrain diff <git-ref> <path>     <path> at that commit vs. now (default ref: HEAD)
+  glassbrain validate <path>           check against the schema and the structure
+  glassbrain convert <path> [out-dir]  write any supported format as glassbrain JSON
+
+  <path> is a file, a folder, or <git-ref>:<path> (HEAD~1:kg/graph.json).
+  A folder of sub-folders is a list of versions. Also opens, as they are:
+  Graphify graph.json, Understand-Anything knowledge-graph.json, MCP memory.jsonl,
+  a markdown folder (Obsidian / LLM wiki).
+
+OPTIONS
   --json              machine-readable output (diff, validate)
+  --strict            exit 1 on warnings too (validate)
+  --exit-code         exit 1 when anything changed (diff)
   --all               list every change, not the first 20 (diff)
   --ignore <a,b>      fields that do not count as a change (diff)
-  --exit-code         exit 1 when there are changes (diff)
-  --strict            exit 1 on warnings too (validate)
+  --out <file.html>   write the page here instead of a temp file (view, diff)
+  --open / --no-open  open the browser or not (diff opens only in a terminal)
   --format <id>       force a format: native, graphify, understand-anything, memory, obsidian
   -h, --help          this help
-  -v, --version       print the version
+  -v, --version       the version
+
+More: https://github.com/voidixyn/glassbrain
 `;
 
 interface Args { cmd: string; pos: string[]; flags: Record<string, string | boolean> }
@@ -233,7 +266,7 @@ if (a.flags.version) {
   const pkg = JSON.parse(fs.readFileSync(path.join(here, '../../package.json'), 'utf8'));
   console.log(pkg.version);
 } else if (a.flags.help || (a.cmd === 'view' && !a.pos.length)) {
-  process.stdout.write(HELP);
+  process.stdout.write(HELP(path.join(here, '../../schema/graph.schema.json')));
 } else {
   try {
     ({ view, diff: runDiff, validate: runValidate, convert: runConvert } as Record<string, (a: Args) => void>)[a.cmd](a);
