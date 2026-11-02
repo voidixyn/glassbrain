@@ -42,13 +42,23 @@ WRITE A GRAPH
   Full schema: ${schema}
 
 BUILD IT IN PASSES
-  Work in passes, each one a new folder (copy the last, edit the copy). For example:
-    kg/1-skeleton/graph.json   every node, nested by parent, no descriptions
-    kg/2-filled/graph.json     descriptions added, no new structure
-    kg/3-linked/graph.json     edges added
-  After each pass:  glassbrain validate kg --strict   fix everything it reports
-                    glassbrain diff kg/1-skeleton kg/2-filled   only this pass's job?
-  At the end:       glassbrain kg   opens all passes with a version bar
+  Each pass is a new folder: copy the last one, edit the copy.
+    kg/1-skeleton   every node at the depth asked (or what a newcomer needs), read from
+                    the source (not memory), nested by parent; flag each one "stub"
+    kg/2-filled     descriptions (1-3 sentences, from the source), stub flags removed
+    kg/3-linked     edges a reader would agree with
+  After each pass:
+    glassbrain validate kg --strict             fix everything it reports
+    glassbrain diff kg/1-skeleton kg/2-filled   only this pass's job: ~changed in 2,
+                                                edges added in 3, nothing else
+  At the end:
+    glassbrain kg                               opens all passes; give the user the path
+
+COLORS: kg/_profile.json, shared by every pass
+  Give each kind a color, or every node and edge is drawn the same grey:
+  { "nodePalette": { "file": "#6366f1", "function": "#10b981" },
+    "edgePalette": { "calls": "#2563eb" }, "placeholderFlags": ["stub"] }
+  Layers (2.5D), sizes, labels and the rest: ${schema.replace('graph.schema', 'profile.schema')}
 
 COMMANDS
   glassbrain <path>                    open in the browser (same as: view)

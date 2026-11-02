@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+- `npx glassbrain` help: what each pass should contain and what its diff should show, and how to
+  give each kind a color in `_profile.json` (with a pointer to the profile schema). No library changes.
+
 ## 0.1.1
 
 - `npx glassbrain` (no arguments) now prints the format and how to build a graph in passes, so
