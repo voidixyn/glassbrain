@@ -14,21 +14,13 @@ export const CSS = `
   --gb-inspector-bg: var(--rail); --gb-inspector-border: var(--line);
   color-scheme: light;
 }
-/* Dark: the page shell has one set of variables, the library's toolbar / inspector another (--gb-*); the primitives' own dark colors are in
-   GraphTheme (DARK_THEME), because cytoscape cannot read CSS variables. */
+/* The page shell follows the same choice as GraphCanvas; the library themes its own controls. */
 :root[data-theme=dark] {
   --ink:#e2e8f0; --ink2:#a3b1c6; --ink3:#7c8ba1;
   --line:#1e293b; --bg:#0f172a; --rail:#0b1222; --tint:#1a2335;
   --accent:#818cf8; --accent-soft:#1e1b4b;
   --brand-bg: color-mix(in srgb, var(--accent) 20%, var(--bg));
   color-scheme: dark;
-  --gb-text:#e2e8f0; --gb-muted:#94a3b8; --gb-muted2:#64748b;
-  --gb-border:#1e293b; --gb-panel:rgba(15,23,42,.9); --gb-panel2:#0f172a;
-  --gb-tint:#1e293b; --gb-active:#1e3a5f; --gb-accent:#38bdf8; --gb-accent-border:#0369a1;
-  --gb-mask:rgba(2,6,23,.6);
-  --gb-warn:#fbbf24; --gb-warn-bg:#291d05; --gb-warn-border:#78350f;
-  --gb-err:#f87171; --gb-err-bg:#2a0f12; --gb-err-border:#7f1d1d;
-  --gb-on-accent:#0b1220;
 }
 * { box-sizing:border-box; margin:0; }
 html, body, #root { height:100%; }
@@ -67,7 +59,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .f-cmp svg { fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 .f-cmp:hover:not(:disabled) { color:var(--ink); background:var(--bg); }
 .f-cmp.on { background:var(--accent); color:#fff; box-shadow:0 4px 12px -4px color-mix(in srgb, var(--accent) 70%, transparent); }
-:root[data-theme=dark] .f-cmp.on { color:var(--gb-on-accent); }
+:root[data-theme=dark] .f-cmp.on { color:var(--rail); }
 .f-cmp:disabled { opacity:.4; cursor:default; }
 /* Versions as icons: same brain for every version, name below (two lines at most), Finder's selection: grey square behind the icon, name in a pill. */
 .tiles { position:relative; display:flex; gap:2px; overflow-x:auto; overflow-y:hidden; padding:10px 6px 2px; border-radius:13px;
@@ -90,7 +82,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:break-word; hyphens:auto; }
 .tile.on .tile-i, .tile.ref .tile-i { box-shadow:inset 0 0 0 1px rgba(15,23,42,.06), 0 1px 1.5px rgba(15,23,42,.1), 0 0 0 5px color-mix(in srgb, var(--ink) 11%, transparent); }
 .tile.on .tile-n { background:var(--accent); color:#fff; }
-:root[data-theme=dark] .tile.on .tile-n { color:var(--gb-on-accent); }
+:root[data-theme=dark] .tile.on .tile-n { color:var(--rail); }
 .tile.ref .tile-i { box-shadow:inset 0 0 0 1px rgba(15,23,42,.06), 0 0 0 5px color-mix(in srgb, var(--ink) 6%, transparent); }
 .tile.ref .tile-n { background:color-mix(in srgb, var(--ink) 16%, transparent); }
 .tile.off { opacity:.4; }
@@ -169,11 +161,13 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .card-tog button:hover { color:var(--ink); }
 .card-tog button.on { background:var(--bg); color:var(--accent); box-shadow:0 1px 2px rgba(15,23,42,.14), 0 0 0 1px rgba(15,23,42,.04); }
 .thesis { padding:0 16px 2px; font-size:11.5px; color:var(--ink3); }
+.settings-foot { padding:14px 16px; font-size:11px; }
+.settings-foot a { display:inline-flex; align-items:center; gap:6px; color:var(--ink3); text-decoration:none; }
+.settings-foot a:hover { color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
 /* Groups: separated by a thin line, title one row in small caps, collapsible. */
 /* A thin line between groups with margins on both sides: it separates paragraphs of the form, not panels of the sidebar. */
 /* The divider starts at the left of the disclosure triangle and leaves 16 on the right too; rows in a group are indented to the title text column. */
 .grp { background:linear-gradient(var(--line), var(--line)) no-repeat 16px 100% / calc(100% - 32px) 1px; }
-.grp:last-of-type { background:none; }
 .grp > summary { list-style:none; cursor:pointer; user-select:none; display:flex; align-items:center; gap:7px;
   padding:14px 16px 6px; font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--ink); }
 .grp > summary::-webkit-details-marker { display:none; }

@@ -19,7 +19,7 @@ import { indexModel, originsOf, type GraphModel } from '../model';
 import { defaultProfile, validateModel, type GraphIssue, type GraphProfile } from '../profile';
 import { buildElements, VIRTUAL_ROOT, type BuiltElements, type CyElement } from '../elements';
 import { FULL_VIEW, isFiltering, isNarrowing, originView, planeView, resolveView, searchNodes, type GraphView } from '../view';
-import { DIFF_INK, GK_CSS, graphStyle, LABEL_MAX_EM, LIGHT_THEME, mixHex, nodeWeight, plateColors, type GraphTheme } from '../style';
+import { chromeStyle, DIFF_INK, GK_CSS, graphStyle, LABEL_MAX_EM, LIGHT_THEME, mixHex, nodeWeight, plateColors, type GraphTheme } from '../style';
 import { installPainter, type Painter } from '../paint';
 import { computeLayout, type Plate, type Positions } from '../layout/engine';
 import { projectPlanes } from '../layout/planes';
@@ -293,7 +293,7 @@ export interface GraphCanvasProps {
    *    import { workerPool } from 'glassbrain/layout/worker-pool';
    *  The library does not guess the host's bundler, so the default is the one that always works. */
   pool?: LayoutRunnerPool;
-  /** Primitive theme (skeleton color, canvas background…). Pure look: swapping it swaps the stylesheet, no rebuild, no relayout. */
+  /** Graph colors and matching controls. Pure look: swapping the theme never rebuilds or relays out the graph. */
   theme?: GraphTheme;
   className?: string;
   style?: CSSProperties;
@@ -738,6 +738,7 @@ export default function GraphCanvas(props: GraphCanvasProps) {
   }, [props.look, props.onLookChange]);
   const lookProfile = useMemo(() => applyLook(baseProfile, look), [baseProfile, look]);
   const theme = useMemo(() => (look.skeleton ? { ...baseTheme, skeleton: look.skeleton } : baseTheme), [baseTheme, look.skeleton]);
+  const rootStyle = useMemo(() => ({ ...chromeStyle(theme), ...style }), [theme, style]);
   /** The class pointed at in the legend overrides the host's emphasis. */
   const [legendEmphasis, setLegendEmphasis] = useState<{ nodeKinds?: string[]; edgeKinds?: string[] } | null>(null);
   const emphasis = legendEmphasis ?? hostEmphasis;
@@ -3002,7 +3003,7 @@ export default function GraphCanvas(props: GraphCanvasProps) {
   if (model.nodes.length === 0 && model.errors.length === 0) {
     return (
       <StringsContext.Provider value={strings}>
-        <div className={`gb-root ${className ?? ''}`} style={style}>
+        <div className={`gb-root ${className ?? ''}`} style={rootStyle}>
           <div className="gb-empty">
             <div>{emptyMessage ?? strings.empty}</div>
             {editable && !editing && <button className="gb-link" onClick={() => startAdd('node')}>{strings.addNode}</button>}
@@ -3020,7 +3021,7 @@ export default function GraphCanvas(props: GraphCanvasProps) {
   const platesOn = !panes && plates.length > 0 && plateAlpha > 0.01;
   return (
     <StringsContext.Provider value={strings}>
-    <div className={`gb-root ${className ?? ''}`} style={style}>
+    <div className={`gb-root ${className ?? ''}`} style={rootStyle}>
       <div className="gb-stage" ref={stageRef} style={{ background: theme.canvas }}>
         {/* Plates must render **before** the canvas: both are absolute inset:0, DOM order is stacking order,
             and after it they would cover the graph. Opacity follows how far the layers have risen. */}
@@ -3135,21 +3136,19 @@ export default function GraphCanvas(props: GraphCanvasProps) {
               </div>
             )}
             {legend && !compact && (
-              <div className={`gb-legend${legendCollapsed ? ' is-collapsed' : ''}`}>
-                <Legend
-                  model={model} profile={lookProfile} theme={theme}
-                  look={look} onLook={setLook} cy={liveCy} delta={diff}
-                  hidden={{ nodes: view.hiddenNodeKinds ?? [], edges: view.hiddenEdgeKinds ?? [] }}
-                  onToggle={(which, kind) => {
-                    const key = which === 'nodes' ? 'hiddenNodeKinds' : 'hiddenEdgeKinds';
-                    const cur = view[key] ?? [];
-                    setView({ [key]: cur.includes(kind) ? cur.filter((x) => x !== kind) : [...cur, kind] });
-                  }}
-                  onEmphasis={setLegendEmphasis}
-                  onShowAll={() => setView({ hiddenNodeKinds: [], hiddenEdgeKinds: [] })}
-                  collapsed={legendCollapsed} onCollapsed={setLegendCollapsed} caption={note}
-                />
-              </div>
+              <Legend
+                model={model} profile={lookProfile} theme={theme}
+                look={look} onLook={setLook} cy={liveCy} delta={diff}
+                hidden={{ nodes: view.hiddenNodeKinds ?? [], edges: view.hiddenEdgeKinds ?? [] }}
+                onToggle={(which, kind) => {
+                  const key = which === 'nodes' ? 'hiddenNodeKinds' : 'hiddenEdgeKinds';
+                  const cur = view[key] ?? [];
+                  setView({ [key]: cur.includes(kind) ? cur.filter((x) => x !== kind) : [...cur, kind] });
+                }}
+                onEmphasis={setLegendEmphasis}
+                onShowAll={() => setView({ hiddenNodeKinds: [], hiddenEdgeKinds: [] })}
+                collapsed={legendCollapsed} onCollapsed={setLegendCollapsed} caption={note}
+              />
             )}
           </div>
         )}

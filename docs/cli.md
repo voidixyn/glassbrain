@@ -95,3 +95,10 @@ containment with 1.4 semantic edges per node; a real graph can take longer than 
 of the same size (Graphify's: 6.6 s at 3.8k nodes). In the generated page the layout runs on the
 main thread, so the page is busy until *ready*; inside your own app pass the worker pool
 (`glassbrain/layout/worker-pool`) and it stays responsive while laying out.
+
+The synthetic benchmark writes one graph JSON file, but still uses the default divide-and-conquer
+layout: independent containment trees are laid out separately, then arranged together. The 10,000-node
+case has 33 top-level groups. Partitioning follows structure, not file boundaries; splitting the same
+graph across JSON files does not by itself create more layout components. These measurements do not
+cover worker-pool execution or establish a node-count limit: structure, edge density, and hardware
+affect both readiness and interaction speed.

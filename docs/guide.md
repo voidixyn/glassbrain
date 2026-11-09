@@ -456,7 +456,7 @@ Hover and selection are two orthogonal channels, so they stack:
   what's drawn on top of it is the figure.
 - Opening/closing the detail panel or resizing the window **keeps the camera**: the point
   at the center stays at the center, zoom unchanged. Only the very first size fits.
-- **Dark mode**: pass `theme={DARK_THEME}` and override the `--gb-*` CSS variables. No
+- **Dark mode**: pass `theme={DARK_THEME}`; built-in controls follow automatically. No
   transparency tricks — the default-node color and the containment ramp are mixed from
   `theme.canvas`, so they follow the background. 2.5D layer colors are hues too: the
   plate is mixed from the canvas (`plateColors`).
@@ -465,9 +465,10 @@ Hover and selection are two orthogonal channels, so they stack:
 
 cytoscape renders to canvas and cannot read CSS variables, so graph-element theming
 is an object (`GraphTheme`, passed as `<GraphCanvas theme>`). The surrounding UI
-(toolbar, detail panel) is ordinary DOM and uses `--gb-*` CSS variables — override
-them to reskin. Complete defaults are built in, so an offline single-file page
-looks right with zero setup.
+(toolbar, legend, detail panel) follows the canvas background's lightness, scoped to each
+instance. Use `--gb-*` CSS variables to override these defaults, on a parent or the component
+itself. Light and dark canvases can share a page without affecting each other. Complete defaults
+are built in, so an offline single-file page looks right with zero setup.
 
 **A palette is configured once, for a light canvas.** On a dark canvas every palette color
 goes through `themeColor(theme, hex)`: in OKLCH its lightness is folded by distance from the

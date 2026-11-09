@@ -315,7 +315,7 @@ const TEXT = {
     lookIs: 'Legend overrides: colour and size per kind', changed: (n: number) => `${n} changed`, reset: 'Reset',
     controlsIs: 'Built-in canvas controls',
     ctl: { search: 'Search box', origins: 'Filter by source file', layers: 'Layer chips, 2.5D', relayout: 'Re-layout in the ⋯ menu', zoom: 'Zoom and fit' } as Record<ControlId, string>,
-    stringsIs: 'UI text · load a partial pack; missing keys stay built-in', themeIs: 'Graph colours · chrome uses --gb-* CSS vars', animateIs: 'Animate data changes',
+    stringsIs: 'UI text · load a partial pack; missing keys stay built-in', themeIs: 'Graph and controls · override UI with --gb-* CSS vars', animateIs: 'Animate data changes',
     nodeScaleIs: 'Node size', labelSpacingIs: 'Min gap between labels, px', semanticOpacityIs: 'Ink of non-containment edges',
     durationIs: 'Transition length, ms', driftIs: 'Scatter in transitions', bounceIs: 'Overshoot when settling',
     roundsIs: 'Fusion rounds', itersIs: 'First push', snapIs: 'Pin the new version',
@@ -346,7 +346,7 @@ const TEXT = {
     lookIs: '图例上的覆盖：每一类的颜色、大小', changed: (n: number) => `${n} 处改动`, reset: '复原',
     controlsIs: '画布自带的控件',
     ctl: { search: '搜索框', origins: '按来源文件筛', layers: '层切换、2.5D', relayout: '⋯ 菜单里的「重新布局」', zoom: '缩放、适应窗口' } as Record<ControlId, string>,
-    stringsIs: '界面文字 · 可载入部分语言包，没给的键用内置', themeIs: '图的颜色 · 工具条等外壳走 --gb-* CSS 变量', animateIs: '数据变化时演过渡',
+    stringsIs: '界面文字 · 可载入部分语言包，没给的键用内置', themeIs: '图与控件配色 · 可用 --gb-* CSS 变量定制界面', animateIs: '数据变化时演过渡',
     nodeScaleIs: '点大小', labelSpacingIs: '标签之间至少的缝，px', semanticOpacityIs: '包含以外的边的浓度',
     durationIs: '过渡时长，ms', driftIs: '过渡中的飘散', bounceIs: '落位时的回弹',
     roundsIs: '融合回合', itersIs: '首步推挤', snapIs: '钉住新版',
@@ -1094,6 +1094,12 @@ function App() {
                   {R.duration}{R.drift}{R.bounce}
                   {mode === 'diff' && <>{R.rounds}{R.iters}{R.snap}</>}
                 </Group>
+                <footer className="settings-foot">
+                  <a href="https://github.com/voidixyn/glassbrain" target="_blank" rel="noreferrer" aria-label="GitHub: voidixyn/glassbrain">
+                    <svg viewBox="0 0 16 16" width={14} height={14} fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" /></svg>
+                    <span>voidixyn/glassbrain ↗</span>
+                  </a>
+                </footer>
                 {DEV && (
                   <div className="log">
                     {log && <span>{log.animated ? 'played' : 'placed'} · union {log.total} · moved {log.moved}{log.moved > 0 && ` (median ${log.movedMedian})`} · in {log.entering} · out {log.leaving}

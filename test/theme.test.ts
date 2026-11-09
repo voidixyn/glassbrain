@@ -1,7 +1,30 @@
 /* Dark: the palette is configured once for light and swapped automatically on dark — each color's lightness is folded by its distance from the canvas, hue unchanged; the color picker goes the other way. */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { DARK_THEME, LIGHT_THEME, themeColor, untheme } from '../dist/internal.js';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { buildModel, GraphCanvas, DARK_THEME, LIGHT_THEME, themeColor, untheme } from '../dist/internal.js';
+
+test('GraphCanvas supplies dark controls without host CSS, for populated and empty graphs', () => {
+  for (const nodes of [[], [{ id: 'one', label: 'One' }]]) {
+    const html = renderToStaticMarkup(createElement(GraphCanvas, { model: buildModel(nodes, []), theme: DARK_THEME }));
+    assert.match(html, /color-scheme:dark/);
+    assert.match(html, /--gb-default-panel:#0f172ae6/);
+    assert.match(html, /--gb-default-panel2:#0f172a/);
+    assert.match(html, /--gb-default-text:#e2e8f0/);
+    assert.doesNotMatch(html, /(?:[";])--gb-panel:/, 'public variables stay available to inherited host overrides');
+  }
+});
+
+test('control defaults follow custom canvas lightness and reset when switching back to light', () => {
+  const model = buildModel([], []);
+  const render = (theme: typeof LIGHT_THEME) => renderToStaticMarkup(createElement(GraphCanvas, { model, theme }));
+  assert.match(render({ ...LIGHT_THEME, canvas: '#121212', nodeText: '#eeeeee' }), /--gb-default-panel:#121212e6/);
+  assert.match(render({ ...LIGHT_THEME, canvas: '#121212', nodeText: '#eeeeee' }), /--gb-default-text:#eeeeee/);
+  const light = render(LIGHT_THEME);
+  assert.match(light, /color-scheme:light/);
+  assert.match(light, /--gb-default-panel:initial/, 'a light canvas also resets defaults inherited from a surrounding dark canvas');
+});
 
 /** Relative luminance (WCAG), closer to "how bright it looks" than an RGB average. */
 const Y = (hex: string) => {

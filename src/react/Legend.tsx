@@ -13,7 +13,7 @@
  * Kind names come from the data (`profile.kindLabels`, else the kind itself); the two entries without a kind (nodes with no color
  * configured, containment edges) and the change categories in compare mode use the library's own strings (`strings`); longer explanations are in tooltips.
  */
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { GraphDelta, ChangeKind } from '../diff';
 import { cls } from '../elements';
 import type { GraphModel } from '../model';
@@ -253,6 +253,43 @@ export interface LegendProps {
   onCollapsed: (v: boolean) => void;
 }
 
+/** Animate measured sizes: the legend can wrap to any number of rows. Keep text at its natural width while the shell moves. */
+function LegendFrame({ collapsed, children }: { collapsed: boolean; children: ReactNode }) {
+  const root = useRef<HTMLDivElement>(null);
+  const size = useRef<DOMRect | null>(null);
+  useLayoutEffect(() => {
+    const el = root.current!;
+    const before = size.current;
+    const after = el.getBoundingClientRect();
+    size.current = after;
+    if (!before || (before.width === after.width && before.height === after.height)
+      || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const body = el.firstElementChild as HTMLElement;
+    body.style.width = `${body.getBoundingClientRect().width}px`;
+    const timing = { duration: 220, easing: 'cubic-bezier(.3,.7,.2,1)' };
+    const motion = el.animate([
+      { width: `${before.width}px`, height: `${before.height}px`, overflow: 'clip' },
+      { width: `${after.width}px`, height: `${after.height}px`, overflow: 'clip' },
+    ], timing);
+    const fade = body.animate([{ opacity: 0 }, { opacity: 1 }], timing);
+    motion.onfinish = () => { body.style.width = ''; size.current = el.getBoundingClientRect(); };
+    return () => {
+      // Reversing midway starts from the visible size, rather than the previous destination.
+      if (motion.playState === 'running') size.current = el.getBoundingClientRect();
+      motion.cancel(); fade.cancel(); body.style.width = '';
+    };
+  }, [collapsed]);
+  useLayoutEffect(() => {
+    const el = root.current!;
+    const ro = new ResizeObserver(() => {
+      if (!el.getAnimations().length) size.current = el.getBoundingClientRect();
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return <div className="gb-legend" ref={root}>{children}</div>;
+}
+
 export default function Legend(p: LegendProps) {
   const t = useStrings();
   const { look, onLook, theme, profile } = p;
@@ -340,16 +377,12 @@ export default function Legend(p: LegendProps) {
   /* The swatch and the color picker both show **the color on the graph under this theme**; what is stored is the light version. */
   const shown = (c: string) => themeColor(theme, c);
 
-  if (p.collapsed) {
-    return (
-      <button type="button" className="gb-lg-toggle" aria-expanded={false} aria-label={t.legend} title={t.legend}
-        onClick={() => p.onCollapsed(false)}>
-        <Icon d={I.legend} />
-      </button>
-    );
-  }
-
-  return (
+  const content = p.collapsed ? (
+    <button type="button" className="gb-lg-toggle" aria-expanded={false} aria-label={t.legend} title={t.legend}
+      onClick={() => p.onCollapsed(false)}>
+      <Icon d={I.legend} />
+    </button>
+  ) : (
     <div className="gb-lg" ref={rootRef}>
       {p.caption && <div className="gb-lg-cap">{p.caption}</div>}
       <div className="gb-lg-row">
@@ -410,4 +443,5 @@ export default function Legend(p: LegendProps) {
       </span>
     </div>
   );
+  return <LegendFrame collapsed={p.collapsed}>{content}</LegendFrame>;
 }

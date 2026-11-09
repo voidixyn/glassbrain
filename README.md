@@ -155,55 +155,37 @@ Each tool's own notion of "inside" becomes the structure; everything else become
 
 ## 4. Try it yourself
 
-*Light enough to try in a minute.* Nothing is hidden and nothing runs in the background:
+Three ways to try glassbrain—pick whichever fits.
 
-- **One file out.** `npx glassbrain` writes a single html page (about 1 MB plus your data): no
-  server, no database, no requests of its own, opens from `file://`, can be sent to anyone.
-  (Images that node descriptions link to load from their URLs.)
-- **Your data stays plain.** JSON files you can read, diff in git and edit by hand. Nothing
-  derived (flags, validation, layout) is ever written back into them.
-- **No lock-in, no key.** Every supported format comes in, `convert` writes plain JSON out, and
-  everything runs locally.
+- **Demo.** Explore the [live demo](https://voidixyn.github.io/glassbrain/).
 
-**Three ways in:**
+- **Agent + npx.** In any context, add **"... using `npx glassbrain`."** to your prompt.
+  Skill-free and model-agnostic — any agent that can run terminal commands can use it.
+  You get a standalone HTML file to open locally and share.
 
-1. Open the [live demo](https://voidixyn.github.io/glassbrain/), or drop a folder of your own JSON onto it.
-2. Point it at something you have: `npx glassbrain <file-or-folder>`.
-3. Ask your agent, no skill needed:
+  For example:
 
-   > Map how our checkout flow works as a glassbrain graph (run `npx glassbrain` first).
+  > Map the detailed plot and character relationships in *Pride and Prejudice*, using `npx glassbrain`.
 
-   `npx glassbrain` with no arguments prints the format and how to build in passes, so the
-   agent needs nothing else.
+  > This refactor changed a lot. Show the architecture before and after, organized into layers, using `npx glassbrain`.
 
-   Or give it the skills above and write your own: a skill is a short markdown file.
+  > Turn these research notes into a graph of ideas, evidence, and open questions, using `npx glassbrain`.
 
-**In your own app** it is a React component on top of [cytoscape.js](https://js.cytoscape.org/):
+- **React.** Embed the graph component in your own app:
 
-```bash
-npm i glassbrain cytoscape cytoscape-fcose cytoscape-cose-bilkent
-```
+  ```bash
+  npm i glassbrain cytoscape cytoscape-fcose cytoscape-cose-bilkent
+  ```
 
-```tsx
-import { parseSources, diffModels, GraphCanvas } from 'glassbrain';
+  ```tsx
+  import { parseSources, diffModels, GraphCanvas } from 'glassbrain';
 
-const model = parseSources([{ origin: 'graph.json', text }]);
-<GraphCanvas model={model} />                                         // browse
-<GraphCanvas model={after} diff={diffModels(before, after)} />        // compare
-```
+  const model = parseSources([{ origin: 'graph.json', text }]);
+  <GraphCanvas model={model} />                                  // browse
+  <GraphCanvas model={after} diff={diffModels(before, after)} />   // compare
+  ```
 
-Colors, layers, field names and your own JSON dialects go in a profile; the canvas can be made
-editable and hands you each edit as a patch. All of it is in [the guide](docs/guide.md).
-
-How big it goes (the generated page in headless Chrome on an Apple M4 laptop, [method](docs/cli.md#size)):
-
-| Graph | Ready | Pan / zoom |
-|---|---|---|
-| 1,000 nodes | 1.1 s | 60 fps |
-| 5,000 nodes | 4.7 s | 60 fps |
-| 10,000 nodes | 9.7 s | 30 fps |
-
-Beyond about 10,000 nodes, look at [sigma.js](https://www.sigmajs.org/).
+  Customize colors, layers, fields and editing in [the guide](docs/guide.md).
 
 ## Questions
 
