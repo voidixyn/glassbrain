@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.3
+
+- Dark canvases now theme the built-in controls automatically: `DARK_THEME` needs no `--gb-*`
+  setup, and a light graph embedded in a dark page keeps light controls.
+- The legend expands and collapses with the same 220ms easing as search, and respects reduced
+  motion.
+- README's "Try it yourself" now leads with three ways in — demo, agent + `npx glassbrain`,
+  React — plus the one-line prompt and examples; the demo links to the repo by name.
+- `docs/cli.md` says what the layout benchmark does and does not measure.
+
 ## 0.1.2
 
 - `npx glassbrain` help: what each pass should contain and what its diff should show, and how to
