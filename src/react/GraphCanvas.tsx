@@ -34,6 +34,7 @@ import { relaxNodes, relaxOverlaps } from '../layout/relax';
 import { idPhase, labelBox, planLabels, type LabelInput, type LabelSide } from '../layout/readability';
 import type { GraphNode } from '../model';
 import Toolbar, { ALL_CONTROLS, ZoomDock, type ControlId, type SearchResult } from './Toolbar';
+import { installGraphInput } from './input';
 import { easeInOut, lerpRect, toRect, toView, zoomPath, type Viewport } from './camera';
 import DetailPanel, { type SelectedNode } from './DetailPanel';
 import EditPanel, { type EditTarget, type RenderEditor } from './EditPanel';
@@ -1457,7 +1458,7 @@ export default function GraphCanvas(props: GraphCanvasProps) {
       // Things in focus (hovered, its neighbors, selected) lose all translucency; the rest stay at 70% and dim along with
       // their nodes on hover.
       const painter = painterRef.current;
-      const focused = ele.selected() || !!painter?.focused(id);
+      const focused = ele.selected() || ele.hasClass('gb-preview-hop') || !!painter?.focused(id);
       const a = smoothstep(s.o) * ele.effectiveOpacity() * (focused ? 1 : LABEL_ALPHA * (painter?.dimOf(id) ?? 1));
       if (a < 0.02) continue;
       const p = ele.renderedPosition();
@@ -1544,12 +1545,12 @@ export default function GraphCanvas(props: GraphCanvasProps) {
         side: book.get(id)?.next ?? book.get(id)?.side,
         // The selected and the hovered one: name always shown. Search hits only get a bonus (see below): forcing hundreds of hits
         // would pile into a heap, the same problem as a large hovered cluster.
-        pinned: n.selected() || id === hovered,
+        pinned: n.selected() || id === hovered || n.hasClass('gb-preview'),
       });
       const held = book.get(id);
       // The hovered hop and search hits are not forced (forcing a large cluster piles it up); they get a bonus to rank first, and those that do not fit still yield.
       const b = (held && (held.t === 1 || held.next) ? LABEL_HOLD : 0)
-        + (painterRef.current?.focused(id) ? HOVER_BOOST : 0)
+        + (painterRef.current?.focused(id) || n.hasClass('gb-preview-hop') ? HOVER_BOOST : 0)
         + (changed?.has(id) ? CHANGE_BOOST : 0)
         + (breathing ? BREATH_AMPLITUDE * Math.sin(breathPhaseRef.current * 0.6 + idPhase(id)) : 0);
       if (b) bias.set(id, b);
@@ -1632,6 +1633,22 @@ export default function GraphCanvas(props: GraphCanvasProps) {
     }
     hoverOutRef.current = setTimeout(() => { hoverOutRef.current = null; applyHover(cy, null); }, HOVER_OUT_MS);
   }, [labelsFrozen, applyHover]);
+
+  /** Touch preview persists after lift. Diff keeps both panes' opacity unchanged;
+   * only the touched element and its neighboring labels gain emphasis. */
+  const previewTouch = useCallback((cy: any, target: any | null) => {
+    if (hoverOutRef.current != null) { clearTimeout(hoverOutRef.current); hoverOutRef.current = null; }
+    if (labelsFrozen()) target = null;
+    cy.batch(() => {
+      cy.$('.gb-preview, .gb-preview-hop').removeClass('gb-preview gb-preview-hop');
+      if (diffRef.current || !readableRef.current) {
+        target?.addClass('gb-preview');
+        if (target) (target.isNode() ? target.closedNeighborhood() : target.connectedNodes()).addClass('gb-preview-hop');
+      }
+    });
+    if (!diffRef.current && readableRef.current) applyHover(cy, target);
+    else { replanLabels(cy); drawLabels(cy); }
+  }, [labelsFrozen, applyHover, replanLabels, drawLabels]);
 
   /** Idle breathing: a self-rescheduling setTimeout chain, not a permanent RAF loop. When nobody is watching the cost is
    *  "compute once every few seconds", not "compute every frame". The same discipline as "no permanent animation" for the
@@ -1759,10 +1776,20 @@ export default function GraphCanvas(props: GraphCanvasProps) {
     setSelected({
       id: d.id, label: d.label, kind: d.kind, layer: d.layer, origin: d.origin,
       container: builtRef.current.containers.has(d.id),
-      flags: (el.classes() as string[]).filter((c) => !['gb-node', 'flat', 'container', 'gb-hit', d.kind].includes(c)),
+      flags: (el.classes() as string[]).filter((c) => !['gb-node', 'flat', 'container', 'gb-hit', 'gb-preview', 'gb-preview-hop', d.kind].includes(c)),
       detail: d.detail ?? null,
     });
   }, []);
+
+  /** Native mouse selection belongs to Cytoscape; touch selects explicitly.
+   * Both diff panes share one inspector, so a touch selection replaces either pane's ring. */
+  const selectTouch = useCallback((target: any | null) => {
+    for (const cy of [cyRef.current, mirrorRef.current]) {
+      if (cy && !cy.destroyed()) cy.$(':selected').unselect();
+    }
+    target?.select();
+    if (target) selectEle(target); else setSelected(null);
+  }, [selectEle]);
 
   const cancelFrames = useCallback(() => {
     const tw = tweenRef.current;
@@ -2599,8 +2626,6 @@ export default function GraphCanvas(props: GraphCanvasProps) {
       ro = new ResizeObserver(refit);
       ro.observe(containerRef.current);
 
-      cy.on('mouseover', 'node, edge', (evt: any) => { touchInteraction(); setHover(cy, evt.target); });
-      cy.on('mouseout', 'node, edge', () => setHover(cy, null));
       // Select / deselect: the forced-label set changed, re-verdict.
       cy.on('select', 'node', (evt: any) => { ringsRef.current.set(evt.target.id(), performance.now()); runRing(cy); });
       cy.on('unselect', 'node', (evt: any) => { ringsRef.current.delete(evt.target.id()); drawLabels(cy); });
@@ -2608,47 +2633,16 @@ export default function GraphCanvas(props: GraphCanvasProps) {
       /* The synthetic virtual root (called Overview by default) is not data and has no details. It used to be selectable: a
        * selection ring appeared but the inspector did not open, which looked broken. Now it is not selectable; clicking it is clicking empty space. */
       cy.$id(VIRTUAL_ROOT).unselectify();
-      cy.on('tap', 'node', (evt: any) => {
-        touchInteraction();
-        if (evt.target.id() === VIRTUAL_ROOT) setSelected(null);
-        else selectEle(evt.target);
+      detach = installGraphInput(cy, containerRef.current!, {
+        interact: touchInteraction, cancelFly, selectTouch,
+        select: (target) => target ? selectEle(target) : setSelected(null),
+        hover: (target) => setHover(cy, target),
+        preview: (target) => previewTouch(cy, target),
+        // The first click opens the inspector: let its new width settle before framing.
+        focus: (id) => requestAnimationFrame(() => requestAnimationFrame(() => {
+          if (!cy.destroyed()) flyToRef.current(id, true);
+        })),
       });
-      cy.on('tap', (evt: any) => { touchInteraction(); if (evt.target === cy) setSelected(null); });
-      cy.on('tapstart', () => cancelFly());
-      // Double click = zoom to a good view (the map-app habit): frame it and its hop. Only the camera moves; no "what to look at"
-      // state changes, so there is nothing to exit. Double click is detected here instead of cytoscape's dbltap: that one fires
-      // inconsistently across input devices / versions, and here all we need is "the same node clicked twice within 350 ms".
-      let lastTap = { id: '', t: 0 };
-      cy.on('tap', 'node', (evt: any) => {
-        const id = evt.target.id();
-        const now = Date.now();
-        const isDouble = lastTap.id === id && now - lastTap.t < 350;
-        lastTap = { id, t: now };
-        if (!isDouble || id === VIRTUAL_ROOT) return;
-        // The first click just opened the detail panel and the canvas is narrowing: wait for the new size (two frames) before framing, or the box uses the old width.
-        requestAnimationFrame(() => requestAnimationFrame(() => flyToRef.current(id, true)));
-      });
-
-      // Trackpad / mouse input model (as in Figma / tldraw): pinch or Ctrl(⌘)+wheel → zoom at the cursor;
-      // everything else (two-finger pan, plain wheel) → pan.
-      const el = containerRef.current!;
-      const onWheel = (e: WheelEvent) => {
-        e.preventDefault();
-        touchInteraction();
-        cancelFly();
-        if (e.ctrlKey || e.metaKey) {
-          const rect = el.getBoundingClientRect();
-          cy.zoom({
-            level: cy.zoom() * Math.exp(-e.deltaY * 0.01),
-            renderedPosition: { x: e.clientX - rect.left, y: e.clientY - rect.top },
-          });
-        } else cy.panBy({ x: -e.deltaX, y: -e.deltaY });
-      };
-      el.addEventListener('wheel', onWheel, { passive: false });
-      // When the mouse leaves the canvas straight from an element cytoscape sends no mouseout, and the dimming would stay.
-      const onLeave = () => setHover(cy, null);
-      el.addEventListener('mouseleave', onLeave);
-      detach = () => { el.removeEventListener('wheel', onWheel); el.removeEventListener('mouseleave', onLeave); };
       cy.on('viewport', () => {
         // Layer plates and diff halos are "overlays drawn in graph coordinates"; if present they must follow (including while plates fade out).
         if (plateAlphaRef.current > 0 || diffRef.current) setViewport({ zoom: cy.zoom(), pan: { ...cy.pan() } });
@@ -2723,8 +2717,11 @@ export default function GraphCanvas(props: GraphCanvasProps) {
       mirrorRef.current = m;
       // Clicking a node on the left takes the same path as on the right: there is one detail panel.
       m.$id(VIRTUAL_ROOT).unselectify();
-      m.on('tap', 'node', (evt: any) => { if (evt.target.id() === VIRTUAL_ROOT) setSelected(null); else selectEle(evt.target); });
-      m.on('tap', (evt: any) => { if (evt.target === m) setSelected(null); });
+      detach = installGraphInput(m, mirrorElRef.current, {
+        interact: touchInteraction, cancelFly, selectTouch,
+        select: (target) => target ? selectEle(target) : setSelected(null),
+        preview: (target) => previewTouch(m, target),
+      });
       // Drag / zoom on the left and the right follows (the main instance's viewport event brings the overlay along).
       m.on('viewport', () => {
         const cy = cyRef.current;
@@ -2734,15 +2731,6 @@ export default function GraphCanvas(props: GraphCanvasProps) {
         syncingRef.current = false;
       });
       const el = mirrorElRef.current;
-      const onWheel = (e: WheelEvent) => {
-        e.preventDefault();
-        if (e.ctrlKey || e.metaKey) {
-          const rect = el.getBoundingClientRect();
-          m.zoom({ level: m.zoom() * Math.exp(-e.deltaY * 0.01), renderedPosition: { x: e.clientX - rect.left, y: e.clientY - rect.top } });
-        } else m.panBy({ x: -e.deltaX, y: -e.deltaY });
-      };
-      el.addEventListener('wheel', onWheel, { passive: false });
-      detach = () => el.removeEventListener('wheel', onWheel);
       ro = new ResizeObserver(() => { if (!m.destroyed()) { m.resize(); syncMirror(); } });
       ro.observe(el);
       syncMirror();

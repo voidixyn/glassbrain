@@ -209,6 +209,10 @@ export function baseStyle(theme: GraphTheme = LIGHT_THEME, nodeScale = 1): any[]
      * (It used to add classes to thousands of elements and let cytoscape tween them: hundreds of ms per hover.)
      * Selection = identity, persistent. Here nodes only get an accent stroke; the truly prominent ring is drawn on the text layer, so it
      * stays prominent while hover dims what is below. */
+    // Touch preview in native rendering: emphasize locally, never dim either diff pane.
+    { selector: 'node.gb-preview', style: { 'border-width': 3, 'border-color': theme.hit } },
+    { selector: 'node.gb-preview-hop', style: { 'font-weight': 'bold', 'text-opacity': 1 } },
+    { selector: 'edge.gb-preview', style: { 'overlay-opacity': 0.12, 'overlay-color': theme.hit, 'overlay-padding': 4 } },
     { selector: 'node:selected', style: { 'border-width': 3, 'border-color': theme.selected } },
     { selector: 'node.gb-hit', style: { 'border-width': 3, 'border-color': theme.hit } },
   ];
@@ -450,7 +454,7 @@ export function chromeStyle(theme: GraphTheme) {
 export const GK_CSS = `
 .gb-root { display:flex; height:100%; min-height:0; font-family: var(--gb-font, ui-sans-serif, system-ui, sans-serif);
   color: var(--gb-text, var(--gb-default-text,#1f2937)); position:relative; container-type:inline-size; container-name:gk; }
-.gb-stage { flex:1; min-width:0; position:relative; }
+.gb-stage { flex:1; min-width:0; position:relative; container-type:inline-size; container-name:gks; }
 .gb-canvas { position:absolute; inset:0; }
 /* The node text layer: cytoscape's canvases are z-index 1–3; this one sits above them and below the toolbar.
    canvas is a replaced element; inset alone is not enough, it needs an explicit 100%. */
@@ -489,6 +493,9 @@ export const GK_CSS = `
  * radius 10, a very faint shadow: the graph is the star, the tools are a few buttons on glass. */
 .gb-bar { position:absolute; top:12px; left:12px; right:12px; z-index:10; display:flex; flex-wrap:wrap;
   align-items:flex-start; gap:8px; pointer-events:none; }
+/* With a layer row, one line is the contract: the layer track shrinks and scrolls; wrapping
+ * would move search and layers onto separate rows at 641px, just above the compact breakpoint. */
+.gb-bar.has-layers { flex-wrap:nowrap; }
 .gb-bar > * { pointer-events:auto; }
 .gb-ico { display:block; flex:none; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 /* Only four radius levels, which the host can override as a set:
@@ -505,7 +512,7 @@ export const GK_CSS = `
 
 /* Search: fixed width (it does not widen on focus: widening would push the layer toggle away, jumping sideways on every focus and blur),
  * a bit wider with a focus tag; the dropdown is a solid card (text must be readable, the graph must not show through), wider than the box. */
-.gb-search { position:relative; width:260px; max-width:100%; transition: width .22s cubic-bezier(.3,.7,.2,1); }
+.gb-search { position:relative; width:260px; flex:0 1 260px; min-width:180px; max-width:100%; transition: width .22s cubic-bezier(.3,.7,.2,1); }
 .gb-field { display:flex; align-items:center; gap:7px; height:36px; padding:0 8px 0 11px;
   color: var(--gb-muted,var(--gb-default-muted,#64748b)); transition: border-color .15s, box-shadow .15s; }
 .gb-search.is-focus .gb-field { border-color: var(--gb-accent,var(--gb-default-accent,#0284c7));
@@ -555,26 +562,39 @@ export const GK_CSS = `
 
 /* Filtering by source: a tag you can × away, the same height as the toolbar. */
 .gb-chip { display:inline-flex; align-items:center; gap:6px; height:36px; box-sizing:border-box; padding:0 6px 0 11px;
-  max-width:220px; font-size:12.5px; color: var(--gb-text,var(--gb-default-text,#1f2937)); background: var(--gb-active,var(--gb-default-active,#e0f2fe)); }
+  min-width:0; flex:0 1 auto; max-width:220px; font-size:12.5px; color: var(--gb-text,var(--gb-default-text,#1f2937)); background: var(--gb-active,var(--gb-default-active,#e0f2fe)); }
 .gb-chip > span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .gb-chip .gb-ico { color: var(--gb-accent,var(--gb-default-accent,#0284c7)); }
 .gb-chip button { display:grid; place-items:center; width:22px; height:22px; border:0; padding:0; border-radius:var(--gb-r-chip,5px);
   background:transparent; color: var(--gb-muted,var(--gb-default-muted,#64748b)); }
 .gb-chip button:hover { background: rgba(127,127,127,.18); color: var(--gb-text,var(--gb-default-text,#1f2937)); }
 
-/* Segmented: a backing slides to the current item. */
-.gb-segm { position:relative; display:inline-flex; height:36px; padding:3px; box-sizing:border-box; }
-.gb-segm > button { position:relative; z-index:1; height:28px; padding:0 12px; border:0; border-radius:var(--gb-r-in-face,7px);
+/* Segmented: a backing slides to the current item. The layer names live in a horizontal
+ * scroll track so a long list never pushes the toolbar wider than the canvas; the stack
+ * toggle stays pinned at the right (it is a mode, not one more layer). */
+.gb-segm { position:relative; display:inline-flex; height:36px; padding:3px; box-sizing:border-box;
+  min-width:0; max-width:100%; flex:0 1 auto; }
+.gb-layer-track { position:relative; display:flex; flex:1 1 auto; min-width:0; height:28px;
+  overflow-x:auto; overflow-y:hidden; overscroll-behavior-x:contain; touch-action:pan-x;
+  scrollbar-width:none; }
+.gb-layer-track::-webkit-scrollbar { display:none; }
+/* Only the edge that actually has more layers is faded; a row that fits stays crisp. */
+.gb-layer-track.can-right { -webkit-mask-image:linear-gradient(to right, #000 calc(100% - 18px), transparent); mask-image:linear-gradient(to right, #000 calc(100% - 18px), transparent); }
+.gb-layer-track.can-left { -webkit-mask-image:linear-gradient(to right, transparent, #000 18px); mask-image:linear-gradient(to right, transparent, #000 18px); }
+.gb-layer-track.can-left.can-right { -webkit-mask-image:linear-gradient(to right, transparent, #000 18px, #000 calc(100% - 18px), transparent);
+  mask-image:linear-gradient(to right, transparent, #000 18px, #000 calc(100% - 18px), transparent); }
+.gb-segm > button, .gb-layer-track > button { position:relative; z-index:1; height:28px; padding:0 12px; border:0; border-radius:var(--gb-r-in-face,7px);
   background:transparent; font-size:12.5px; font-weight:500; color: var(--gb-muted,var(--gb-default-muted,#64748b)); white-space:nowrap;
-  transition: color .2s, background-color .2s; }
-.gb-segm > button:hover:not(.on):not(:disabled) { color: var(--gb-text,var(--gb-default-text,#1f2937)); }
-.gb-segm > button.on { color: var(--gb-text,var(--gb-default-text,#1f2937)); }
-.gb-segm > button:disabled { cursor:default; opacity:.5; }
-.gb-thumb { position:absolute; top:3px; left:0; height:28px; border-radius:var(--gb-r-in-face,7px); background: var(--gb-active,var(--gb-default-active,#e0f2fe));
+  transition: color .2s, background-color .2s; flex:none; }
+.gb-segm > button:hover:not(.on):not(:disabled), .gb-layer-track > button:hover:not(.on):not(:disabled) { color: var(--gb-text,var(--gb-default-text,#1f2937)); }
+.gb-segm > button.on, .gb-layer-track > button.on { color: var(--gb-text,var(--gb-default-text,#1f2937)); }
+.gb-segm > button:disabled, .gb-layer-track > button:disabled { cursor:default; opacity:.5; }
+.gb-thumb { position:absolute; top:0; left:0; z-index:0; height:28px; border-radius:var(--gb-r-in-face,7px); background: var(--gb-active,var(--gb-default-active,#e0f2fe));
   box-shadow: 0 1px 2px rgba(15,23,42,.08); transition: transform .3s cubic-bezier(.3,.7,.2,1), width .3s cubic-bezier(.3,.7,.2,1); }
 /* Stacked layers on: layer names are multi-select, each lit on its own; no slider. */
-.gb-layers.is-multi > button[data-v].on { background: var(--gb-active,var(--gb-default-active,#e0f2fe)); box-shadow: 0 1px 2px rgba(15,23,42,.08); }
-.gb-sep { align-self:center; width:1px; height:18px; margin:0 3px; background: var(--gb-border,var(--gb-default-border,#e2e8f0)); }
+.gb-layers.is-multi .gb-layer-track > button[data-v].on { background: var(--gb-active,var(--gb-default-active,#e0f2fe)); box-shadow: 0 1px 2px rgba(15,23,42,.08); }
+.gb-sep { align-self:center; width:1px; height:18px; margin:0 3px; background: var(--gb-border,var(--gb-default-border,#e2e8f0)); flex:none; }
+.gb-layer-track > button:focus-visible { outline-offset:-2px; }
 .gb-segm > button.gb-stack { display:grid; place-items:center; width:30px; padding:0; color: var(--gb-muted2,var(--gb-default-muted2,#94a3b8)); }
 .gb-segm > button.gb-stack:hover:not(:disabled) { color: var(--gb-text,var(--gb-default-text,#1f2937)); background: var(--gb-tint,var(--gb-default-tint,#f1f5f9)); }
 .gb-segm > button.gb-stack.on { color: var(--gb-accent,var(--gb-default-accent,#0284c7)); background: var(--gb-active,var(--gb-default-active,#e0f2fe)); }
@@ -585,7 +605,10 @@ export const GK_CSS = `
 .gb-icon-btn:hover, .gb-icon-btn.on { color: var(--gb-text,var(--gb-default-text,#1f2937)); }
 .gb-icon-btn.on { background: var(--gb-active,var(--gb-default-active,#e0f2fe)); }
 .gb-panel { min-width:228px; }
-.gb-panel-up { top:auto; bottom:calc(100% + 6px); left:auto; right:0; transform-origin: bottom right; animation-name: gb-pop-up; }
+/* Placement is measured by usePopover: open toward the space inside the stage, not off its edge. */
+.gb-panel[data-x="end"] { left:auto; right:0; transform-origin:top right; }
+.gb-panel[data-y="top"] { top:auto; bottom:calc(100% + 6px); transform-origin:bottom left; animation-name:gb-pop-up; }
+.gb-panel[data-y="top"][data-x="end"] { transform-origin:bottom right; }
 .gb-panel-sec + .gb-panel-sec { margin-top:4px; padding-top:4px; border-top:1px solid var(--gb-border,var(--gb-default-border,#e2e8f0)); }
 .gb-panel-h { padding:6px 8px 4px; font-size:10.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
   color: var(--gb-muted2,var(--gb-default-muted2,#94a3b8)); }
@@ -630,8 +653,8 @@ export const GK_CSS = `
   .gb-drop, .gb-panel { animation:none; }
 }
 /* The caption goes **bottom left**: top left is tools, bottom right is the camera. The right side leaves room for the camera group so they do not collide on narrow screens. */
-.gb-bl { position:absolute; bottom:12px; left:12px; z-index:10; max-width:calc(100% - 180px);
-  display:flex; flex-direction:column; align-items:flex-start; gap:8px; pointer-events:none; }
+.gb-bl { position:absolute; top:12px; bottom:12px; left:12px; z-index:10; max-width:calc(100% - 180px);
+  display:flex; flex-direction:column; justify-content:flex-end; align-items:flex-start; gap:8px; pointer-events:none; }
 .gb-bl > * { pointer-events:auto; }
 .gb-note { font-size:11px; color: var(--gb-muted,var(--gb-default-muted,#64748b)); padding:4px 8px; display:flex; gap:8px; align-items:center; }
 .gb-warn { color: var(--gb-warn,var(--gb-default-warn,#b45309)); border-color: var(--gb-warn-border,var(--gb-default-warn-border,#fcd34d)); background: var(--gb-warn-bg,var(--gb-default-warn-bg,#fffbeb)); }
@@ -645,8 +668,17 @@ export const GK_CSS = `
 
 /* ── Legend (bottom left): marks with the same shape and color as on the graph, read from the graph. Resting on an entry pops this class's panel: eye, swatch,
  * size, one row; while the panel is open this class lights up on the graph. Same variables and radii as the toolbar. */
-.gb-legend { max-width:100%; box-sizing:border-box; font-size:11.5px; position:relative; }
-.gb-lg { display:flex; flex-direction:column; gap:3px; padding:6px 60px 6px 8px; box-sizing:border-box; }
+.gb-legend { max-width:100%; max-height:40%; box-sizing:border-box; font-size:11.5px; position:relative;
+  display:flex; flex-direction:column; min-height:0; }
+.gb-lg { display:flex; flex-direction:column; gap:3px; box-sizing:border-box; flex:1 1 auto; min-height:0; max-height:100%; position:relative; }
+/* The rows scroll inside the 40% cap; the collapse button (absolute, top right) stays put. */
+.gb-lg-body { display:flex; flex-direction:column; gap:3px; flex:1 1 auto; min-height:0; overflow-y:auto; overscroll-behavior-y:contain;
+  padding:6px 60px 6px 8px; box-sizing:border-box; scrollbar-width:thin;
+  scrollbar-color: color-mix(in srgb, var(--gb-muted2,var(--gb-default-muted2,#94a3b8)) 40%, transparent) transparent; }
+.gb-lg-body > * { flex:none; }
+.gb-lg-body::-webkit-scrollbar { width:8px; }
+.gb-lg-body::-webkit-scrollbar-thumb { border:2px solid transparent; border-radius:6px;
+  background: color-mix(in srgb, var(--gb-muted2,var(--gb-default-muted2,#94a3b8)) 40%, transparent) padding-box; }
 .gb-lg-row { display:flex; flex-wrap:wrap; align-items:center; gap:1px 4px; }
 .gb-lg-item { position:relative; display:inline-flex; color: var(--gb-muted,var(--gb-default-muted,#64748b)); }
 .gb-lg-hit { display:inline-flex; align-items:center; gap:5px; height:24px; padding:0 6px; border:0; border-radius:var(--gb-r-in-pop,6px);
@@ -666,6 +698,9 @@ export const GK_CSS = `
   animation: gb-pop-up .14s cubic-bezier(.2,.8,.3,1); }
 /* The gap between panel and entry counts as panel: moving the mouse up from the entry is not leaving. */
 .gb-lg-pop::after { content:''; position:absolute; left:0; right:0; top:100%; height:8px; }
+/* Portaled panel: opens above by default, flips below when the stage is too short. */
+.gb-lg-pop[data-side="bottom"] { animation-name:gb-pop; transform-origin:top left; }
+.gb-lg-pop[data-side="bottom"]::after { top:auto; bottom:100%; }
 .gb-lg-eye, .gb-lg-well { position:relative; display:grid; place-items:center; width:28px; height:28px; padding:0;
   border:0; border-radius:var(--gb-r-in-pop,6px); background:none; color: var(--gb-text,var(--gb-default-text,#1f2937)); cursor:pointer; }
 .gb-lg-eye.off { color: var(--gb-muted2,var(--gb-default-muted2,#94a3b8)); }
@@ -758,7 +793,9 @@ export const GK_CSS = `
   border:1px solid var(--gb-border,var(--gb-default-border,#e2e8f0)); }
 .gb-md-alt { color: var(--gb-muted2,var(--gb-default-muted2,#94a3b8)); font-style:italic; }
 
-/* Narrow canvas (phone, small embed): the inspector is a sheet pulled up from the bottom, the legend is collapsed, search spans the row. */
+/* Narrow canvas (phone, small embed): the inspector is a sheet pulled up from the bottom, the legend is collapsed. The
+ * drawer's own width follows the ROOT (the host width); the toolbar/legend/dock follow the STAGE (the canvas width), so
+ * opening the 320px inspector narrows the chrome too. */
 @container gk (max-width: 640px) {
   .gb-drawer { position:absolute; left:0; right:0; bottom:0; z-index:25; width:auto; max-height:62%;
     border-radius:16px 16px 0 0; box-shadow: 0 -12px 40px -12px rgba(15,23,42,.3);
@@ -768,9 +805,22 @@ export const GK_CSS = `
   .gb-dh::before { content:''; position:absolute; left:50%; top:6px; width:36px; height:4px; margin-left:-18px;
     border-radius:2px; background: var(--gb-border,var(--gb-default-border,#e2e8f0)); }
   .gb-dh { position:relative; }
-  .gb-search { width:auto; flex:1; min-width:0; }
+}
+@container gks (max-width: 640px) {
   .gb-bar { right:12px; }
-  .gb-bl { max-width:calc(100% - 140px); }
+  .gb-bar.has-layers { flex-wrap:wrap; }
+  /* With layers: search takes its own row; layers + view menu share the second row. The layer
+   * track scrolls, so the menu keeps its place instead of being pushed to a third row. */
+  .gb-bar.has-layers .gb-search { flex:1 1 100%; width:auto; max-width:none; min-width:0; }
+  .gb-bar.has-layers .gb-segm { flex:1 1 0; }
+  .gb-bar.has-layers .gb-menu { flex:none; }
+  /* Without layers one row is enough; the search can shrink, but never to just the icon. */
+  .gb-bar:not(.has-layers) .gb-search { flex:1 1 auto; width:auto; min-width:160px; }
+  /* The camera becomes a compact vertical stack; the legend gets the freed horizontal room. */
+  .gb-bl { max-width:calc(100% - 60px); }
+  .gb-dock { flex-direction:column; align-items:flex-end; }
+  .gb-dock .gb-group { flex-direction:column; }
+  .gb-dock .gb-group > button + button { border-left:0; border-top:1px solid var(--gb-border,var(--gb-default-border,#e2e8f0)); }
 }
 @keyframes gb-sheet-in { from { transform: translateY(100%); } }
 @keyframes gb-sheet-out { to { transform: translateY(100%); } }

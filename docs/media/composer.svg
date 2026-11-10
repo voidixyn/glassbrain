@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="140" viewBox="0 0 1640 140" role="img" aria-labelledby="title desc">
+  <title>… Tell me all you know, using `npx glassbrain`.</title>
+  <desc>The lower-right corner of an agent's input box. Earlier prompt text continues beyond the crop and fades away; the literal suffix using `npx glassbrain`. is emphasized, with the caret immediately after the period.</desc>
+  <defs>
+    <linearGradient id="fade"><stop stop-color="white" stop-opacity="0"/><stop offset=".06" stop-color="white" stop-opacity=".3"/><stop offset=".2" stop-color="white"/></linearGradient>
+    <mask id="crop"><rect width="1640" height="140" fill="url(#fade)"/></mask>
+    <linearGradient id="surface" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f8fafc"/></linearGradient>
+  </defs>
+  <g mask="url(#crop)">
+    <!-- The top and left edges continue outside the crop: this is the end of any prompt. -->
+    <rect x="-100" y="-90" width="1724" height="210" rx="26" fill="#0f172a" opacity=".035"/>
+    <rect x="-100" y="-96" width="1724" height="210" rx="26" fill="url(#surface)" stroke="#dbe1e8"/>
+    <g fill="#cbd2dc" opacity=".45">
+      <rect x="100" y="9" width="480" height="5" rx="2.5"/>
+      <rect x="596" y="9" width="260" height="5" rx="2.5"/>
+    </g>
+    <text x="72" y="77" fill="#98a2b1" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif" font-size="32">… Tell me all you know,</text>
+    <text x="383" y="77" fill="#334155" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif" font-size="32" font-weight="600">using</text>
+    <rect x="467" y="40" width="302" height="50" rx="10" fill="#eef2ff" stroke="#dce3ff"/>
+    <text x="474" y="77" fill="#3349ad" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="30" font-weight="600" textLength="288" lengthAdjust="spacing">`npx glassbrain`</text>
+    <text x="772" y="77" fill="#334155" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif" font-size="32">.</text>
+    <path d="M786 48v34" stroke="#6366f1" stroke-width="2"/>
+    <rect x="1538" y="41" width="48" height="48" rx="15" fill="#202b3c"/>
+    <path d="M1562 76V54m-8 8 8-8 8 8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

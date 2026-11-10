@@ -1,5 +1,39 @@
 # How glassbrain works
 
+The idea came from a frustration with existing agent harnesses. Most harnesses keep piling on rules, workflows, and guidelines, forcing agents to act in a rigid order. But here's the thing: LLMs inherently possess all these concepts — what's missing is an intuitive way to spark them while keeping humans in control. And on the practical side, all those constraints don't fix the core problem either — as data grows, we still can't reliably tell what's going on inside the agent's head.
+
+Sure, we can ask agents to write documents or produce arbitrary HTML artifacts. But at scale, we're stuck with two bad options: either wade through long, often poorly organized text, or bet on the agent's intelligence and let it run — which is what some have taken to calling "vibe coding."
+
+> We say a lot, but understand very little.
+
+What we need is a kind of "mind reading" for agents. Something the agent can plug into effortlessly while delivering high-bandwidth information the human brain can actually absorb. Something that gives us the most intuitive understanding with the least communication overhead. Something that lets us grasp what the agent knows, what it has designed, what it remembers, and how it all evolves over time — just like a glass brain.
+
+----
+
+`glassbrain` lets agents write their knowledge, plans, and memories as graphs, then delivers them to humans to inspect what's been expressed and how it's changed. It improves on two fronts:
+
+**First, making it intuitive for LLMs to use.** Hooking into Neo4j or writing a pile of rules isn't the answer — because LLMs can already write files and understand graph structures perfectly well. They speak JSON fluently by nature. So I let the model write the graph as simple JSON files, with no unnecessary procedures or constraints. I only added targeted tools for things models struggle with, like a CLI to validate knowledge graph structures.
+
+**Second, helping humans understand quickly — delivering massive bandwidth at a glance.** I looked for a long time but couldn't find a UI library that met my needs: displaying huge amounts of information without label overlap, using an elegant layout (ordinary force-directed layouts are just too messy), and showing how information changes between versions. `glassbrain` uses a custom cose-bilkent layout to arrange data based on containment relationships, making large datasets spread out organically. It features animated transitions between graphs, aligned diff views, support for massive graphs, and labels that arrange themselves without overlapping. It also includes multi-layer layouts, custom config, search, editing, and more — so you can literally dive into the agent's brain and play around.
+
+---
+
+This design is powerful across many scenarios, for example:
+
+- **Manage what the model *knows*:** Use it for knowledge graph generation and management. Unlike domain-specific KG pipelines, glassbrain lets you bring your own knowledge-organizing ideas to adjust the scale and quality of the model's output. You can suggest the model build an outline around certain anchors and fill it in piece by piece, or dispatch subagents in parallel based on document volume to ensure detail coverage — the whole process is transparent. If you don't want to customize, `glassbrain` ships with built-in skills for documents and code. These skills are surprisingly short because they only need to point out the essential ideas rather than teach the model an entire language.
+- **Manage what the model has *designed*:** Use it as a high-bandwidth view of agent documents — plans, READMEs, memories, or structural changes across versions. Before you say "go," you can spend far less time while having much greater confidence in the details of what the agent is about to do.
+- **Manage what the model has *delivered*:** If you're tired of reading endless documents, just ask your agent to do the research as usual but tell it to include a `glassbrain` graph with the results.
+
+There's a lot more to explore in the live demo… https://voidixyn.github.io/glassbrain/
+
+Or you can just try it out. Usage is simple: in any context, just add *"... using `npx glassbrain`."* at the bottom of the prompt. It's skill-free and model-agnostic — almost any LLM agent can use it. A standalone HTML file will be returned.
+
+Developers can also easily integrate it into their own apps as a React graph component.
+
+**GitHub:** https://voidixyn.github.io/glassbrain/
+
+---
+
 The reasoning behind the behavior: why one data switch is one union transition, why the diff never
 solves the union, how layout scales by dividing, and the measurements that decided each of these.
 None of it is needed to use the library (that is the [guide](guide.md)); it is for contributors and

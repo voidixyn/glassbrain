@@ -5,12 +5,9 @@
 Your agent keeps knowledge graphs: of your code, your docs, its research, its own plans. glassbrain
 lets you read one at a glance, and when the agent learns something, shows you exactly what changed.
 
-![A product's docs and app turned into a graph of user stories in four agent steps](docs/media/grow.gif)
+![The prompt suffix in an agent's input box: … Tell me all you know, using `npx glassbrain`](docs/media/composer.jpg)
 
-```bash
-npx glassbrain kg/                  # open a graph in the browser (kg/ = JSON files, or one folder per version)
-npx glassbrain diff HEAD~1 kg/      # what changed in the last commit
-```
+![A product's docs and app turned into a graph of user stories in four agent steps](docs/media/grow.gif)
 
 [**Live demo**](https://voidixyn.github.io/glassbrain/) · [Agents write it](#1-a-brain-your-agent-can-write) ·
 [Humans read it](#2-read-it-like-a-brain-scan) · [Every brain](#3-every-brain-on-demand) ·
@@ -155,7 +152,7 @@ Each tool's own notion of "inside" becomes the structure; everything else become
 
 ## 4. Try it yourself
 
-Three ways to try glassbrain—pick whichever fits.
+Four ways to try glassbrain—pick whichever fits.
 
 - **Demo.** Explore the [live demo](https://voidixyn.github.io/glassbrain/).
 
@@ -170,6 +167,13 @@ Three ways to try glassbrain—pick whichever fits.
   > This refactor changed a lot. Show the architecture before and after, organized into layers, using `npx glassbrain`.
 
   > Turn these research notes into a graph of ideas, evidence, and open questions, using `npx glassbrain`.
+
+- **CLI.** Open or diff a graph you already have:
+
+  ```bash
+  npx glassbrain kg/                  # open a graph in the browser (kg/ = JSON files, or one folder per version)
+  npx glassbrain diff HEAD~1 kg/      # what changed in the last commit
+  ```
 
 - **React.** Embed the graph component in your own app:
 
@@ -186,18 +190,6 @@ Three ways to try glassbrain—pick whichever fits.
   ```
 
   Customize colors, layers, fields and editing in [the guide](docs/guide.md).
-
-## Questions
-
-**Is this a graph database or a graph builder?** Neither. It is the screen: something else
-(your agent, Graphify, a script) builds the graph; glassbrain shows it and its changes.
-
-**How is it different from Graphify's or Understand-Anything's own viewer?** Those come with
-their extractors. glassbrain opens their output too, and adds stable structure and version
-comparison. Use both.
-
-**Can I edit the graph by hand?** Yes, in your app (`onEdit`) or in the demo. Edits are a patch of
-small operations, so they can be replayed after the agent regenerates the graph.
 
 ## Docs
 

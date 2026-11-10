@@ -14,6 +14,7 @@
  * configured, containment edges) and the change categories in compare mode use the library's own strings (`strings`); longer explanations are in tooltips.
  */
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import type { GraphDelta, ChangeKind } from '../diff';
 import { cls } from '../elements';
 import type { GraphModel } from '../model';
@@ -22,6 +23,7 @@ import type { GraphProfile } from '../profile';
 import { DIFF_COLORS, PAST_KINDS, defaultNodeColor, skeletonColor, themeColor, untheme, type GraphTheme } from '../style';
 import { useStrings } from './i18n';
 import { I, Icon } from './icons';
+import { usePanelPlacement } from './placement';
 
 /**
  * The look the viewer changed, layered over the profile (anything not set follows the profile). Colors are stored **as the light-background version** (see
@@ -91,6 +93,7 @@ const SCALES = [0.5, 1, 2] as const;
 /** How long to rest before the panel pops (no flashing all along when sweeping a row), and how long before it closes after leaving (moving from entry to panel crosses a gap). */
 const OPEN_DELAY_MS = 120;
 const CLOSE_GRACE_MS = 200;
+const LEGEND_PLACE = { side: 'top', align: 'start' } as const;
 const CHANGE_ORDER: ChangeKind[] = ['added', 'changed', 'moved', 'merged', 'removed'];
 
 /** Interaction within a panel is managed by Legend as a whole; each entry only reports events with its own key. */
@@ -110,8 +113,17 @@ function Item(p: {
 }) {
   const t = useStrings();
   const { k, open, ctl } = p;
+  const item = useRef<HTMLSpanElement>(null);
   const btn = useRef<HTMLButtonElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
   const well = useRef<HTMLInputElement>(null);
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+  const placement = usePanelPlacement(open, item, panel, LEGEND_PLACE);
+  // The panel must escape the scrollable legend body or it is clipped by the 40% cap.
+  // Portal it into the canvas root so the theme variables still apply.
+  useLayoutEffect(() => {
+    setPortalRoot((item.current?.closest('.gb-root') as HTMLElement | null) ?? document.body);
+  }, []);
   // Native color picker: `input` previews live all the way (React's onChange), `change` is the final pick (picker closed).
   useEffect(() => {
     const el = well.current;
@@ -122,10 +134,13 @@ function Item(p: {
   }, [ctl, k, open]);
   const finish = (byKeyboard: boolean) => { ctl.done(k, byKeyboard); if (byKeyboard) btn.current?.focus({ preventScroll: true }); };
   return (
-    <span className={`gb-lg-item${p.off ? ' off' : ''}${open ? ' is-open' : ''}`}
+    <span ref={item} className={`gb-lg-item${p.off ? ' off' : ''}${open ? ' is-open' : ''}`}
       onPointerEnter={(e) => ctl.enter(k, e)} onPointerLeave={(e) => ctl.leave(k, e)}
       onKeyDown={(e) => { if (e.key === 'Escape' && open) { e.stopPropagation(); finish(true); } }}
-      onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) ctl.focus(k, false, false); }}>
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)
+          && !(e.relatedTarget as Element | null)?.closest?.('.gb-lg-pop')) ctl.focus(k, false, false);
+      }}>
       <button
         ref={btn} type="button" className="gb-lg-hit" aria-expanded={open} aria-haspopup="dialog" title={p.title}
         aria-label={p.label ? undefined : p.title}
@@ -134,8 +149,15 @@ function Item(p: {
       >
         {p.mark}{p.label && <span>{p.label}</span>}{p.count != null && <b>{p.count}</b>}
       </button>
-      {open && (
-        <div className="gb-lg-pop" role="dialog" aria-label={p.title}>
+      {open && portalRoot && createPortal((
+        <div
+          ref={panel} className="gb-lg-pop" role="dialog" aria-label={p.title} data-side={placement?.side}
+          style={placement
+            ? { position: 'fixed', left: placement.left, top: placement.top, right: 'auto', bottom: 'auto' }
+            : { position: 'fixed', visibility: 'hidden' }}
+          onPointerEnter={(e) => ctl.enter(k, e)} onPointerLeave={(e) => ctl.leave(k, e)}
+          onKeyDown={(e) => { if (e.key === 'Escape') { e.stopPropagation(); finish(true); } }}
+        >
           {p.onToggle && (
             <button type="button" className={`gb-lg-eye${p.off ? ' off' : ''}`} aria-pressed={!p.off}
               aria-label={p.off ? t.legendShow : t.legendHide} title={p.off ? t.legendShow : t.legendHideTip}
@@ -164,7 +186,7 @@ function Item(p: {
             </span>
           )}
         </div>
-      )}
+      ), portalRoot)}
     </span>
   );
 }
@@ -315,7 +337,9 @@ export default function Legend(p: LegendProps) {
   useEffect(() => {
     const down = (e: PointerEvent) => {
       pointer.current = e.pointerType;
-      if (openRef.current && !rootRef.current?.querySelector('.gb-lg-item.is-open')?.contains(e.target as Node)) close();
+      if (openRef.current
+        && !rootRef.current?.querySelector('.gb-lg-item.is-open')?.contains(e.target as Node)
+        && !(e.target as Element | null)?.closest?.('.gb-lg-pop')) close();
     };
     document.addEventListener('pointerdown', down, true);
     return () => document.removeEventListener('pointerdown', down, true);
@@ -384,6 +408,7 @@ export default function Legend(p: LegendProps) {
     </button>
   ) : (
     <div className="gb-lg" ref={rootRef}>
+      <div className="gb-lg-body">
       {p.caption && <div className="gb-lg-cap">{p.caption}</div>}
       <div className="gb-lg-row">
         <Item {...slot('n:')} color={theme.skeleton} onPick={setSkeleton} title={t.legendPlain}
@@ -435,6 +460,7 @@ export default function Legend(p: LegendProps) {
         {isEmptyLook(look) && !p.hidden.nodes.length && !p.hidden.edges.length
           ? <span>{t.legendHint}</span>
           : <button type="button" onClick={() => { onLook({}); p.onShowAll(); }}>{t.legendReset}</button>}
+      </div>
       </div>
       <span className="gb-lg-act">
         <button type="button" className="gb-lg-btn" onClick={() => p.onCollapsed(true)} aria-expanded aria-label={t.legend} title={t.legend}>

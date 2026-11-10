@@ -20,6 +20,7 @@ import type { GraphIssue, LayerSpec } from '../profile';
 import { queryMarker, type GraphView } from '../view';
 import { useStrings } from './i18n';
 import { I, Icon } from './icons';
+import { usePanelPlacement } from './placement';
 
 export type ControlId = 'search' | 'origins' | 'layers' | 'relayout' | 'zoom';
 
@@ -53,6 +54,7 @@ function LayerPicker({ layers, view, setView, disabled }: {
   const t = useStrings();
   const box = useRef<HTMLDivElement>(null);
   const [thumb, setThumb] = useState<{ x: number; w: number } | null>(null);
+  const [edges, setEdges] = useState({ left: false, right: false });
   const stacked = !!view.planes;
   const on = new Set(view.layers ?? layers.map((l) => l.id));
   const single = stacked ? null : view.layers?.[0] ?? layers[0].id;
@@ -64,13 +66,28 @@ function LayerPicker({ layers, view, setView, disabled }: {
       const el = root.querySelector<HTMLButtonElement>(`button[data-v="${CSS.escape(single)}"]`);
       if (!el) return;
       const r = root.getBoundingClientRect(), e = el.getBoundingClientRect();
-      setThumb({ x: e.left - r.left - root.clientLeft, w: e.width });
+      setThumb({ x: e.left - r.left - root.clientLeft + root.scrollLeft, w: e.width });
     };
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(root);
     return () => ro.disconnect();
   }, [single, layers.length]);
+  // A faded edge is the only clue that a 36px-high pill continues sideways; show it only
+  // while there is content past that edge, so a fully visible row is not dimmed.
+  useLayoutEffect(() => {
+    const root = box.current;
+    if (!root) return;
+    const update = () => {
+      const max = root.scrollWidth - root.clientWidth;
+      setEdges({ left: root.scrollLeft > 1, right: root.scrollLeft < max - 1 });
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(root);
+    root.addEventListener('scroll', update, { passive: true });
+    return () => { ro.disconnect(); root.removeEventListener('scroll', update); };
+  }, [layers.length]);
   const click = (id: string) => {
     if (!stacked) { if (id !== single) setView({ layers: [id] }); return; }
     if (on.has(id) && on.size === 1) return; // at least one layer stays
@@ -78,19 +95,21 @@ function LayerPicker({ layers, view, setView, disabled }: {
     setView({ layers: next });
   };
   return (
-    <div className={`gb-segm gb-layers${stacked ? ' is-multi' : ''}`} ref={box} role={stacked ? 'group' : 'radiogroup'}>
-      {thumb && <i className="gb-thumb" style={{ transform: `translateX(${thumb.x}px)`, width: thumb.w }} />}
-      {layers.map((l) => {
-        const lit = stacked ? on.has(l.id) : l.id === single;
-        return (
-          <button
-            key={l.id} data-v={l.id} disabled={disabled} className={lit ? 'on' : ''}
-            {...(stacked ? { 'aria-pressed': lit } : { role: 'radio', 'aria-checked': lit })}
-            title={stacked ? t.stackLayer(l.label, lit) : t.viewLayer(l.label)}
-            onClick={() => click(l.id)}
-          >{l.label}</button>
-        );
-      })}
+    <div className={`gb-segm gb-layers${stacked ? ' is-multi' : ''}`} role={stacked ? 'group' : 'radiogroup'}>
+      <div className={`gb-layer-track${edges.left ? ' can-left' : ''}${edges.right ? ' can-right' : ''}`} ref={box}>
+        {thumb && <i className="gb-thumb" style={{ transform: `translateX(${thumb.x}px)`, width: thumb.w }} />}
+        {layers.map((l) => {
+          const lit = stacked ? on.has(l.id) : l.id === single;
+          return (
+            <button
+              key={l.id} data-v={l.id} disabled={disabled} className={lit ? 'on' : ''}
+              {...(stacked ? { 'aria-pressed': lit } : { role: 'radio', 'aria-checked': lit })}
+              title={stacked ? t.stackLayer(l.label, lit) : t.viewLayer(l.label)}
+              onClick={() => click(l.id)}
+            >{l.label}</button>
+          );
+        })}
+      </div>
       <span className="gb-sep" aria-hidden />
       <button
         className={`gb-stack${stacked ? ' on' : ''}`} aria-pressed={stacked} disabled={disabled}
@@ -101,10 +120,14 @@ function LayerPicker({ layers, view, setView, disabled }: {
   );
 }
 
-/** A popover that closes on an outside click or Esc. */
-function usePopover() {
+/** A popover that closes on an outside click or Esc, and flips to the side with room. */
+const MENU_PLACE = { side: 'bottom', align: 'start' } as const;
+const ISSUES_PLACE = { side: 'top', align: 'end' } as const;
+function usePopover(prefer: typeof MENU_PLACE | typeof ISSUES_PLACE) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const placement = usePanelPlacement(open, ref, panelRef, prefer);
   useEffect(() => {
     if (!open) return;
     const down = (e: PointerEvent) => { if (!ref.current?.contains(e.target as Node)) setOpen(false); };
@@ -113,7 +136,7 @@ function usePopover() {
     window.addEventListener('keydown', key);
     return () => { window.removeEventListener('pointerdown', down, true); window.removeEventListener('keydown', key); };
   }, [open]);
-  return { open, setOpen, ref };
+  return { open, setOpen, ref, panelRef, placement };
 }
 
 /* ── Search ──────────────────────────────────────────────────────────────── */
@@ -212,7 +235,7 @@ function SearchBox(p: {
 /* ── View ⋯: the rarely touched things ───────────────────────────────────────────── */
 function ViewMenu(p: { children: ReactNode; foot: ReactNode }) {
   const t = useStrings();
-  const pop = usePopover();
+  const pop = usePopover(MENU_PLACE);
   return (
     <div className="gb-menu" ref={pop.ref}>
       <button
@@ -221,7 +244,9 @@ function ViewMenu(p: { children: ReactNode; foot: ReactNode }) {
       ><Icon d={I.more} /></button>
       {pop.open && (
         <div
-          className="gb-panel" role="dialog"
+          ref={pop.panelRef} className="gb-panel" role="dialog"
+          data-x={pop.placement?.align} data-y={pop.placement?.side}
+          style={pop.placement ? undefined : { visibility: 'hidden' }}
           // Close once chosen: an item clicked, or a value changed in a select. A popover is "go do one thing", and once done it should get out of the way.
           onClick={(e) => { if ((e.target as HTMLElement).closest('.gb-menu-item')) pop.setOpen(false); }}
           onChange={(e) => { if ((e.target as HTMLElement).tagName === 'SELECT') pop.setOpen(false); }}
@@ -263,7 +288,7 @@ export default function Toolbar(p: ToolbarProps) {
   const showLayer = (l: string) => setView(view.planes ? { layers: [...(view.layers ?? []), l] } : { layers: [l] });
 
   return (
-    <div className="gb-bar">
+    <div className={`gb-bar${multi ? ' has-layers' : ''}`}>
       {controls.search && (
         <SearchBox
           query={view.query ?? ''} setQuery={(q) => setView({ query: q })}
@@ -322,7 +347,7 @@ const GROUP_CAP = 100;
  */
 function Issues({ issues, onPick }: { issues: GraphIssue[]; onPick: (id: string) => void }) {
   const t = useStrings();
-  const pop = usePopover();
+  const pop = usePopover(ISSUES_PLACE);
   const groups = useMemo(() => {
     const by = new Map<string, { name: string; error: boolean; items: GraphIssue[] }>();
     for (const it of issues) {
@@ -345,7 +370,11 @@ function Issues({ issues, onPick }: { issues: GraphIssue[]; onPick: (id: string)
         <Icon d={I.warn} size={14} /> {errors || warns}
       </button>
       {pop.open && (
-        <div className="gb-panel gb-panel-up gb-issues" role="dialog">
+        <div
+          ref={pop.panelRef} className="gb-panel gb-issues" role="dialog"
+          data-x={pop.placement?.align} data-y={pop.placement?.side}
+          style={pop.placement ? undefined : { visibility: 'hidden' }}
+        >
           <div className="gb-panel-h">{t.issuesTitle(errors, warns)}</div>
           {groups.map((g) => (
             <details key={g.name} open={groups.length === 1}>
