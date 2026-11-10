@@ -20,7 +20,7 @@ export interface TouchActions<T> {
   limits(): { min: number; max: number };
   interact(): void;
 }
-const DOUBLE_MS = 350, SLOP = 8;
+const TAP_MS = 350, DOUBLE_MS = 350, SLOP = 8;
 const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
 const middle = (a: Point, b: Point) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
 
@@ -28,6 +28,7 @@ export function touchGestures<T>(actions: TouchActions<T>) {
   const fingers = new Map<number, Point>();
   let navigation = false, moved = false;
   let start: Point | null = null;
+  let startedAt = 0;
   let target: TouchTarget<T> | null = null;
   let previewId: string | null = null;
   let lastTap: { id: string; point: Point; time: number } | null = null;
@@ -52,7 +53,7 @@ export function touchGestures<T>(actions: TouchActions<T>) {
         navigation = true; lastTap = null;
         actions.preview(null); anchor(); return;
       }
-      start = point; moved = false;
+      start = point; startedAt = Date.now(); moved = false;
       target = actions.hit(point);
       previewId = target?.id ?? null;
       actions.preview(target?.value ?? null);
@@ -89,7 +90,7 @@ export function touchGestures<T>(actions: TouchActions<T>) {
     up(id: number, point: Point) {
       if (!fingers.has(id)) return;
       fingers.delete(id);
-      if (!navigation && !moved && start && distance(start, point) <= SLOP) {
+      if (!navigation && !moved && start && Date.now() - startedAt < TAP_MS && distance(start, point) <= SLOP) {
         const hit = actions.hit(point);
         if ((hit?.id ?? null) === (target?.id ?? null)) {
           actions.preview(hit?.value ?? null);

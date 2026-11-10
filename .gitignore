@@ -10,3 +10,7 @@ local/
 *.local.*
 .README.md.orig
 site/
+# Local agent and browser scratch: never commit, never project.
+.claude/
+.playwright-cli/
+output/

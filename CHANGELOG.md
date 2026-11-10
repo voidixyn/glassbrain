@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.4
+
+- Touch input now previews with one finger, pans and zooms with two, and selects with a
+  double tap. Long press stays a preview and cannot count toward a double tap. Mouse and trackpad controls keep their existing behavior.
+- Narrow canvases use a two-row toolbar, horizontally scrolling layers, a capped scrolling
+  legend, and a vertical zoom dock. Legend controls escape the scrolling body through a portal;
+  `react-dom` is now an explicit peer dependency. Open panels follow scrolling and resizing,
+  and toolbar menus apply the same boundary clamping as the legend.
+- CLI help now leads with structure, data and appearance, makes passes optional, and guides
+  containment, consistent kinds and meaningful layers. Schema paths resolve from the installed package.
+- README highlights the prompt suffix, keeps four ways to try the tool, and removes the FAQ.
+  The prompt illustration is refreshed, the demo GIF is about half the size, and Design opens
+  with the project's original rationale.
+
 ## 0.1.3
 
 - Dark canvases now theme the built-in controls automatically: `DARK_THEME` needs no `--gb-*`

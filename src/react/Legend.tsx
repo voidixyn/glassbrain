@@ -153,8 +153,8 @@ function Item(p: {
         <div
           ref={panel} className="gb-lg-pop" role="dialog" aria-label={p.title} data-side={placement?.side}
           style={placement
-            ? { position: 'fixed', left: placement.left, top: placement.top, right: 'auto', bottom: 'auto' }
-            : { position: 'fixed', visibility: 'hidden' }}
+            ? { position: 'absolute', left: placement.left, top: placement.top, right: 'auto', bottom: 'auto' }
+            : { position: 'absolute', visibility: 'hidden' }}
           onPointerEnter={(e) => ctl.enter(k, e)} onPointerLeave={(e) => ctl.leave(k, e)}
           onKeyDown={(e) => { if (e.key === 'Escape') { e.stopPropagation(); finish(true); } }}
         >

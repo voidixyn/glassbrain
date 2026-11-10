@@ -246,7 +246,9 @@ function ViewMenu(p: { children: ReactNode; foot: ReactNode }) {
         <div
           ref={pop.panelRef} className="gb-panel" role="dialog"
           data-x={pop.placement?.align} data-y={pop.placement?.side}
-          style={pop.placement ? undefined : { visibility: 'hidden' }}
+          style={pop.placement
+            ? { left: pop.placement.left, top: pop.placement.top, right: 'auto', bottom: 'auto' }
+            : { visibility: 'hidden' }}
           // Close once chosen: an item clicked, or a value changed in a select. A popover is "go do one thing", and once done it should get out of the way.
           onClick={(e) => { if ((e.target as HTMLElement).closest('.gb-menu-item')) pop.setOpen(false); }}
           onChange={(e) => { if ((e.target as HTMLElement).tagName === 'SELECT') pop.setOpen(false); }}
@@ -373,7 +375,9 @@ function Issues({ issues, onPick }: { issues: GraphIssue[]; onPick: (id: string)
         <div
           ref={pop.panelRef} className="gb-panel gb-issues" role="dialog"
           data-x={pop.placement?.align} data-y={pop.placement?.side}
-          style={pop.placement ? undefined : { visibility: 'hidden' }}
+          style={pop.placement
+            ? { left: pop.placement.left, top: pop.placement.top, right: 'auto', bottom: 'auto' }
+            : { visibility: 'hidden' }}
         >
           <div className="gb-panel-h">{t.issuesTitle(errors, warns)}</div>
           {groups.map((g) => (

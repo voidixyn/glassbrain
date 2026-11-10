@@ -29,3 +29,4 @@ export {
   MIN_DOT, MIN_LINE, SKEL_FLOOR, SEM_W, SEM_INK, SEM_BOOST, DETAIL_LEAF, GAP, HOVER_DIM, HOLD_LEAF, NODE_SLACK, EDGE_REACH, FOCUS_INK,
 } from './paint';
 export { touchGestures } from './react/touch';
+export { placePanel } from './react/placement';

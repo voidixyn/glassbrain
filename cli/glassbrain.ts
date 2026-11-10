@@ -16,14 +16,21 @@ import { diff, diffText, ignoreOf, modelOf, profileFromJson, validate } from './
 import type { Payload } from './viewer';
 
 /** Help is also the format spec: an agent told only "run `npx glassbrain` first" must be able to write a valid graph from it. */
-const HELP = (schema: string) => `glassbrain: open, diff and validate knowledge graphs.
-Your agent writes the graph as plain JSON; glassbrain shows it and what changed.
-Not installed? Put npx in front: npx glassbrain kg
+const HELP = (schema: string) => `glassbrain: open, diff and validate knowledge graphs, written as plain JSON.
 
-WRITE A GRAPH
-  One JSON file, two arrays. \`parent\` says what sits inside what; that is the
-  whole structure. Every other relation is an edge.
+[ STRUCTURE ]
+  A folder is a graph; one folder per pass, the name sets the order.
+    kg/
+    ├── _profile.json              shared by every pass ( see [ APPEARANCE ] )
+    ├── 1-skeleton/graph.json      each folder holds a graph ( see [ DATA ] )
+    ├── 2-filled/graph.json
+    └── 3-linked/graph.json
 
+  Passes are optional. Use them for the step harness, diffs and version control.
+  JSON at any depth merges by id; split by area only when a file gets too big to write.
+
+[ DATA ]
+  Two arrays, \`nodes\` and \`edges\`.
     { "nodes": [
         { "id": "src",          "label": "src",      "kind": "folder" },
         { "id": "src/login.ts", "label": "login.ts", "kind": "file", "parent": "src",
@@ -32,47 +39,51 @@ WRITE A GRAPH
       "edges": [
         { "source": "src/login.ts", "target": "src/db.ts", "kind": "uses" } ] }
 
-  id           any string, stable across versions: a path or a slug, never a counter
-  label        what is shown (defaults to id)
-  kind         any word for what sort of thing it is (folder, page, feature, decision)
-  parent       the id of the node it sits inside
-  description  markdown for the detail panel; [text](node:<id>) links to a node
-  flags        markers, e.g. ["stub"] for a node not filled in yet
-  Order in the arrays does not matter. Other fields are kept and shown in the detail panel.
+  The parent structure helps readability. Start with a few meaningful groups and give every other node a parent.
+  Keep kinds few and consistent; put supporting detail in descriptions.
+
+  FIELDS
+    id           stable across passes: a path or a slug, never a counter
+    label        what is shown (defaults to id)
+    kind         a word: folder, file, feature, decision
+    parent       id of the node this sits inside
+    description  markdown; [text](node:<id>) links to a node
+    flags        e.g. ["stub"] for a node not filled in yet
+    layer        which plane ( see [ APPEARANCE ] )
+
+    Any other field is kept and shown in the detail panel.
+
   Full schema: ${schema}
 
-BUILD IT IN PASSES
-  Each pass is a new folder: copy the last one, edit the copy.
-    kg/1-skeleton   every node at the depth asked (or what a newcomer needs), read from
-                    the source (not memory), nested by parent; flag each one "stub"
-    kg/2-filled     descriptions (1-3 sentences, from the source), stub flags removed
-    kg/3-linked     edges a reader would agree with
-  After each pass:
-    glassbrain validate kg --strict             fix everything it reports
-    glassbrain diff kg/1-skeleton kg/2-filled   only this pass's job: ~changed in 2,
-                                                edges added in 3, nothing else
-  At the end:
-    glassbrain kg                               opens all passes; give the user the path
+[ APPEARANCE ]
+  kg/_profile.json, shared by every pass.
 
-COLORS: kg/_profile.json, shared by every pass
-  Give each kind a color, or every node and edge is drawn the same grey:
-  { "nodePalette": { "file": "#6366f1", "function": "#10b981" },
-    "edgePalette": { "calls": "#2563eb" }, "placeholderFlags": ["stub"] }
-  Layers (2.5D), sizes, labels and the rest: ${schema.replace('graph.schema', 'profile.schema')}
+  COLORS  give each kind you use a color; the rest stay grey.
+    { "nodePalette": { "file": "#6366f1", "function": "#10b981" },
+      "edgePalette": { "calls": "#2563eb" }, "placeholderFlags": ["stub"] }
+  "placeholderFlags" makes a flagged "stub" look unfinished.
 
-COMMANDS
-  glassbrain <path>                    open in the browser (same as: view)
-  glassbrain diff <old> <new>          what changed between two graphs
-  glassbrain diff <git-ref> <path>     <path> at that commit vs. now (default ref: HEAD)
-  glassbrain validate <path>           check against the schema and the structure
+  LAYERS  only for real planes: abstraction levels (contract vs implementation),
+  never grouping. A node picks one with "layer", else the first; "z" orders them.
+    { "layers": [ { "id": "api", "label": "API", "z": 0 },
+                  { "id": "ui",  "label": "UI",  "z": 1 } ] }
+
+  Full schema: ${schema.replace('graph.schema', 'profile.schema')}
+
+[ COMMANDS ]
+  Always: validate before handing over. Fix everything it reports.
+
+  glassbrain <path>                    open it (passes play as steps); prints the path to hand over
+  glassbrain diff <old> <new>          only what changed between two graphs
+  glassbrain diff <git-ref> <path>     in a git repo, the same graph at an earlier commit, where
+                                       the history is the versions (default ref: HEAD)
+  glassbrain validate <path>           schema and structure
   glassbrain convert <path> [out-dir]  write any supported format as glassbrain JSON
 
   <path> is a file, a folder, or <git-ref>:<path> (HEAD~1:kg/graph.json).
-  A folder of sub-folders is a list of versions. Also opens, as they are:
-  Graphify graph.json, Understand-Anything knowledge-graph.json, MCP memory.jsonl,
-  a markdown folder (Obsidian / LLM wiki).
+  Also reads Graphify, Understand-Anything, memory.jsonl and markdown folders as-is.
 
-OPTIONS
+[ OPTIONS ]
   --json              machine-readable output (diff, validate)
   --strict            exit 1 on warnings too (validate)
   --exit-code         exit 1 when anything changed (diff)
@@ -81,8 +92,7 @@ OPTIONS
   --out <file.html>   write the page here instead of a temp file (view, diff)
   --open / --no-open  open the browser or not (diff opens only in a terminal)
   --format <id>       force a format: native, graphify, understand-anything, memory, obsidian
-  -h, --help          this help
-  -v, --version       the version
+  -h, --help / -v, --version   this help / the version
 
 More: https://github.com/voidixyn/glassbrain
 `;

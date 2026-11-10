@@ -42,7 +42,8 @@ test('a hold no longer selects; selection is still the double tap', (t) => {
   gesture.down(1, { x: 20, y: 20 }); gesture.move(1, { x: 23, y: 21 });
   t.mock.timers.tick(600); assert.deepEqual(selections, []);
   gesture.up(1, { x: 23, y: 21 }); assert.deepEqual(selections, []);
-  tap(); tap(); assert.deepEqual(selections, ['a']);
+  tap(); assert.deepEqual(selections, [], 'a hold cannot be the first tap');
+  tap(); assert.deepEqual(selections, ['a']);
 });
 
 test('two fingers pan and zoom about their moving midpoint, including at the zoom limit', (t) => {
@@ -85,4 +86,16 @@ test('blank tap clears selection; edges only preview; taps must match time, targ
   tap(20); t.mock.timers.tick(351); tap(20); tap(70);
   assert.deepEqual(selections, []);
   tap(-10); assert.deepEqual(selections, [null]);
+});
+
+
+test('a hold cannot be the second tap or seed the next double tap', (t) => {
+  const { gesture, selections, tap } = setup(t);
+  tap();
+  gesture.down(1, { x: 20, y: 20 });
+  t.mock.timers.tick(350);
+  gesture.up(1, { x: 20, y: 20 });
+  assert.deepEqual(selections, []);
+  tap(); assert.deepEqual(selections, []);
+  tap(); assert.deepEqual(selections, ['a']);
 });

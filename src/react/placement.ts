@@ -54,13 +54,31 @@ export function usePanelPlacement(
   const [placement, setPlacement] = useState<Placement | null>(null);
   useLayoutEffect(() => {
     if (!open) { setPlacement(null); return; }
-    const anchor = anchorRef.current?.getBoundingClientRect();
-    const panel = panelRef.current?.getBoundingClientRect();
+    const anchor = anchorRef.current, panel = panelRef.current;
     if (!anchor || !panel) return;
-    const boundary = (boundaryRef?.current
-      ?? anchorRef.current?.closest('.gb-stage')
-      ?? document.documentElement).getBoundingClientRect();
-    setPlacement(placePanel(anchor, { width: panel.width, height: panel.height }, boundary, prefer));
+    const boundary = boundaryRef?.current ?? anchor.closest('.gb-stage') ?? document.documentElement;
+    const update = () => {
+      const next = placePanel(anchor.getBoundingClientRect(),
+        { width: panel.offsetWidth, height: panel.offsetHeight }, boundary.getBoundingClientRect(), prefer);
+      // Every caller uses absolute positioning, including the portaled legend.
+      // Convert viewport coordinates into the panel's actual containing block.
+      const parent = panel.offsetParent as HTMLElement | null;
+      const rect = parent?.getBoundingClientRect();
+      next.left -= (rect?.left ?? 0) + (parent?.clientLeft ?? 0) - (parent?.scrollLeft ?? 0);
+      next.top -= (rect?.top ?? 0) + (parent?.clientTop ?? 0) - (parent?.scrollTop ?? 0);
+      setPlacement((old) => old && old.left === next.left && old.top === next.top
+        && old.side === next.side && old.align === next.align ? old : next);
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    for (const el of [anchor, panel, boundary]) ro.observe(el);
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', update, true);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', update, true);
+    };
     // prefer is a stable literal at each call site; its fields are the real dependencies.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, anchorRef, panelRef, boundaryRef, prefer.side, prefer.align]);
